@@ -16,7 +16,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new formPrincipal());
         }
     }
 }
