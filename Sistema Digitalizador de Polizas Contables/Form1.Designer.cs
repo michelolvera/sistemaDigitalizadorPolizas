@@ -34,12 +34,17 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.popoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.contenedorDividido1)).BeginInit();
+            this.contenedorDividido1.Panel1.SuspendLayout();
             this.contenedorDividido1.Panel2.SuspendLayout();
             this.contenedorDividido1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contenedorDividido2)).BeginInit();
             this.contenedorDividido2.SuspendLayout();
             this.brrMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // contenedorDividido1
@@ -50,6 +55,7 @@
             // 
             // contenedorDividido1.Panel1
             // 
+            this.contenedorDividido1.Panel1.Controls.Add(this.splitContainer1);
             this.contenedorDividido1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             this.contenedorDividido1.Panel1MinSize = 200;
             // 
@@ -84,6 +90,8 @@
             // 
             // archivoToolStripMenuItem
             // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.archivoToolStripMenuItem.Text = "Archivo?";
@@ -101,6 +109,22 @@
             this.popoToolStripMenuItem.Text = "Ver?";
             this.popoToolStripMenuItem.Click += new System.EventHandler(this.popoToolStripMenuItem_Click);
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContainer1.Size = new System.Drawing.Size(200, 476);
+            this.splitContainer1.SplitterDistance = 300;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,6 +135,7 @@
             this.MainMenuStrip = this.brrMenu;
             this.Name = "formPrincipal";
             this.Text = "Sistema Digitalizador";
+            this.contenedorDividido1.Panel1.ResumeLayout(false);
             this.contenedorDividido1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.contenedorDividido1)).EndInit();
             this.contenedorDividido1.ResumeLayout(false);
@@ -118,6 +143,8 @@
             this.contenedorDividido2.ResumeLayout(false);
             this.brrMenu.ResumeLayout(false);
             this.brrMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,6 +158,8 @@
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem popoToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
     }
 }
 
