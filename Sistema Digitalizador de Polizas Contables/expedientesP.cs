@@ -16,5 +16,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
             InitializeComponent();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -32,6 +32,7 @@
             this.comboBoxLogAdmin = new System.Windows.Forms.ComboBox();
             this.textBoxContrasenaAdmin = new System.Windows.Forms.TextBox();
             this.botonAccesoAdmin = new System.Windows.Forms.Button();
+            this.textBoxNombreUsuario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // botonCancelarLogAdmin
@@ -46,7 +47,7 @@
             // comboBoxLogAdmin
             // 
             this.comboBoxLogAdmin.FormattingEnabled = true;
-            this.comboBoxLogAdmin.Location = new System.Drawing.Point(12, 74);
+            this.comboBoxLogAdmin.Location = new System.Drawing.Point(12, 49);
             this.comboBoxLogAdmin.Name = "comboBoxLogAdmin";
             this.comboBoxLogAdmin.Size = new System.Drawing.Size(202, 21);
             this.comboBoxLogAdmin.TabIndex = 1;
@@ -68,11 +69,19 @@
             this.botonAccesoAdmin.Text = "Acceso";
             this.botonAccesoAdmin.UseVisualStyleBackColor = true;
             // 
+            // textBoxNombreUsuario
+            // 
+            this.textBoxNombreUsuario.Location = new System.Drawing.Point(12, 76);
+            this.textBoxNombreUsuario.Name = "textBoxNombreUsuario";
+            this.textBoxNombreUsuario.Size = new System.Drawing.Size(202, 20);
+            this.textBoxNombreUsuario.TabIndex = 4;
+            // 
             // LogInAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(226, 171);
+            this.Controls.Add(this.textBoxNombreUsuario);
             this.Controls.Add(this.botonAccesoAdmin);
             this.Controls.Add(this.textBoxContrasenaAdmin);
             this.Controls.Add(this.comboBoxLogAdmin);
@@ -90,5 +99,6 @@
         private System.Windows.Forms.ComboBox comboBoxLogAdmin;
         private System.Windows.Forms.TextBox textBoxContrasenaAdmin;
         private System.Windows.Forms.Button botonAccesoAdmin;
+        private System.Windows.Forms.TextBox textBoxNombreUsuario;
     }
 }
