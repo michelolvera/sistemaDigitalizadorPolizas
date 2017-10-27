@@ -36,5 +36,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
 
         }
+
+        private void formPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

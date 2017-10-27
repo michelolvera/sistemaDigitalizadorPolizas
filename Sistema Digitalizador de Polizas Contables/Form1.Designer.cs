@@ -31,19 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPrincipal));
             this.contenedorDividido1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.botonBuscar = new System.Windows.Forms.Button();
+            this.textBoxBuscarExplorador = new System.Windows.Forms.TextBox();
+            this.labelExplorador = new System.Windows.Forms.Label();
+            this.labelPendientes = new System.Windows.Forms.Label();
             this.contenedorDividido2 = new System.Windows.Forms.SplitContainer();
+            this.botonConfigAdmin = new System.Windows.Forms.Button();
+            this.labelPAnelAdmin = new System.Windows.Forms.Label();
+            this.boton_Autodo = new System.Windows.Forms.Button();
             this.brrMenu = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.popoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.boton_Autodo = new System.Windows.Forms.Button();
-            this.labelPAnelAdmin = new System.Windows.Forms.Label();
-            this.botonConfigAdmin = new System.Windows.Forms.Button();
-            this.labelExplorador = new System.Windows.Forms.Label();
-            this.labelPendientes = new System.Windows.Forms.Label();
-            this.textBoxBuscarExplorador = new System.Windows.Forms.TextBox();
-            this.botonBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.contenedorDividido1)).BeginInit();
             this.contenedorDividido1.Panel1.SuspendLayout();
             this.contenedorDividido1.Panel2.SuspendLayout();
@@ -97,6 +97,42 @@
             this.splitContainer1.SplitterDistance = 300;
             this.splitContainer1.TabIndex = 0;
             // 
+            // botonBuscar
+            // 
+            this.botonBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonBuscar.BackgroundImage")));
+            this.botonBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonBuscar.Location = new System.Drawing.Point(156, 0);
+            this.botonBuscar.Name = "botonBuscar";
+            this.botonBuscar.Size = new System.Drawing.Size(24, 26);
+            this.botonBuscar.TabIndex = 2;
+            this.botonBuscar.UseVisualStyleBackColor = true;
+            // 
+            // textBoxBuscarExplorador
+            // 
+            this.textBoxBuscarExplorador.Location = new System.Drawing.Point(3, 3);
+            this.textBoxBuscarExplorador.Name = "textBoxBuscarExplorador";
+            this.textBoxBuscarExplorador.Size = new System.Drawing.Size(149, 20);
+            this.textBoxBuscarExplorador.TabIndex = 1;
+            this.textBoxBuscarExplorador.Text = "Buscar";
+            // 
+            // labelExplorador
+            // 
+            this.labelExplorador.AutoSize = true;
+            this.labelExplorador.Location = new System.Drawing.Point(3, 25);
+            this.labelExplorador.Name = "labelExplorador";
+            this.labelExplorador.Size = new System.Drawing.Size(57, 13);
+            this.labelExplorador.TabIndex = 0;
+            this.labelExplorador.Text = "Explorador";
+            // 
+            // labelPendientes
+            // 
+            this.labelPendientes.AutoSize = true;
+            this.labelPendientes.Location = new System.Drawing.Point(3, 10);
+            this.labelPendientes.Name = "labelPendientes";
+            this.labelPendientes.Size = new System.Drawing.Size(60, 13);
+            this.labelPendientes.TabIndex = 0;
+            this.labelPendientes.Text = "Pendientes";
+            // 
             // contenedorDividido2
             // 
             this.contenedorDividido2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -113,6 +149,36 @@
             this.contenedorDividido2.SplitterDistance = 359;
             this.contenedorDividido2.TabIndex = 0;
             this.contenedorDividido2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.contenedorDividido2_SplitterMoved);
+            // 
+            // botonConfigAdmin
+            // 
+            this.botonConfigAdmin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonConfigAdmin.BackgroundImage")));
+            this.botonConfigAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.botonConfigAdmin.Location = new System.Drawing.Point(159, 10);
+            this.botonConfigAdmin.Margin = new System.Windows.Forms.Padding(0);
+            this.botonConfigAdmin.Name = "botonConfigAdmin";
+            this.botonConfigAdmin.Size = new System.Drawing.Size(27, 26);
+            this.botonConfigAdmin.TabIndex = 2;
+            this.botonConfigAdmin.UseVisualStyleBackColor = true;
+            // 
+            // labelPAnelAdmin
+            // 
+            this.labelPAnelAdmin.AutoSize = true;
+            this.labelPAnelAdmin.Location = new System.Drawing.Point(6, 16);
+            this.labelPAnelAdmin.Name = "labelPAnelAdmin";
+            this.labelPAnelAdmin.Size = new System.Drawing.Size(127, 13);
+            this.labelPAnelAdmin.TabIndex = 1;
+            this.labelPAnelAdmin.Text = "Sección de Administrador";
+            // 
+            // boton_Autodo
+            // 
+            this.boton_Autodo.Location = new System.Drawing.Point(32, 441);
+            this.boton_Autodo.Name = "boton_Autodo";
+            this.boton_Autodo.Size = new System.Drawing.Size(131, 23);
+            this.boton_Autodo.TabIndex = 0;
+            this.boton_Autodo.Text = "Autorizar Todo";
+            this.boton_Autodo.UseVisualStyleBackColor = true;
+            this.boton_Autodo.Click += new System.EventHandler(this.button1_Click);
             // 
             // brrMenu
             // 
@@ -152,72 +218,6 @@
             this.popoToolStripMenuItem.Text = "Ver?";
             this.popoToolStripMenuItem.Click += new System.EventHandler(this.popoToolStripMenuItem_Click);
             // 
-            // boton_Autodo
-            // 
-            this.boton_Autodo.Location = new System.Drawing.Point(32, 441);
-            this.boton_Autodo.Name = "boton_Autodo";
-            this.boton_Autodo.Size = new System.Drawing.Size(131, 23);
-            this.boton_Autodo.TabIndex = 0;
-            this.boton_Autodo.Text = "Autorizar Todo";
-            this.boton_Autodo.UseVisualStyleBackColor = true;
-            this.boton_Autodo.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // labelPAnelAdmin
-            // 
-            this.labelPAnelAdmin.AutoSize = true;
-            this.labelPAnelAdmin.Location = new System.Drawing.Point(6, 16);
-            this.labelPAnelAdmin.Name = "labelPAnelAdmin";
-            this.labelPAnelAdmin.Size = new System.Drawing.Size(127, 13);
-            this.labelPAnelAdmin.TabIndex = 1;
-            this.labelPAnelAdmin.Text = "Sección de Administrador";
-            // 
-            // botonConfigAdmin
-            // 
-            this.botonConfigAdmin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonConfigAdmin.BackgroundImage")));
-            this.botonConfigAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonConfigAdmin.Location = new System.Drawing.Point(159, 10);
-            this.botonConfigAdmin.Margin = new System.Windows.Forms.Padding(0);
-            this.botonConfigAdmin.Name = "botonConfigAdmin";
-            this.botonConfigAdmin.Size = new System.Drawing.Size(27, 26);
-            this.botonConfigAdmin.TabIndex = 2;
-            this.botonConfigAdmin.UseVisualStyleBackColor = true;
-            // 
-            // labelExplorador
-            // 
-            this.labelExplorador.AutoSize = true;
-            this.labelExplorador.Location = new System.Drawing.Point(3, 25);
-            this.labelExplorador.Name = "labelExplorador";
-            this.labelExplorador.Size = new System.Drawing.Size(57, 13);
-            this.labelExplorador.TabIndex = 0;
-            this.labelExplorador.Text = "Explorador";
-            // 
-            // labelPendientes
-            // 
-            this.labelPendientes.AutoSize = true;
-            this.labelPendientes.Location = new System.Drawing.Point(3, 10);
-            this.labelPendientes.Name = "labelPendientes";
-            this.labelPendientes.Size = new System.Drawing.Size(60, 13);
-            this.labelPendientes.TabIndex = 0;
-            this.labelPendientes.Text = "Pendientes";
-            // 
-            // textBoxBuscarExplorador
-            // 
-            this.textBoxBuscarExplorador.Location = new System.Drawing.Point(3, 3);
-            this.textBoxBuscarExplorador.Name = "textBoxBuscarExplorador";
-            this.textBoxBuscarExplorador.Size = new System.Drawing.Size(149, 20);
-            this.textBoxBuscarExplorador.TabIndex = 1;
-            this.textBoxBuscarExplorador.Text = "Buscar";
-            // 
-            // botonBuscar
-            // 
-            this.botonBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("botonBuscar.BackgroundImage")));
-            this.botonBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.botonBuscar.Location = new System.Drawing.Point(156, 0);
-            this.botonBuscar.Name = "botonBuscar";
-            this.botonBuscar.Size = new System.Drawing.Size(24, 26);
-            this.botonBuscar.TabIndex = 2;
-            this.botonBuscar.UseVisualStyleBackColor = true;
-            // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,6 +228,7 @@
             this.MainMenuStrip = this.brrMenu;
             this.Name = "formPrincipal";
             this.Text = "Sistema Digitalizador";
+            this.Load += new System.EventHandler(this.formPrincipal_Load);
             this.contenedorDividido1.Panel1.ResumeLayout(false);
             this.contenedorDividido1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.contenedorDividido1)).EndInit();
