@@ -13,7 +13,7 @@ namespace Logica_de_Negocio
         string dataBase;//Nombre de la base de datos
         string user;//Nombre de usuario
         string password;//Contraseña de usuario
-        SqlConnection sqlConnection;//Conexion a SQL Server
+        SqlConnection sqlConnection;//Conexion a SQL Server 2008
         SQLConexion(string dataSource, string dataBase, string user, string password)
         {
             this.dataSource = dataSource;
