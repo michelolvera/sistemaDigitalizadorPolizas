@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +12,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 {
     public partial class formPrincipal : Form
     {
-        public formPrincipal()
+        public formPrincipal(String cad)
         {
             InitializeComponent();
         }
