@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sistema Digitalizador de Polizas Contables", "Sistema Digitalizador de Polizas Contables\Sistema Digitalizador de Polizas Contables.csproj", "{58255B9C-B3E6-4807-B918-F1DC4CFE6ADC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica de Negocio", "Logica de Negocio\Logica de Negocio.csproj", "{BDBAD77C-1585-473D-8936-A0092A9289A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{58255B9C-B3E6-4807-B918-F1DC4CFE6ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58255B9C-B3E6-4807-B918-F1DC4CFE6ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58255B9C-B3E6-4807-B918-F1DC4CFE6ADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDBAD77C-1585-473D-8936-A0092A9289A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBAD77C-1585-473D-8936-A0092A9289A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBAD77C-1585-473D-8936-A0092A9289A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBAD77C-1585-473D-8936-A0092A9289A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
