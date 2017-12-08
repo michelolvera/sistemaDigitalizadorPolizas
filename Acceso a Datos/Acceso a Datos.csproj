@@ -43,5 +43,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLConexion.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{27a59f0f-4faa-4c33-91c0-51deb41e87ce}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

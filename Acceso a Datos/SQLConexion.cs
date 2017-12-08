@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Acceso_a_Datos
 {
     public class SQLConexion
     {
-        string dataSource;//IP o Servidor local
-        string dataBase;//Nombre de la base de datos
-        string user;//Nombre de usuario
-        string password;//Contraseña de usuario
-        SqlConnection sqlConnection;//Conexion a SQL Server 2008
+        private string dataSource;//IP o Servidor local
+        private string dataBase;//Nombre de la base de datos
+        private string user;//Nombre de usuario
+        private string password;//Contraseña de usuario
+        public SqlConnection sqlConnection;//Conexion a SQL Server 2008
         SQLConexion(string dataSource, string dataBase, string user, string password)
         {
             this.dataSource = dataSource;
@@ -22,7 +17,7 @@ namespace Acceso_a_Datos
             this.password = password;
         }
 
-        bool abrirConexion()
+        public bool abrirConexion()
         {
             string connetionString = "Data Source=" + dataSource + ";Initial Catalog=" + dataBase + ";User ID=" + user + ";Password=" + password;
             try
@@ -38,7 +33,7 @@ namespace Acceso_a_Datos
             }
         }
 
-        bool cerrarConexion()
+        public bool cerrarConexion()
         {
             if (sqlConnection != null)
             {
@@ -56,7 +51,7 @@ namespace Acceso_a_Datos
             return true;
         }
 
-        bool ejecutarSentencia(string sentenciaSQL)
+        public bool ejecutarSentencia(string sentenciaSQL)
         {
             SqlCommand sqlCommand;
             try
@@ -76,7 +71,7 @@ namespace Acceso_a_Datos
             }
         }
 
-        SqlDataReader ejecutarConsulta(string consultaSQL)
+        public SqlDataReader ejecutarConsulta(string consultaSQL)
         {
             SqlDataReader sqlDataReader;
             SqlCommand sqlCommand;

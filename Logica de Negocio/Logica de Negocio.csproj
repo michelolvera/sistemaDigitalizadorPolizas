@@ -44,5 +44,15 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acceso a Datos\Acceso a Datos.csproj">
+      <Project>{00faceee-c17d-4225-bcbe-310af214a21f}</Project>
+      <Name>Acceso a Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{27a59f0f-4faa-4c33-91c0-51deb41e87ce}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
