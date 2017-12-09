@@ -9,7 +9,7 @@ namespace Acceso_a_Datos
         private string user;//Nombre de usuario
         private string password;//Contraseña de usuario
         public SqlConnection sqlConnection;//Conexion a SQL Server 2008
-        SQLConexion(string dataSource, string dataBase, string user, string password)
+        public SQLConexion(string dataSource, string dataBase, string user, string password)
         {
             this.dataSource = dataSource;
             this.dataBase = dataBase;
