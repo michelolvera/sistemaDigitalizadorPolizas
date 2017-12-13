@@ -17,7 +17,7 @@ namespace Acceso_a_Datos
             this.password = password;
         }
 
-        public bool abrirConexion()
+        public bool AbrirConexion()
         {
             string connetionString = "Data Source=" + dataSource + ";Initial Catalog=" + dataBase + ";User ID=" + user + ";Password=" + password;
             try
@@ -33,7 +33,7 @@ namespace Acceso_a_Datos
             }
         }
 
-        public bool cerrarConexion()
+        public bool CerrarConexion()
         {
             if (sqlConnection != null)
             {
@@ -51,14 +51,14 @@ namespace Acceso_a_Datos
             return true;
         }
 
-        public bool ejecutarSentencia(string sentenciaSQL)
+        public bool EjecutarSentencia(string sentenciaSQL)
         {
             SqlCommand sqlCommand;
             try
             {
                 if (sqlConnection == null)
                 {
-                    abrirConexion();
+                    AbrirConexion();
                 }
                 sqlCommand = new SqlCommand(sentenciaSQL, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
@@ -71,7 +71,7 @@ namespace Acceso_a_Datos
             }
         }
 
-        public SqlDataReader ejecutarConsulta(string consultaSQL)
+        public SqlDataReader EjecutarConsulta(string consultaSQL)
         {
             SqlDataReader sqlDataReader;
             SqlCommand sqlCommand;
@@ -79,7 +79,7 @@ namespace Acceso_a_Datos
             {
                 if (sqlConnection == null)
                 {
-                    abrirConexion();
+                    AbrirConexion();
                 }
                 sqlCommand = new SqlCommand(consultaSQL, sqlConnection);
                 sqlDataReader = sqlCommand.ExecuteReader();

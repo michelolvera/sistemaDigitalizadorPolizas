@@ -8,20 +8,18 @@ namespace Entidades
 {
     public class UsuarioInfo
     {
-        public string nombre { get; private set; }
-        public string apellidoP { get; private set; }
-        public string apellidoM { get; private set; }
-        public string userName { get; private set; }
-        public string userPassword { get; private set; }
-        public UsuarioInfo(string nombre, string apellidoP, string apellidoM, string userName, string userPassword)
+        public string Nombre { get; private set; }
+        public string ApellidoP { get; private set; }
+        public string ApellidoM { get; private set; }
+        public string UserName { get; private set; }
+        public string UserPassword { get; private set; }
+        public UsuarioInfo(string Nombre, string ApellidoP, string ApellidoM, string UserName, string UserPassword)
         {
-            this.nombre = nombre;
-            this.apellidoP = apellidoP;
-            this.apellidoM = apellidoM;
-            this.userName = userName;
-            this.userPassword = userPassword;
+            this.Nombre = Nombre;
+            this.ApellidoP = ApellidoP;
+            this.ApellidoM = ApellidoM;
+            this.UserName = UserName;
+            this.UserPassword = UserPassword;
         }
-
-        
     }
 }
