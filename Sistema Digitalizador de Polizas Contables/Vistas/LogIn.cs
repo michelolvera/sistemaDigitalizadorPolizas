@@ -10,24 +10,27 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         public LogIn()
         {
             InitializeComponent();
-            //Inicializar datos de los componentes
-            ManejarConfiguracion manejarConfiguracion = new ManejarConfiguracion();
-            //Mensaje de ejemplo, borrar
-            MessageBox.Show(manejarConfiguracion.ObtenerConfiguracionPorNombre("server"), "Alerta");
-            //Consultar base de datos en busca de IDs de Usuario para el combobox? O ellos lo escriben?
-
         }
 
         private void botonAccesoAdmin_Click(object sender, EventArgs e)
         {
             //Obtener datos del formulario en objeto UsuarioInfo
-            UsuarioInfo usuario = new UsuarioInfo(Int32.Parse(cmbIDUsuario.SelectedText), txbNombreUsuario.Text, txbPassword.Text);
-
+            int userID;
+            if (Int32.TryParse(txbIDUsuario.Text, out userID))
+            {
+                UsuarioInfo usuario = new UsuarioInfo(Int32.Parse(txbIDUsuario.Text), txbNombreUsuario.Text, txbPassword.Text);
+            }
+            else
+            {
+                MessageBox.Show("Solo se permite usar numeros en el campo ID.", "Error");
+            }
+            
             //Verifica identidad
 
+
+            //Inicia sesion
             new expedientesP().Show();
             this.SetVisibleCore(false);
-            this.Dispose(); //Limpiar memoria
         }
 
         private void botonCancelarLogAdmin_Click(object sender, EventArgs e)

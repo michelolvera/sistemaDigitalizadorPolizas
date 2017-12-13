@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.cmbIDUsuario = new System.Windows.Forms.ComboBox();
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.btnAcceso = new System.Windows.Forms.Button();
             this.txbNombreUsuario = new System.Windows.Forms.TextBox();
@@ -37,12 +36,13 @@
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.txbIDUsuario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(13, 122);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(112, 39);
             this.btnCancelar.TabIndex = 0;
@@ -50,19 +50,10 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.botonCancelarLogAdmin_Click);
             // 
-            // cmbIDUsuario
-            // 
-            this.cmbIDUsuario.FormattingEnabled = true;
-            this.cmbIDUsuario.Location = new System.Drawing.Point(154, 6);
-            this.cmbIDUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cmbIDUsuario.Name = "cmbIDUsuario";
-            this.cmbIDUsuario.Size = new System.Drawing.Size(152, 24);
-            this.cmbIDUsuario.TabIndex = 1;
-            // 
             // txbPassword
             // 
             this.txbPassword.Location = new System.Drawing.Point(154, 68);
-            this.txbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.PasswordChar = '·';
             this.txbPassword.Size = new System.Drawing.Size(152, 22);
@@ -71,7 +62,7 @@
             // btnAcceso
             // 
             this.btnAcceso.Location = new System.Drawing.Point(186, 122);
-            this.btnAcceso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAcceso.Margin = new System.Windows.Forms.Padding(4);
             this.btnAcceso.Name = "btnAcceso";
             this.btnAcceso.Size = new System.Drawing.Size(112, 39);
             this.btnAcceso.TabIndex = 3;
@@ -82,7 +73,7 @@
             // txbNombreUsuario
             // 
             this.txbNombreUsuario.Location = new System.Drawing.Point(154, 38);
-            this.txbNombreUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txbNombreUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txbNombreUsuario.Name = "txbNombreUsuario";
             this.txbNombreUsuario.Size = new System.Drawing.Size(152, 22);
             this.txbNombreUsuario.TabIndex = 4;
@@ -114,20 +105,27 @@
             this.lblPassword.TabIndex = 7;
             this.lblPassword.Text = "Contraseña";
             // 
+            // txbIDUsuario
+            // 
+            this.txbIDUsuario.Location = new System.Drawing.Point(154, 9);
+            this.txbIDUsuario.Name = "txbIDUsuario";
+            this.txbIDUsuario.Size = new System.Drawing.Size(152, 22);
+            this.txbIDUsuario.TabIndex = 8;
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 185);
+            this.Controls.Add(this.txbIDUsuario);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblNombreUsuario);
             this.Controls.Add(this.lblIDUsuario);
             this.Controls.Add(this.txbNombreUsuario);
             this.Controls.Add(this.btnAcceso);
             this.Controls.Add(this.txbPassword);
-            this.Controls.Add(this.cmbIDUsuario);
             this.Controls.Add(this.btnCancelar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LogIn";
             this.Text = "LogIn";
             this.ResumeLayout(false);
@@ -138,7 +136,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.ComboBox cmbIDUsuario;
         private System.Windows.Forms.TextBox txbPassword;
         private System.Windows.Forms.Button btnAcceso;
         private System.Windows.Forms.TextBox txbNombreUsuario;
@@ -146,5 +143,6 @@
         private System.Windows.Forms.Label lblNombreUsuario;
         private System.Windows.Forms.Label lblPassword;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox txbIDUsuario;
     }
 }
