@@ -23,7 +23,7 @@ namespace Logica_de_Negocio
             conexion = new SQLConexion(nombreServidor, nombreBD, this.Usuario.UserName, this.Usuario.UserPassword);
         }
 
-        bool iniciarSesion()
+        bool IniciarSesion()
         {
             if (conexion.AbrirConexion().Estado)
             {
