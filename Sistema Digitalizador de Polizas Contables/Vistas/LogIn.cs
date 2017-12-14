@@ -12,24 +12,29 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             InitializeComponent();
         }
 
-        private void botonAccesoAdmin_Click(object sender, EventArgs e)
+        private void BotonAccesoAdmin_Click(object sender, EventArgs e)
         {
             //Obtener datos del formulario en objeto UsuarioInfo
             if (int.TryParse(txbIDUsuario.Text, out int userID))
             {
                 UsuarioInfo usuario = new UsuarioInfo(userID, txbNombreUsuario.Text, txbPassword.Text);
+                //Verifica identidad
+                SQLFormat formatos = new SQLFormat(usuario);
+                if (formatos.IniciarSesion())
+                {
+                    //Inicia sesion
+                    new expedientesP().Show();
+                    this.SetVisibleCore(false);
+                }
+                else
+                {
+                    MessageBox.Show("Error al iniciar sesion, validar datos.", "Error");
+                }
             }
             else
             {
                 MessageBox.Show("Solo se permite usar numeros en el campo ID.", "Error");
             }
-
-            //Verifica identidad
-
-
-            //Inicia sesion
-            new expedientesP().Show();
-            this.SetVisibleCore(false);
         }
 
         private void botonCancelarLogAdmin_Click(object sender, EventArgs e)

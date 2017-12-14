@@ -10,30 +10,35 @@ using System.Threading.Tasks;
 
 namespace Logica_de_Negocio
 {   //Comunicacion y formateo de datos con SQL Server 2008
-    class SQLFormat
+    public class SQLFormat
     {
         //Direccion de servidor
         private String nombreServidor = ConfigurationManager.AppSettings["server"];
         private String nombreBD = ConfigurationManager.AppSettings["dbname"];
         SQLConexion conexion;
         UsuarioInfo Usuario;
-        SQLFormat(UsuarioInfo Usuario)
+        public SQLFormat(UsuarioInfo Usuario)
         {
             this.Usuario = Usuario;
             conexion = new SQLConexion(nombreServidor, nombreBD, this.Usuario.UserName, this.Usuario.UserPassword);
         }
 
-        bool IniciarSesion()
+        public bool IniciarSesion()
         {
             if (conexion.AbrirConexion().Estado)
             {
-                SqlDataReader dataReader = conexion.EjecutarConsulta("").Resultado;//Aqui llamar a procedure que regresara resultado de inicio de sesion
+                int userID = 0;
+                SqlDataReader dataReader = conexion.EjecutarConsulta("Execute ValidarUsuario N\'"+Usuario.UserName+"\', N\'"+Usuario.UserPassword+"\'").Resultado;
+                if(dataReader.HasRows && dataReader.Read())
+                {
+                    userID = dataReader.GetInt32(0);
+                    dataReader.Close();
+                }
                 conexion.CerrarConexion();
                 //Validacion de datos
-
-
-                return true; //Verdadero en caso de login correcto
-                
+                if (userID == Usuario.UserID)
+                    return true; //Verdadero en caso de login correcto
+                else return false;
             }
             return false;
         }

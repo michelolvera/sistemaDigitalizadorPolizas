@@ -68,7 +68,7 @@
             this.btnAcceso.TabIndex = 3;
             this.btnAcceso.Text = "Acceso";
             this.btnAcceso.UseVisualStyleBackColor = true;
-            this.btnAcceso.Click += new System.EventHandler(this.botonAccesoAdmin_Click);
+            this.btnAcceso.Click += new System.EventHandler(this.BotonAccesoAdmin_Click);
             // 
             // txbNombreUsuario
             // 
