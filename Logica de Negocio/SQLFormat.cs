@@ -14,7 +14,7 @@ namespace Logica_de_Negocio
     {
         //Direccion de servidor
         private String nombreServidor = ConfigurationManager.AppSettings["server"];
-        private String nombreBD = "digitalizador_procesos";
+        private String nombreBD = ConfigurationManager.AppSettings["dbname"];
         SQLConexion conexion;
         UsuarioInfo Usuario;
         SQLFormat(UsuarioInfo Usuario)
@@ -29,7 +29,6 @@ namespace Logica_de_Negocio
             {
                 SqlDataReader dataReader = conexion.EjecutarConsulta("");//Aqui llamar a procedure que regresara resultado de inicio de sesion
                 conexion.CerrarConexion();
-
                 //Validacion de datos
 
 
