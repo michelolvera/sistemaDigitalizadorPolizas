@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using Acceso_a_Datos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Acceso_a_Datos
+namespace Logica_de_Negocio
 {   //Comunicacion y formateo de datos con SQL Server 2008
     class SQLFormat
     {
