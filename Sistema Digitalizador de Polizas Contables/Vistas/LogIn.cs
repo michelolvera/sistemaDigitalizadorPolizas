@@ -24,7 +24,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                 if (formatos.IniciarSesion())
                 {
                     //Inicia sesion
-                    new expedientesP().Show();
+                    new ExpedientesP().Show();
                     this.SetVisibleCore(false);
                 }
                 else

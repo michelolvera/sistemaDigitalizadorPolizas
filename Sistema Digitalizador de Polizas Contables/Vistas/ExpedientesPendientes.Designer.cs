@@ -1,6 +1,6 @@
 ﻿namespace Sistema_Digitalizador_de_Polizas_Contables
 {
-    partial class expedientesP
+    partial class ExpedientesP
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(expedientesP));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpedientesP));
             this.dgvExpedientes = new System.Windows.Forms.DataGridView();
             this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();

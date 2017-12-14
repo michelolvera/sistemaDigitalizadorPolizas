@@ -28,10 +28,11 @@ namespace Logica_de_Negocio
             if (conexion.AbrirConexion().Estado)
             {
                 int userID = 0;
-                SqlDataReader dataReader = conexion.EjecutarConsulta("Execute ValidarUsuario N\'"+Usuario.UserName+"\', N\'"+Usuario.UserPassword+"\'").Resultado;
+                SqlDataReader dataReader = conexion.EjecutarConsulta("Execute PCD_DIG_VALIDAR_USUARIO N\'" + Usuario.UserName+"\', N\'"+Usuario.UserPassword+"\'").Resultado;
                 if(dataReader.HasRows && dataReader.Read())
                 {
                     userID = dataReader.GetInt32(0);
+                    //Usuario.IdArea = dataReader.GetInt32(1); //Se recibe el ID de area, (Descomentar en cuanto el procedure lo retorne.
                     dataReader.Close();
                 }
                 conexion.CerrarConexion();

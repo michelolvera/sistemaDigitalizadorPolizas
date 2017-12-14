@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sistema_Digitalizador_de_Polizas_Contables
 {
-    public partial class expedientesP : Form
+    public partial class ExpedientesP : Form
     {
-        public expedientesP()
+        public ExpedientesP()
         {
             InitializeComponent();
             for(int i = 0; i < 5; i++)
