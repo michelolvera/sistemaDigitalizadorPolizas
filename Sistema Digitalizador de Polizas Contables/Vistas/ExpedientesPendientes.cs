@@ -23,7 +23,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                 dgvExpedientes[2, i].Value = "caca";
                 dgvExpedientes[3, i].Value = "32-02-3017";
             }
-            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -43,8 +42,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void dgvExpedientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            new formPrincipal(this.dgvExpedientes.CurrentRow.Cells[0].Value.ToString()+ this.dgvExpedientes.CurrentRow.Cells[1].Value.ToString()+ this.dgvExpedientes.CurrentRow.Cells[2].Value.ToString()+ this.dgvExpedientes.CurrentRow.Cells[3].Value.ToString()).Show();
-            this.SetVisibleCore(false);
+            
         }
 
         private void expedientesP_FormClosed(object sender, FormClosedEventArgs e)
