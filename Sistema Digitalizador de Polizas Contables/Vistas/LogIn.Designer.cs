@@ -41,30 +41,27 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(13, 122);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Location = new System.Drawing.Point(10, 99);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(112, 39);
-            this.btnCancelar.TabIndex = 0;
+            this.btnCancelar.Size = new System.Drawing.Size(84, 32);
+            this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.botonCancelarLogAdmin_Click);
             // 
             // txbPassword
             // 
-            this.txbPassword.Location = new System.Drawing.Point(154, 68);
-            this.txbPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txbPassword.Location = new System.Drawing.Point(116, 55);
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.PasswordChar = '·';
-            this.txbPassword.Size = new System.Drawing.Size(152, 22);
+            this.txbPassword.Size = new System.Drawing.Size(115, 20);
             this.txbPassword.TabIndex = 2;
             // 
             // btnAcceso
             // 
-            this.btnAcceso.Location = new System.Drawing.Point(186, 122);
-            this.btnAcceso.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAcceso.Location = new System.Drawing.Point(140, 99);
             this.btnAcceso.Name = "btnAcceso";
-            this.btnAcceso.Size = new System.Drawing.Size(112, 39);
+            this.btnAcceso.Size = new System.Drawing.Size(84, 32);
             this.btnAcceso.TabIndex = 3;
             this.btnAcceso.Text = "Acceso";
             this.btnAcceso.UseVisualStyleBackColor = true;
@@ -72,51 +69,54 @@
             // 
             // txbNombreUsuario
             // 
-            this.txbNombreUsuario.Location = new System.Drawing.Point(154, 38);
-            this.txbNombreUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.txbNombreUsuario.Location = new System.Drawing.Point(116, 31);
             this.txbNombreUsuario.Name = "txbNombreUsuario";
-            this.txbNombreUsuario.Size = new System.Drawing.Size(152, 22);
-            this.txbNombreUsuario.TabIndex = 4;
+            this.txbNombreUsuario.Size = new System.Drawing.Size(115, 20);
+            this.txbNombreUsuario.TabIndex = 1;
             // 
             // lblIDUsuario
             // 
             this.lblIDUsuario.AutoSize = true;
-            this.lblIDUsuario.Location = new System.Drawing.Point(13, 9);
+            this.lblIDUsuario.Location = new System.Drawing.Point(10, 7);
+            this.lblIDUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIDUsuario.Name = "lblIDUsuario";
-            this.lblIDUsuario.Size = new System.Drawing.Size(98, 17);
+            this.lblIDUsuario.Size = new System.Drawing.Size(75, 13);
             this.lblIDUsuario.TabIndex = 5;
             this.lblIDUsuario.Text = "ID de Usuario:";
             // 
             // lblNombreUsuario
             // 
             this.lblNombreUsuario.AutoSize = true;
-            this.lblNombreUsuario.Location = new System.Drawing.Point(12, 41);
+            this.lblNombreUsuario.Location = new System.Drawing.Point(9, 33);
+            this.lblNombreUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(135, 17);
+            this.lblNombreUsuario.Size = new System.Drawing.Size(101, 13);
             this.lblNombreUsuario.TabIndex = 6;
             this.lblNombreUsuario.Text = "Nombre de Usuario:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(13, 71);
+            this.lblPassword.Location = new System.Drawing.Point(10, 58);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(81, 17);
+            this.lblPassword.Size = new System.Drawing.Size(61, 13);
             this.lblPassword.TabIndex = 7;
             this.lblPassword.Text = "Contraseña";
             // 
             // txbIDUsuario
             // 
-            this.txbIDUsuario.Location = new System.Drawing.Point(154, 9);
+            this.txbIDUsuario.Location = new System.Drawing.Point(116, 7);
+            this.txbIDUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbIDUsuario.Name = "txbIDUsuario";
-            this.txbIDUsuario.Size = new System.Drawing.Size(152, 22);
-            this.txbIDUsuario.TabIndex = 8;
+            this.txbIDUsuario.Size = new System.Drawing.Size(115, 20);
+            this.txbIDUsuario.TabIndex = 0;
             // 
             // LogIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 185);
+            this.ClientSize = new System.Drawing.Size(239, 150);
             this.Controls.Add(this.txbIDUsuario);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblNombreUsuario);
@@ -125,9 +125,9 @@
             this.Controls.Add(this.btnAcceso);
             this.Controls.Add(this.txbPassword);
             this.Controls.Add(this.btnCancelar);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LogIn";
             this.Text = "LogIn";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LogIn_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

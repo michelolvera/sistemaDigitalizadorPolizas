@@ -46,5 +46,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             new formPrincipal(this.dgvExpedientes.CurrentRow.Cells[0].Value.ToString()+ this.dgvExpedientes.CurrentRow.Cells[1].Value.ToString()+ this.dgvExpedientes.CurrentRow.Cells[2].Value.ToString()+ this.dgvExpedientes.CurrentRow.Cells[3].Value.ToString()).Show();
             this.SetVisibleCore(false);
         }
+
+        private void expedientesP_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

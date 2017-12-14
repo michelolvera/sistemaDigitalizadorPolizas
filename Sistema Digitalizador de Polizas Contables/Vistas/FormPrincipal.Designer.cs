@@ -231,6 +231,7 @@
             this.MainMenuStrip = this.brrMenu;
             this.Name = "formPrincipal";
             this.Text = "Sistema Digitalizador";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.formPrincipal_Load);
             this.contenedorDividido1.Panel1.ResumeLayout(false);
             this.contenedorDividido1.Panel2.ResumeLayout(false);

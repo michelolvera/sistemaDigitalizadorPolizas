@@ -41,5 +41,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
             this.Close();
         }
+
+        private void LogIn_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

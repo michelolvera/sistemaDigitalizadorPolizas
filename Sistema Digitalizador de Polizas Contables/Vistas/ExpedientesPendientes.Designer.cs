@@ -118,6 +118,7 @@
             this.Controls.Add(this.dgvExpedientes);
             this.Name = "expedientesP";
             this.Text = "Expedientes Pendientes de Digitalizasr";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.expedientesP_FormClosed);
             this.Load += new System.EventHandler(this.expedientesP_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).EndInit();
             this.ResumeLayout(false);
