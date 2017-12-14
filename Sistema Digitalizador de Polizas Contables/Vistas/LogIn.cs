@@ -15,16 +15,15 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void botonAccesoAdmin_Click(object sender, EventArgs e)
         {
             //Obtener datos del formulario en objeto UsuarioInfo
-            int userID;
-            if (Int32.TryParse(txbIDUsuario.Text, out userID))
+            if (int.TryParse(txbIDUsuario.Text, out int userID))
             {
-                UsuarioInfo usuario = new UsuarioInfo(Int32.Parse(txbIDUsuario.Text), txbNombreUsuario.Text, txbPassword.Text);
+                UsuarioInfo usuario = new UsuarioInfo(userID, txbNombreUsuario.Text, txbPassword.Text);
             }
             else
             {
                 MessageBox.Show("Solo se permite usar numeros en el campo ID.", "Error");
             }
-            
+
             //Verifica identidad
 
 
