@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Data.SqlClient;
 namespace Acceso_a_Datos
 {
@@ -17,23 +18,21 @@ namespace Acceso_a_Datos
             this.password = password;
         }
 
-        public bool AbrirConexion()
+        public SQLEstado AbrirConexion()
         {
             string connetionString = "Data Source=" + dataSource + ";Initial Catalog=" + dataBase + ";User ID=" + user + ";Password=" + password;
             try
             {
                 sqlConnection = new SqlConnection(connetionString);
                 sqlConnection.Open();
-                Console.WriteLine("Instancia de conexion a base de datos iniciada");
-                return true;
+                return new SQLEstado(true, null, "Instancia de conexion a base de datos iniciada");
             }catch(Exception ex)
             {
-                Console.WriteLine("Error conectando al servidor: "+dataSource +" - Mensaje de error: "+ex.Message);
-                return false;
+                return new SQLEstado(false, null, "Error conectando al servidor: " + dataSource + " - Mensaje de error: " + ex.Message);
             }
         }
 
-        public bool CerrarConexion()
+        public SQLEstado CerrarConexion()
         {
             if (sqlConnection != null)
             {
@@ -43,15 +42,13 @@ namespace Acceso_a_Datos
                 }
                 catch(Exception ex)
                 {
-                    Console.WriteLine("Error al cerrar conexion - Mensaje de error: " + ex.Message);
-                    return false;
+                    return new SQLEstado(false, null, "Error al cerrar conexion - Mensaje de error: " + ex.Message);
                 }
             }
-            Console.WriteLine("Conexion cerrada exitosamente");
-            return true;
+            return new SQLEstado(true, null, "Conexion cerrada exitosamente");
         }
 
-        public bool EjecutarSentencia(string sentenciaSQL)
+        public SQLEstado EjecutarSentencia(string sentenciaSQL)
         {
             SqlCommand sqlCommand;
             try
@@ -63,15 +60,14 @@ namespace Acceso_a_Datos
                 sqlCommand = new SqlCommand(sentenciaSQL, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlCommand.Dispose();
-                return true;
+                return new SQLEstado(true, null, "Sentencia insertada con exito");
             }catch(Exception ex)
             {
-                Console.WriteLine("Error al ejecutar sentencia - Mensaje de error: " + ex.Message);
-                return false;
+                return new SQLEstado(false, null, "Error al ejecutar sentencia - Mensaje de error: " + ex.Message);
             }
         }
 
-        public SqlDataReader EjecutarConsulta(string consultaSQL)
+        public SQLEstado EjecutarConsulta(string consultaSQL)
         {
             SqlDataReader sqlDataReader;
             SqlCommand sqlCommand;
@@ -84,12 +80,11 @@ namespace Acceso_a_Datos
                 sqlCommand = new SqlCommand(consultaSQL, sqlConnection);
                 sqlDataReader = sqlCommand.ExecuteReader();
                 sqlCommand.Dispose();
-                return sqlDataReader;
+                return new SQLEstado(true, sqlDataReader, "Consulta generada con exito");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al ejecutar consulta - Mensaje de error: " + ex.Message);
-                return null;
+                return new SQLEstado(false, null, "Error al ejecutar consulta - Mensaje de error: " + ex.Message);
             }
         }
     }

@@ -25,9 +25,9 @@ namespace Logica_de_Negocio
 
         bool iniciarSesion()
         {
-            if (conexion.AbrirConexion())
+            if (conexion.AbrirConexion().Estado)
             {
-                SqlDataReader dataReader = conexion.EjecutarConsulta("");//Aqui llamar a procedure que regresara resultado de inicio de sesion
+                SqlDataReader dataReader = conexion.EjecutarConsulta("").Resultado;//Aqui llamar a procedure que regresara resultado de inicio de sesion
                 conexion.CerrarConexion();
                 //Validacion de datos
 
