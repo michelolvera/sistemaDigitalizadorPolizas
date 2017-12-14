@@ -5,17 +5,18 @@ using Logica_de_Negocio;
 
 namespace Sistema_Digitalizador_de_Polizas_Contables
 {
-    public partial class LogIn : Form
+    public partial class formLogin : Form
     {
-        public LogIn()
+        public formLogin()
         {
             InitializeComponent();
         }
 
         private void BotonAccesoAdmin_Click(object sender, EventArgs e)
         {
+
             //Obtener datos del formulario en objeto UsuarioInfo
-            if (int.TryParse(txbIDUsuario.Text, out int userID))
+            if (int.TryParse(txbIDUsuario.Text, out int userID) && !txbNombreUsuario.Text.Equals("") && !txbPassword.Text.Equals(""))
             {
                 UsuarioInfo usuario = new UsuarioInfo(userID, txbNombreUsuario.Text, txbPassword.Text);
                 //Verifica identidad
@@ -33,7 +34,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             }
             else
             {
-                MessageBox.Show("Solo se permite usar numeros en el campo ID.", "Error");
+                MessageBox.Show("Credenciales no validas", "Error");
             }
         }
 
@@ -45,6 +46,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void LogIn_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txbIDUsuario_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
