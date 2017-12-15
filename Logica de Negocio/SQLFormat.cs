@@ -28,7 +28,7 @@ namespace Logica_de_Negocio
             if (conexion.AbrirConexion().Estado)
             {
                 int userID = 0;
-                SqlDataReader dataReader = conexion.EjecutarConsulta("Execute PCD_DIG_VALIDAR_USUARIO N\'" + Usuario.UserName+"\', N\'"+Usuario.UserPassword+"\'").Resultado;
+                SqlDataReader dataReader = conexion.EjecutarConsulta("Execute SP_DIG_VALIDAR_USUARIO N\'" + Usuario.UserName+"\', N\'"+Usuario.UserPassword+"\'").Resultado;
                 if(dataReader.HasRows && dataReader.Read())
                 {
                     userID = dataReader.GetInt32(0);
@@ -57,9 +57,8 @@ namespace Logica_de_Negocio
             }*/
 
             //Llenar tabla
-            //SqlDataReader dataReader = conexion.EjecutarConsulta("").Resultado; //De aqui obtener resultados de tabla en cuanto se genere el procedure.
+            SqlDataReader dataReader = conexion.EjecutarConsulta("Execute SP_DIG_CONSULTA_EXPEDIENTE "+Usuario.IdArea).Resultado; //De aqui obtener resultados de tabla en cuanto se genere el procedure.
             return origenTabla;
         }
-
     }
 }
