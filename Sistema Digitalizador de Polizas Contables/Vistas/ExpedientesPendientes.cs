@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 {
     public partial class ExpedientesP : Form
     {
-        public ExpedientesP()
+        UsuarioInfo Usuario;
+        public ExpedientesP(UsuarioInfo Usuario)
         {
             InitializeComponent();
             for(int i = 0; i < 5; i++)
@@ -23,6 +25,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                 dgvExpedientes[2, i].Value = "caca";
                 dgvExpedientes[3, i].Value = "32-02-3017";
             }
+            this.Usuario = Usuario;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

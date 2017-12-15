@@ -24,7 +24,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                 if (formatos.IniciarSesion())
                 {
                     //Inicia sesion
-                    new ExpedientesP().Show();
+                    new ExpedientesP(formatos.Usuario).Show();
                     this.SetVisibleCore(false);
                 }
                 else
@@ -49,6 +49,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         }
 
         private void txbIDUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
 
         }

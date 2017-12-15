@@ -16,7 +16,7 @@ namespace Logica_de_Negocio
         private String nombreServidor = ConfigurationManager.AppSettings["server"];
         private String nombreBD = ConfigurationManager.AppSettings["dbname"];
         SQLConexion conexion;
-        UsuarioInfo Usuario;
+        public UsuarioInfo Usuario { get; }
         public SQLFormat(UsuarioInfo Usuario)
         {
             this.Usuario = Usuario;
