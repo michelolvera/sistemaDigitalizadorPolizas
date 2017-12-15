@@ -61,8 +61,8 @@
             this.dgvExpedientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExpedientes.Size = new System.Drawing.Size(991, 446);
             this.dgvExpedientes.TabIndex = 0;
-            this.dgvExpedientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dgvExpedientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvExpedientes_CellMouseDoubleClick);
+            this.dgvExpedientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
+            this.dgvExpedientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvExpedientes_CellMouseDoubleClick);
             // 
             // colNum
             // 
@@ -113,7 +113,7 @@
             this.btnActualizar.Size = new System.Drawing.Size(40, 40);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            this.btnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // expedientesP
             // 
@@ -126,8 +126,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "expedientesP";
             this.Text = "Expedientes Pendientes de Digitalizasr";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.expedientesP_FormClosed);
-            this.Load += new System.EventHandler(this.expedientesP_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ExpedientesP_FormClosed);
+            this.Load += new System.EventHandler(this.ExpedientesP_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

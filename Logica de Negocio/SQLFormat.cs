@@ -44,5 +44,22 @@ namespace Logica_de_Negocio
             return false;
         }
 
+        public System.Windows.Forms.DataGridView LlenarTabla(System.Windows.Forms.DataGridView origenTabla)
+        {
+            /*Ejemplo de llenado
+            for(int i = 0; i < 5; i++)
+            {
+                dgvExpedientes.Rows.Add();
+                dgvExpedientes[0, i].Value = ""+(i+1);
+                dgvExpedientes[1, i].Value = "hola ";
+                dgvExpedientes[2, i].Value = "caca";
+                dgvExpedientes[3, i].Value = "32-02-3017";
+            }*/
+
+            //Llenar tabla
+            //SqlDataReader dataReader = conexion.EjecutarConsulta("").Resultado; //De aqui obtener resultados de tabla en cuanto se genere el procedure.
+            return origenTabla;
+        }
+
     }
 }
