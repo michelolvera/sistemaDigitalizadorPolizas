@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Logica_de_Negocio
 {
-    class ProcesosAdministrador : ProcesosUsuario
+    public class ProcesosAdministrador : ProcesosUsuario
     {
-        public ProcesosAdministrador(UsuarioInfo Usuario, SQLConexion conexion) : base(Usuario)
+        public ProcesosAdministrador(UsuarioInfo Usuario) : base(Usuario)
         {
-            this.conexion = conexion;
+            //Constructor vacio que inicializa el SuperConstructor de la clase Base
         }
     }
 }

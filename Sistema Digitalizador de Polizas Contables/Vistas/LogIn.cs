@@ -5,9 +5,9 @@ using Logica_de_Negocio;
 
 namespace Sistema_Digitalizador_de_Polizas_Contables
 {
-    public partial class formLogin : Form
+    public partial class FormLogin : Form
     {
-        public formLogin()
+        public FormLogin()
         {
             InitializeComponent();
         }
@@ -20,11 +20,19 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             {
                 UsuarioInfo usuario = new UsuarioInfo(userID, txbNombreUsuario.Text, txbPassword.Text);
                 //Verifica identidad
-                ProcesosUsuario formatos = new ProcesosUsuario(usuario);
-                if (formatos.IniciarSesion())
+                ProcesosUsuario procesosUsuario = new ProcesosUsuario(usuario);
+                if (procesosUsuario.IniciarSesion())
                 {
                     //Inicia sesion
-                    new ExpedientesP(formatos).Show();
+                    if (procesosUsuario.Usuario.EsAdmin)
+                    {
+                        Console.WriteLine("Es un administrador");
+                        //new ExpedientesP(procesosUsuario).Show(); Enviar procesos administrador
+                    }
+                    else
+                    {
+                        new ExpedientesP(procesosUsuario).Show();
+                    }
                     this.SetVisibleCore(false);
                 }
                 else
@@ -54,6 +62,16 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         }
 
         private void BackgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+
+        }
+
+        private void formLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNombreUsuario_Click(object sender, EventArgs e)
         {
 
         }

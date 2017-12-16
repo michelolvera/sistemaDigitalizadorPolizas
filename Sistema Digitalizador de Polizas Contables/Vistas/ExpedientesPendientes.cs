@@ -14,12 +14,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 {
     public partial class ExpedientesP : Form
     {
-        ProcesosUsuario formato;
-        public ExpedientesP(ProcesosUsuario formato)
+        ProcesosUsuario procesosUsuario;
+        public ExpedientesP(ProcesosUsuario procesosUsuario)
         {
             InitializeComponent();
-            this.formato = formato;
-            dgvExpedientes = formato.LlenarTabla(dgvExpedientes);
+            this.procesosUsuario = procesosUsuario;
+            dgvExpedientes = this.procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes);
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
