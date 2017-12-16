@@ -30,12 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpedientesP));
             this.dgvExpedientes = new System.Windows.Forms.DataGridView();
+            this.labelPendientes = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.checkBoxDigitalizadosPend = new System.Windows.Forms.CheckBox();
             this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
+            this.Digitalizado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,20 +55,52 @@
             this.colNum,
             this.colNombre,
             this.colCategoria,
-            this.colCreacion});
-            this.dgvExpedientes.Location = new System.Drawing.Point(13, 53);
-            this.dgvExpedientes.Margin = new System.Windows.Forms.Padding(4);
+            this.colCreacion,
+            this.Digitalizado});
+            this.dgvExpedientes.Location = new System.Drawing.Point(10, 43);
             this.dgvExpedientes.Name = "dgvExpedientes";
             this.dgvExpedientes.ReadOnly = true;
             this.dgvExpedientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExpedientes.Size = new System.Drawing.Size(991, 446);
+            this.dgvExpedientes.Size = new System.Drawing.Size(743, 362);
             this.dgvExpedientes.TabIndex = 0;
             this.dgvExpedientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.dgvExpedientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvExpedientes_CellMouseDoubleClick);
             // 
+            // labelPendientes
+            // 
+            this.labelPendientes.AutoSize = true;
+            this.labelPendientes.Location = new System.Drawing.Point(12, 13);
+            this.labelPendientes.Name = "labelPendientes";
+            this.labelPendientes.Size = new System.Drawing.Size(60, 13);
+            this.labelPendientes.TabIndex = 1;
+            this.labelPendientes.Text = "Pendientes";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
+            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnActualizar.Location = new System.Drawing.Point(723, 4);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(30, 32);
+            this.btnActualizar.TabIndex = 2;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            // 
+            // checkBoxDigitalizadosPend
+            // 
+            this.checkBoxDigitalizadosPend.AutoSize = true;
+            this.checkBoxDigitalizadosPend.Location = new System.Drawing.Point(582, 13);
+            this.checkBoxDigitalizadosPend.Name = "checkBoxDigitalizadosPend";
+            this.checkBoxDigitalizadosPend.Size = new System.Drawing.Size(121, 17);
+            this.checkBoxDigitalizadosPend.TabIndex = 5;
+            this.checkBoxDigitalizadosPend.Text = "Mostrar digitalizados";
+            this.checkBoxDigitalizadosPend.UseVisualStyleBackColor = true;
+            // 
             // colNum
             // 
             this.colNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNum.FillWeight = 81.90491F;
             this.colNum.HeaderText = "Número. Expediente";
             this.colNum.Name = "colNum";
             this.colNum.ReadOnly = true;
@@ -74,6 +108,7 @@
             // colNombre
             // 
             this.colNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNombre.FillWeight = 113.9843F;
             this.colNombre.HeaderText = "Nombre Expediente";
             this.colNombre.Name = "colNombre";
             this.colNombre.ReadOnly = true;
@@ -81,6 +116,7 @@
             // colCategoria
             // 
             this.colCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colCategoria.FillWeight = 113.9843F;
             this.colCategoria.HeaderText = "Categoria";
             this.colCategoria.Name = "colCategoria";
             this.colCategoria.ReadOnly = true;
@@ -88,43 +124,29 @@
             // colCreacion
             // 
             this.colCreacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colCreacion.FillWeight = 113.9843F;
             this.colCreacion.HeaderText = "Fecha de Creación";
             this.colCreacion.Name = "colCreacion";
             this.colCreacion.ReadOnly = true;
             // 
-            // label1
+            // Digitalizado
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Pendientes";
+            this.Digitalizado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Digitalizado.FillWeight = 76.14214F;
+            this.Digitalizado.HeaderText = "Digitalizado";
+            this.Digitalizado.Name = "Digitalizado";
+            this.Digitalizado.ReadOnly = true;
             // 
-            // btnActualizar
+            // ExpedientesP
             // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
-            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnActualizar.Location = new System.Drawing.Point(964, 5);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(40, 40);
-            this.btnActualizar.TabIndex = 2;
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
-            // 
-            // expedientesP
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 512);
+            this.ClientSize = new System.Drawing.Size(763, 416);
+            this.Controls.Add(this.checkBoxDigitalizadosPend);
             this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPendientes);
             this.Controls.Add(this.dgvExpedientes);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "expedientesP";
+            this.Name = "ExpedientesP";
             this.Text = "Expedientes Pendientes de Digitalizasr";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ExpedientesP_FormClosed);
             this.Load += new System.EventHandler(this.ExpedientesP_Load);
@@ -137,11 +159,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvExpedientes;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPendientes;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.CheckBox checkBoxDigitalizadosPend;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCreacion;
-        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Digitalizado;
     }
 }

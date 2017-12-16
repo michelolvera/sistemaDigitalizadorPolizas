@@ -34,7 +34,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void BtnActualizar_Click(object sender, EventArgs e)
         {
-
+            new Vistas.VisorDeDocumentos(1).Show();
         }
 
         private void DgvExpedientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
