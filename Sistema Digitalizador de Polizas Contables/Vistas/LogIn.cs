@@ -20,7 +20,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             {
                 UsuarioInfo usuario = new UsuarioInfo(userID, txbNombreUsuario.Text, txbPassword.Text);
                 //Verifica identidad
-                SQLFormat formatos = new SQLFormat(usuario);
+                ProcesosUsuario formatos = new ProcesosUsuario(usuario);
                 if (formatos.IniciarSesion())
                 {
                     //Inicia sesion
@@ -38,7 +38,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             }
         }
 
-        private void botonCancelarLogAdmin_Click(object sender, EventArgs e)
+        private void BotonCancelarLogAdmin_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -48,12 +48,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             Application.Exit();
         }
 
-        private void txbIDUsuario_TextChanged(object sender, EventArgs e)
+        private void TxbIDUsuario_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        private void BackgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
 
         }

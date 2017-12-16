@@ -14,8 +14,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 {
     public partial class ExpedientesP : Form
     {
-        SQLFormat formato;
-        public ExpedientesP(SQLFormat formato)
+        ProcesosUsuario formato;
+        public ExpedientesP(ProcesosUsuario formato)
         {
             InitializeComponent();
             this.formato = formato;

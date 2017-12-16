@@ -12,7 +12,7 @@ namespace Entidades
         public string UserName { get; private set; }
         public string UserPassword { get; private set; }
         public int IdArea { get; set; } //Aqui ira el ID de area, debe ser igual al de SQL
-        public bool EsAdmin { get; }
+        public bool EsAdmin { get; set; }
         public UsuarioInfo(int UserID, string UserName, string UserPassword)
         {
             this.UserID = UserID;

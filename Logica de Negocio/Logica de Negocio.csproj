@@ -44,8 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlDirectorioArchivos.cs" />
+    <Compile Include="ProcesosAdministrador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQLFormat.cs" />
+    <Compile Include="ProcesosUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Acceso a Datos\Acceso a Datos.csproj">

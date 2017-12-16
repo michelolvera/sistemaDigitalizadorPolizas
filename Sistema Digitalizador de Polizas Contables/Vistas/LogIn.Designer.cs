@@ -47,7 +47,7 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.botonCancelarLogAdmin_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.BotonCancelarLogAdmin_Click);
             // 
             // txbPassword
             // 
@@ -111,7 +111,7 @@
             this.txbIDUsuario.Name = "txbIDUsuario";
             this.txbIDUsuario.Size = new System.Drawing.Size(152, 22);
             this.txbIDUsuario.TabIndex = 0;
-            this.txbIDUsuario.TextChanged += new System.EventHandler(this.txbIDUsuario_TextChanged);
+            this.txbIDUsuario.TextChanged += new System.EventHandler(this.TxbIDUsuario_TextChanged);
             // 
             // formLogin
             // 
