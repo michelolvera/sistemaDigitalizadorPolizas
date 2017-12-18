@@ -128,8 +128,17 @@ namespace Logica_de_Negocio
             return false;
         }
 
-        bool ActivarDesactivar(int opc, string nombre)
+        public bool ActivarDesactivar(int opc, string nombre, bool activo)
         {
+            int envio = 0;
+            if (activo)
+                envio = 1;
+            switch (opc)
+            {
+                case 0: return Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_AREAS SET activo = "+ envio + " WHERE nombre_area='"+nombre+"';").Estado;
+                case 1: return Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_EXPEDIENTES SET activo = " + envio + " WHERE nombre_expediente='" + nombre + "';").Estado;
+                case 2: return Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_CATEGORIAS SET activo = " + envio + " WHERE nombre_categoria='" + nombre + "';").Estado;
+            }
             return false;
         }
 
