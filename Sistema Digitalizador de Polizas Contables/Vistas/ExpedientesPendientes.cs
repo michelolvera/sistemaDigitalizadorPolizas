@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using Logica_de_Negocio;
+using Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,6 +46,14 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void ExpedientesP_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void AdministrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (procesosUsuario.Usuario.EsAdmin)
+                new MenuAdministrador(new ProcesosAdministrador(procesosUsuario.Usuario)).Show();
+            else
+                MessageBox.Show("Usted no cuenta con los privilegios necesarios para gestionar este sistema.", "Error");
         }
     }
 }

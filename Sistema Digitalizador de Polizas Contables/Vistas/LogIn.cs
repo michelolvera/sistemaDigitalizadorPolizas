@@ -24,15 +24,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                 if (procesosUsuario.IniciarSesion())
                 {
                     //Inicia sesion
-                    if (procesosUsuario.Usuario.EsAdmin)
-                    {
-                        Console.WriteLine("Es un administrador");
-                        //new ExpedientesP(procesosUsuario).Show(); Enviar procesos administrador
-                    }
-                    else
-                    {
-                        new ExpedientesP(procesosUsuario).Show();
-                    }
+                    new ExpedientesP(procesosUsuario).Show();
                     this.SetVisibleCore(false);
                 }
                 else

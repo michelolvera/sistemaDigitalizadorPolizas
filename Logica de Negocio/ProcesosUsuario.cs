@@ -32,8 +32,8 @@ namespace Logica_de_Negocio
                 if(dataReader.HasRows && dataReader.Read())
                 {
                     userID = dataReader.GetInt32(0);
-                    //Usuario.IdArea = dataReader.GetInt32(1); //Se recibe el ID de area, (Descomentar en cuanto el procedure lo retorne. DESCOMENTAR
-                    //Usuario.EsAdmin = dataReader.GetBoolean(3); // Se recibe si es admin o no. DESCOMENTAR
+                    Usuario.IdArea = dataReader.GetInt32(1); //Se recibe el ID de area, (Descomentar en cuanto el procedure lo retorne. DESCOMENTAR
+                    Usuario.EsAdmin = dataReader.GetBoolean(2); // Se recibe si es admin o no.
                     dataReader.Close();
                 }
                 Conexion.CerrarConexion();
