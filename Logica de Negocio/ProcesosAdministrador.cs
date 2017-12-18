@@ -98,5 +98,40 @@ namespace Logica_de_Negocio
             else return false;
         }
 
+        public bool CrearNuevoRegistro(int opc, string nombre, string super)
+        {
+            SQLEstado estado;
+            switch (opc)
+            {
+                case 0: //Area
+                    return Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_AREAS (nombre_area,activo) VALUES('"+nombre+"',1)").Estado;
+                case 1: //Expediente
+                    int areaID = 0;
+                    //Obetner ID de area
+                    estado = Conexion.EjecutarConsulta("SELECT id_area FROM dbo.TBL_DIG_AREAS WHERE nombre_area='" + super + "';");
+                    if (estado.Estado && estado.Resultado.HasRows && estado.Resultado.Read())
+                    {
+                        areaID = estado.Resultado.GetInt32(0);
+                        estado.Resultado.Close();
+                    }
+                    return Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_EXPEDIENTES (id_area, nombre_expediente, id_usuario, fecha_alta, activo) VALUES("+areaID+",'"+nombre+"','"+Usuario.UserID+"',CURRENT_TIMESTAMP,1)").Estado;
+                case 2: //Categoria
+                    int expedienteID = 0;
+                    estado = Conexion.EjecutarConsulta("SELECT id_expediente FROM dbo.TBL_DIG_EXPEDIENTES WHERE nombre_expediente='" + super + "';");
+                    if (estado.Estado && estado.Resultado.HasRows && estado.Resultado.Read())
+                    {
+                        expedienteID = estado.Resultado.GetInt32(0);
+                        estado.Resultado.Close();
+                    }
+                    return Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_CATEGORIAS(id_expediente, nombre_categoria, id_usuario, fecha_alta, activo) VALUES(" + expedienteID + ",'" + nombre + "','" + Usuario.UserID + "',CURRENT_TIMESTAMP,1)").Estado;
+            }
+            return false;
+        }
+
+        bool ActivarDesactivar(int opc, string nombre)
+        {
+            return false;
+        }
+
     }
 }

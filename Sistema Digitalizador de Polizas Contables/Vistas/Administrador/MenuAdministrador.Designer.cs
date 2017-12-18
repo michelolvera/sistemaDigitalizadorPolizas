@@ -144,6 +144,7 @@
             this.ckbArea.TabIndex = 11;
             this.ckbArea.Text = "Activo";
             this.ckbArea.UseVisualStyleBackColor = true;
+            this.ckbArea.CheckedChanged += new System.EventHandler(this.CkbArea_CheckedChanged);
             // 
             // ckbExpediente
             // 
