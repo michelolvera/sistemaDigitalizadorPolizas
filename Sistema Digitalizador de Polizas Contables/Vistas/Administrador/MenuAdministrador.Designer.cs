@@ -54,6 +54,7 @@
             // 
             // cmbArea
             // 
+            this.cmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbArea.Enabled = false;
             this.cmbArea.FormattingEnabled = true;
             this.cmbArea.Location = new System.Drawing.Point(154, 11);
@@ -64,12 +65,14 @@
             // 
             // cmbExpediente
             // 
+            this.cmbExpediente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbExpediente.Enabled = false;
             this.cmbExpediente.FormattingEnabled = true;
             this.cmbExpediente.Location = new System.Drawing.Point(154, 42);
             this.cmbExpediente.Name = "cmbExpediente";
             this.cmbExpediente.Size = new System.Drawing.Size(541, 24);
             this.cmbExpediente.TabIndex = 2;
+            this.cmbExpediente.SelectedIndexChanged += new System.EventHandler(this.CmbExpediente_SelectedIndexChanged);
             // 
             // lblExpediente
             // 
@@ -82,6 +85,7 @@
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.Enabled = false;
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(154, 73);
@@ -108,6 +112,7 @@
             this.dgvDocumentos.RowTemplate.Height = 24;
             this.dgvDocumentos.Size = new System.Drawing.Size(755, 306);
             this.dgvDocumentos.TabIndex = 6;
+            this.dgvDocumentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDocumentos_CellContentClick);
             // 
             // btnGuardar
             // 

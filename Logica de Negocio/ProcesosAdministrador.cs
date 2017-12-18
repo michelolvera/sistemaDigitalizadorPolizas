@@ -21,9 +21,18 @@ namespace Logica_de_Negocio
             
         }
 
-        public DataGridView ObtenerTablaDocumentos(DataGridView origenTabla)
+        public DataGridView ObtenerTablaDocumentos(DataGridView origenTabla, string seleccionado)
         {
-            SQLEstado estado = Conexion.ObtenerTabla("SELECT * FROM dbo.TBL_DIG_DOCUMENTOS_CATEGORIA;");
+            int categoriaID = 0;
+            //Obetner ID de categoria
+            SQLEstado estado = Conexion.EjecutarConsulta("SELECT id_categoria FROM dbo.TBL_DIG_CATEGORIAS WHERE nombre_categoria='" + seleccionado + "';");
+            if (estado.Estado && estado.Resultado.HasRows && estado.Resultado.Read())
+            {
+                categoriaID = estado.Resultado.GetInt32(0);
+                estado.Resultado.Close();
+            }
+                
+            estado = Conexion.ObtenerTabla("SELECT * FROM dbo.TBL_DIG_DOCUMENTOS_CATEGORIA WHERE id_categoria = "+ categoriaID +";");
             if (estado.Estado)
             {
                 origenTabla.DataSource = bindingSource;
@@ -37,36 +46,56 @@ namespace Logica_de_Negocio
             return SqlAdministrador.UpdateTablaDocumentos(bindingSource);
         }
 
-        public ComboBox LlenarComboArea(ComboBox origenCombo)
+        public ComboBox LlenarComboArea(ComboBox origenCombo, int opc, string seleccionado)
         {
-            estado = Conexion.EjecutarConsulta("SELECT nombre_area FROM dbo.TBL_DIG_AREAS;");
+            switch (opc)
+            {
+                case 0:
+                    estado = Conexion.EjecutarConsulta("SELECT nombre_area FROM dbo.TBL_DIG_AREAS;");
+                    break;
+                case 1:
+                    estado = Conexion.EjecutarConsulta("SELECT nombre_expediente FROM dbo.TBL_DIG_EXPEDIENTES INNER JOIN dbo.TBL_DIG_AREAS ON dbo.TBL_DIG_EXPEDIENTES.id_area=dbo.TBL_DIG_AREAS.id_area WHERE nombre_area='"+ seleccionado + "';");
+                    break;
+                case 2:
+                    estado = Conexion.EjecutarConsulta("SELECT nombre_categoria FROM dbo.TBL_DIG_CATEGORIAS INNER JOIN dbo.TBL_DIG_EXPEDIENTES ON dbo.TBL_DIG_CATEGORIAS.id_expediente=dbo.TBL_DIG_EXPEDIENTES.id_expediente WHERE nombre_expediente='"+ seleccionado + "';");
+                    break;
+            }
+            origenCombo.Items.Clear();
             if (estado.Estado)
             {
-                origenCombo.Items.Clear();
                 SqlDataReader sqlDataReader = estado.Resultado;
                 while (sqlDataReader.HasRows && sqlDataReader.Read())
                 {
                     origenCombo.Items.Add(sqlDataReader.GetString(0));
                 }
-                origenCombo.Enabled = true;
+                estado.Resultado.Close();
             }
+            origenCombo.Items.Add("< Nuevo >");
+            origenCombo.Enabled = true;
             return origenCombo;
         }
 
-        public ComboBox LlenarComboExpediente(ComboBox origenCombo, int idArea)
+        public bool GetActivo(int opc, string seleccionado)
         {
-            estado = Conexion.EjecutarConsulta("SELECT nombre_area FROM dbo.TBL_DIG_EXPEDIENTE;");
-            if (estado.Estado)
+            switch (opc)
             {
-                origenCombo.Items.Clear();
-                SqlDataReader sqlDataReader = estado.Resultado;
-                while (sqlDataReader.HasRows && sqlDataReader.Read())
-                {
-                    origenCombo.Items.Add(sqlDataReader.GetString(0));
-                }
-                origenCombo.Enabled = true;
+                case 0:
+                    estado = Conexion.EjecutarConsulta("SELECT activo FROM dbo.TBL_DIG_AREAS WHERE nombre_area='"+seleccionado+"';");
+                    break;
+                case 1:
+                    estado = Conexion.EjecutarConsulta("SELECT activo FROM dbo.TBL_DIG_EXPEDIENTES WHERE nombre_expediente='" + seleccionado + "';");
+                    break;
+                case 2:
+                    estado = Conexion.EjecutarConsulta("SELECT activo FROM dbo.TBL_DIG_CATEGORIAS WHERE nombre_categoria='" + seleccionado + "';");
+                    break;
             }
-            return origenCombo;
+            if (estado.Estado && estado.Resultado.HasRows && estado.Resultado.Read())
+            {
+                bool activo = estado.Resultado.GetBoolean(0);
+                estado.Resultado.Close();
+                return activo;
+            }
+            else return false;
         }
 
     }

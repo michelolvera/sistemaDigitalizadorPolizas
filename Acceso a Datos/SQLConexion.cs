@@ -92,7 +92,6 @@ namespace Acceso_a_Datos
         public SQLEstado ObtenerTabla(string consultaSQL)
         {
             SqlDataAdapter sqlDataAdapter;
-            SqlCommand sqlCommand;
             try
             {
                 if (sqlConnection == null)
