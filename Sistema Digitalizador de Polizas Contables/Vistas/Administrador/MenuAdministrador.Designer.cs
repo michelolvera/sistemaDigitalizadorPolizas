@@ -156,6 +156,7 @@
             this.ckbExpediente.TabIndex = 12;
             this.ckbExpediente.Text = "Activo";
             this.ckbExpediente.UseVisualStyleBackColor = true;
+            this.ckbExpediente.CheckedChanged += new System.EventHandler(this.CkbExpediente_CheckedChanged);
             // 
             // ckbCategoria
             // 
@@ -167,6 +168,7 @@
             this.ckbCategoria.TabIndex = 13;
             this.ckbCategoria.Text = "Activo";
             this.ckbCategoria.UseVisualStyleBackColor = true;
+            this.ckbCategoria.CheckedChanged += new System.EventHandler(this.CkbCategoria_CheckedChanged);
             // 
             // MenuAdministrador
             // 

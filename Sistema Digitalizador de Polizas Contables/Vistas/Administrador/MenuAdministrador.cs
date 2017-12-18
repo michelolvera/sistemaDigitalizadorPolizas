@@ -137,7 +137,26 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
 
         private void CkbArea_CheckedChanged(object sender, EventArgs e)
         {
+            if (!procesosAdministrador.ActivarDesactivar(0, cmbArea.Text, ckbArea.Checked))
+            {
+                MessageBox.Show("Error al cambiar el estado del area.");
+            }
+        }
 
+        private void CkbExpediente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!procesosAdministrador.ActivarDesactivar(1, cmbExpediente.Text, ckbExpediente.Checked))
+            {
+                MessageBox.Show("Error al cambiar el estado del area.");
+            }
+        }
+
+        private void CkbCategoria_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!procesosAdministrador.ActivarDesactivar(2, cmbCategoria.Text, ckbCategoria.Checked))
+            {
+                MessageBox.Show("Error al cambiar el estado del area.");
+            }
         }
     }
 }
