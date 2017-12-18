@@ -30,19 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisorDeDocumentos));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dgvDocumentos = new System.Windows.Forms.DataGridView();
+            this.btnEliminarDoc = new System.Windows.Forms.Button();
+            this.btnReemplazarDoc = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.checkBoxDigitalizadosDoc = new System.Windows.Forms.CheckBox();
             this.labelCatActual = new System.Windows.Forms.Label();
+            this.dgvDocumentos = new System.Windows.Forms.DataGridView();
             this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Digitalizado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkBoxDigitalizadosDoc = new System.Windows.Forms.CheckBox();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
-            this.btnReemplazarDoc = new System.Windows.Forms.Button();
-            this.btnEliminarDoc = new System.Windows.Forms.Button();
-            this.labelNoDigitalizado = new System.Windows.Forms.Label();
             this.btnDigitalizar = new System.Windows.Forms.Button();
+            this.labelNoDigitalizado = new System.Windows.Forms.Label();
+            this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
+            this.btnActualizarDocs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnActualizarDocs);
             this.splitContainer1.Panel1.Controls.Add(this.btnEliminarDoc);
             this.splitContainer1.Panel1.Controls.Add(this.btnReemplazarDoc);
             this.splitContainer1.Panel1.Controls.Add(this.btnBack);
@@ -74,6 +76,62 @@
             this.splitContainer1.Size = new System.Drawing.Size(835, 469);
             this.splitContainer1.SplitterDistance = 278;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnEliminarDoc
+            // 
+            this.btnEliminarDoc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnEliminarDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminarDoc.BackgroundImage")));
+            this.btnEliminarDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEliminarDoc.Location = new System.Drawing.Point(219, 434);
+            this.btnEliminarDoc.Name = "btnEliminarDoc";
+            this.btnEliminarDoc.Size = new System.Drawing.Size(39, 31);
+            this.btnEliminarDoc.TabIndex = 6;
+            this.btnEliminarDoc.UseVisualStyleBackColor = true;
+            this.btnEliminarDoc.Click += new System.EventHandler(this.btnEliminarDoc_Click);
+            // 
+            // btnReemplazarDoc
+            // 
+            this.btnReemplazarDoc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnReemplazarDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReemplazarDoc.BackgroundImage")));
+            this.btnReemplazarDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReemplazarDoc.Location = new System.Drawing.Point(174, 434);
+            this.btnReemplazarDoc.Name = "btnReemplazarDoc";
+            this.btnReemplazarDoc.Size = new System.Drawing.Size(39, 31);
+            this.btnReemplazarDoc.TabIndex = 5;
+            this.btnReemplazarDoc.UseVisualStyleBackColor = true;
+            this.btnReemplazarDoc.Click += new System.EventHandler(this.btnReemplazarDoc_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBack.Location = new System.Drawing.Point(12, 438);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(146, 23);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.Text = "Regresar a Pendientes";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // checkBoxDigitalizadosDoc
+            // 
+            this.checkBoxDigitalizadosDoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxDigitalizadosDoc.AutoSize = true;
+            this.checkBoxDigitalizadosDoc.Location = new System.Drawing.Point(12, 29);
+            this.checkBoxDigitalizadosDoc.Name = "checkBoxDigitalizadosDoc";
+            this.checkBoxDigitalizadosDoc.Size = new System.Drawing.Size(121, 17);
+            this.checkBoxDigitalizadosDoc.TabIndex = 4;
+            this.checkBoxDigitalizadosDoc.Text = "Mostrar digitalizados";
+            this.checkBoxDigitalizadosDoc.UseVisualStyleBackColor = true;
+            this.checkBoxDigitalizadosDoc.Visible = false;
+            // 
+            // labelCatActual
+            // 
+            this.labelCatActual.AutoSize = true;
+            this.labelCatActual.Location = new System.Drawing.Point(12, 9);
+            this.labelCatActual.Name = "labelCatActual";
+            this.labelCatActual.Size = new System.Drawing.Size(179, 13);
+            this.labelCatActual.TabIndex = 3;
+            this.labelCatActual.Text = "Categoria actual: Pólizas de Egresos";
             // 
             // dgvDocumentos
             // 
@@ -96,15 +154,7 @@
             this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDocumentos.Size = new System.Drawing.Size(272, 376);
             this.dgvDocumentos.TabIndex = 2;
-            // 
-            // labelCatActual
-            // 
-            this.labelCatActual.AutoSize = true;
-            this.labelCatActual.Location = new System.Drawing.Point(3, 21);
-            this.labelCatActual.Name = "labelCatActual";
-            this.labelCatActual.Size = new System.Drawing.Size(90, 13);
-            this.labelCatActual.TabIndex = 3;
-            this.labelCatActual.Text = "Categoria actual: ";
+            this.dgvDocumentos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocumentos_CellDoubleClick);
             // 
             // colNum
             // 
@@ -134,60 +184,19 @@
             this.Digitalizado.Name = "Digitalizado";
             this.Digitalizado.ReadOnly = true;
             // 
-            // checkBoxDigitalizadosDoc
+            // btnDigitalizar
             // 
-            this.checkBoxDigitalizadosDoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxDigitalizadosDoc.AutoSize = true;
-            this.checkBoxDigitalizadosDoc.Location = new System.Drawing.Point(154, 21);
-            this.checkBoxDigitalizadosDoc.Name = "checkBoxDigitalizadosDoc";
-            this.checkBoxDigitalizadosDoc.Size = new System.Drawing.Size(121, 17);
-            this.checkBoxDigitalizadosDoc.TabIndex = 4;
-            this.checkBoxDigitalizadosDoc.Text = "Mostrar digitalizados";
-            this.checkBoxDigitalizadosDoc.UseVisualStyleBackColor = true;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBack.Location = new System.Drawing.Point(12, 438);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(146, 23);
-            this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "Regresar a Pendientes";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // axAcroPDF1
-            // 
-            this.axAcroPDF1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.axAcroPDF1.Enabled = true;
-            this.axAcroPDF1.Location = new System.Drawing.Point(0, 0);
-            this.axAcroPDF1.Name = "axAcroPDF1";
-            this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(553, 469);
-            this.axAcroPDF1.TabIndex = 0;
-            // 
-            // btnReemplazarDoc
-            // 
-            this.btnReemplazarDoc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnReemplazarDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReemplazarDoc.BackgroundImage")));
-            this.btnReemplazarDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnReemplazarDoc.Location = new System.Drawing.Point(174, 434);
-            this.btnReemplazarDoc.Name = "btnReemplazarDoc";
-            this.btnReemplazarDoc.Size = new System.Drawing.Size(39, 31);
-            this.btnReemplazarDoc.TabIndex = 5;
-            this.btnReemplazarDoc.UseVisualStyleBackColor = true;
-            this.btnReemplazarDoc.Click += new System.EventHandler(this.btnReemplazarDoc_Click);
-            // 
-            // btnEliminarDoc
-            // 
-            this.btnEliminarDoc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnEliminarDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminarDoc.BackgroundImage")));
-            this.btnEliminarDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEliminarDoc.Location = new System.Drawing.Point(219, 434);
-            this.btnEliminarDoc.Name = "btnEliminarDoc";
-            this.btnEliminarDoc.Size = new System.Drawing.Size(39, 31);
-            this.btnEliminarDoc.TabIndex = 6;
-            this.btnEliminarDoc.UseVisualStyleBackColor = true;
+            this.btnDigitalizar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDigitalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDigitalizar.Location = new System.Drawing.Point(220, 250);
+            this.btnDigitalizar.Name = "btnDigitalizar";
+            this.btnDigitalizar.Size = new System.Drawing.Size(132, 46);
+            this.btnDigitalizar.TabIndex = 2;
+            this.btnDigitalizar.Text = "Digitalizar";
+            this.btnDigitalizar.UseVisualStyleBackColor = true;
+            this.btnDigitalizar.Visible = false;
+            this.btnDigitalizar.Click += new System.EventHandler(this.btnDigitalizar_Click);
             // 
             // labelNoDigitalizado
             // 
@@ -202,18 +211,27 @@
             this.labelNoDigitalizado.Text = "¡Documento no digitalizado!";
             this.labelNoDigitalizado.Visible = false;
             // 
-            // btnDigitalizar
+            // axAcroPDF1
             // 
-            this.btnDigitalizar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDigitalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDigitalizar.Location = new System.Drawing.Point(220, 250);
-            this.btnDigitalizar.Name = "btnDigitalizar";
-            this.btnDigitalizar.Size = new System.Drawing.Size(132, 46);
-            this.btnDigitalizar.TabIndex = 2;
-            this.btnDigitalizar.Text = "Digitalizar";
-            this.btnDigitalizar.UseVisualStyleBackColor = true;
-            this.btnDigitalizar.Visible = false;
+            this.axAcroPDF1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axAcroPDF1.Enabled = true;
+            this.axAcroPDF1.Location = new System.Drawing.Point(0, 0);
+            this.axAcroPDF1.Name = "axAcroPDF1";
+            this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
+            this.axAcroPDF1.Size = new System.Drawing.Size(553, 469);
+            this.axAcroPDF1.TabIndex = 0;
+            // 
+            // btnActualizarDocs
+            // 
+            this.btnActualizarDocs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizarDocs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizarDocs.BackgroundImage")));
+            this.btnActualizarDocs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnActualizarDocs.Location = new System.Drawing.Point(228, 9);
+            this.btnActualizarDocs.Name = "btnActualizarDocs";
+            this.btnActualizarDocs.Size = new System.Drawing.Size(30, 32);
+            this.btnActualizarDocs.TabIndex = 7;
+            this.btnActualizarDocs.UseVisualStyleBackColor = true;
+            this.btnActualizarDocs.Click += new System.EventHandler(this.btnActualizarDocs_Click);
             // 
             // VisorDeDocumentos
             // 
@@ -251,5 +269,6 @@
         private AxAcroPDFLib.AxAcroPDF axAcroPDF1;
         private System.Windows.Forms.Button btnDigitalizar;
         private System.Windows.Forms.Label labelNoDigitalizado;
+        private System.Windows.Forms.Button btnActualizarDocs;
     }
 }

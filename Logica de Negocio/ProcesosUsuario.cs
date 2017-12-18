@@ -47,19 +47,47 @@ namespace Logica_de_Negocio
 
         public System.Windows.Forms.DataGridView LlenarTablaExpedientesPendientes(System.Windows.Forms.DataGridView origenTabla)
         {
-            /*Ejemplo de llenado
-            for(int i = 0; i < 5; i++)
-            {
-                dgvExpedientes.Rows.Add();
-                dgvExpedientes[0, i].Value = ""+(i+1);
-                dgvExpedientes[1, i].Value = "hola ";
-                dgvExpedientes[2, i].Value = "caca";
-                dgvExpedientes[3, i].Value = "32-02-3017";
-            }*/
+            //Ejemplo de llenado
+            int i = 0;
+            origenTabla.Rows.Add();
+            origenTabla[0, i].Value = "1";
+            origenTabla[1, i].Value = "1";
+            origenTabla[2, i].Value = "Pólizas contables";
+            origenTabla[3, i].Value = "Pólizas de Egresos";
+            origenTabla[4, i].Value = "2017-12-10";
+          //  origenTabla[5, i].Value = "0";
+            i = 1;
+            origenTabla.Rows.Add();
+            origenTabla[0, i].Value = "1";
+            origenTabla[1, i].Value = "1";
+            origenTabla[2, i].Value = "Pólizas contables";
+            origenTabla[3, i].Value = "Pólizas de Egresos";
+            origenTabla[4, i].Value = "2017-12-10";
+          //  origenTabla[5, i].Value = "0";
+
+            return origenTabla;
 
             //Llenar tabla
-            SqlDataReader dataReader = Conexion.EjecutarConsulta("Execute SP_DIG_CONSULTA_EXPEDIENTE "+Usuario.IdArea).Resultado; //De aqui obtener resultados de tabla en cuanto se genere el procedure.
-            return origenTabla;
+            //SqlDataReader dataReader = Conexion.EjecutarConsulta("Execute SP_DIG_CONSULTA_EXPEDIENTE "+Usuario.IdArea).Resultado; //De aqui obtener resultados de tabla en cuanto se genere el procedure.
+            /* SqlDataReader dataReader = Conexion.EjecutarConsulta("SELECT TOP(1000) E.[id_expediente,[id_area],[nombre_expediente],[nombre_categoria],E.[fecha_alta],[completo] FROM[digitalizador_procesos].[dbo].[TBL_DIG_EXPEDIENTES] as E inner join TBL_DIG_CATEGORIAS as C on e.id_expediente = c.id_expediente inner join TBL_DIG_DOCUMENTOS_CATEGORIA as DC on c.id_categoria = dc.id_categoria inner join TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS as RED on dc.id_documento = red.id_documento inner join TBL_DIG_REGISTRO_EXPEDIENTE as RE on red.id_registro = re.id_registro where id_area = "+Usuario.IdArea).Resultado;
+             if (dataReader.HasRows && dataReader.Read())
+             {
+                 //while (dataReader.NextResult())
+                 //{
+                     int cont = 0;
+                     origenTabla.Rows.Add();
+                     origenTabla[0, cont].Value = dataReader.GetInt32(0);
+                     origenTabla[1, cont].Value = dataReader.GetInt32(1);
+                     origenTabla[2, cont].Value = dataReader.GetString(2);
+                     origenTabla[3, cont].Value = dataReader.GetString(3);
+                     origenTabla[4, cont].Value = dataReader.GetString(4);
+                     origenTabla[5, cont].Value = dataReader.GetInt32(5);
+                 //}
+             }
+             dataReader.Close();
+             return origenTabla;
+             */
         }
+        
     }
 }

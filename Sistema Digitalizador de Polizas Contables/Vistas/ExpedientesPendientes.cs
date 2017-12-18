@@ -30,17 +30,23 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void ExpedientesP_Load(object sender, EventArgs e)
         {
-
+            BtnActualizar_Click(sender, e);
         }
+
 
         private void BtnActualizar_Click(object sender, EventArgs e)
         {
-            new Vistas.VisorDeDocumentos(1).Show();
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes);
+           
         }
+
 
         private void DgvExpedientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+            string cat_id;
+
+            cat_id = dgvExpedientes.Rows[dgvExpedientes.SelectedRows[0].Index].Cells[2].Value.ToString();
+            new Vistas.VisorDeDocumentos(1).Show();
         }
 
         private void ExpedientesP_FormClosed(object sender, FormClosedEventArgs e)
