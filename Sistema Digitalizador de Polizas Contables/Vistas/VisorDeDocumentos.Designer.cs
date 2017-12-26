@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisorDeDocumentos));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnActualizarDocs = new System.Windows.Forms.Button();
             this.btnEliminarDoc = new System.Windows.Forms.Button();
             this.btnReemplazarDoc = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.btnDigitalizar = new System.Windows.Forms.Button();
             this.labelNoDigitalizado = new System.Windows.Forms.Label();
             this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
-            this.btnActualizarDocs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,6 +76,18 @@
             this.splitContainer1.Size = new System.Drawing.Size(835, 469);
             this.splitContainer1.SplitterDistance = 278;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnActualizarDocs
+            // 
+            this.btnActualizarDocs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizarDocs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizarDocs.BackgroundImage")));
+            this.btnActualizarDocs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnActualizarDocs.Location = new System.Drawing.Point(228, 9);
+            this.btnActualizarDocs.Name = "btnActualizarDocs";
+            this.btnActualizarDocs.Size = new System.Drawing.Size(30, 32);
+            this.btnActualizarDocs.TabIndex = 7;
+            this.btnActualizarDocs.UseVisualStyleBackColor = true;
+            this.btnActualizarDocs.Click += new System.EventHandler(this.btnActualizarDocs_Click);
             // 
             // btnEliminarDoc
             // 
@@ -221,26 +233,17 @@
             this.axAcroPDF1.Size = new System.Drawing.Size(553, 469);
             this.axAcroPDF1.TabIndex = 0;
             // 
-            // btnActualizarDocs
-            // 
-            this.btnActualizarDocs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizarDocs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizarDocs.BackgroundImage")));
-            this.btnActualizarDocs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnActualizarDocs.Location = new System.Drawing.Point(228, 9);
-            this.btnActualizarDocs.Name = "btnActualizarDocs";
-            this.btnActualizarDocs.Size = new System.Drawing.Size(30, 32);
-            this.btnActualizarDocs.TabIndex = 7;
-            this.btnActualizarDocs.UseVisualStyleBackColor = true;
-            this.btnActualizarDocs.Click += new System.EventHandler(this.btnActualizarDocs_Click);
-            // 
             // VisorDeDocumentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 469);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VisorDeDocumentos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisorDeDocumentos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

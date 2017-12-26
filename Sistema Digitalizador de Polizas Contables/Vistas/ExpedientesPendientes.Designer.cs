@@ -61,12 +61,11 @@
             this.colCategoria,
             this.colCreacion,
             this.Digitalizado});
-            this.dgvExpedientes.Location = new System.Drawing.Point(13, 75);
-            this.dgvExpedientes.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvExpedientes.Location = new System.Drawing.Point(10, 61);
             this.dgvExpedientes.Name = "dgvExpedientes";
             this.dgvExpedientes.ReadOnly = true;
             this.dgvExpedientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExpedientes.Size = new System.Drawing.Size(991, 424);
+            this.dgvExpedientes.Size = new System.Drawing.Size(743, 344);
             this.dgvExpedientes.TabIndex = 0;
             this.dgvExpedientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.dgvExpedientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvExpedientes_CellMouseDoubleClick);
@@ -114,10 +113,9 @@
             // labelPendientes
             // 
             this.labelPendientes.AutoSize = true;
-            this.labelPendientes.Location = new System.Drawing.Point(13, 39);
-            this.labelPendientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPendientes.Location = new System.Drawing.Point(10, 32);
             this.labelPendientes.Name = "labelPendientes";
-            this.labelPendientes.Size = new System.Drawing.Size(79, 17);
+            this.labelPendientes.Size = new System.Drawing.Size(60, 13);
             this.labelPendientes.TabIndex = 1;
             this.labelPendientes.Text = "Pendientes";
             // 
@@ -126,10 +124,9 @@
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
             this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnActualizar.Location = new System.Drawing.Point(964, 28);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActualizar.Location = new System.Drawing.Point(723, 23);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(40, 39);
+            this.btnActualizar.Size = new System.Drawing.Size(30, 32);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
@@ -137,10 +134,9 @@
             // checkBoxDigitalizadosPend
             // 
             this.checkBoxDigitalizadosPend.AutoSize = true;
-            this.checkBoxDigitalizadosPend.Location = new System.Drawing.Point(777, 38);
-            this.checkBoxDigitalizadosPend.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxDigitalizadosPend.Location = new System.Drawing.Point(583, 31);
             this.checkBoxDigitalizadosPend.Name = "checkBoxDigitalizadosPend";
-            this.checkBoxDigitalizadosPend.Size = new System.Drawing.Size(160, 21);
+            this.checkBoxDigitalizadosPend.Size = new System.Drawing.Size(121, 17);
             this.checkBoxDigitalizadosPend.TabIndex = 5;
             this.checkBoxDigitalizadosPend.Text = "Mostrar digitalizados";
             this.checkBoxDigitalizadosPend.UseVisualStyleBackColor = true;
@@ -152,7 +148,8 @@
             this.herramientasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1017, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(763, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -161,29 +158,30 @@
             this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.administrarToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
             // 
             // administrarToolStripMenuItem
             // 
             this.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
-            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.administrarToolStripMenuItem.Text = "Administrar";
             this.administrarToolStripMenuItem.Click += new System.EventHandler(this.AdministrarToolStripMenuItem_Click);
             // 
             // ExpedientesP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 512);
+            this.ClientSize = new System.Drawing.Size(763, 416);
             this.Controls.Add(this.checkBoxDigitalizadosPend);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.labelPendientes);
             this.Controls.Add(this.dgvExpedientes);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ExpedientesP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Expedientes Pendientes de Digitalizasr";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ExpedientesP_FormClosed);
             this.Load += new System.EventHandler(this.ExpedientesP_Load);
