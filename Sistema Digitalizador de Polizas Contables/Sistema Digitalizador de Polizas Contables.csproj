@@ -52,6 +52,9 @@
     <Compile Include="Vistas\Administrador\MenuAdministrador.Designer.cs">
       <DependentUpon>MenuAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\DataGridStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Vistas\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
