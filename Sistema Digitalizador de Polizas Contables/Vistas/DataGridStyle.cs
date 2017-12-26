@@ -38,7 +38,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             this.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             this.RowsDefaultCellStyle.BackColor = Color.White;
-            //this.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#EFF3");
+            //this.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#EFF3"); // valor no completo
             
         }
     }
