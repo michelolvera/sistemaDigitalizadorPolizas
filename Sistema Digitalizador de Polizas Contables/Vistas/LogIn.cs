@@ -67,5 +67,34 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
 
         }
+
+        private void txbIDUsuario_Enter(object sender, EventArgs e)
+        {
+            BotonAccesoAdmin_Click(sender, e);
+        }
+
+        private void txbIDUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BotonAccesoAdmin_Click(sender, e);
+            }
+        }
+
+        private void txbNombreUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BotonAccesoAdmin_Click(sender, e);
+            }
+        }
+
+        private void txbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BotonAccesoAdmin_Click(sender, e);
+            }
+        }
     }
 }
