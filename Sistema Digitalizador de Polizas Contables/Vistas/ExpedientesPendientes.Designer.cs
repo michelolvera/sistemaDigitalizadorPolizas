@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpedientesP));
-            this.dgvExpedientes = new System.Windows.Forms.DataGridView();
+            this.dgvExpedientes = new Entidades.DataGridStyle();
             this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -195,7 +195,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvExpedientes;
+        private Entidades.DataGridStyle dgvExpedientes;
         private System.Windows.Forms.Label labelPendientes;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.CheckBox checkBoxDigitalizadosPend;

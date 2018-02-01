@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
+namespace Entidades
 {
     public class DataGridStyle: DataGridView
     {

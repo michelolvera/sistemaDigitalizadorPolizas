@@ -21,7 +21,7 @@ namespace Logica_de_Negocio
             
         }
 
-        public DataGridView ObtenerTablaDocumentos(DataGridView origenTabla, string seleccionado)
+        public DataGridStyle ObtenerTablaDocumentos(DataGridStyle origenTabla, string seleccionado)
         {
             int categoriaID = 0;
             //Obetner ID de categoria

@@ -147,7 +147,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             if (!procesosAdministrador.ActivarDesactivar(1, cmbExpediente.Text, ckbExpediente.Checked))
             {
-                MessageBox.Show("Error al cambiar el estado del area.");
+                MessageBox.Show("Error al cambiar el estado del expediente.");
             }
         }
 
@@ -155,8 +155,13 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             if (!procesosAdministrador.ActivarDesactivar(2, cmbCategoria.Text, ckbCategoria.Checked))
             {
-                MessageBox.Show("Error al cambiar el estado del area.");
+                MessageBox.Show("Error al cambiar el estado de la categoria.");
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            SetVisibleCore(false);
         }
     }
 }

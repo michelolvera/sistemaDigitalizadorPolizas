@@ -45,7 +45,7 @@ namespace Logica_de_Negocio
             return false;
         }
 
-        public System.Windows.Forms.DataGridView LlenarTablaExpedientesPendientes(System.Windows.Forms.DataGridView origenTabla)
+        public Entidades.DataGridStyle LlenarTablaExpedientesPendientes(Entidades.DataGridStyle origenTabla)
         {
             //Ejemplo de llenado
             int i = 0;
