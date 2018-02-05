@@ -10,15 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using Logica_de_Negocio;
 
 namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 {
     public partial class VisorDeDocumentos : Form
     {
         int index;
-
+        ControlDirectorioArchivos GestionArchivos = new ControlDirectorioArchivos();
         public VisorDeDocumentos(int categoria)
         {
 
@@ -86,9 +85,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             if (fuente.ShowDialog() == DialogResult.OK)
             {
                 string source = fuente.FileName;
-                File.Copy(source, "c:\\saves\\100000" + index + ".pdf");
-                dgvDocumentos[3, index].Value = "1";
-
+                
+                //GestionArchivos.CopiarArchivo( ) //Ruta para copiar archivo
             }
             fuente.Dispose();
             dgvDocumentos_CellDoubleClick(sender, null);
