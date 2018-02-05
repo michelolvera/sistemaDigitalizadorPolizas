@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAdministrador));
             this.lblArea = new System.Windows.Forms.Label();
             this.cmbArea = new System.Windows.Forms.ComboBox();
@@ -109,15 +112,49 @@
             // 
             // dgvDocumentos
             // 
+            this.dgvDocumentos.AllowUserToAddRows = false;
+            this.dgvDocumentos.AllowUserToDeleteRows = false;
+            this.dgvDocumentos.AllowUserToResizeColumns = false;
+            this.dgvDocumentos.AllowUserToResizeRows = false;
+            this.dgvDocumentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDocumentos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvDocumentos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDocumentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvDocumentos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDocumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDocumentos.Enabled = false;
+            this.dgvDocumentos.EnableHeadersVisualStyles = false;
+            this.dgvDocumentos.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.dgvDocumentos.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dgvDocumentos.Location = new System.Drawing.Point(15, 103);
             this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvDocumentos.MultiSelect = false;
             this.dgvDocumentos.Name = "dgvDocumentos";
+            this.dgvDocumentos.ReadOnly = true;
+            this.dgvDocumentos.RowHeadersVisible = false;
+            this.dgvDocumentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDocumentos.RowTemplate.Height = 24;
+            this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDocumentos.Size = new System.Drawing.Size(755, 306);
             this.dgvDocumentos.TabIndex = 6;
-            this.dgvDocumentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDocumentos_CellContentClick);
             // 
             // btnGuardar
             // 
@@ -153,7 +190,6 @@
             this.ckbArea.TabIndex = 11;
             this.ckbArea.Text = "Activo";
             this.ckbArea.UseVisualStyleBackColor = true;
-            this.ckbArea.CheckedChanged += new System.EventHandler(this.CkbArea_CheckedChanged);
             // 
             // ckbExpediente
             // 
@@ -166,7 +202,6 @@
             this.ckbExpediente.TabIndex = 12;
             this.ckbExpediente.Text = "Activo";
             this.ckbExpediente.UseVisualStyleBackColor = true;
-            this.ckbExpediente.CheckedChanged += new System.EventHandler(this.CkbExpediente_CheckedChanged);
             // 
             // ckbCategoria
             // 
@@ -179,7 +214,6 @@
             this.ckbCategoria.TabIndex = 13;
             this.ckbCategoria.Text = "Activo";
             this.ckbCategoria.UseVisualStyleBackColor = true;
-            this.ckbCategoria.CheckedChanged += new System.EventHandler(this.CkbCategoria_CheckedChanged);
             // 
             // MenuAdministrador
             // 

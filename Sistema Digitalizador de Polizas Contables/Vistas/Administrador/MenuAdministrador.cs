@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MsgBox;
 
 namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
 {
@@ -17,8 +18,58 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         
         public MenuAdministrador(ProcesosAdministrador procesosAdministrador)
         {
-                InitializeComponent();
-                this.procesosAdministrador = procesosAdministrador;
+            InitializeComponent();
+            this.procesosAdministrador = procesosAdministrador;
+            dgvDocumentos.AllowUserToAddRows = true;
+            dgvDocumentos.ReadOnly = false;
+            dgvDocumentos.DefaultValuesNeeded += new DataGridViewRowEventHandler(this.DgvDocumentos_DefaultValuesNeeded);
+            ckbArea.MouseClick += new MouseEventHandler(this.CkbArea_MouseClick);
+            ckbExpediente.MouseClick += new MouseEventHandler(this.CkbExpediente_MouseClick);
+            ckbCategoria.MouseClick += new MouseEventHandler(this.CkbCategoria_MouseClick);
+            InputBox.SetLanguage(InputBox.Language.Spanish);
+        }
+
+        private void DgvDocumentos_DefaultValuesNeeded(object sender,
+        System.Windows.Forms.DataGridViewRowEventArgs e)
+        {
+            if (!procesosAdministrador.NuevoRegistroDefault(e))
+                MessageBox.Show("Se ha presentado un error.");
+        }
+
+        private void CkbArea_MouseClick(object sender, EventArgs e)
+        {
+            if (!procesosAdministrador.ActivarDesactivar(0, cmbArea.Text, ckbArea.Checked))
+            {
+                MessageBox.Show("Error al cambiar el estado del area.");
+            }
+            else
+            {
+                MessageBox.Show("Se ha cambiado el estado del area.");
+            }
+        }
+
+        private void CkbExpediente_MouseClick(object sender, EventArgs e)
+        {
+            if (!procesosAdministrador.ActivarDesactivar(1, cmbExpediente.Text, ckbExpediente.Checked))
+            {
+                MessageBox.Show("Error al cambiar el estado del expediente.");
+            }
+            else
+            {
+                MessageBox.Show("Se ha cambiado el estado del expediente.");
+            }
+        }
+
+        private void CkbCategoria_MouseClick(object sender, EventArgs e)
+        {
+            if (!procesosAdministrador.ActivarDesactivar(2, cmbCategoria.Text, ckbCategoria.Checked))
+            {
+                MessageBox.Show("Error al cambiar el estado de la categoria.");
+            }
+            else
+            {
+                MessageBox.Show("Se ha cambiado el estado de la categoria.");
+            }
         }
 
         private void MenuAdministrador_Load(object sender, EventArgs e)
@@ -43,16 +94,26 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             if (cmbCategoria.Items.Count == cmbCategoria.SelectedIndex + 1)
             {
-                String nombre = Microsoft.VisualBasic.Interaction.InputBox("Entrada", "Ingrese un nombre de categoria", "", -1, -1);
-                if (nombre != null && nombre != "")
+                
+                //Descativar controles no necesarios
+                dgvDocumentos.Enabled = false;
+
+                String nombre;
+                DialogResult res = InputBox.ShowDialog("Untroduce el nombre: ", "Entrada",
+                InputBox.Icon.Question,
+                InputBox.Buttons.OkCancel,
+                InputBox.Type.TextBox);
+                if (res == System.Windows.Forms.DialogResult.OK || res == System.Windows.Forms.DialogResult.Yes)
                 {
-                    if (procesosAdministrador.CrearNuevoRegistro(2, nombre, cmbExpediente.Text))
+                    nombre = InputBox.ResultValue;
+                    if(nombre == "")
+                        MessageBox.Show("Campo obligatorio.", "Error");
+                    else if (procesosAdministrador.CrearNuevoRegistro(2, nombre, cmbExpediente.Text))
                         cmbCategoria = procesosAdministrador.LlenarComboArea(cmbCategoria, 2, cmbExpediente.Text);
                     else
                         MessageBox.Show("Error al crear registro.", "Error");
                 }
-                else
-                    MessageBox.Show("Campo obligatorio.", "Error");
+                    
             }
             else {
                 //Obtener tabla
@@ -70,16 +131,26 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             if(cmbArea.Items.Count == cmbArea.SelectedIndex+1)
             {
-                String nombre = Microsoft.VisualBasic.Interaction.InputBox("Entrada", "Ingrese un nombre de area", "", -1, -1);
-                if (nombre != null && nombre != "")
+                //Desactivar controles no necesarios
+                cmbExpediente.Enabled = false;
+                cmbCategoria.Enabled = false;
+                dgvDocumentos.Enabled = false;
+
+                String nombre;
+                DialogResult res = InputBox.ShowDialog("Untroduce el nombre: ", "Entrada",
+                InputBox.Icon.Question,
+                InputBox.Buttons.OkCancel,
+                InputBox.Type.TextBox);
+                if (res == System.Windows.Forms.DialogResult.OK || res == System.Windows.Forms.DialogResult.Yes)
                 {
-                    if (procesosAdministrador.CrearNuevoRegistro(0, nombre, null))
+                    nombre = InputBox.ResultValue;
+                    if (nombre == "")
+                        MessageBox.Show("Campo obligatorio.", "Error");
+                    else if (procesosAdministrador.CrearNuevoRegistro(0, nombre, null))
                         cmbArea = procesosAdministrador.LlenarComboArea(cmbArea, 0, null);
                     else
                         MessageBox.Show("Error al crear registro.", "Error");
-                }   
-                else
-                    MessageBox.Show("Campo obligatorio.", "Error");
+                }
             }
             else
             {
@@ -103,16 +174,25 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             if (cmbExpediente.Items.Count == cmbExpediente.SelectedIndex + 1)
             {
-                String nombre = Microsoft.VisualBasic.Interaction.InputBox("Entrada", "Ingrese un nombre de expediente", "", -1, -1);
-                if (nombre != null && nombre != "")
+                //Desactivar controles no necesarios
+                cmbCategoria.Enabled = false;
+                dgvDocumentos.Enabled = false;
+
+                String nombre;
+                DialogResult res = InputBox.ShowDialog("Untroduce el nombre: ", "Entrada",
+                InputBox.Icon.Question,
+                InputBox.Buttons.OkCancel,
+                InputBox.Type.TextBox);
+                if (res == System.Windows.Forms.DialogResult.OK || res == System.Windows.Forms.DialogResult.Yes)
                 {
-                    if (procesosAdministrador.CrearNuevoRegistro(1, nombre, cmbArea.Text))
+                    nombre = InputBox.ResultValue;
+                    if (nombre == "")
+                        MessageBox.Show("Campo obligatorio.", "Error");
+                    else if (procesosAdministrador.CrearNuevoRegistro(1, nombre, cmbArea.Text))
                         cmbExpediente = procesosAdministrador.LlenarComboArea(cmbExpediente, 1, cmbArea.Text);
                     else
                         MessageBox.Show("Error al crear registro.", "Error");
                 }
-                else
-                    MessageBox.Show("Campo obligatorio.", "Error");
             }
             else
             {
@@ -128,35 +208,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 ckbExpediente.Checked = procesosAdministrador.GetActivo(1, cmbExpediente.Text);
             }
 
-        }
-
-        private void DgvDocumentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void CkbArea_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!procesosAdministrador.ActivarDesactivar(0, cmbArea.Text, ckbArea.Checked))
-            {
-                MessageBox.Show("Error al cambiar el estado del area.");
-            }
-        }
-
-        private void CkbExpediente_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!procesosAdministrador.ActivarDesactivar(1, cmbExpediente.Text, ckbExpediente.Checked))
-            {
-                MessageBox.Show("Error al cambiar el estado del expediente.");
-            }
-        }
-
-        private void CkbCategoria_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!procesosAdministrador.ActivarDesactivar(2, cmbCategoria.Text, ckbCategoria.Checked))
-            {
-                MessageBox.Show("Error al cambiar el estado de la categoria.");
-            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

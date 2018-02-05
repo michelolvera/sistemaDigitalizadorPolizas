@@ -16,6 +16,7 @@ namespace Logica_de_Negocio
         private SQLAdministrador SqlAdministrador = new SQLAdministrador();
         private System.Windows.Forms.BindingSource bindingSource = new System.Windows.Forms.BindingSource();
         SQLEstado estado;
+        int categoriaID = 0;
         public ProcesosAdministrador(UsuarioInfo Usuario) : base (Usuario)
         {
             
@@ -23,7 +24,7 @@ namespace Logica_de_Negocio
 
         public DataGridStyle ObtenerTablaDocumentos(DataGridStyle origenTabla, string seleccionado)
         {
-            int categoriaID = 0;
+           
             //Obetner ID de categoria
             SQLEstado estado = Conexion.EjecutarConsulta("SELECT id_categoria FROM dbo.TBL_DIG_CATEGORIAS WHERE nombre_categoria='" + seleccionado + "';");
             if (estado.Estado && estado.Resultado.HasRows && estado.Resultado.Read())
@@ -37,10 +38,16 @@ namespace Logica_de_Negocio
             {
                 origenTabla.DataSource = bindingSource;
                 bindingSource.DataSource = SqlAdministrador.SQLTablaDocumentos(estado.Tabla);
+                //Bloquear Celdas no Editables
+                origenTabla.Columns["id_documento"].ReadOnly = true;
+                origenTabla.Columns["id_categoria"].ReadOnly = true;
+                origenTabla.Columns["id_usuario"].ReadOnly = true;
+                origenTabla.Columns["fecha_alta"].ReadOnly = true;
                 return origenTabla;
             }
             return null;
         }
+
         public bool ActualizarTablaDocumentos()
         {
             return SqlAdministrador.UpdateTablaDocumentos(bindingSource);
@@ -140,6 +147,23 @@ namespace Logica_de_Negocio
                 case 2: return Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_CATEGORIAS SET activo = " + envio + " WHERE nombre_categoria='" + nombre + "';").Estado;
             }
             return false;
+        }
+
+        public bool NuevoRegistroDefault(DataGridViewRowEventArgs Grid)
+        {
+            try {
+                Grid.Row.Cells["id_documento"].Value = 1;
+                Grid.Row.Cells["id_categoria"].Value = categoriaID;
+                //Grid.Row.Cells["nombre_documento"].Value = "";
+                Grid.Row.Cells["id_usuario"].Value = Usuario.UserID;
+                Grid.Row.Cells["fecha_alta"].Value = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                Grid.Row.Cells["activo"].Value = true;
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            return true;
         }
 
     }

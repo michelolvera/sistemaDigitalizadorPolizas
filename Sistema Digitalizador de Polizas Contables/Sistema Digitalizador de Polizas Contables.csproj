@@ -113,6 +113,10 @@
       <Project>{27a59f0f-4faa-4c33-91c0-51deb41e87ce}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InputBox\MsgBox.csproj">
+      <Project>{9b4ab36e-1ae8-4f63-b4f8-23291e7577d7}</Project>
+      <Name>MsgBox</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logica de Negocio\Logica de Negocio.csproj">
       <Project>{bdbad77c-1585-473d-8936-a0092a9289a0}</Project>
       <Name>Logica de Negocio</Name>
