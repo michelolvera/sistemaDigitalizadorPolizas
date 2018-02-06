@@ -20,11 +20,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         private ProcesosUsuario procesosUsuario;
         private int expedienteActual;
 
-        public VisorDeDocumentos(ProcesosUsuario procesosUsuario, int expedienteActual)
+        public VisorDeDocumentos(ProcesosUsuario procesosUsuario, int expedienteActual, string registroActual)
         {
             InitializeComponent();
             this.procesosUsuario = procesosUsuario;
             this.expedienteActual = expedienteActual;
+            lblActual.Text += registroActual;
             dgvDocumentos = this.procesosUsuario.LlenarTablaDocumentosPendientes(dgvDocumentos, this.expedienteActual, checkBoxDigitalizadosDoc.Checked);
         }
 
