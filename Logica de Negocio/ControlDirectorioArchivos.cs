@@ -44,6 +44,7 @@ namespace Logica_de_Negocio
         }
         public void EliminarArchivo(String pathDirectorio, String nombreArchivo)
         {
+            pathDirectorio = directorioDatos + "\\" + pathDirectorio;
             if (Directory.Exists(pathDirectorio))
             {
                 if (File.Exists(pathDirectorio + "\\" + nombreArchivo))
