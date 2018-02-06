@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica_de_Negocio;
+using Entidades;
 
 namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 {
@@ -54,6 +55,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             //Obtener ID de documento seleccionado
             String res = dgvDocumentos.Rows[dgvDocumentos.SelectedRows[0].Index].Cells[0].Value + "";
             int idSeleccionado = Int32.Parse(res);
+
+            DatosArchivo datosArchivo = procesosUsuario.ObtenerNombreArchivo(idSeleccionado);
+
+            Console.WriteLine(datosArchivo.Area+datosArchivo.Expediente+datosArchivo.Categoria+datosArchivo.Documento+datosArchivo.Registro);
 
             index = dgvDocumentos.SelectedRows[0].Index;
             String ruta = "C:\\saves\\100000"+index+".pdf";

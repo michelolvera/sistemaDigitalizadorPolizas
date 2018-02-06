@@ -96,7 +96,7 @@ namespace Logica_de_Negocio
             return origenTabla;
         }
 
-        DatosArchivo obtenerNombreArchivo(int idDocumento)
+        public DatosArchivo ObtenerNombreArchivo(int idDocumento)
         {
             SQLEstado sQLEstado;
             DatosArchivo datosArchivo = new DatosArchivo();
