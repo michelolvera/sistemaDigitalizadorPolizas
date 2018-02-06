@@ -26,7 +26,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             this.procesosUsuario = procesosUsuario;
             this.expedienteActual = expedienteActual;
             lblRegistroActual.Text += registroActual;
-            dgvDocumentos = this.procesosUsuario.LlenarTablaDocumentosPendientes(dgvDocumentos, this.expedienteActual, checkBoxDigitalizadosDoc.Checked);
+            dgvDocumentos = this.procesosUsuario.LlenarTablaDocumentosPendientes(dgvDocumentos, this.expedienteActual, checkBoxDigitalizadosVisor.Checked);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
