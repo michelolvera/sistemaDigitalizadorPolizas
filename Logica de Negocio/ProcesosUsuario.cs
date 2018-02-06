@@ -17,6 +17,7 @@ namespace Logica_de_Negocio
         private String nombreBD = ConfigurationManager.AppSettings["dbname"];
         public SQLConexion Conexion { get; }
         public UsuarioInfo Usuario { get; }
+
         public ProcesosUsuario(UsuarioInfo Usuario)
         {
             this.Usuario = Usuario;
@@ -36,7 +37,6 @@ namespace Logica_de_Negocio
                     Usuario.EsAdmin = dataReader.GetBoolean(2); // Se recibe si es admin o no.
                     dataReader.Close();
                 }
-                Conexion.CerrarConexion();
                 //Validacion de datos
                 if (userID == Usuario.UserID)
                     return true; //Verdadero en caso de login correcto
@@ -45,48 +45,24 @@ namespace Logica_de_Negocio
             return false;
         }
 
-        public Entidades.DataGridStyle LlenarTablaExpedientesPendientes(Entidades.DataGridStyle origenTabla)
+        public Entidades.DataGridStyle LlenarTablaExpedientesPendientes(Entidades.DataGridStyle origenTabla, bool completado)
         {
-            //Ejemplo de llenado
-            int i = 0;
-            origenTabla.Rows.Add();
-            origenTabla[0, i].Value = "1";
-            origenTabla[1, i].Value = "1";
-            origenTabla[2, i].Value = "Pólizas contables";
-            origenTabla[3, i].Value = "Pólizas de Egresos";
-            origenTabla[4, i].Value = "2017-12-10";
-          //  origenTabla[5, i].Value = "0";
-            i = 1;
-            origenTabla.Rows.Add();
-            origenTabla[0, i].Value = "1";
-            origenTabla[1, i].Value = "1";
-            origenTabla[2, i].Value = "Pólizas contables";
-            origenTabla[3, i].Value = "Pólizas de Egresos";
-            origenTabla[4, i].Value = "2017-12-10";
-          //  origenTabla[5, i].Value = "0";
+            origenTabla.Rows.Clear();
+            SQLEstado sQLEstado;
+            if (completado)
+                sQLEstado = Conexion.EjecutarConsulta("SELECT id_registro, identificador_registro, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.fecha_alta, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_usuario, nombre_expediente, nombre_categoria, completo FROM DBO.TBL_DIG_REGISTRO_EXPEDIENTE INNER JOIN DBO.TBL_DIG_CATEGORIAS ON DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=DBO.TBL_DIG_CATEGORIAS.id_categoria INNER JOIN DBO.TBL_DIG_EXPEDIENTES ON DBO.TBL_DIG_CATEGORIAS.id_expediente = DBO.TBL_DIG_EXPEDIENTES.id_expediente INNER JOIN DBO.TBL_DIG_AREAS ON DBO.TBL_DIG_EXPEDIENTES.id_area = DBO.TBL_DIG_AREAS.id_area WHERE DBO.TBL_DIG_AREAS.id_area = " + Usuario.IdArea + ";");
+            else
+                sQLEstado = Conexion.EjecutarConsulta("SELECT id_registro, identificador_registro, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.fecha_alta, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_usuario, nombre_expediente, nombre_categoria, completo FROM DBO.TBL_DIG_REGISTRO_EXPEDIENTE INNER JOIN DBO.TBL_DIG_CATEGORIAS ON DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=DBO.TBL_DIG_CATEGORIAS.id_categoria INNER JOIN DBO.TBL_DIG_EXPEDIENTES ON DBO.TBL_DIG_CATEGORIAS.id_expediente = DBO.TBL_DIG_EXPEDIENTES.id_expediente INNER JOIN DBO.TBL_DIG_AREAS ON DBO.TBL_DIG_EXPEDIENTES.id_area = DBO.TBL_DIG_AREAS.id_area WHERE DBO.TBL_DIG_AREAS.id_area = " + Usuario.IdArea + " AND DBO.TBL_DIG_REGISTRO_EXPEDIENTE.completo='false';");
 
+            if (sQLEstado.Estado)
+            {
+                while (sQLEstado.Resultado.HasRows && sQLEstado.Resultado.Read())
+                {
+                    origenTabla.Rows.Add(sQLEstado.Resultado.GetInt32(0), sQLEstado.Resultado.GetString(1), sQLEstado.Resultado.GetDateTime(2), sQLEstado.Resultado.GetInt32(3), sQLEstado.Resultado.GetString(4), sQLEstado.Resultado.GetString(5), sQLEstado.Resultado.GetBoolean(6));
+                }
+                sQLEstado.Resultado.Close();
+            }
             return origenTabla;
-
-            //Llenar tabla
-            //SqlDataReader dataReader = Conexion.EjecutarConsulta("Execute SP_DIG_CONSULTA_EXPEDIENTE "+Usuario.IdArea).Resultado; //De aqui obtener resultados de tabla en cuanto se genere el procedure.
-            /* SqlDataReader dataReader = Conexion.EjecutarConsulta("SELECT TOP(1000) E.[id_expediente,[id_area],[nombre_expediente],[nombre_categoria],E.[fecha_alta],[completo] FROM[digitalizador_procesos].[dbo].[TBL_DIG_EXPEDIENTES] as E inner join TBL_DIG_CATEGORIAS as C on e.id_expediente = c.id_expediente inner join TBL_DIG_DOCUMENTOS_CATEGORIA as DC on c.id_categoria = dc.id_categoria inner join TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS as RED on dc.id_documento = red.id_documento inner join TBL_DIG_REGISTRO_EXPEDIENTE as RE on red.id_registro = re.id_registro where id_area = "+Usuario.IdArea).Resultado;
-             if (dataReader.HasRows && dataReader.Read())
-             {
-                 //while (dataReader.NextResult())
-                 //{
-                     int cont = 0;
-                     origenTabla.Rows.Add();
-                     origenTabla[0, cont].Value = dataReader.GetInt32(0);
-                     origenTabla[1, cont].Value = dataReader.GetInt32(1);
-                     origenTabla[2, cont].Value = dataReader.GetString(2);
-                     origenTabla[3, cont].Value = dataReader.GetString(3);
-                     origenTabla[4, cont].Value = dataReader.GetString(4);
-                     origenTabla[5, cont].Value = dataReader.GetInt32(5);
-                 //}
-             }
-             dataReader.Close();
-             return origenTabla;
-             */
         }
         
     }
