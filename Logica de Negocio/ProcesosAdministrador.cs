@@ -70,10 +70,9 @@ namespace Logica_de_Negocio
             origenCombo.Items.Clear();
             if (estado.Estado)
             {
-                SqlDataReader sqlDataReader = estado.Resultado;
-                while (sqlDataReader.HasRows && sqlDataReader.Read())
+                while (estado.Resultado.HasRows && estado.Resultado.Read())
                 {
-                    origenCombo.Items.Add(sqlDataReader.GetString(0));
+                    origenCombo.Items.Add(estado.Resultado.GetString(0));
                 }
                 estado.Resultado.Close();
             }

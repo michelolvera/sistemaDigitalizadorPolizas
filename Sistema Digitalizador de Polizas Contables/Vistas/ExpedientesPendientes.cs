@@ -20,7 +20,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
             InitializeComponent();
             this.procesosUsuario = procesosUsuario;
-            dgvExpedientes = this.procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes);
+            dgvExpedientes = this.procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, checkBoxDigitalizadosPend.Checked);
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -36,17 +36,16 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void BtnActualizar_Click(object sender, EventArgs e)
         {
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes);
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, checkBoxDigitalizadosPend.Checked);
            
         }
 
 
         private void DgvExpedientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            string cat_id;
-
-            cat_id = dgvExpedientes.Rows[dgvExpedientes.SelectedRows[0].Index].Cells[2].Value.ToString();
-            new Vistas.VisorDeDocumentos(1).Show();
+            String res = dgvExpedientes.Rows[dgvExpedientes.SelectedRows[0].Index].Cells[0].Value+"";
+            int expedienteId = Int32.Parse(res);
+            new Vistas.VisorDeDocumentos(expedienteId).Show();
         }
 
         private void ExpedientesP_FormClosed(object sender, FormClosedEventArgs e)
@@ -60,6 +59,16 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                 new MenuAdministrador(new ProcesosAdministrador(procesosUsuario.Usuario)).Show();
             else
                 MessageBox.Show("Usted no cuenta con los privilegios necesarios para gestionar este sistema.", "Error");
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void checkBoxDigitalizadosPend_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, checkBoxDigitalizadosPend.Checked);
         }
     }
 }
