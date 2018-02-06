@@ -17,6 +17,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 {
     public partial class VisorDeDocumentos : Form
     {
+        String ruta;
+        String nombreArchivo;
+        ControlDirectorioArchivos controlArchivos = new ControlDirectorioArchivos();
         int index; //Hay que cambiar el nombre de esta variable a algo mas especifico.
         private ProcesosUsuario procesosUsuario;
         private int expedienteActual;
@@ -37,11 +40,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 
         private void btnReemplazarDoc_Click(object sender, EventArgs e)
         {
-            if (File.Exists("c:\\saves\\100000" + index + ".pdf"))
-            {
-                File.Delete("c:\\saves\\100000" + index + ".pdf");
-                dgvDocumentos[3, index].Value = "0";
-            }
+            controlArchivos.EliminarArchivo(ruta, nombreArchivo);
             btnDigitalizar_Click(sender, null);
         }
 
@@ -60,9 +59,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 
             Console.WriteLine(datosArchivo.Area+datosArchivo.Expediente+datosArchivo.Categoria+datosArchivo.Documento+datosArchivo.Registro);
 
-            index = dgvDocumentos.SelectedRows[0].Index;
-            String ruta = "C:\\saves\\100000"+index+".pdf";
-            if (File.Exists(ruta))
+            //index = dgvDocumentos.SelectedRows[0].Index;
+            ruta = datosArchivo.Area + "\\" + datosArchivo.Expediente + "\\" + datosArchivo.Categoria+"\\"+ datosArchivo.Registro;
+            nombreArchivo = datosArchivo.Documento+".pdf";
+            if (File.Exists(ruta+"\\"+nombreArchivo))
             {
                 axAcroPDF1.Visible = true;
                 labelNoDigitalizado.Visible = false;
@@ -89,8 +89,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             if (fuente.ShowDialog() == DialogResult.OK)
             {
                 string source = fuente.FileName;
-                File.Copy(source, "c:\\saves\\100000" + index + ".pdf");
-                dgvDocumentos[3, index].Value = "1";
+                controlArchivos.CopiarArchivo(ruta, source, nombreArchivo);
 
             }
             fuente.Dispose();
@@ -101,11 +100,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 
         private void btnEliminarDoc_Click(object sender, EventArgs e)
         {
-            if (File.Exists("c:\\saves\\100000" + index + ".pdf")){
-                File.Delete("c:\\saves\\100000" + index + ".pdf");
-                dgvDocumentos[3, index].Value = "0";
-                dgvDocumentos_CellDoubleClick(sender, null);
-            }
+            controlArchivos.EliminarArchivo(ruta, nombreArchivo);
 
         }
     }
