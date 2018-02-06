@@ -42,6 +42,32 @@ namespace Logica_de_Negocio
                 }
             }
         }
+        public void EliminarArchivo(String pathDirectorio, String nombreArchivo)
+        {
+            if (Directory.Exists(pathDirectorio))
+            {
+                if (File.Exists(pathDirectorio + "\\" + nombreArchivo))
+                {
+                    try
+                    {
+                        File.Delete(pathDirectorio + "\\" + nombreArchivo);
+                        Console.WriteLine("Elimiando");
+                    }
+                    catch (System.IO.IOException e)
+                    {
+                        Console.WriteLine("Cierre el documento antes de tratar de modificarlo" + e.Message);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("El archivo no existe");
+                }
+            }
+            else
+            {
+                Console.WriteLine("El directorio no existe.");
+            }
+        }
     }
 
 }
