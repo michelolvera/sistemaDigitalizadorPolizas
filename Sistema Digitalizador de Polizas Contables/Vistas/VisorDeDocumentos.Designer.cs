@@ -43,10 +43,10 @@
             this.btnDigitalizar = new System.Windows.Forms.Button();
             this.labelNoDigitalizado = new System.Windows.Forms.Label();
             this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
-            this.idDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaDigitalizacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Digitalizado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,7 +78,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.labelNoDigitalizado);
             this.splitContainer1.Panel2.Controls.Add(this.axAcroPDF1);
             this.splitContainer1.Size = new System.Drawing.Size(1113, 577);
-            this.splitContainer1.SplitterDistance = 370;
+            this.splitContainer1.SplitterDistance = 368;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -87,7 +87,7 @@
             this.btnActualizarDocs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnActualizarDocs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizarDocs.BackgroundImage")));
             this.btnActualizarDocs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnActualizarDocs.Location = new System.Drawing.Point(303, 11);
+            this.btnActualizarDocs.Location = new System.Drawing.Point(324, 13);
             this.btnActualizarDocs.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizarDocs.Name = "btnActualizarDocs";
             this.btnActualizarDocs.Size = new System.Drawing.Size(40, 39);
@@ -113,7 +113,7 @@
             this.btnReemplazarDoc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnReemplazarDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReemplazarDoc.BackgroundImage")));
             this.btnReemplazarDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnReemplazarDoc.Location = new System.Drawing.Point(232, 534);
+            this.btnReemplazarDoc.Location = new System.Drawing.Point(232, 535);
             this.btnReemplazarDoc.Margin = new System.Windows.Forms.Padding(4);
             this.btnReemplazarDoc.Name = "btnReemplazarDoc";
             this.btnReemplazarDoc.Size = new System.Drawing.Size(52, 38);
@@ -137,7 +137,7 @@
             // 
             this.checkBoxDigitalizadosDoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxDigitalizadosDoc.AutoSize = true;
-            this.checkBoxDigitalizadosDoc.Location = new System.Drawing.Point(16, 36);
+            this.checkBoxDigitalizadosDoc.Location = new System.Drawing.Point(19, 35);
             this.checkBoxDigitalizadosDoc.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxDigitalizadosDoc.Name = "checkBoxDigitalizadosDoc";
             this.checkBoxDigitalizadosDoc.Size = new System.Drawing.Size(160, 21);
@@ -160,8 +160,12 @@
             // 
             this.dgvDocumentos.AllowUserToAddRows = false;
             this.dgvDocumentos.AllowUserToDeleteRows = false;
+            this.dgvDocumentos.AllowUserToOrderColumns = true;
             this.dgvDocumentos.AllowUserToResizeColumns = false;
             this.dgvDocumentos.AllowUserToResizeRows = false;
+            this.dgvDocumentos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDocumentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDocumentos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDocumentos.BackgroundColor = System.Drawing.Color.White;
@@ -177,9 +181,9 @@
             this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDocumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocumentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDoc,
-            this.nombreDoc,
-            this.fechaDigitalizacion,
+            this.colNum,
+            this.colNombre,
+            this.colCreacion,
             this.Digitalizado});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -192,7 +196,7 @@
             this.dgvDocumentos.EnableHeadersVisualStyles = false;
             this.dgvDocumentos.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvDocumentos.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvDocumentos.Location = new System.Drawing.Point(13, 64);
+            this.dgvDocumentos.Location = new System.Drawing.Point(4, 64);
             this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDocumentos.MultiSelect = false;
             this.dgvDocumentos.Name = "dgvDocumentos";
@@ -202,7 +206,7 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDocumentos.Size = new System.Drawing.Size(353, 463);
+            this.dgvDocumentos.Size = new System.Drawing.Size(360, 463);
             this.dgvDocumentos.TabIndex = 2;
             this.dgvDocumentos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocumentos_CellDoubleClick);
             // 
@@ -214,7 +218,7 @@
             this.btnDigitalizar.Location = new System.Drawing.Point(293, 308);
             this.btnDigitalizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnDigitalizar.Name = "btnDigitalizar";
-            this.btnDigitalizar.Size = new System.Drawing.Size(176, 57);
+            this.btnDigitalizar.Size = new System.Drawing.Size(199, 57);
             this.btnDigitalizar.TabIndex = 2;
             this.btnDigitalizar.Text = "Digitalizar";
             this.btnDigitalizar.UseVisualStyleBackColor = true;
@@ -243,29 +247,8 @@
             this.axAcroPDF1.Margin = new System.Windows.Forms.Padding(4);
             this.axAcroPDF1.Name = "axAcroPDF1";
             this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(738, 577);
+            this.axAcroPDF1.Size = new System.Drawing.Size(740, 577);
             this.axAcroPDF1.TabIndex = 0;
-            // 
-            // idDoc
-            // 
-            this.idDoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idDoc.HeaderText = "Id de Documento";
-            this.idDoc.Name = "idDoc";
-            this.idDoc.ReadOnly = true;
-            // 
-            // nombreDoc
-            // 
-            this.nombreDoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreDoc.HeaderText = "Nombre Documento";
-            this.nombreDoc.Name = "nombreDoc";
-            this.nombreDoc.ReadOnly = true;
-            // 
-            // fechaDigitalizacion
-            // 
-            this.fechaDigitalizacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.fechaDigitalizacion.HeaderText = "Fecha de Digitalizacion";
-            this.fechaDigitalizacion.Name = "fechaDigitalizacion";
-            this.fechaDigitalizacion.ReadOnly = true;
             // 
             // Digitalizado
             // 
@@ -273,6 +256,27 @@
             this.Digitalizado.HeaderText = "Digitalizado";
             this.Digitalizado.Name = "Digitalizado";
             this.Digitalizado.ReadOnly = true;
+            // 
+            // colCreacion
+            // 
+            this.colCreacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colCreacion.HeaderText = "Fecha de Creación";
+            this.colCreacion.Name = "colCreacion";
+            this.colCreacion.ReadOnly = true;
+            // 
+            // colNombre
+            // 
+            this.colNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNombre.HeaderText = "Nombre Expediente";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.ReadOnly = true;
+            // 
+            // colNum
+            // 
+            this.colNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNum.HeaderText = "Número. Expediente";
+            this.colNum.Name = "colNum";
+            this.colNum.ReadOnly = true;
             // 
             // VisorDeDocumentos
             // 
@@ -311,9 +315,9 @@
         private System.Windows.Forms.Button btnDigitalizar;
         private System.Windows.Forms.Label labelNoDigitalizado;
         private System.Windows.Forms.Button btnActualizarDocs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDigitalizacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCreacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Digitalizado;
     }
 }
