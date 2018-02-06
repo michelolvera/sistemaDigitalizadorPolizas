@@ -48,6 +48,7 @@
     <Compile Include="Elementos Visuales\DataGridStyle.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Objetos de datos\DatosArchivo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Objetos de datos\SQLEstado.cs" />
     <Compile Include="Objetos de datos\UsuarioInfo.cs" />
