@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisorDeDocumentos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnActualizarDocs = new System.Windows.Forms.Button();
             this.btnEliminarDoc = new System.Windows.Forms.Button();
@@ -40,13 +40,13 @@
             this.checkBoxDigitalizadosDoc = new System.Windows.Forms.CheckBox();
             this.labelCatActual = new System.Windows.Forms.Label();
             this.dgvDocumentos = new Entidades.DataGridStyle();
+            this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Digitalizado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDigitalizar = new System.Windows.Forms.Button();
             this.labelNoDigitalizado = new System.Windows.Forms.Label();
             this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
-            this.Digitalizado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,7 +59,6 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -77,9 +76,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnDigitalizar);
             this.splitContainer1.Panel2.Controls.Add(this.labelNoDigitalizado);
             this.splitContainer1.Panel2.Controls.Add(this.axAcroPDF1);
-            this.splitContainer1.Size = new System.Drawing.Size(1113, 577);
-            this.splitContainer1.SplitterDistance = 368;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(835, 469);
+            this.splitContainer1.SplitterDistance = 339;
             this.splitContainer1.TabIndex = 0;
             // 
             // btnActualizarDocs
@@ -87,10 +85,9 @@
             this.btnActualizarDocs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnActualizarDocs.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizarDocs.BackgroundImage")));
             this.btnActualizarDocs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnActualizarDocs.Location = new System.Drawing.Point(324, 13);
-            this.btnActualizarDocs.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActualizarDocs.Location = new System.Drawing.Point(306, 11);
             this.btnActualizarDocs.Name = "btnActualizarDocs";
-            this.btnActualizarDocs.Size = new System.Drawing.Size(40, 39);
+            this.btnActualizarDocs.Size = new System.Drawing.Size(30, 32);
             this.btnActualizarDocs.TabIndex = 7;
             this.btnActualizarDocs.UseVisualStyleBackColor = true;
             this.btnActualizarDocs.Click += new System.EventHandler(this.btnActualizarDocs_Click);
@@ -100,10 +97,9 @@
             this.btnEliminarDoc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnEliminarDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminarDoc.BackgroundImage")));
             this.btnEliminarDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEliminarDoc.Location = new System.Drawing.Point(292, 534);
-            this.btnEliminarDoc.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarDoc.Location = new System.Drawing.Point(250, 434);
             this.btnEliminarDoc.Name = "btnEliminarDoc";
-            this.btnEliminarDoc.Size = new System.Drawing.Size(52, 38);
+            this.btnEliminarDoc.Size = new System.Drawing.Size(39, 31);
             this.btnEliminarDoc.TabIndex = 6;
             this.btnEliminarDoc.UseVisualStyleBackColor = true;
             this.btnEliminarDoc.Click += new System.EventHandler(this.btnEliminarDoc_Click);
@@ -113,10 +109,9 @@
             this.btnReemplazarDoc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnReemplazarDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReemplazarDoc.BackgroundImage")));
             this.btnReemplazarDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnReemplazarDoc.Location = new System.Drawing.Point(232, 535);
-            this.btnReemplazarDoc.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReemplazarDoc.Location = new System.Drawing.Point(205, 435);
             this.btnReemplazarDoc.Name = "btnReemplazarDoc";
-            this.btnReemplazarDoc.Size = new System.Drawing.Size(52, 38);
+            this.btnReemplazarDoc.Size = new System.Drawing.Size(39, 31);
             this.btnReemplazarDoc.TabIndex = 5;
             this.btnReemplazarDoc.UseVisualStyleBackColor = true;
             this.btnReemplazarDoc.Click += new System.EventHandler(this.btnReemplazarDoc_Click);
@@ -124,10 +119,9 @@
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBack.Location = new System.Drawing.Point(16, 539);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Location = new System.Drawing.Point(12, 438);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(195, 28);
+            this.btnBack.Size = new System.Drawing.Size(146, 23);
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "Regresar a Pendientes";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -135,12 +129,11 @@
             // 
             // checkBoxDigitalizadosDoc
             // 
-            this.checkBoxDigitalizadosDoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxDigitalizadosDoc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkBoxDigitalizadosDoc.AutoSize = true;
-            this.checkBoxDigitalizadosDoc.Location = new System.Drawing.Point(19, 35);
-            this.checkBoxDigitalizadosDoc.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxDigitalizadosDoc.Location = new System.Drawing.Point(15, 29);
             this.checkBoxDigitalizadosDoc.Name = "checkBoxDigitalizadosDoc";
-            this.checkBoxDigitalizadosDoc.Size = new System.Drawing.Size(160, 21);
+            this.checkBoxDigitalizadosDoc.Size = new System.Drawing.Size(121, 17);
             this.checkBoxDigitalizadosDoc.TabIndex = 4;
             this.checkBoxDigitalizadosDoc.Text = "Mostrar digitalizados";
             this.checkBoxDigitalizadosDoc.UseVisualStyleBackColor = true;
@@ -149,10 +142,9 @@
             // labelCatActual
             // 
             this.labelCatActual.AutoSize = true;
-            this.labelCatActual.Location = new System.Drawing.Point(16, 11);
-            this.labelCatActual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCatActual.Location = new System.Drawing.Point(12, 9);
             this.labelCatActual.Name = "labelCatActual";
-            this.labelCatActual.Size = new System.Drawing.Size(240, 17);
+            this.labelCatActual.Size = new System.Drawing.Size(179, 13);
             this.labelCatActual.TabIndex = 3;
             this.labelCatActual.Text = "Categoria actual: Pólizas de Egresos";
             // 
@@ -171,54 +163,80 @@
             this.dgvDocumentos.BackgroundColor = System.Drawing.Color.White;
             this.dgvDocumentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDocumentos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDocumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocumentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNum,
             this.colNombre,
             this.colCreacion,
             this.Digitalizado});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDocumentos.EnableHeadersVisualStyles = false;
             this.dgvDocumentos.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvDocumentos.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvDocumentos.Location = new System.Drawing.Point(4, 64);
-            this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvDocumentos.Location = new System.Drawing.Point(3, 52);
             this.dgvDocumentos.MultiSelect = false;
             this.dgvDocumentos.Name = "dgvDocumentos";
             this.dgvDocumentos.ReadOnly = true;
             this.dgvDocumentos.RowHeadersVisible = false;
             this.dgvDocumentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDocumentos.Size = new System.Drawing.Size(360, 463);
+            this.dgvDocumentos.Size = new System.Drawing.Size(333, 376);
             this.dgvDocumentos.TabIndex = 2;
             this.dgvDocumentos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocumentos_CellDoubleClick);
+            // 
+            // colNum
+            // 
+            this.colNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNum.HeaderText = "Número. Expediente";
+            this.colNum.Name = "colNum";
+            this.colNum.ReadOnly = true;
+            // 
+            // colNombre
+            // 
+            this.colNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNombre.HeaderText = "Nombre Expediente";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.ReadOnly = true;
+            // 
+            // colCreacion
+            // 
+            this.colCreacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colCreacion.HeaderText = "Fecha de Creación";
+            this.colCreacion.Name = "colCreacion";
+            this.colCreacion.ReadOnly = true;
+            // 
+            // Digitalizado
+            // 
+            this.Digitalizado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Digitalizado.HeaderText = "Digitalizado";
+            this.Digitalizado.Name = "Digitalizado";
+            this.Digitalizado.ReadOnly = true;
             // 
             // btnDigitalizar
             // 
             this.btnDigitalizar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDigitalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDigitalizar.Location = new System.Drawing.Point(293, 308);
-            this.btnDigitalizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDigitalizar.Location = new System.Drawing.Point(220, 250);
             this.btnDigitalizar.Name = "btnDigitalizar";
-            this.btnDigitalizar.Size = new System.Drawing.Size(199, 57);
+            this.btnDigitalizar.Size = new System.Drawing.Size(85, 46);
             this.btnDigitalizar.TabIndex = 2;
             this.btnDigitalizar.Text = "Digitalizar";
             this.btnDigitalizar.UseVisualStyleBackColor = true;
@@ -231,10 +249,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelNoDigitalizado.AutoSize = true;
             this.labelNoDigitalizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoDigitalizado.Location = new System.Drawing.Point(143, 249);
-            this.labelNoDigitalizado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNoDigitalizado.Location = new System.Drawing.Point(107, 202);
             this.labelNoDigitalizado.Name = "labelNoDigitalizado";
-            this.labelNoDigitalizado.Size = new System.Drawing.Size(478, 42);
+            this.labelNoDigitalizado.Size = new System.Drawing.Size(375, 33);
             this.labelNoDigitalizado.TabIndex = 1;
             this.labelNoDigitalizado.Text = "¡Documento no digitalizado!";
             this.labelNoDigitalizado.Visible = false;
@@ -244,48 +261,18 @@
             this.axAcroPDF1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.axAcroPDF1.Enabled = true;
             this.axAcroPDF1.Location = new System.Drawing.Point(0, 0);
-            this.axAcroPDF1.Margin = new System.Windows.Forms.Padding(4);
             this.axAcroPDF1.Name = "axAcroPDF1";
             this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(740, 577);
+            this.axAcroPDF1.Size = new System.Drawing.Size(492, 469);
             this.axAcroPDF1.TabIndex = 0;
-            // 
-            // Digitalizado
-            // 
-            this.Digitalizado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Digitalizado.HeaderText = "Digitalizado";
-            this.Digitalizado.Name = "Digitalizado";
-            this.Digitalizado.ReadOnly = true;
-            // 
-            // colCreacion
-            // 
-            this.colCreacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colCreacion.HeaderText = "Fecha de Creación";
-            this.colCreacion.Name = "colCreacion";
-            this.colCreacion.ReadOnly = true;
-            // 
-            // colNombre
-            // 
-            this.colNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNombre.HeaderText = "Nombre Expediente";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.ReadOnly = true;
-            // 
-            // colNum
-            // 
-            this.colNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNum.HeaderText = "Número. Expediente";
-            this.colNum.Name = "colNum";
-            this.colNum.ReadOnly = true;
             // 
             // VisorDeDocumentos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 577);
+            this.ClientSize = new System.Drawing.Size(835, 469);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VisorDeDocumentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisorDeDocumentos";
