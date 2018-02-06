@@ -10,20 +10,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using Logica_de_Negocio;
 
 namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 {
     public partial class VisorDeDocumentos : Form
     {
-        int index;
+        int index; //Hay que cambiar el nombre de esta variable a algo mas especifico.
+        private ProcesosUsuario procesosUsuario;
+        private int expedienteActual;
 
-        public VisorDeDocumentos(int categoria)
+        public VisorDeDocumentos(ProcesosUsuario procesosUsuario, int expedienteActual)
         {
-
             InitializeComponent();
-            
+            this.procesosUsuario = procesosUsuario;
+            this.expedienteActual = expedienteActual;
+            dgvDocumentos = this.procesosUsuario.LlenarTablaDocumentosPendientes(dgvDocumentos, this.expedienteActual, checkBoxDigitalizadosDoc.Checked);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -43,21 +45,16 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 
         private void btnActualizarDocs_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                dgvDocumentos.Rows.Add();
-                dgvDocumentos[0, i].Value = "1";
-                dgvDocumentos[1, i].Value = "Pólizas contables";
-                dgvDocumentos[2, i].Value = "2017-12-10";
-                dgvDocumentos[3, i].Value = "0";
-            }
-            btnActualizarDocs.Enabled = false;
+
         }
 
         private void dgvDocumentos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-             index = dgvDocumentos.SelectedRows[0].Index;
+            //Obtener ID de documento seleccionado
+            String res = dgvDocumentos.Rows[dgvDocumentos.SelectedRows[0].Index].Cells[0].Value + "";
+            int idSeleccionado = Int32.Parse(res);
 
+            index = dgvDocumentos.SelectedRows[0].Index;
             String ruta = "C:\\saves\\100000"+index+".pdf";
             if (File.Exists(ruta))
             {

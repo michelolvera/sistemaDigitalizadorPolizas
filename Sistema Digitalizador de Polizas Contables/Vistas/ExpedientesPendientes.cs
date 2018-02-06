@@ -45,7 +45,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
             String res = dgvExpedientes.Rows[dgvExpedientes.SelectedRows[0].Index].Cells[0].Value+"";
             int expedienteId = Int32.Parse(res);
-            new Vistas.VisorDeDocumentos(expedienteId).Show();
+            new Vistas.VisorDeDocumentos(procesosUsuario, expedienteId).Show();
         }
 
         private void ExpedientesP_FormClosed(object sender, FormClosedEventArgs e)

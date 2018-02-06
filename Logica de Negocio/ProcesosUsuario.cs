@@ -50,9 +50,9 @@ namespace Logica_de_Negocio
             origenTabla.Rows.Clear();
             SQLEstado sQLEstado;
             if (completado)
-                sQLEstado = Conexion.EjecutarConsulta("SELECT id_registro, identificador_registro, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.fecha_alta, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_usuario, nombre_expediente, nombre_categoria, completo FROM DBO.TBL_DIG_REGISTRO_EXPEDIENTE INNER JOIN DBO.TBL_DIG_CATEGORIAS ON DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=DBO.TBL_DIG_CATEGORIAS.id_categoria INNER JOIN DBO.TBL_DIG_EXPEDIENTES ON DBO.TBL_DIG_CATEGORIAS.id_expediente = DBO.TBL_DIG_EXPEDIENTES.id_expediente INNER JOIN DBO.TBL_DIG_AREAS ON DBO.TBL_DIG_EXPEDIENTES.id_area = DBO.TBL_DIG_AREAS.id_area WHERE DBO.TBL_DIG_AREAS.id_area = " + Usuario.IdArea + ";");
+                sQLEstado = Conexion.EjecutarConsulta("SELECT id_registro, identificador_registro, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.fecha_alta, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_usuario, nombre_expediente, nombre_categoria, completo FROM DBO.TBL_DIG_REGISTRO_EXPEDIENTE INNER JOIN DBO.TBL_DIG_CATEGORIAS ON DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=DBO.TBL_DIG_CATEGORIAS.id_categoria INNER JOIN DBO.TBL_DIG_EXPEDIENTES ON DBO.TBL_DIG_CATEGORIAS.id_expediente = DBO.TBL_DIG_EXPEDIENTES.id_expediente INNER JOIN DBO.TBL_DIG_AREAS ON DBO.TBL_DIG_EXPEDIENTES.id_area = DBO.TBL_DIG_AREAS.id_area WHERE DBO.TBL_DIG_AREAS.id_area = " + Usuario.IdArea + " AND DBO.TBL_DIG_CATEGORIAS.activo=1 AND DBO.TBL_DIG_EXPEDIENTES.activo=1 AND DBO.TBL_DIG_AREAS.activo=1;");
             else
-                sQLEstado = Conexion.EjecutarConsulta("SELECT id_registro, identificador_registro, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.fecha_alta, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_usuario, nombre_expediente, nombre_categoria, completo FROM DBO.TBL_DIG_REGISTRO_EXPEDIENTE INNER JOIN DBO.TBL_DIG_CATEGORIAS ON DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=DBO.TBL_DIG_CATEGORIAS.id_categoria INNER JOIN DBO.TBL_DIG_EXPEDIENTES ON DBO.TBL_DIG_CATEGORIAS.id_expediente = DBO.TBL_DIG_EXPEDIENTES.id_expediente INNER JOIN DBO.TBL_DIG_AREAS ON DBO.TBL_DIG_EXPEDIENTES.id_area = DBO.TBL_DIG_AREAS.id_area WHERE DBO.TBL_DIG_AREAS.id_area = " + Usuario.IdArea + " AND DBO.TBL_DIG_REGISTRO_EXPEDIENTE.completo='false';");
+                sQLEstado = Conexion.EjecutarConsulta("SELECT id_registro, identificador_registro, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.fecha_alta, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_usuario, nombre_expediente, nombre_categoria, completo FROM DBO.TBL_DIG_REGISTRO_EXPEDIENTE INNER JOIN DBO.TBL_DIG_CATEGORIAS ON DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=DBO.TBL_DIG_CATEGORIAS.id_categoria INNER JOIN DBO.TBL_DIG_EXPEDIENTES ON DBO.TBL_DIG_CATEGORIAS.id_expediente = DBO.TBL_DIG_EXPEDIENTES.id_expediente INNER JOIN DBO.TBL_DIG_AREAS ON DBO.TBL_DIG_EXPEDIENTES.id_area = DBO.TBL_DIG_AREAS.id_area WHERE DBO.TBL_DIG_AREAS.id_area = " + Usuario.IdArea + " AND DBO.TBL_DIG_REGISTRO_EXPEDIENTE.completo='false' AND DBO.TBL_DIG_CATEGORIAS.activo=1 AND DBO.TBL_DIG_EXPEDIENTES.activo=1 AND DBO.TBL_DIG_AREAS.activo=1;");
 
             if (sQLEstado.Estado)
             {
@@ -64,6 +64,37 @@ namespace Logica_de_Negocio
             }
             return origenTabla;
         }
-        
+
+        public Entidades.DataGridStyle LlenarTablaDocumentosPendientes(Entidades.DataGridStyle origenTabla, int expediente, bool completado)
+        {
+            origenTabla.Rows.Clear();
+            SQLEstado sQLEstado;
+            if (completado)
+                sQLEstado = Conexion.EjecutarConsulta("SELECT id_documento_dig, nombre_documento, fecha_digitalizado, digitalizado FROM dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS INNER JOIN dbo.TBL_DIG_DOCUMENTOS_CATEGORIA ON dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS.id_documento=dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_documento WHERE id_registro=" + expediente + " AND activo=1;");
+            else
+                sQLEstado = Conexion.EjecutarConsulta("SELECT id_documento_dig, nombre_documento, fecha_digitalizado, digitalizado FROM dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS INNER JOIN dbo.TBL_DIG_DOCUMENTOS_CATEGORIA ON dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS.id_documento=dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_documento WHERE id_registro=" + expediente + " AND digitalizado=0 AND activo=1;");
+
+            if (sQLEstado.Estado)
+            {
+                while (sQLEstado.Resultado.HasRows && sQLEstado.Resultado.Read())
+                {
+                    DateTime fechaDigitalizado;
+                    String fechaTexto;
+                    try
+                    {
+                        fechaDigitalizado = sQLEstado.Resultado.GetDateTime(2);
+                        fechaTexto = fechaDigitalizado.ToLongDateString();
+                    }catch(Exception e)
+                    {
+                        fechaTexto = "No se ha digitalizado";
+                        Console.WriteLine(e.Message);
+                    }
+                    origenTabla.Rows.Add(sQLEstado.Resultado.GetInt32(0), sQLEstado.Resultado.GetString(1), fechaTexto, sQLEstado.Resultado.GetBoolean(3));
+                }
+                sQLEstado.Resultado.Close();
+            }
+            return origenTabla;
+        }
+
     }
 }
