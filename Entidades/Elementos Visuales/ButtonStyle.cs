@@ -5,14 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-public class ButtonStyle : Button 
-  {
-    public ButtonStyle()
+namespace Entidades
+{
+    public class ButtonStyle : Button
     {
-        this.BackColor = System.Drawing.ColorTranslator.FromHtml("#00968");
-        this.Font = new Font("Century Gothic", 9, FontStyle.Regular);
-        this.ForeColor = System.Drawing.ColorTranslator.FromHtml("#EFF3F5");
+        public ButtonStyle()
+        {
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.Font = new Font("Century Gothic", 9, FontStyle.Regular);
+            this.ForeColor = System.Drawing.ColorTranslator.FromHtml("#EFF3F5");
+        }
     }
-  }
+}
 

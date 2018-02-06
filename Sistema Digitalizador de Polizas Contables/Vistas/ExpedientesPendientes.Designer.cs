@@ -41,7 +41,7 @@
             this.nombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.digitalizado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelPendientes = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnActualizar = new Entidades.ButtonStyle();
             this.checkBoxDigitalizadosPend = new System.Windows.Forms.CheckBox();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -181,7 +181,7 @@
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(40, 39);
             this.btnActualizar.TabIndex = 2;
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // checkBoxDigitalizadosPend
@@ -254,7 +254,7 @@
 
         private Entidades.DataGridStyle dgvExpedientes;
         private System.Windows.Forms.Label labelPendientes;
-        private System.Windows.Forms.Button btnActualizar;
+        private Entidades.ButtonStyle btnActualizar;
         private System.Windows.Forms.CheckBox checkBoxDigitalizadosPend;
         private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarToolStripMenuItem;

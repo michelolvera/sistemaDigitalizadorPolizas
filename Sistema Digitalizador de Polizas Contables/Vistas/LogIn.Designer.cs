@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCancelar = new Entidades.ButtonStyle();
             this.txbPassword = new System.Windows.Forms.TextBox();
-            this.btnAcceso = new System.Windows.Forms.Button();
+            this.btnAcceso = new Entidades.ButtonStyle();
             this.txbNombreUsuario = new System.Windows.Forms.TextBox();
             this.lblIDUsuario = new System.Windows.Forms.Label();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
             this.btnCancelar.Size = new System.Drawing.Size(84, 32);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.BotonCancelarLogAdmin_Click);
             // 
             // txbPassword
@@ -67,7 +67,7 @@
             this.btnAcceso.Size = new System.Drawing.Size(84, 32);
             this.btnAcceso.TabIndex = 3;
             this.btnAcceso.Text = "Acceso";
-            this.btnAcceso.UseVisualStyleBackColor = true;
+            this.btnAcceso.UseVisualStyleBackColor = false;
             this.btnAcceso.Click += new System.EventHandler(this.BotonAccesoAdmin_Click);
             // 
             // txbNombreUsuario
@@ -160,9 +160,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnCancelar;
+        private Entidades.ButtonStyle btnCancelar;
         private System.Windows.Forms.TextBox txbPassword;
-        private System.Windows.Forms.Button btnAcceso;
+        private Entidades.ButtonStyle btnAcceso;
         private System.Windows.Forms.TextBox txbNombreUsuario;
         private System.Windows.Forms.Label lblIDUsuario;
         private System.Windows.Forms.Label lblNombreUsuario;

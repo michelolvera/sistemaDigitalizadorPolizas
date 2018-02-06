@@ -39,8 +39,8 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.dgvDocumentos = new Entidades.DataGridStyle();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGuardar = new Entidades.ButtonStyle();
+            this.btnCancelar = new Entidades.ButtonStyle();
             this.ckbArea = new System.Windows.Forms.CheckBox();
             this.ckbExpediente = new System.Windows.Forms.CheckBox();
             this.ckbCategoria = new System.Windows.Forms.CheckBox();
@@ -159,24 +159,26 @@
             // btnGuardar
             // 
             this.btnGuardar.Enabled = false;
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnGuardar.Location = new System.Drawing.Point(684, 416);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(84, 29);
             this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnCancelar.Location = new System.Drawing.Point(15, 416);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 29);
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // ckbArea
@@ -253,8 +255,8 @@
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.Label lblCategoria;
         private Entidades.DataGridStyle dgvDocumentos;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
+        private Entidades.ButtonStyle btnGuardar;
+        private Entidades.ButtonStyle btnCancelar;
         private System.Windows.Forms.CheckBox ckbArea;
         private System.Windows.Forms.CheckBox ckbExpediente;
         private System.Windows.Forms.CheckBox ckbCategoria;
