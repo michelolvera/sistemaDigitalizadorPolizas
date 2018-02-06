@@ -57,12 +57,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 
             DatosArchivo datosArchivo = procesosUsuario.ObtenerNombreArchivo(idSeleccionado);
 
-            Console.WriteLine(datosArchivo.Area+datosArchivo.Expediente+datosArchivo.Categoria+datosArchivo.Documento+datosArchivo.Registro);
+            Console.WriteLine(datosArchivo.Area + datosArchivo.Expediente + datosArchivo.Categoria + datosArchivo.Documento + datosArchivo.Registro);
 
             //index = dgvDocumentos.SelectedRows[0].Index;
-            ruta = datosArchivo.Area + "\\" + datosArchivo.Expediente + "\\" + datosArchivo.Categoria+"\\"+ datosArchivo.Registro;
-            nombreArchivo = datosArchivo.Documento+".pdf";
-            if (File.Exists(ruta+"\\"+nombreArchivo))
+            ruta = datosArchivo.Area + "\\" + datosArchivo.Expediente + "\\" + datosArchivo.Categoria + "\\" + datosArchivo.Registro;
+            nombreArchivo = datosArchivo.Documento + ".pdf";
+            if (File.Exists(ruta + "\\" + nombreArchivo))
             {
                 axAcroPDF1.Visible = true;
                 labelNoDigitalizado.Visible = false;
@@ -78,7 +78,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             }
 
 
-            
+
         }
 
         private void btnDigitalizar_Click(object sender, EventArgs e)
