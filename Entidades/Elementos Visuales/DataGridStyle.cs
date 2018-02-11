@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Entidades
 {
-    public class DataGridStyle: DataGridView
+    public class DataGridStyle : DataGridView
     {
         public DataGridStyle()
         {
@@ -39,7 +39,6 @@ namespace Entidades
             this.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             this.RowsDefaultCellStyle.BackColor = Color.White;
             //this.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#EFF3"); // valor no completo
-            
         }
     }
 }

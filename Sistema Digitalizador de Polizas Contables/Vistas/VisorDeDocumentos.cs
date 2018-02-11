@@ -20,7 +20,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         String ruta;
         String nombreArchivo;
         ControlDirectorioArchivos controlArchivos = new ControlDirectorioArchivos();
-        int index; //Hay que cambiar el nombre de esta variable a algo mas especifico.
         private ProcesosUsuario procesosUsuario;
         private int expedienteActual;
 
