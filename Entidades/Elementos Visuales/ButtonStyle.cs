@@ -15,6 +15,7 @@ namespace Entidades
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.Font = new Font("Century Gothic", 9, FontStyle.Regular);
             this.ForeColor = System.Drawing.ColorTranslator.FromHtml("#EFF3F5");
+            this.FlatStyle = FlatStyle.Popup;
         }
     }
 }
