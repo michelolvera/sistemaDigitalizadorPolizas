@@ -51,7 +51,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         private void dgvDocumentos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Obtener ID de documento seleccionado
-            String res = dgvDocumentos.Rows[dgvDocumentos.SelectedRows[0].Index].Cells[0].Value + "";
+            String res = dgvDocumentos.Rows[dgvDocumentos.SelectedRows[0].Index].Cells[0].Value.ToString();
             int idSeleccionado = Int32.Parse(res);
 
             DatosArchivo datosArchivo = procesosUsuario.ObtenerNombreArchivo(idSeleccionado);

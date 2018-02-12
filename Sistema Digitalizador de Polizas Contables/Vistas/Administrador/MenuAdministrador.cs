@@ -9,28 +9,86 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MsgBox;
+using Entidades;
 
 namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
 {
     public partial class MenuAdministrador : Form
     {
         ProcesosAdministrador procesosAdministrador;
+        List<DocumentosInfo> documentosEditados = new List<DocumentosInfo>();
         public MenuAdministrador(ProcesosAdministrador procesosAdministrador)
         {
             InitializeComponent();
             this.procesosAdministrador = procesosAdministrador;
+            InputBox.SetLanguage(InputBox.Language.Spanish); //Esto se puede cambiar para editar en el mismo Combo! Checar esto.
+
+            //Eventos de DataGrid
             dgvDocumentos.AllowUserToAddRows = true;
             dgvDocumentos.ReadOnly = false;
             dgvDocumentos.DefaultValuesNeeded += new DataGridViewRowEventHandler(this.DgvDocumentos_DefaultValuesNeeded);
+            dgvDocumentos.CellEnter += DgvDocumentos_CellEnter;
+            dgvDocumentos.CellParsing += DgvDocumentos_CellParsing;
+            dgvDocumentos.RowValidating += DgvDocumentos_RowValidating;
+
+            //Eventos de check box
             ckbArea.MouseClick += new MouseEventHandler(this.CkbArea_MouseClick);
             ckbExpediente.MouseClick += new MouseEventHandler(this.CkbExpediente_MouseClick);
             ckbCategoria.MouseClick += new MouseEventHandler(this.CkbCategoria_MouseClick);
-            InputBox.SetLanguage(InputBox.Language.Spanish);
+        }
+
+        private void DgvDocumentos_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (dgvDocumentos[0, e.RowIndex].Value == null || dgvDocumentos[0, e.RowIndex].Value.ToString() == string.Empty)
+            {
+                if (e.RowIndex == dgvDocumentos.NewRowIndex)
+                {
+                    //Usuario creo una nueva fila pero no comenso la edicion de esta nombre a esta
+                    dgvDocumentos.Rows[e.RowIndex].Cells["NombreUsuario"].Value = null;
+                    dgvDocumentos.Rows[e.RowIndex].Cells["FechaAlta"].Value = null;
+                    dgvDocumentos.Rows[e.RowIndex].Cells["Activo"].Value = null;
+                }
+                else
+                {
+                    dgvDocumentos[0, e.RowIndex].ErrorText = "El valor no puede estar vacio.";
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                dgvDocumentos[0, e.RowIndex].ErrorText = String.Empty;
+            }
+        }
+
+        private void DgvDocumentos_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            //Editar nombre automaticamente al crear nueva celda.
+            if (e.RowIndex == dgvDocumentos.NewRowIndex)
+            {
+                dgvDocumentos.CurrentCell = dgvDocumentos[e.ColumnIndex, e.RowIndex];
+                dgvDocumentos.BeginEdit(true);
+            }
+        }
+
+        private void DgvDocumentos_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            //Eliminar las ediciones antiguas de la lista.
+            documentosEditados.RemoveAll(delegate (DocumentosInfo doc) { return doc.PosIndex == e.RowIndex; });
+            //Agregar a lista de pendientes a enviar a la BD
+            if (e.ColumnIndex == 0)
+            {
+                documentosEditados.Add(new DocumentosInfo(e.RowIndex, e.Value.ToString(), (bool)dgvDocumentos[3, e.RowIndex].Value));
+            }
+            else if(e.ColumnIndex == 3)
+            {
+                documentosEditados.Add(new DocumentosInfo(e.RowIndex, dgvDocumentos[0, e.RowIndex].Value.ToString(), (bool) e.Value));
+            }
         }
 
         private void DgvDocumentos_DefaultValuesNeeded(object sender,
         System.Windows.Forms.DataGridViewRowEventArgs e)
         {
+            //Auto rellenar valores de texto
             if (!procesosAdministrador.NuevoRegistroDefault(e))
                 MessageBox.Show("Se ha presentado un error.");
         }
@@ -79,7 +137,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (procesosAdministrador.ActualizarTablaDocumentos())
+            if (procesosAdministrador.ActualizarTablaDocumentos(documentosEditados))
             {
                 MessageBox.Show("Modificaciones insertadas con exito.", "Alerta");
             }
@@ -117,7 +175,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             else {
                 //Obtener tabla
                 dgvDocumentos = procesosAdministrador.ObtenerTablaDocumentos(dgvDocumentos, cmbCategoria.SelectedIndex);
-                dgvDocumentos.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                
                 //Activar controles necesarios
                 dgvDocumentos.Enabled = true;
                 ckbCategoria.Enabled = true;
@@ -213,11 +271,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             SetVisibleCore(false);
-        }
-
-        private void dgvDocumentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

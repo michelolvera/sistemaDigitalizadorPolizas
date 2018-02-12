@@ -33,19 +33,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpedientesP));
             this.dgvExpedientes = new Entidades.DataGridStyle();
-            this.idRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.digitalizado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelPendientes = new System.Windows.Forms.Label();
             this.btnActualizar = new Entidades.ButtonStyle();
             this.checkBoxDigitalizadosPend = new System.Windows.Forms.CheckBox();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.idRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.digitalizado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +107,72 @@
             this.dgvExpedientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.dgvExpedientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvExpedientes_CellMouseDoubleClick);
             // 
+            // labelPendientes
+            // 
+            this.labelPendientes.AutoSize = true;
+            this.labelPendientes.Location = new System.Drawing.Point(13, 39);
+            this.labelPendientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPendientes.Name = "labelPendientes";
+            this.labelPendientes.Size = new System.Drawing.Size(79, 17);
+            this.labelPendientes.TabIndex = 1;
+            this.labelPendientes.Text = "Pendientes";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
+            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.btnActualizar.Location = new System.Drawing.Point(964, 28);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(40, 39);
+            this.btnActualizar.TabIndex = 2;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            // 
+            // checkBoxDigitalizadosPend
+            // 
+            this.checkBoxDigitalizadosPend.AutoSize = true;
+            this.checkBoxDigitalizadosPend.Location = new System.Drawing.Point(777, 38);
+            this.checkBoxDigitalizadosPend.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxDigitalizadosPend.Name = "checkBoxDigitalizadosPend";
+            this.checkBoxDigitalizadosPend.Size = new System.Drawing.Size(160, 21);
+            this.checkBoxDigitalizadosPend.TabIndex = 5;
+            this.checkBoxDigitalizadosPend.Text = "Mostrar digitalizados";
+            this.checkBoxDigitalizadosPend.UseVisualStyleBackColor = true;
+            this.checkBoxDigitalizadosPend.CheckedChanged += new System.EventHandler(this.checkBoxDigitalizadosPend_CheckedChanged);
+            // 
+            // herramientasToolStripMenuItem
+            // 
+            this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.administrarToolStripMenuItem});
+            this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
+            this.herramientasToolStripMenuItem.Text = "Herramientas";
+            // 
+            // administrarToolStripMenuItem
+            // 
+            this.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
+            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.administrarToolStripMenuItem.Text = "Administrar";
+            this.administrarToolStripMenuItem.Click += new System.EventHandler(this.AdministrarToolStripMenuItem_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.herramientasToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1017, 28);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            // 
             // idRegistro
             // 
             this.idRegistro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -160,69 +226,8 @@
             this.digitalizado.HeaderText = "Digitalizado";
             this.digitalizado.Name = "digitalizado";
             this.digitalizado.ReadOnly = true;
-            // 
-            // labelPendientes
-            // 
-            this.labelPendientes.AutoSize = true;
-            this.labelPendientes.Location = new System.Drawing.Point(13, 39);
-            this.labelPendientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelPendientes.Name = "labelPendientes";
-            this.labelPendientes.Size = new System.Drawing.Size(79, 17);
-            this.labelPendientes.TabIndex = 1;
-            this.labelPendientes.Text = "Pendientes";
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
-            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnActualizar.Location = new System.Drawing.Point(964, 28);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(40, 39);
-            this.btnActualizar.TabIndex = 2;
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
-            // 
-            // checkBoxDigitalizadosPend
-            // 
-            this.checkBoxDigitalizadosPend.AutoSize = true;
-            this.checkBoxDigitalizadosPend.Location = new System.Drawing.Point(777, 38);
-            this.checkBoxDigitalizadosPend.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxDigitalizadosPend.Name = "checkBoxDigitalizadosPend";
-            this.checkBoxDigitalizadosPend.Size = new System.Drawing.Size(160, 21);
-            this.checkBoxDigitalizadosPend.TabIndex = 5;
-            this.checkBoxDigitalizadosPend.Text = "Mostrar digitalizados";
-            this.checkBoxDigitalizadosPend.UseVisualStyleBackColor = true;
-            this.checkBoxDigitalizadosPend.CheckedChanged += new System.EventHandler(this.checkBoxDigitalizadosPend_CheckedChanged);
-            // 
-            // herramientasToolStripMenuItem
-            // 
-            this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.administrarToolStripMenuItem});
-            this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
-            this.herramientasToolStripMenuItem.Text = "Herramientas";
-            // 
-            // administrarToolStripMenuItem
-            // 
-            this.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
-            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
-            this.administrarToolStripMenuItem.Text = "Administrar";
-            this.administrarToolStripMenuItem.Click += new System.EventHandler(this.AdministrarToolStripMenuItem_Click);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.herramientasToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1017, 28);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            this.digitalizado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.digitalizado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // ExpedientesP
             // 
@@ -265,6 +270,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreExpediente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn digitalizado;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn digitalizado;
     }
 }

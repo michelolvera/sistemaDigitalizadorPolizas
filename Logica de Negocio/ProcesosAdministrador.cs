@@ -28,6 +28,7 @@ namespace Logica_de_Negocio
         public DataGridStyle ObtenerTablaDocumentos(DataGridStyle origenTabla, int index)
         {
             documentoId.Clear();
+            origenTabla.Rows.Clear();
             estado = Conexion.EjecutarConsulta("SELECT nombre_documento, nombre_usuario, fecha_alta, dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.activo, id_documento FROM dbo.TBL_DIG_DOCUMENTOS_CATEGORIA INNER JOIN dbo.TBL_DIG_USERS on dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_usuario=dbo.TBL_DIG_USERS.id_usuario WHERE id_categoria = " + categoriaId[index] +";");
             if (estado.Estado)
             {
@@ -47,8 +48,19 @@ namespace Logica_de_Negocio
             return null;
         }
 
-        public bool ActualizarTablaDocumentos()
+        public bool ActualizarTablaDocumentos(List<DocumentosInfo> documentosEditados)
         {
+            foreach (DocumentosInfo documento in documentosEditados)
+            {
+                if(documento.PosIndex <= documentoId.Count - 1)
+                {
+                    //Update del registro
+                }
+                else
+                {
+                    //Insert del registro
+                }
+            }
             return false;
         }
 

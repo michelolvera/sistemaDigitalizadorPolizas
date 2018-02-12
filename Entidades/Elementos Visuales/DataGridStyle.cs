@@ -13,6 +13,7 @@ namespace Entidades
         public DataGridStyle()
         {
             this.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            this.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             this.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.ColumnHeadersDefaultCellStyle.BackColor = Color.White;

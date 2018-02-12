@@ -164,7 +164,6 @@
             this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDocumentos.Size = new System.Drawing.Size(755, 306);
             this.dgvDocumentos.TabIndex = 6;
-            this.dgvDocumentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocumentos_CellContentClick);
             // 
             // btnGuardar
             // 
