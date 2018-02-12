@@ -43,6 +43,9 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.btnCancelar.Location = new System.Drawing.Point(212, 109);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(84, 32);
@@ -62,7 +65,12 @@
             // 
             // btnAcceso
             // 
+            this.btnAcceso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnAcceso.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAcceso.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnAcceso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.btnAcceso.Location = new System.Drawing.Point(342, 109);
+            this.btnAcceso.Margin = new System.Windows.Forms.Padding(0);
             this.btnAcceso.Name = "btnAcceso";
             this.btnAcceso.Size = new System.Drawing.Size(84, 32);
             this.btnAcceso.TabIndex = 3;
@@ -112,7 +120,7 @@
             // txbIDUsuario
             // 
             this.txbIDUsuario.Location = new System.Drawing.Point(318, 17);
-            this.txbIDUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbIDUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txbIDUsuario.Name = "txbIDUsuario";
             this.txbIDUsuario.Size = new System.Drawing.Size(115, 20);
             this.txbIDUsuario.TabIndex = 0;
