@@ -43,10 +43,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void DgvExpedientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            String res = dgvExpedientes.Rows[dgvExpedientes.SelectedRows[0].Index].Cells[0].Value.ToString();
-            String registroActual = dgvExpedientes.Rows[dgvExpedientes.SelectedRows[0].Index].Cells[1].Value.ToString();
-            int expedienteId = Int32.Parse(res);
-            new Vistas.VisorDeDocumentos(procesosUsuario, expedienteId, registroActual).Show();
+            new Vistas.VisorDeDocumentos(procesosUsuario, e.RowIndex, dgvExpedientes[0, e.RowIndex].Value.ToString()).Show();
         }
 
         private void ExpedientesP_FormClosed(object sender, FormClosedEventArgs e)

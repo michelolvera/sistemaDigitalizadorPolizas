@@ -39,10 +39,9 @@
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.idRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.digitalizado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -74,10 +73,9 @@
             this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvExpedientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExpedientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idRegistro,
             this.identificador,
             this.fechaCreacion,
-            this.idUsuario,
+            this.nombreUsuario,
             this.nombreExpediente,
             this.nombreCategoria,
             this.digitalizado});
@@ -123,6 +121,7 @@
             this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
             this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.btnActualizar.Location = new System.Drawing.Point(964, 28);
@@ -173,14 +172,6 @@
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
-            // idRegistro
-            // 
-            this.idRegistro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idRegistro.FillWeight = 81.90491F;
-            this.idRegistro.HeaderText = "ID de Registro";
-            this.idRegistro.Name = "idRegistro";
-            this.idRegistro.ReadOnly = true;
-            // 
             // identificador
             // 
             this.identificador.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -197,13 +188,13 @@
             this.fechaCreacion.Name = "fechaCreacion";
             this.fechaCreacion.ReadOnly = true;
             // 
-            // idUsuario
+            // nombreUsuario
             // 
-            this.idUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idUsuario.FillWeight = 113.9843F;
-            this.idUsuario.HeaderText = "ID de Usuario";
-            this.idUsuario.Name = "idUsuario";
-            this.idUsuario.ReadOnly = true;
+            this.nombreUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombreUsuario.FillWeight = 113.9843F;
+            this.nombreUsuario.HeaderText = "Nombre de Usuario";
+            this.nombreUsuario.Name = "nombreUsuario";
+            this.nombreUsuario.ReadOnly = true;
             // 
             // nombreExpediente
             // 
@@ -223,7 +214,7 @@
             // digitalizado
             // 
             this.digitalizado.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.digitalizado.HeaderText = "Digitalizado";
+            this.digitalizado.HeaderText = "Completo";
             this.digitalizado.Name = "digitalizado";
             this.digitalizado.ReadOnly = true;
             this.digitalizado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -264,10 +255,9 @@
         private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idRegistro;
         private System.Windows.Forms.DataGridViewTextBoxColumn identificador;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreExpediente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreCategoria;
         private System.Windows.Forms.DataGridViewCheckBoxColumn digitalizado;
