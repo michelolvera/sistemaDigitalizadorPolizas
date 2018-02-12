@@ -52,16 +52,23 @@ namespace Logica_de_Negocio
         {
             foreach (DocumentosInfo documento in documentosEditados)
             {
-                if(documento.PosIndex <= documentoId.Count - 1)
+                if (documento.PosIndex <= documentoId.Count - 1)
                 {
                     //Update del registro
+                    estado = Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_DOCUMENTOS_CATEGORIA SET nombre_documento='" + documento.Nombre + "', activo='" + documento.Activo + "' WHERE id_documento=" + documentoId[documento.PosIndex] + ";");
                 }
                 else
                 {
-                    //Insert del registro
+                    //Insert del nuevo registro
+                    estado = Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_DOCUMENTOS_CATEGORIA VALUES (" + categoriaId[documento.CatIndex] + ", '" + documento.Nombre + "', " + Usuario.UserID + ", CURRENT_TIMESTAMP, '" + documento.Activo + "')");
+                }
+                if (!estado.Estado)
+                {
+                    Console.WriteLine(estado.Mensaje);
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
 
         public ComboBox LlenarComboArea(ComboBox origenCombo, int opc, int index)
