@@ -11,12 +11,14 @@ namespace Entidades
         public int PosIndex { get; }
         public string Nombre { get; }
         public bool Activo { get; }
+        public int CatIndex { get; }
 
-        public DocumentosInfo(int PosIndex, string Nombre, bool Activo)
+        public DocumentosInfo(int PosIndex, string Nombre, bool Activo, int CatIndex)
         {
             this.PosIndex = PosIndex;
             this.Nombre = Nombre;
             this.Activo = Activo;
+            this.CatIndex = CatIndex;
         }
 
     }

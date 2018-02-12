@@ -77,11 +77,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             //Agregar a lista de pendientes a enviar a la BD
             if (e.ColumnIndex == 0)
             {
-                documentosEditados.Add(new DocumentosInfo(e.RowIndex, e.Value.ToString(), (bool)dgvDocumentos[3, e.RowIndex].Value));
+                documentosEditados.Add(new DocumentosInfo(e.RowIndex, e.Value.ToString(), (bool)dgvDocumentos[3, e.RowIndex].Value, cmbCategoria.SelectedIndex));
             }
             else if(e.ColumnIndex == 3)
             {
-                documentosEditados.Add(new DocumentosInfo(e.RowIndex, dgvDocumentos[0, e.RowIndex].Value.ToString(), (bool) e.Value));
+                documentosEditados.Add(new DocumentosInfo(e.RowIndex, dgvDocumentos[0, e.RowIndex].Value.ToString(), (bool) e.Value, cmbCategoria.SelectedIndex));
             }
         }
 
