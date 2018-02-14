@@ -185,14 +185,21 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (procesosAdministrador.ActualizarTablaDocumentos(documentosEditados))
+            if (documentosEditados.Count > 0)
             {
-                MessageBox.Show("Modificaciones insertadas con exito.", "Alerta");
+                if (procesosAdministrador.ActualizarTablaDocumentos(documentosEditados))
+                {
+                    MessageBox.Show("Modificaciones insertadas con exito.", "Alerta");
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error mientras se guardaban los cambios, intente de nuevo.", "Error");
+                }
+                documentosEditados.Clear();
+                dgvDocumentos = procesosAdministrador.ObtenerTablaDocumentos(dgvDocumentos, cmbCategoria.SelectedIndex);
             }
             else
-            {
-                MessageBox.Show("Se produjo un error mientras se guardaban los cambios.", "Error");
-            }
+                MessageBox.Show("Usted no ha realizado ninguna modificacion.");
         }
 
         private void CmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
