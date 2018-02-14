@@ -44,6 +44,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void DgvExpedientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             new Vistas.VisorDeDocumentos(procesosUsuario, e.RowIndex, dgvExpedientes[0, e.RowIndex].Value.ToString()).Show();
+            this.Hide();
         }
 
         private void ExpedientesP_FormClosed(object sender, FormClosedEventArgs e)

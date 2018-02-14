@@ -26,6 +26,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         public VisorDeDocumentos(ProcesosUsuario procesosUsuario, int expedienteActual, string registroActual)
         {
             InitializeComponent();
+            
             this.procesosUsuario = procesosUsuario;
             this.expedienteActual = procesosUsuario.ObtenerRegistroId(expedienteActual);
             lblRegistroActual.Text += registroActual;
@@ -35,6 +36,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+            new ExpedientesP(procesosUsuario).Show();
         }
 
         private void btnReemplazarDoc_Click(object sender, EventArgs e)
@@ -99,6 +101,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         private void CheckBoxDigitalizadosVisor_CheckedChanged(object sender, EventArgs e)
         {
             procesosUsuario.LlenarTablaDocumentosPendientes(dgvDocumentos, expedienteActual, checkBoxDigitalizadosVisor.Checked);
+        }
+
+        private void VisorDeDocumentos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            new ExpedientesP(procesosUsuario).Show();
         }
     }
 }
