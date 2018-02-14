@@ -36,7 +36,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            new ExpedientesP(procesosUsuario).Show();
         }
 
         private void btnReemplazarDoc_Click(object sender, EventArgs e)
