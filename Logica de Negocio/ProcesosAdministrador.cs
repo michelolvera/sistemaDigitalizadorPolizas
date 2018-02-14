@@ -71,7 +71,7 @@ namespace Logica_de_Negocio
             return true;
         }
 
-        public ComboBox LlenarComboArea(ComboBox origenCombo, int opc, int index)
+        public ComboBox LlenarCombo(ComboBox origenCombo, int opc, int index)
         {
             switch (opc)
             {

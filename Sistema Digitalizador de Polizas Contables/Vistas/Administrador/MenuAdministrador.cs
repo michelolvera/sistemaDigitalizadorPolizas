@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MsgBox;
 using Entidades;
 
 namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
@@ -21,7 +20,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             InitializeComponent();
             this.procesosAdministrador = procesosAdministrador;
-            InputBox.SetLanguage(InputBox.Language.Spanish); //Esto se puede cambiar para editar en el mismo Combo! Checar esto.
 
             //Eventos de DataGrid
             dgvDocumentos.AllowUserToAddRows = true;
@@ -35,6 +33,56 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             ckbArea.MouseClick += new MouseEventHandler(this.CkbArea_MouseClick);
             ckbExpediente.MouseClick += new MouseEventHandler(this.CkbExpediente_MouseClick);
             ckbCategoria.MouseClick += new MouseEventHandler(this.CkbCategoria_MouseClick);
+
+            //Eventos de ComboBox
+            cmbArea.KeyUp += CmbArea_KeyUp;
+            cmbExpediente.KeyUp += CmbExpediente_KeyUp;
+            cmbCategoria.KeyUp += CmbCategoria_KeyUp;
+        }
+
+        private void CmbCategoria_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && cmbCategoria.DropDownStyle == ComboBoxStyle.Simple)
+            {
+                if (cmbCategoria.Text != String.Empty && MessageBox.Show("Se creara la categoria '" + cmbCategoria.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+                {
+                    if (!procesosAdministrador.CrearNuevoRegistro(2, cmbCategoria.Text, cmbExpediente.SelectedIndex))
+                        MessageBox.Show("Se produjo un error mientras se creaba el registro.");
+                }
+                //Regresar control a la normalidad.
+                cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+                cmbCategoria = procesosAdministrador.LlenarCombo(cmbCategoria, 2, cmbExpediente.SelectedIndex);
+            }
+        }
+
+        private void CmbExpediente_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && cmbExpediente.DropDownStyle == ComboBoxStyle.Simple)
+            {
+                if (cmbExpediente.Text != String.Empty && MessageBox.Show("Se creara el expediente '" + cmbExpediente.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+                {
+                    if (!procesosAdministrador.CrearNuevoRegistro(1, cmbExpediente.Text, cmbArea.SelectedIndex))
+                        MessageBox.Show("Se produjo un error mientras se creaba el registro.");
+                }
+                //Regresar control a la normalidad.
+                cmbExpediente.DropDownStyle = ComboBoxStyle.DropDownList;
+                cmbExpediente = procesosAdministrador.LlenarCombo(cmbExpediente, 1, cmbArea.SelectedIndex);
+            }
+        }
+
+        private void CmbArea_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && cmbArea.DropDownStyle == ComboBoxStyle.Simple)
+            {
+                if (cmbArea.Text != String.Empty && MessageBox.Show("Se creara la categoria '" + cmbArea.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+                {
+                    if (!procesosAdministrador.CrearNuevoRegistro(0, cmbArea.Text, 0))
+                        MessageBox.Show("Se produjo un error mientras se creaba el registro.");
+                }
+                //Regresar control a la normalidad.
+                cmbArea.DropDownStyle = ComboBoxStyle.DropDownList;
+                cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
+            }
         }
 
         private void DgvDocumentos_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
@@ -132,7 +180,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         private void MenuAdministrador_Load(object sender, EventArgs e)
         {
             //Obtener Areas
-            cmbArea = procesosAdministrador.LlenarComboArea(cmbArea, 0, 0);
+            cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
@@ -151,26 +199,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             if (cmbCategoria.Items.Count == cmbCategoria.SelectedIndex + 1)
             {
-                
                 //Descativar controles no necesarios
                 dgvDocumentos.Enabled = false;
 
-                String nombre;
-                DialogResult res = InputBox.ShowDialog("Untroduce el nombre: ", "Entrada",
-                InputBox.Icon.Question,
-                InputBox.Buttons.OkCancel,
-                InputBox.Type.TextBox);
-                if (res == System.Windows.Forms.DialogResult.OK || res == System.Windows.Forms.DialogResult.Yes)
-                {
-                    nombre = InputBox.ResultValue;
-                    if(nombre == "")
-                        MessageBox.Show("Campo obligatorio.", "Error");
-                    else if (procesosAdministrador.CrearNuevoRegistro(2, nombre, cmbExpediente.SelectedIndex))
-                        cmbCategoria = procesosAdministrador.LlenarComboArea(cmbCategoria, 2, cmbExpediente.SelectedIndex);
-                    else
-                        MessageBox.Show("Error al crear registro.", "Error");
-                }
-                    
+                //Modificar el comportamiento del combo
+                cmbCategoria.DropDownStyle = ComboBoxStyle.Simple;
+                cmbCategoria.Text = String.Empty;
             }
             else {
                 //Obtener tabla
@@ -186,29 +220,16 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
 
         private void CmbArea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbArea.Items.Count == cmbArea.SelectedIndex+1)
+            if(cmbArea.Items.Count == cmbArea.SelectedIndex+1 && cmbArea.Text== "< Nuevo >")
             {
                 //Desactivar controles no necesarios
                 cmbExpediente.Enabled = false;
                 cmbCategoria.Enabled = false;
                 dgvDocumentos.Enabled = false;
 
-                String nombre;
-                DialogResult res = InputBox.ShowDialog("Untroduce el nombre: ", "Entrada",
-                InputBox.Icon.Question,
-                InputBox.Buttons.OkCancel,
-                InputBox.Type.TextBox);
-
-                if (res == System.Windows.Forms.DialogResult.OK || res == System.Windows.Forms.DialogResult.Yes)
-                {
-                    nombre = InputBox.ResultValue;
-                    if (nombre == "")
-                        MessageBox.Show("Campo obligatorio.", "Error");
-                    else if (procesosAdministrador.CrearNuevoRegistro(0, nombre, 0))
-                        cmbArea = procesosAdministrador.LlenarComboArea(cmbArea, 0, 0);
-                    else
-                        MessageBox.Show("Error al crear registro.", "Error");
-                }
+                //Modificar el comportamiento del combo
+                cmbArea.DropDownStyle = ComboBoxStyle.Simple;
+                cmbArea.Text = String.Empty;
             }
             else
             {
@@ -221,7 +242,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 ckbCategoria.Enabled = false;
                 ckbExpediente.Enabled = false;
                 //Obtener Expedientes
-                cmbExpediente = procesosAdministrador.LlenarComboArea(cmbExpediente, 1, cmbArea.SelectedIndex);
+                cmbExpediente = procesosAdministrador.LlenarCombo(cmbExpediente, 1, cmbArea.SelectedIndex);
                 //Activar controles necesarios
                 ckbArea.Enabled = true;
                 ckbArea.Checked = procesosAdministrador.GetActivo(0, cmbArea.SelectedIndex);
@@ -236,21 +257,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 cmbCategoria.Enabled = false;
                 dgvDocumentos.Enabled = false;
 
-                String nombre;
-                DialogResult res = InputBox.ShowDialog("Untroduce el nombre: ", "Entrada",
-                InputBox.Icon.Question,
-                InputBox.Buttons.OkCancel,
-                InputBox.Type.TextBox);
-                if (res == System.Windows.Forms.DialogResult.OK || res == System.Windows.Forms.DialogResult.Yes)
-                {
-                    nombre = InputBox.ResultValue;
-                    if (nombre == "")
-                        MessageBox.Show("Campo obligatorio.", "Error");
-                    else if (procesosAdministrador.CrearNuevoRegistro(1, nombre, cmbArea.SelectedIndex))
-                        cmbExpediente = procesosAdministrador.LlenarComboArea(cmbExpediente, 1, cmbArea.SelectedIndex);
-                    else
-                        MessageBox.Show("Error al crear registro.", "Error");
-                }
+                //Modificar el comportamiento del combo.
+                cmbExpediente.DropDownStyle = ComboBoxStyle.Simple;
+                cmbExpediente.Text = String.Empty;
             }
             else
             {
@@ -260,7 +269,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 cmbCategoria.Text = "";
                 ckbCategoria.Enabled = false;
                 //Obtener categorias
-                cmbCategoria = procesosAdministrador.LlenarComboArea(cmbCategoria, 2, cmbExpediente.SelectedIndex);
+                cmbCategoria = procesosAdministrador.LlenarCombo(cmbCategoria, 2, cmbExpediente.SelectedIndex);
                 //Activar controles necesarios
                 ckbExpediente.Enabled = true;
                 ckbExpediente.Checked = procesosAdministrador.GetActivo(1, cmbExpediente.SelectedIndex);
