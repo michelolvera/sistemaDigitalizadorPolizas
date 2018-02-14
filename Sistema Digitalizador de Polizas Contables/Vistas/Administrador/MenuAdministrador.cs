@@ -49,6 +49,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                     if (!procesosAdministrador.CrearNuevoRegistro(2, cmbCategoria.Text, cmbExpediente.SelectedIndex))
                         MessageBox.Show("Se produjo un error mientras se creaba el registro.");
                 }
+                //Activar control
+                cmbArea.Enabled = true;
+                cmbExpediente.Enabled = true;
+
                 //Regresar control a la normalidad.
                 cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
                 cmbCategoria = procesosAdministrador.LlenarCombo(cmbCategoria, 2, cmbExpediente.SelectedIndex);
@@ -64,6 +68,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                     if (!procesosAdministrador.CrearNuevoRegistro(1, cmbExpediente.Text, cmbArea.SelectedIndex))
                         MessageBox.Show("Se produjo un error mientras se creaba el registro.");
                 }
+                //Activar control
+                cmbArea.Enabled = true;
+
                 //Regresar control a la normalidad.
                 cmbExpediente.DropDownStyle = ComboBoxStyle.DropDownList;
                 cmbExpediente = procesosAdministrador.LlenarCombo(cmbExpediente, 1, cmbArea.SelectedIndex);
@@ -185,14 +192,21 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (procesosAdministrador.ActualizarTablaDocumentos(documentosEditados))
+            if (documentosEditados.Count > 0)
             {
-                MessageBox.Show("Modificaciones insertadas con exito.", "Alerta");
+                if (procesosAdministrador.ActualizarTablaDocumentos(documentosEditados))
+                {
+                    MessageBox.Show("Modificaciones insertadas con exito.", "Alerta");
+                }
+                else
+                {
+                    MessageBox.Show("Se produjo un error mientras se guardaban los cambios, intente de nuevo.", "Error");
+                }
+                documentosEditados.Clear();
+                dgvDocumentos = procesosAdministrador.ObtenerTablaDocumentos(dgvDocumentos, cmbCategoria.SelectedIndex);
             }
             else
-            {
-                MessageBox.Show("Se produjo un error mientras se guardaban los cambios.", "Error");
-            }
+                MessageBox.Show("Usted no ha realizado ninguna modificacion.");
         }
 
         private void CmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,8 +215,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             {
                 //Descativar controles no necesarios
                 dgvDocumentos.Enabled = false;
+                cmbArea.Enabled = false;
+                cmbExpediente.Enabled = false;
 
                 //Modificar el comportamiento del combo
+                cmbCategoria.Items.Clear();
                 cmbCategoria.DropDownStyle = ComboBoxStyle.Simple;
                 cmbCategoria.Text = String.Empty;
             }
@@ -228,6 +245,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 dgvDocumentos.Enabled = false;
 
                 //Modificar el comportamiento del combo
+                cmbArea.Items.Clear();
                 cmbArea.DropDownStyle = ComboBoxStyle.Simple;
                 cmbArea.Text = String.Empty;
             }
@@ -254,10 +272,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             if (cmbExpediente.Items.Count == cmbExpediente.SelectedIndex + 1)
             {
                 //Desactivar controles no necesarios
+                cmbArea.Enabled = false;
                 cmbCategoria.Enabled = false;
                 dgvDocumentos.Enabled = false;
 
                 //Modificar el comportamiento del combo.
+                cmbExpediente.Items.Clear();
                 cmbExpediente.DropDownStyle = ComboBoxStyle.Simple;
                 cmbExpediente.Text = String.Empty;
             }
