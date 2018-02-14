@@ -39,24 +39,25 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.dgvDocumentos = new Entidades.DataGridStyle();
+            this.NombreDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnGuardar = new Entidades.ButtonStyle();
             this.btnCancelar = new Entidades.ButtonStyle();
             this.ckbArea = new System.Windows.Forms.CheckBox();
             this.ckbExpediente = new System.Windows.Forms.CheckBox();
             this.ckbCategoria = new System.Windows.Forms.CheckBox();
-            this.NombreDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).BeginInit();
             this.SuspendLayout();
             // 
             // lblArea
             // 
             this.lblArea.AutoSize = true;
-            this.lblArea.Location = new System.Drawing.Point(12, 14);
+            this.lblArea.Location = new System.Drawing.Point(9, 11);
+            this.lblArea.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(42, 17);
+            this.lblArea.Size = new System.Drawing.Size(32, 13);
             this.lblArea.TabIndex = 0;
             this.lblArea.Text = "Area:";
             // 
@@ -65,10 +66,10 @@
             this.cmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbArea.Enabled = false;
             this.cmbArea.FormattingEnabled = true;
-            this.cmbArea.Location = new System.Drawing.Point(155, 11);
-            this.cmbArea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbArea.Location = new System.Drawing.Point(116, 9);
+            this.cmbArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(541, 24);
+            this.cmbArea.Size = new System.Drawing.Size(407, 21);
             this.cmbArea.TabIndex = 1;
             this.cmbArea.SelectedIndexChanged += new System.EventHandler(this.CmbArea_SelectedIndexChanged);
             // 
@@ -77,19 +78,20 @@
             this.cmbExpediente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbExpediente.Enabled = false;
             this.cmbExpediente.FormattingEnabled = true;
-            this.cmbExpediente.Location = new System.Drawing.Point(155, 42);
-            this.cmbExpediente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbExpediente.Location = new System.Drawing.Point(116, 34);
+            this.cmbExpediente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbExpediente.Name = "cmbExpediente";
-            this.cmbExpediente.Size = new System.Drawing.Size(541, 24);
+            this.cmbExpediente.Size = new System.Drawing.Size(407, 21);
             this.cmbExpediente.TabIndex = 2;
             this.cmbExpediente.SelectedIndexChanged += new System.EventHandler(this.CmbExpediente_SelectedIndexChanged);
             // 
             // lblExpediente
             // 
             this.lblExpediente.AutoSize = true;
-            this.lblExpediente.Location = new System.Drawing.Point(12, 46);
+            this.lblExpediente.Location = new System.Drawing.Point(9, 37);
+            this.lblExpediente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblExpediente.Name = "lblExpediente";
-            this.lblExpediente.Size = new System.Drawing.Size(82, 17);
+            this.lblExpediente.Size = new System.Drawing.Size(63, 13);
             this.lblExpediente.TabIndex = 3;
             this.lblExpediente.Text = "Expediente:";
             // 
@@ -98,19 +100,20 @@
             this.cmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategoria.Enabled = false;
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(155, 73);
-            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbCategoria.Location = new System.Drawing.Point(116, 59);
+            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(541, 24);
+            this.cmbCategoria.Size = new System.Drawing.Size(407, 21);
             this.cmbCategoria.TabIndex = 4;
             this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.CmbCategoria_SelectedIndexChanged);
             // 
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(12, 76);
+            this.lblCategoria.Location = new System.Drawing.Point(9, 62);
+            this.lblCategoria.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(73, 17);
+            this.lblCategoria.Size = new System.Drawing.Size(55, 13);
             this.lblCategoria.TabIndex = 5;
             this.lblCategoria.Text = "Categoria:";
             // 
@@ -151,8 +154,8 @@
             this.dgvDocumentos.EnableHeadersVisualStyles = false;
             this.dgvDocumentos.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvDocumentos.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvDocumentos.Location = new System.Drawing.Point(15, 103);
-            this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvDocumentos.Location = new System.Drawing.Point(11, 84);
+            this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvDocumentos.MultiSelect = false;
             this.dgvDocumentos.Name = "dgvDocumentos";
             this.dgvDocumentos.ReadOnly = true;
@@ -162,73 +165,8 @@
             this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDocumentos.RowTemplate.Height = 24;
             this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDocumentos.Size = new System.Drawing.Size(755, 306);
+            this.dgvDocumentos.Size = new System.Drawing.Size(566, 249);
             this.dgvDocumentos.TabIndex = 6;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnGuardar.Enabled = false;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnGuardar.Location = new System.Drawing.Point(684, 416);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(84, 29);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnCancelar.Location = new System.Drawing.Point(15, 416);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(88, 29);
-            this.btnCancelar.TabIndex = 8;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // ckbArea
-            // 
-            this.ckbArea.AutoSize = true;
-            this.ckbArea.Enabled = false;
-            this.ckbArea.Location = new System.Drawing.Point(701, 14);
-            this.ckbArea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ckbArea.Name = "ckbArea";
-            this.ckbArea.Size = new System.Drawing.Size(68, 21);
-            this.ckbArea.TabIndex = 11;
-            this.ckbArea.Text = "Activo";
-            this.ckbArea.UseVisualStyleBackColor = true;
-            // 
-            // ckbExpediente
-            // 
-            this.ckbExpediente.AutoSize = true;
-            this.ckbExpediente.Enabled = false;
-            this.ckbExpediente.Location = new System.Drawing.Point(701, 44);
-            this.ckbExpediente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ckbExpediente.Name = "ckbExpediente";
-            this.ckbExpediente.Size = new System.Drawing.Size(68, 21);
-            this.ckbExpediente.TabIndex = 12;
-            this.ckbExpediente.Text = "Activo";
-            this.ckbExpediente.UseVisualStyleBackColor = true;
-            // 
-            // ckbCategoria
-            // 
-            this.ckbCategoria.AutoSize = true;
-            this.ckbCategoria.Enabled = false;
-            this.ckbCategoria.Location = new System.Drawing.Point(701, 75);
-            this.ckbCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ckbCategoria.Name = "ckbCategoria";
-            this.ckbCategoria.Size = new System.Drawing.Size(68, 21);
-            this.ckbCategoria.TabIndex = 13;
-            this.ckbCategoria.Text = "Activo";
-            this.ckbCategoria.UseVisualStyleBackColor = true;
             // 
             // NombreDocumento
             // 
@@ -254,11 +192,78 @@
             this.Activo.Name = "Activo";
             this.Activo.ReadOnly = true;
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnGuardar.Enabled = false;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.btnGuardar.Location = new System.Drawing.Point(513, 338);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(63, 24);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.btnCancelar.Location = new System.Drawing.Point(11, 338);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(66, 24);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // ckbArea
+            // 
+            this.ckbArea.AutoSize = true;
+            this.ckbArea.Enabled = false;
+            this.ckbArea.Location = new System.Drawing.Point(526, 11);
+            this.ckbArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckbArea.Name = "ckbArea";
+            this.ckbArea.Size = new System.Drawing.Size(56, 17);
+            this.ckbArea.TabIndex = 11;
+            this.ckbArea.Text = "Activo";
+            this.ckbArea.UseVisualStyleBackColor = true;
+            // 
+            // ckbExpediente
+            // 
+            this.ckbExpediente.AutoSize = true;
+            this.ckbExpediente.Enabled = false;
+            this.ckbExpediente.Location = new System.Drawing.Point(526, 36);
+            this.ckbExpediente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckbExpediente.Name = "ckbExpediente";
+            this.ckbExpediente.Size = new System.Drawing.Size(56, 17);
+            this.ckbExpediente.TabIndex = 12;
+            this.ckbExpediente.Text = "Activo";
+            this.ckbExpediente.UseVisualStyleBackColor = true;
+            // 
+            // ckbCategoria
+            // 
+            this.ckbCategoria.AutoSize = true;
+            this.ckbCategoria.Enabled = false;
+            this.ckbCategoria.Location = new System.Drawing.Point(526, 61);
+            this.ckbCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckbCategoria.Name = "ckbCategoria";
+            this.ckbCategoria.Size = new System.Drawing.Size(56, 17);
+            this.ckbCategoria.TabIndex = 13;
+            this.ckbCategoria.Text = "Activo";
+            this.ckbCategoria.UseVisualStyleBackColor = true;
+            // 
             // MenuAdministrador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(781, 453);
+            this.ClientSize = new System.Drawing.Size(590, 372);
             this.Controls.Add(this.ckbCategoria);
             this.Controls.Add(this.ckbExpediente);
             this.Controls.Add(this.ckbArea);
@@ -271,8 +276,10 @@
             this.Controls.Add(this.cmbExpediente);
             this.Controls.Add(this.cmbArea);
             this.Controls.Add(this.lblArea);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "MenuAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuAdministrador";
