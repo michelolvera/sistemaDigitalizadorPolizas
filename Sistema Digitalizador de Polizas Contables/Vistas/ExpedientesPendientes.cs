@@ -30,14 +30,14 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void ExpedientesP_Load(object sender, EventArgs e)
         {
-            BtnActualizar_Click(sender, e);
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, checkBoxDigitalizadosPend.Checked);
+            cmbBusqueda.SelectedIndex = 0;
         }
 
 
         private void BtnActualizar_Click(object sender, EventArgs e)
         {
             dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, checkBoxDigitalizadosPend.Checked);
-           
         }
 
 
@@ -68,6 +68,17 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void checkBoxDigitalizadosPend_CheckedChanged(object sender, EventArgs e)
         {
             dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, checkBoxDigitalizadosPend.Checked);
+        }
+
+        private void TxbBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvExpedientes.RowCount; i++)
+            {
+                if (dgvExpedientes[cmbBusqueda.SelectedIndex, i].Value.ToString().ToLower().Contains(txbBusqueda.Text.ToLower()))
+                    dgvExpedientes.Rows[i].Visible = true;
+                else
+                    dgvExpedientes.Rows[i].Visible = false;
+            }
         }
     }
 }
