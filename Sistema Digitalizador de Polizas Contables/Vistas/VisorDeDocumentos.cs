@@ -17,11 +17,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 {
     public partial class VisorDeDocumentos : Form
     {
-        String ruta;
-        String nombreArchivo;
-        ControlDirectorioArchivos controlArchivos = new ControlDirectorioArchivos();
+        DatosArchivo datosArchivo = new DatosArchivo();
         private ProcesosUsuario procesosUsuario;
         private int expedienteActual;
+        
 
         public VisorDeDocumentos(ProcesosUsuario procesosUsuario, int expedienteActual, string registroActual)
         {
@@ -40,39 +39,22 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 
         private void btnReemplazarDoc_Click(object sender, EventArgs e)
         {
-            controlArchivos.EliminarArchivo(ruta, nombreArchivo);
-            btnDigitalizar_Click(sender, null);
-        }
 
-        private void btnActualizarDocs_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvDocumentos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DatosArchivo datosArchivo = procesosUsuario.ObtenerNombreArchivo(dgvDocumentos.SelectedRows[0].Index);
-
-            Console.WriteLine(datosArchivo.Area + datosArchivo.Expediente + datosArchivo.Categoria + datosArchivo.Documento + datosArchivo.Registro);
-
-            //index = dgvDocumentos.SelectedRows[0].Index;
-            ruta = datosArchivo.Area + "\\" + datosArchivo.Expediente + "\\" + datosArchivo.Categoria + "\\" + datosArchivo.Registro;
-            nombreArchivo = datosArchivo.Documento + ".pdf";
-            Console.WriteLine("C:\\saves\\" + ruta + "\\" + nombreArchivo);
-            if (File.Exists("C:\\saves\\"+ruta + "\\" + nombreArchivo))
+            if (procesosUsuario.Usuario.EsAdmin && MessageBox.Show("Se pretende eliminar el Documento seleccionado  ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
             {
-                axAcroPDF1.Visible = true;
-                labelNoDigitalizado.Visible = false;
-                btnDigitalizar.Visible = false;
-                axAcroPDF1.src = "C:\\saves\\" + ruta + "\\" + nombreArchivo;
+                procesosUsuario.EliminarArchivo(datosArchivo.Ruta, datosArchivo.NombreArchivo);
+                btnDigitalizar_Click(sender, null);
             }
             else
             {
-                axAcroPDF1.Visible = false;
-                labelNoDigitalizado.Visible = true;
-                btnDigitalizar.Visible = true;
-                //MessageBox.Show("Archivo no digitalizado");
+                MessageBox.Show("No tienes los privilegios para poder eliminar documentos");
+                //Loguear para que pueda eliminar el documento
             }
+        }
+
+        private void btnActualizarLista_Click(object sender, EventArgs e)
+        {
+            procesosUsuario.LlenarTablaDocumentosPendientes(dgvDocumentos, expedienteActual, checkBoxDigitalizadosVisor.Checked);
         }
 
         private void btnDigitalizar_Click(object sender, EventArgs e)
@@ -82,10 +64,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             if (fuente.ShowDialog() == DialogResult.OK)
             {
                 string source = fuente.FileName;
-                controlArchivos.CopiarArchivo(ruta, source, nombreArchivo);
+                procesosUsuario.CopiarArchivo(datosArchivo.Ruta, source, datosArchivo.NombreArchivo);
             }
             fuente.Dispose();
-            dgvDocumentos_CellDoubleClick(sender, null);
 
             //Aqui se envia el Update a la base de datos del documento ya digitalizado
             //procesosUsuario.ActualizarDigitalizado(dgvDocumentos.SelectedRows[0].Index, true);
@@ -93,7 +74,15 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 
         private void btnEliminarDoc_Click(object sender, EventArgs e)
         {
-            controlArchivos.EliminarArchivo(ruta, nombreArchivo);
+            if (procesosUsuario.Usuario.EsAdmin && MessageBox.Show("Se pretende eliminar el Documento seleccionado  ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+            {
+                procesosUsuario.EliminarArchivo(datosArchivo.Ruta, datosArchivo.NombreArchivo);
+            }else
+            {
+                MessageBox.Show("No tienes los privilegios para poder eliminar documentos");
+                //Loguear para que pueda eliminar el documento
+            }
+            
 
         }
 
@@ -105,6 +94,27 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         private void VisorDeDocumentos_FormClosing(object sender, FormClosingEventArgs e)
         {
             new ExpedientesP(procesosUsuario).Show();
+        }
+
+        private void dgvDocumentos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            datosArchivo = procesosUsuario.ContruirRuta(e.RowIndex);
+
+            Console.Write(e.RowIndex);
+            /*if(dgvDocumentos[1, e.RowIndex].Value.Equals("No se ha digitalizado"))
+            {
+                axAcroPDF1.Visible = false;
+                labelNoDigitalizado.Visible = true;
+                btnDigitalizar.Visible = true;
+                //MessageBox.Show("Archivo no digitalizado");
+            }
+            else
+            {
+                axAcroPDF1.Visible = true;
+                labelNoDigitalizado.Visible = false;
+                btnDigitalizar.Visible = false;
+                axAcroPDF1.src = datosArchivo.Ruta + "\\" + datosArchivo;
+            }*/
         }
     }
 }

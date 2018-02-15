@@ -8,10 +8,7 @@ namespace Entidades
 {
     public class DatosArchivo
     {
-        public string Area { get; set; }
-        public string Categoria { get; set; }
-        public string Expediente { get; set; }
-        public string Registro { get; set; }
-        public string Documento { get; set; }
+        public string Ruta { get; set; }
+        public string NombreArchivo { get; set; }
     }
 }

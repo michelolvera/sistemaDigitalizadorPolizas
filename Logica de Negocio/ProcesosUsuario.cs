@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -103,23 +104,6 @@ namespace Logica_de_Negocio
             return origenTabla;
         }
 
-        public DatosArchivo ObtenerNombreArchivo(int rowDocumento)
-        {
-            SQLEstado sQLEstado;
-            DatosArchivo datosArchivo = new DatosArchivo();
-            sQLEstado = Conexion.EjecutarConsulta("SELECT nombre_area, nombre_expediente, nombre_categoria, identificador_registro, nombre_documento FROM dbo.TBL_DIG_AREAS INNER JOIN dbo.TBL_DIG_EXPEDIENTES ON dbo.TBL_DIG_AREAS.id_area=dbo.TBL_DIG_EXPEDIENTES.id_area INNER JOIN dbo.TBL_DIG_CATEGORIAS ON dbo.TBL_DIG_EXPEDIENTES.id_expediente=dbo.TBL_DIG_CATEGORIAS.id_expediente INNER JOIN dbo.TBL_DIG_DOCUMENTOS_CATEGORIA ON dbo.TBL_DIG_CATEGORIAS.id_categoria=dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE ON dbo.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS ON dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_documento=dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS.id_documento WHERE id_documento_dig=" + documentoDigId[rowDocumento] + ";");
-            if (sQLEstado.Estado && sQLEstado.Resultado.HasRows && sQLEstado.Resultado.Read())
-            {
-                datosArchivo.Area = sQLEstado.Resultado.GetString(0);
-                datosArchivo.Expediente = sQLEstado.Resultado.GetString(1);
-                datosArchivo.Categoria = sQLEstado.Resultado.GetString(2);
-                datosArchivo.Registro = sQLEstado.Resultado.GetString(3);
-                datosArchivo.Documento = sQLEstado.Resultado.GetString(4);
-                sQLEstado.Resultado.Close();
-            }
-            return datosArchivo;
-        }
-
         public int ObtenerRegistroId(int index)
         {
             return registroId[index];
@@ -127,7 +111,89 @@ namespace Logica_de_Negocio
 
         public bool ActualizarDigitalizado(int rowIndex, bool digitalizado)
         {
-            return Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS SET digitalizado='" + digitalizado + "', fecha_digitalizado="+(digitalizado ? "CURRENT_TIMESTAMP" : "null")+ " WHERE id_documento_dig="+documentoDigId[rowIndex]+";").Estado;
+            return Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS SET digitalizado='" + digitalizado + "', fecha_digitalizado=" + (digitalizado ? "CURRENT_TIMESTAMP" : "null") + " WHERE id_documento_dig=" + documentoDigId[rowIndex] + ";").Estado;
         }
+
+        //
+        ///---------------- Gestion de Rutas y Archivos -----------------///
+        //
+
+        private String directorioDatos = ConfigurationManager.AppSettings["savepath"];//Directorio en donde se guardaran los archivos
+
+        public void CopiarArchivo(String pathDirectorio, String pathArchivo, String nombreArchivo)
+        {
+            if (Directory.Exists(pathDirectorio))
+            {
+                if (!File.Exists(pathDirectorio + "\\" + nombreArchivo))
+                {
+                    File.Copy(pathArchivo, pathDirectorio + "\\" + nombreArchivo);
+                }
+                else
+                {
+                    Console.WriteLine("Archivo existente");
+                }
+            }
+            else
+            {
+                Console.WriteLine("El directorio no existe. Creando...");
+                Directory.CreateDirectory(pathDirectorio);
+                Console.WriteLine("Directorio Creado");
+                if (!File.Exists(pathDirectorio + "\\" + nombreArchivo))
+                {
+                    File.Copy(pathArchivo, pathDirectorio + "\\" + nombreArchivo);
+                }
+                else
+                {
+                    Console.WriteLine("Archivo existente");
+                }
+            }
+        }
+        public void EliminarArchivo(String pathDirectorio, String nombreArchivo)
+        {
+            if (Directory.Exists(pathDirectorio))
+            {
+                if (File.Exists(pathDirectorio + "\\" + nombreArchivo))
+                {
+                    try
+                    {
+                        File.Delete(pathDirectorio + "\\" + nombreArchivo);
+                        Console.WriteLine("Elimiando");
+                    }
+                    catch (System.IO.IOException e)
+                    {
+                        Console.WriteLine("Cierre el documento antes de tratar de modificarlo" + e.Message);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("El archivo no existe");
+                }
+            }
+            else
+            {
+                Console.WriteLine("El directorio no existe.");
+            }
+        }
+
+        public DatosArchivo ContruirRuta(int row)
+        {
+            DatosArchivo datosArchivo = new DatosArchivo();
+            SQLEstado sQLEstado;
+            sQLEstado = Conexion.EjecutarConsulta("SELECT nombre_area, nombre_expediente, nombre_categoria, identificador_registro, nombre_documento FROM dbo.TBL_DIG_AREAS INNER JOIN dbo.TBL_DIG_EXPEDIENTES ON dbo.TBL_DIG_AREAS.id_area=dbo.TBL_DIG_EXPEDIENTES.id_area INNER JOIN dbo.TBL_DIG_CATEGORIAS ON dbo.TBL_DIG_EXPEDIENTES.id_expediente=dbo.TBL_DIG_CATEGORIAS.id_expediente INNER JOIN dbo.TBL_DIG_DOCUMENTOS_CATEGORIA ON dbo.TBL_DIG_CATEGORIAS.id_categoria=dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE ON dbo.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS ON dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_documento=dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS.id_documento WHERE id_documento_dig=" +row + ";");
+            if (sQLEstado.Estado && sQLEstado.Resultado.HasRows && sQLEstado.Resultado.Read())
+            {
+                datosArchivo.Ruta = directorioDatos + "\\"+
+                                    sQLEstado.Resultado.GetString(0) + "\\" +
+                                    sQLEstado.Resultado.GetString(1) + "\\" +
+                                    sQLEstado.Resultado.GetString(2) + "\\" +
+                                    sQLEstado.Resultado.GetString(3) + "\\";
+                datosArchivo.NombreArchivo = sQLEstado.Resultado.GetString(4)+".pdf";
+                sQLEstado.Resultado.Close();
+            }
+
+            return datosArchivo; 
+        }
+
+
     }
 }
