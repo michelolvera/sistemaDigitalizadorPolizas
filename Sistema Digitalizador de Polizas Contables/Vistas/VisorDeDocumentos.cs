@@ -98,7 +98,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 
         private void dgvDocumentos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            datosArchivo = procesosUsuario.ContruirRuta(e.RowIndex);
+            datosArchivo = procesosUsuario.ConstruirRuta(e.RowIndex);
 
             Console.Write(e.RowIndex);
             /*if(dgvDocumentos[1, e.RowIndex].Value.Equals("No se ha digitalizado"))

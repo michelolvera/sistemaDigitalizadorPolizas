@@ -175,11 +175,11 @@ namespace Logica_de_Negocio
             }
         }
 
-        public DatosArchivo ContruirRuta(int row)
+        public DatosArchivo ConstruirRuta(int row)
         {
             DatosArchivo datosArchivo = new DatosArchivo();
             SQLEstado sQLEstado;
-            sQLEstado = Conexion.EjecutarConsulta("SELECT nombre_area, nombre_expediente, nombre_categoria, identificador_registro, nombre_documento FROM dbo.TBL_DIG_AREAS INNER JOIN dbo.TBL_DIG_EXPEDIENTES ON dbo.TBL_DIG_AREAS.id_area=dbo.TBL_DIG_EXPEDIENTES.id_area INNER JOIN dbo.TBL_DIG_CATEGORIAS ON dbo.TBL_DIG_EXPEDIENTES.id_expediente=dbo.TBL_DIG_CATEGORIAS.id_expediente INNER JOIN dbo.TBL_DIG_DOCUMENTOS_CATEGORIA ON dbo.TBL_DIG_CATEGORIAS.id_categoria=dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE ON dbo.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS ON dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_documento=dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS.id_documento WHERE id_documento_dig=" +row + ";");
+            sQLEstado = Conexion.EjecutarConsulta("SELECT nombre_area, nombre_expediente, nombre_categoria, identificador_registro, nombre_documento FROM dbo.TBL_DIG_AREAS INNER JOIN dbo.TBL_DIG_EXPEDIENTES ON dbo.TBL_DIG_AREAS.id_area=dbo.TBL_DIG_EXPEDIENTES.id_area INNER JOIN dbo.TBL_DIG_CATEGORIAS ON dbo.TBL_DIG_EXPEDIENTES.id_expediente=dbo.TBL_DIG_CATEGORIAS.id_expediente INNER JOIN dbo.TBL_DIG_DOCUMENTOS_CATEGORIA ON dbo.TBL_DIG_CATEGORIAS.id_categoria=dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE ON dbo.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS ON dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_documento=dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS.id_documento WHERE id_documento_dig=" + documentoDigId[row] + ";");
             if (sQLEstado.Estado && sQLEstado.Resultado.HasRows && sQLEstado.Resultado.Read())
             {
                 datosArchivo.Ruta = directorioDatos + "\\"+
