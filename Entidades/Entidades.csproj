@@ -50,6 +50,7 @@
     </Compile>
     <Compile Include="Objetos de datos\DatosArchivo.cs" />
     <Compile Include="Objetos de datos\DocumentosInfo.cs" />
+    <Compile Include="Objetos de datos\Documeto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Objetos de datos\SQLEstado.cs" />
     <Compile Include="Objetos de datos\UsuarioInfo.cs" />

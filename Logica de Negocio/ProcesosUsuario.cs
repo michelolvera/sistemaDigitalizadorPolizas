@@ -18,7 +18,7 @@ namespace Logica_de_Negocio
         private String nombreBD = ConfigurationManager.AppSettings["dbname"];
         public SQLConexion Conexion { get; }
         public UsuarioInfo Usuario { get; }
-
+        private DatosArchivo datosArchivo=null;
         List<int> registroId = new List<int>();
         List<int> documentoDigId = new List<int>();
 
@@ -120,43 +120,46 @@ namespace Logica_de_Negocio
 
         private String directorioDatos = ConfigurationManager.AppSettings["savepath"];//Directorio en donde se guardaran los archivos
 
-        public void CopiarArchivo(String pathDirectorio, String pathArchivo, String nombreArchivo)
+        public void CopiarArchivo(String pathArchivo)
         {
-            if (Directory.Exists(pathDirectorio))
+            if (datosArchivo != null)
             {
-                if (!File.Exists(pathDirectorio + "\\" + nombreArchivo))
+                if (Directory.Exists(datosArchivo.Ruta))
                 {
-                    File.Copy(pathArchivo, pathDirectorio + "\\" + nombreArchivo);
+                    if (!File.Exists(datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo))
+                    {
+                        File.Copy(pathArchivo, datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Archivo existente");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Archivo existente");
-                }
-            }
-            else
-            {
-                Console.WriteLine("El directorio no existe. Creando...");
-                Directory.CreateDirectory(pathDirectorio);
-                Console.WriteLine("Directorio Creado");
-                if (!File.Exists(pathDirectorio + "\\" + nombreArchivo))
-                {
-                    File.Copy(pathArchivo, pathDirectorio + "\\" + nombreArchivo);
-                }
-                else
-                {
-                    Console.WriteLine("Archivo existente");
+                    Console.WriteLine("El directorio no existe. Creando...");
+                    Directory.CreateDirectory(datosArchivo.Ruta);
+                    Console.WriteLine("Directorio Creado");
+                    if (!File.Exists(datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo))
+                    {
+                        File.Copy(pathArchivo, datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Archivo existente");
+                    }
                 }
             }
         }
-        public void EliminarArchivo(String pathDirectorio, String nombreArchivo)
+        public void EliminarArchivo()
         {
-            if (Directory.Exists(pathDirectorio))
+            if (Directory.Exists(datosArchivo.Ruta))
             {
-                if (File.Exists(pathDirectorio + "\\" + nombreArchivo))
+                if (File.Exists(datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo))
                 {
                     try
                     {
-                        File.Delete(pathDirectorio + "\\" + nombreArchivo);
+                        File.Delete(datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo);
                         Console.WriteLine("Elimiando");
                     }
                     catch (System.IO.IOException e)
@@ -177,7 +180,7 @@ namespace Logica_de_Negocio
 
         public DatosArchivo ConstruirRuta(int row)
         {
-            DatosArchivo datosArchivo = new DatosArchivo();
+            datosArchivo = new DatosArchivo();
             SQLEstado sQLEstado;
             sQLEstado = Conexion.EjecutarConsulta("SELECT nombre_area, nombre_expediente, nombre_categoria, identificador_registro, nombre_documento FROM dbo.TBL_DIG_AREAS INNER JOIN dbo.TBL_DIG_EXPEDIENTES ON dbo.TBL_DIG_AREAS.id_area=dbo.TBL_DIG_EXPEDIENTES.id_area INNER JOIN dbo.TBL_DIG_CATEGORIAS ON dbo.TBL_DIG_EXPEDIENTES.id_expediente=dbo.TBL_DIG_CATEGORIAS.id_expediente INNER JOIN dbo.TBL_DIG_DOCUMENTOS_CATEGORIA ON dbo.TBL_DIG_CATEGORIAS.id_categoria=dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE ON dbo.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS ON dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_documento=dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS.id_documento WHERE id_documento_dig=" + documentoDigId[row] + ";");
             if (sQLEstado.Estado && sQLEstado.Resultado.HasRows && sQLEstado.Resultado.Read())

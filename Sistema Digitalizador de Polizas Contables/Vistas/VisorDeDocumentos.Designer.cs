@@ -104,7 +104,7 @@
             this.btnActualizarDocs.Size = new System.Drawing.Size(40, 39);
             this.btnActualizarDocs.TabIndex = 7;
             this.btnActualizarDocs.UseVisualStyleBackColor = false;
-            this.btnActualizarDocs.Click += new System.EventHandler(this.btnActualizarLista_Click);
+            this.btnActualizarDocs.Click += new System.EventHandler(this.BtnActualizarLista_Click);
             // 
             // btnEliminarDoc
             // 
@@ -121,7 +121,7 @@
             this.btnEliminarDoc.Size = new System.Drawing.Size(52, 38);
             this.btnEliminarDoc.TabIndex = 6;
             this.btnEliminarDoc.UseVisualStyleBackColor = false;
-            this.btnEliminarDoc.Click += new System.EventHandler(this.btnEliminarDoc_Click);
+            this.btnEliminarDoc.Click += new System.EventHandler(this.BtnEliminarDoc_Click);
             // 
             // btnReemplazarDoc
             // 
@@ -138,7 +138,7 @@
             this.btnReemplazarDoc.Size = new System.Drawing.Size(52, 38);
             this.btnReemplazarDoc.TabIndex = 5;
             this.btnReemplazarDoc.UseVisualStyleBackColor = false;
-            this.btnReemplazarDoc.Click += new System.EventHandler(this.btnReemplazarDoc_Click);
+            this.btnReemplazarDoc.Click += new System.EventHandler(this.BtnReemplazarDoc_Click);
             // 
             // btnBack
             // 
@@ -154,7 +154,7 @@
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "Regresar a Pendientes";
             this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // lblRegistroActual
             // 
@@ -182,7 +182,7 @@
             this.btnDigitalizar.Text = "Digitalizar";
             this.btnDigitalizar.UseVisualStyleBackColor = false;
             this.btnDigitalizar.Visible = false;
-            this.btnDigitalizar.Click += new System.EventHandler(this.btnDigitalizar_Click);
+            this.btnDigitalizar.Click += new System.EventHandler(this.BtnDigitalizar_Click);
             // 
             // labelNoDigitalizado
             // 
