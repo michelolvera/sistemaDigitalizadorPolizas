@@ -186,14 +186,11 @@ namespace Logica_de_Negocio
                                     sQLEstado.Resultado.GetString(0) + "\\" +
                                     sQLEstado.Resultado.GetString(1) + "\\" +
                                     sQLEstado.Resultado.GetString(2) + "\\" +
-                                    sQLEstado.Resultado.GetString(3) + "\\";
+                                    sQLEstado.Resultado.GetString(3);
                 datosArchivo.NombreArchivo = sQLEstado.Resultado.GetString(4)+".pdf";
                 sQLEstado.Resultado.Close();
             }
-
             return datosArchivo; 
         }
-
-
     }
 }
