@@ -79,9 +79,9 @@ namespace Logica_de_Negocio
             origenTabla.Rows.Clear();
             SQLEstado sQLEstado;
             if (completado)
-                sQLEstado = Conexion.EjecutarConsulta("SELECT id_documento_dig, nombre_documento, fecha_digitalizado FROM dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS INNER JOIN dbo.TBL_DIG_DOCUMENTOS_CATEGORIA ON dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS.id_documento=dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_documento WHERE id_registro=" + expediente + ";");
+                sQLEstado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DOC_PENDIENTES " + expediente);
             else
-                sQLEstado = Conexion.EjecutarConsulta("SELECT id_documento_dig, nombre_documento, fecha_digitalizado FROM dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS INNER JOIN dbo.TBL_DIG_DOCUMENTOS_CATEGORIA ON dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS.id_documento=dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_documento WHERE id_registro=" + expediente + " AND digitalizado=0;");
+                sQLEstado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DOC_PENDIENTES2 " + expediente);
 
             if (sQLEstado.Estado)
             {
@@ -113,6 +113,7 @@ namespace Logica_de_Negocio
 
         public bool ActualizarDigitalizado(int rowIndex, bool digitalizado)
         {
+            Console.WriteLine(digitalizado);
             return Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS SET digitalizado='" + digitalizado + "', fecha_digitalizado=" + (digitalizado ? "CURRENT_TIMESTAMP" : "null") + " WHERE id_documento_dig=" + documentoDigId[rowIndex] + ";").Estado;
         }
 
@@ -227,7 +228,7 @@ namespace Logica_de_Negocio
         {
             datosArchivo = new DatosArchivo();
             SQLEstado sQLEstado;
-            sQLEstado = Conexion.EjecutarConsulta("SELECT nombre_area, nombre_expediente, nombre_categoria, identificador_registro, nombre_documento FROM dbo.TBL_DIG_AREAS INNER JOIN dbo.TBL_DIG_EXPEDIENTES ON dbo.TBL_DIG_AREAS.id_area=dbo.TBL_DIG_EXPEDIENTES.id_area INNER JOIN dbo.TBL_DIG_CATEGORIAS ON dbo.TBL_DIG_EXPEDIENTES.id_expediente=dbo.TBL_DIG_CATEGORIAS.id_expediente INNER JOIN dbo.TBL_DIG_DOCUMENTOS_CATEGORIA ON dbo.TBL_DIG_CATEGORIAS.id_categoria=dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE ON dbo.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=TBL_DIG_DOCUMENTOS_CATEGORIA.id_categoria INNER JOIN dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS ON dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_documento=dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS.id_documento WHERE id_documento_dig=" + documentoDigId[row] + ";");
+            sQLEstado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DATOS_RUTA "+ documentoDigId[row]);
             if (sQLEstado.Estado && sQLEstado.Resultado.HasRows && sQLEstado.Resultado.Read())
             {
                 datosArchivo.Ruta = directorioDatos + "\\"+
