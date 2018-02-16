@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Vistas\Administrador\ManualInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Administrador\ManualInsert.Designer.cs">
+      <DependentUpon>ManualInsert.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\Administrador\MenuAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="Vistas\VisorDeDocumentos.Designer.cs">
       <DependentUpon>VisorDeDocumentos.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vistas\Administrador\ManualInsert.resx">
+      <DependentUpon>ManualInsert.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vistas\Administrador\MenuAdministrador.resx">
       <DependentUpon>MenuAdministrador.cs</DependentUpon>
     </EmbeddedResource>

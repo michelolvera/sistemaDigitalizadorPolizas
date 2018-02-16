@@ -188,6 +188,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             //Obtener Areas
             cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
+            cmbArea.Items.Add("< Nuevo >");
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
@@ -261,6 +262,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 ckbExpediente.Enabled = false;
                 //Obtener Expedientes
                 cmbExpediente = procesosAdministrador.LlenarCombo(cmbExpediente, 1, cmbArea.SelectedIndex);
+                cmbExpediente.Items.Add("< Nuevo >");
                 //Activar controles necesarios
                 ckbArea.Enabled = true;
                 ckbArea.Checked = procesosAdministrador.GetActivo(0, cmbArea.SelectedIndex);
@@ -290,6 +292,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 ckbCategoria.Enabled = false;
                 //Obtener categorias
                 cmbCategoria = procesosAdministrador.LlenarCombo(cmbCategoria, 2, cmbExpediente.SelectedIndex);
+                cmbCategoria.Items.Add("< Nuevo >");
                 //Activar controles necesarios
                 ckbExpediente.Enabled = true;
                 ckbExpediente.Checked = procesosAdministrador.GetActivo(1, cmbExpediente.SelectedIndex);
