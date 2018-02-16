@@ -29,7 +29,7 @@ namespace Logica_de_Negocio
         {
             documentoId.Clear();
             origenTabla.Rows.Clear();
-            estado = Conexion.EjecutarConsulta("SELECT nombre_documento, nombre_usuario, fecha_alta, dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.activo, id_documento FROM dbo.TBL_DIG_DOCUMENTOS_CATEGORIA INNER JOIN dbo.TBL_DIG_USERS on dbo.TBL_DIG_DOCUMENTOS_CATEGORIA.id_usuario=dbo.TBL_DIG_USERS.id_usuario WHERE id_categoria = " + categoriaId[index] +";");
+            estado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DOCUMENTOS " + categoriaId[index]);
             if (estado.Estado)
             {
                 //Llenar tabla
@@ -77,15 +77,15 @@ namespace Logica_de_Negocio
             {
                 case 0:
                     areaId.Clear();
-                    estado = Conexion.EjecutarConsulta("SELECT nombre_area, id_area FROM dbo.TBL_DIG_AREAS;");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_AREAS];");
                     break;
                 case 1:
                     expedienteId.Clear();
-                    estado = Conexion.EjecutarConsulta("SELECT nombre_expediente, id_expediente FROM dbo.TBL_DIG_EXPEDIENTES INNER JOIN dbo.TBL_DIG_AREAS ON dbo.TBL_DIG_EXPEDIENTES.id_area=dbo.TBL_DIG_AREAS.id_area WHERE TBL_DIG_AREAS.id_area=" + areaId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_EXPEDIENTES_AREA] " + areaId[index] + ";");
                     break;
                 case 2:
                     categoriaId.Clear();
-                    estado = Conexion.EjecutarConsulta("SELECT nombre_categoria, id_categoria FROM dbo.TBL_DIG_CATEGORIAS INNER JOIN dbo.TBL_DIG_EXPEDIENTES ON dbo.TBL_DIG_CATEGORIAS.id_expediente=dbo.TBL_DIG_EXPEDIENTES.id_expediente WHERE TBL_DIG_EXPEDIENTES.id_expediente=" + expedienteId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("execute [dbo].[OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
                     break;
             }
             origenCombo.Items.Clear();
@@ -119,7 +119,7 @@ namespace Logica_de_Negocio
             switch (opc)
             {
                 case 0:
-                    estado = Conexion.EjecutarConsulta("SELECT activo FROM dbo.TBL_DIG_AREAS WHERE id_area="+areaId[index]+";");
+                    estado = Conexion.EjecutarConsulta("[dbo].[OBTENER_AREA_ACTIVA] "+areaId[index]+";");
                     break;
                 case 1:
                     estado = Conexion.EjecutarConsulta("SELECT activo FROM dbo.TBL_DIG_EXPEDIENTES WHERE id_expediente=" + expedienteId[index] + ";");
