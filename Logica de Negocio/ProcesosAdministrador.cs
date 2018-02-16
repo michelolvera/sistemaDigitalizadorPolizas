@@ -109,7 +109,6 @@ namespace Logica_de_Negocio
                 }
                 estado.Resultado.Close();
             }
-            origenCombo.Items.Add("< Nuevo >");
             origenCombo.Enabled = true;
             return origenCombo;
         }
@@ -177,6 +176,11 @@ namespace Logica_de_Negocio
                 return false;
             }
             return true;
+        }
+
+        public bool RegistrarManual(string nombre, int categoria)
+        {
+            return Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_REGISTRO_EXPEDIENTE VALUES ("+categoriaId[categoria]+",'"+nombre+"', CURRENT_TIMESTAMP, "+Usuario.UserID+", 0);").Estado;
         }
 
     }
