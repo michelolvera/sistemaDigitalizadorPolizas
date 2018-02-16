@@ -57,9 +57,9 @@ namespace Logica_de_Negocio
             origenTabla.Rows.Clear();
             SQLEstado sQLEstado;
             if (completado)
-                sQLEstado = Conexion.EjecutarConsulta("SELECT id_registro, identificador_registro, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.fecha_alta, nombre_usuario, nombre_expediente, nombre_categoria, completo FROM DBO.TBL_DIG_REGISTRO_EXPEDIENTE INNER JOIN dbo.TBL_DIG_USERS ON DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_usuario=dbo.TBL_DIG_USERS.id_usuario INNER JOIN DBO.TBL_DIG_CATEGORIAS ON DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=DBO.TBL_DIG_CATEGORIAS.id_categoria INNER JOIN DBO.TBL_DIG_EXPEDIENTES ON DBO.TBL_DIG_CATEGORIAS.id_expediente = DBO.TBL_DIG_EXPEDIENTES.id_expediente INNER JOIN DBO.TBL_DIG_AREAS ON DBO.TBL_DIG_EXPEDIENTES.id_area = DBO.TBL_DIG_AREAS.id_area WHERE DBO.TBL_DIG_AREAS.id_area = " + Usuario.IdArea + " AND DBO.TBL_DIG_CATEGORIAS.activo=1 AND DBO.TBL_DIG_EXPEDIENTES.activo=1 AND DBO.TBL_DIG_AREAS.activo=1;");
+                sQLEstado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DATOS_EXPEDIENTE " + Usuario.IdArea );
             else
-                sQLEstado = Conexion.EjecutarConsulta("SELECT id_registro, identificador_registro, DBO.TBL_DIG_REGISTRO_EXPEDIENTE.fecha_alta, nombre_usuario, nombre_expediente, nombre_categoria, completo FROM DBO.TBL_DIG_REGISTRO_EXPEDIENTE INNER JOIN dbo.TBL_DIG_USERS ON DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_usuario=dbo.TBL_DIG_USERS.id_usuario INNER JOIN DBO.TBL_DIG_CATEGORIAS ON DBO.TBL_DIG_REGISTRO_EXPEDIENTE.id_categoria=DBO.TBL_DIG_CATEGORIAS.id_categoria INNER JOIN DBO.TBL_DIG_EXPEDIENTES ON DBO.TBL_DIG_CATEGORIAS.id_expediente = DBO.TBL_DIG_EXPEDIENTES.id_expediente INNER JOIN DBO.TBL_DIG_AREAS ON DBO.TBL_DIG_EXPEDIENTES.id_area = DBO.TBL_DIG_AREAS.id_area WHERE DBO.TBL_DIG_AREAS.id_area = " + Usuario.IdArea + " AND DBO.TBL_DIG_REGISTRO_EXPEDIENTE.completo='false' AND DBO.TBL_DIG_CATEGORIAS.activo=1 AND DBO.TBL_DIG_EXPEDIENTES.activo=1 AND DBO.TBL_DIG_AREAS.activo=1;");
+                sQLEstado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DATOS_EXPEDIENTE2 " + Usuario.IdArea);
 
             if (sQLEstado.Estado)
             {
