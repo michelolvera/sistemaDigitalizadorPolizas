@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AxAcroPDFLib;
 
 namespace Logica_de_Negocio
 {   //Comunicacion y formateo de datos con SQL Server 2008
@@ -120,7 +121,7 @@ namespace Logica_de_Negocio
 
         private String directorioDatos = ConfigurationManager.AppSettings["savepath"];//Directorio en donde se guardaran los archivos
 
-        public void CopiarArchivo(String pathArchivo)
+        public bool CopiarArchivo(String pathArchivo)
         {
             if (datosArchivo != null)
             {
@@ -128,11 +129,30 @@ namespace Logica_de_Negocio
                 {
                     if (!File.Exists(datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo))
                     {
-                        File.Copy(pathArchivo, datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo);
+                        using (FileStream sourceDocumento = new FileStream(pathArchivo, FileMode.Open, FileAccess.Read))
+                        {
+                            byte[] bytes = new byte[sourceDocumento.Length];
+                            int numeroBytes = (int)sourceDocumento.Length;
+                            int indiceBytes = 0;
+                            while (numeroBytes > 0)
+                            {
+                                int n = sourceDocumento.Read(bytes,indiceBytes,numeroBytes);
+                                if (n == 0) break;
+                                indiceBytes += n;
+                                numeroBytes -= n;
+                            }
+                            numeroBytes = bytes.Length;
+                            using(FileStream destinoDocumento = new FileStream(datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo, FileMode.Create, FileAccess.Write))
+                            {
+                                destinoDocumento.Write(bytes, 0, numeroBytes);
+                            }
+                        }
+                        return true;
                     }
                     else
                     {
                         Console.WriteLine("Archivo existente");
+                        return false;
                     }
                 }
                 else
@@ -142,16 +162,36 @@ namespace Logica_de_Negocio
                     Console.WriteLine("Directorio Creado");
                     if (!File.Exists(datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo))
                     {
-                        File.Copy(pathArchivo, datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo);
+                        using (FileStream sourceDocumento = new FileStream(pathArchivo, FileMode.Open, FileAccess.Read))
+                        {
+                            byte[] bytes = new byte[sourceDocumento.Length];
+                            int numeroBytes = (int)sourceDocumento.Length;
+                            int indiceBytes = 0;
+                            while (numeroBytes > 0)
+                            {
+                                int n = sourceDocumento.Read(bytes, indiceBytes, numeroBytes);
+                                if (n == 0) break;
+                                indiceBytes += n;
+                                numeroBytes -= n;
+                            }
+                            numeroBytes = bytes.Length;
+                            using (FileStream destinoDocumento = new FileStream(datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo, FileMode.Create, FileAccess.Write))
+                            {
+                                destinoDocumento.Write(bytes, 0, numeroBytes);
+                            }
+                        }
+                        return true;
                     }
                     else
                     {
                         Console.WriteLine("Archivo existente");
+                        return false;
                     }
                 }
             }
+            return false;
         }
-        public void EliminarArchivo()
+        public bool EliminarArchivo()
         {
             if (Directory.Exists(datosArchivo.Ruta))
             {
@@ -161,6 +201,7 @@ namespace Logica_de_Negocio
                     {
                         File.Delete(datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo);
                         Console.WriteLine("Elimiando");
+                        return true;
                     }
                     catch (System.IO.IOException e)
                     {
@@ -170,15 +211,18 @@ namespace Logica_de_Negocio
                 else
                 {
                     Console.WriteLine("El archivo no existe");
+                    return false;
                 }
             }
             else
             {
                 Console.WriteLine("El directorio no existe.");
+                return false;
             }
+            return false;
         }
 
-        public DatosArchivo ConstruirRuta(int row)
+        public void ConstruirRuta(int row)
         {
             datosArchivo = new DatosArchivo();
             SQLEstado sQLEstado;
@@ -193,7 +237,11 @@ namespace Logica_de_Negocio
                 datosArchivo.NombreArchivo = sQLEstado.Resultado.GetString(4)+".pdf";
                 sQLEstado.Resultado.Close();
             }
-            return datosArchivo; 
+        }
+        public void MostrarPDF(AxAcroPDF axAcroPDF)
+        {
+            axAcroPDF.Visible = true;
+            axAcroPDF.src = datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo;
         }
     }
 }

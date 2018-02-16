@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.AcroPDFLib">
+      <HintPath>..\Sistema Digitalizador de Polizas Contables\obj\Debug\AxInterop.AcroPDFLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -56,6 +59,9 @@
       <Project>{27a59f0f-4faa-4c33-91c0-51deb41e87ce}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
