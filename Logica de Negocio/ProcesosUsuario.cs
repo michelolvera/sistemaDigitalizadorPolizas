@@ -239,17 +239,19 @@ namespace Logica_de_Negocio
                 sQLEstado.Resultado.Close();
             }
         }
-        public void MostrarPDF(AxAcroPDF axAcroPDF)
+        public bool MostrarPDF(AxAcroPDF axAcroPDF)
         {
             String source = datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo;
             if (File.Exists(source))
             {
                 axAcroPDF.src = source;
                 axAcroPDF.Visible = true;
+                return true;
             }
             else
             {
-                MessageBox.Show("Archivo no encontrado!\n\nBuscamos: "+source+"\n\nSi cuenta con archicvo, llevelo a la ubicación correcta y re intente abrirlo. Caso contrario vuelva a escanea el documento", "ARCHIVO NO ENCONTRADO!",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("Archivo no encontrado!\n\nBuscamos: "+source+"\n\nPISTA: Si cuenta con el archivo, llevelo a la ubicación correcta y vuelva intente abrirlo. Caso contrario vuelva a escanear el documento.", "ARCHIVO NO ENCONTRADO!",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                return false;
             }
         }   
     }

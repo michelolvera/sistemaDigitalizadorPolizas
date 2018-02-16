@@ -123,20 +123,23 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
                 btnEliminarDoc.Enabled = true;
                 btnReemplazarDoc.Enabled = true;
                 if (dgvDocumentos[1, e.RowIndex].Value.ToString().Equals("No se ha digitalizado"))
-                    
-                        {
-                            axAcroPDF1.Visible = false;
-                            labelNoDigitalizado.Visible = true;
-                            btnDigitalizar.Visible = true;
-                        }
-                        else
-                        {
-                            labelNoDigitalizado.Visible = false;
-                            btnDigitalizar.Visible = false;
-                            procesosUsuario.ConstruirRuta(e.RowIndex);
-                            procesosUsuario.MostrarPDF(this.axAcroPDF1);
-                        }
-                    
+                {
+                    axAcroPDF1.Visible = false;
+                    labelNoDigitalizado.Visible = true;
+                    btnDigitalizar.Visible = true;
+                 }
+                 else
+                 {
+                    labelNoDigitalizado.Visible = false;
+                    btnDigitalizar.Visible = false;
+                    procesosUsuario.ConstruirRuta(e.RowIndex);
+                    if (!procesosUsuario.MostrarPDF(this.axAcroPDF1))
+                    {
+                        labelNoDigitalizado.Visible = true;
+                        btnDigitalizar.Visible = true;
+                        axAcroPDF1.Visible = false;
+                    }
+                 }
             }
             catch (ArgumentOutOfRangeException)
             {
