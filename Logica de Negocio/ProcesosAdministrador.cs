@@ -85,7 +85,7 @@ namespace Logica_de_Negocio
                     break;
                 case 2:
                     categoriaId.Clear();
-                    estado = Conexion.EjecutarConsulta("execute [dbo].[OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
                     break;
             }
             origenCombo.Items.Clear();
@@ -118,13 +118,13 @@ namespace Logica_de_Negocio
             switch (opc)
             {
                 case 0:
-                    estado = Conexion.EjecutarConsulta("[dbo].[OBTENER_AREA_ACTIVA] "+areaId[index]+";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_AREAS_ACTIVAS] " + areaId[index] + ";");
                     break;
                 case 1:
-                    estado = Conexion.EjecutarConsulta("SELECT activo FROM dbo.TBL_DIG_EXPEDIENTES WHERE id_expediente=" + expedienteId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_EXPEDIENTES_ACTIVOS] " + expedienteId[index] + ";");
                     break;
                 case 2:
-                    estado = Conexion.EjecutarConsulta("SELECT activo FROM dbo.TBL_DIG_CATEGORIAS WHERE id_categoria=" + categoriaId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_DIGCATEGORIAS_ACTIVOS] " + categoriaId[index] + ";");
                     break;
             }
             if (estado.Estado && estado.Resultado.HasRows && estado.Resultado.Read())
