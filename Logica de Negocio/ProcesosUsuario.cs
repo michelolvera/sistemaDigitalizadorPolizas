@@ -57,9 +57,9 @@ namespace Logica_de_Negocio
             origenTabla.Rows.Clear();
             SQLEstado sQLEstado;
             if (completado)
-                sQLEstado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DATOS_EXPEDIENTE " + Usuario.IdArea );
+                sQLEstado = Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DATOS_EXPEDIENTE " + Usuario.IdArea );
             else
-                sQLEstado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DATOS_EXPEDIENTE2 " + Usuario.IdArea);
+                sQLEstado = Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DATOS_EXPEDIENTE2 " + Usuario.IdArea);
 
             if (sQLEstado.Estado)
             {
@@ -79,9 +79,9 @@ namespace Logica_de_Negocio
             origenTabla.Rows.Clear();
             SQLEstado sQLEstado;
             if (completado)
-                sQLEstado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DOC_PENDIENTES " + expediente);
+                sQLEstado = Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DOC_PENDIENTES " + expediente);
             else
-                sQLEstado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DOC_PENDIENTES2 " + expediente);
+                sQLEstado = Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DOC_PENDIENTES2 " + expediente);
 
             if (sQLEstado.Estado)
             {
@@ -114,7 +114,7 @@ namespace Logica_de_Negocio
         public bool ActualizarDigitalizado(int rowIndex, bool digitalizado)
         {
             Console.WriteLine(digitalizado);
-            return Conexion.EjecutarSentencia("EXECUTE ACTUALIZAR_DIGITALIZADO " + (digitalizado ? 1 : 0) +", "+ documentoDigId[rowIndex]).Estado;
+            return Conexion.EjecutarSentencia("Execute SP_DIG_ACTUALIZAR_DIGITALIZADO " + (digitalizado ? 1 : 0) +", "+ documentoDigId[rowIndex]).Estado;
         }
 
         //
@@ -228,7 +228,7 @@ namespace Logica_de_Negocio
         {
             datosArchivo = new DatosArchivo();
             SQLEstado sQLEstado;
-            sQLEstado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DATOS_RUTA "+ documentoDigId[row]);
+            sQLEstado = Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DATOS_RUTA "+ documentoDigId[row]);
             if (sQLEstado.Estado && sQLEstado.Resultado.HasRows && sQLEstado.Resultado.Read())
             {
                 datosArchivo.Ruta = directorioDatos + "\\"+

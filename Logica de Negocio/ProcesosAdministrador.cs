@@ -29,7 +29,7 @@ namespace Logica_de_Negocio
         {
             documentoId.Clear();
             origenTabla.Rows.Clear();
-            estado = Conexion.EjecutarConsulta("EXECUTE OBTENER_DOCUMENTOS " + categoriaId[index]);
+            estado = Conexion.EjecutarConsulta("EXECUTE SP_DIG_OBTENER_DOCUMENTOS " + categoriaId[index]);
             if (estado.Estado)
             {
                 //Llenar tabla
@@ -55,12 +55,12 @@ namespace Logica_de_Negocio
                 if (documento.PosIndex <= documentoId.Count - 1)
                 {
                     //Update del registro
-                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[ACTUALIZAR_TBL_DOCUMENTO] '" + documento.Nombre + "', " + documento.Activo + ", " + documentoId[documento.PosIndex]);
+                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_ACTUALIZAR_TBL_DOCUMENTO] '" + documento.Nombre + "', " + documento.Activo + ", " + documentoId[documento.PosIndex]);
                 }
                 else
                 {
                     //Insert del nuevo registro
-                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_DOCUMENTO] 1, '" + documento.Nombre + "', " + Usuario.UserID + ",  " + documento.Activo + ";");
+                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_DOCUMENTO] 1, '" + documento.Nombre + "', " + Usuario.UserID + ",  " + documento.Activo + ";");
                 }
                 if (!estado.Estado)
                 {
@@ -77,15 +77,15 @@ namespace Logica_de_Negocio
             {
                 case 0:
                     areaId.Clear();
-                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_AREAS];");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_AREAS];");
                     break;
                 case 1:
                     expedienteId.Clear();
-                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_EXPEDIENTES_AREA] " + areaId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_EXPEDIENTES_AREA] " + areaId[index] + ";");
                     break;
                 case 2:
                     categoriaId.Clear();
-                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
                     break;
             }
             origenCombo.Items.Clear();
@@ -118,13 +118,13 @@ namespace Logica_de_Negocio
             switch (opc)
             {
                 case 0:
-                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_AREAS_ACTIVAS] " + areaId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_AREAS_ACTIVAS] " + areaId[index] + ";");
                     break;
                 case 1:
-                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_EXPEDIENTES_ACTIVOS] " + expedienteId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_EXPEDIENTES_ACTIVOS] " + expedienteId[index] + ";");
                     break;
                 case 2:
-                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_DIGCATEGORIAS_ACTIVOS] " + categoriaId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_DIGCATEGORIAS_ACTIVOS] " + categoriaId[index] + ";");
                     break;
             }
             if (estado.Estado && estado.Resultado.HasRows && estado.Resultado.Read())
@@ -141,11 +141,11 @@ namespace Logica_de_Negocio
             switch (opc)
             {
                 case 0: //Area
-                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_DIGAREAS] '" + nombre + "'").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_DIGAREAS] '" + nombre + "'").Estado;
                 case 1: //Expediente
-                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_EXPEDIENTES] " + areaId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_EXPEDIENTES] " + areaId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
                 case 2: //Categoria
-                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_CATEGORIAS] " + expedienteId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_CATEGORIAS] " + expedienteId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
             }
             return false;
         }
