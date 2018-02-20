@@ -55,12 +55,12 @@ namespace Logica_de_Negocio
                 if (documento.PosIndex <= documentoId.Count - 1)
                 {
                     //Update del registro
-                    estado = Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_DOCUMENTOS_CATEGORIA SET nombre_documento='" + documento.Nombre + "', activo='" + documento.Activo + "' WHERE id_documento=" + documentoId[documento.PosIndex] + ";");
+                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[ACTUALIZAR_TBL_DOCUMENTO] '" + documento.Nombre + "','" + documento.Activo + "' ," + documentoId[documento.PosIndex] + ";");
                 }
                 else
                 {
                     //Insert del nuevo registro
-                    estado = Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_DOCUMENTOS_CATEGORIA VALUES (" + categoriaId[documento.CatIndex] + ", '" + documento.Nombre + "', " + Usuario.UserID + ", CURRENT_TIMESTAMP, '" + documento.Activo + "')");
+                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_DOCUMENTO] 1, '" + documento.Nombre + "', " + Usuario.UserID + ",  '" + documento.Activo + ";");
                 }
                 if (!estado.Estado)
                 {
@@ -85,7 +85,7 @@ namespace Logica_de_Negocio
                     break;
                 case 2:
                     categoriaId.Clear();
-                    estado = Conexion.EjecutarConsulta("execute [dbo].[OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
                     break;
             }
             origenCombo.Items.Clear();
@@ -118,13 +118,13 @@ namespace Logica_de_Negocio
             switch (opc)
             {
                 case 0:
-                    estado = Conexion.EjecutarConsulta("[dbo].[OBTENER_AREA_ACTIVA] "+areaId[index]+";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_AREAS_ACTIVAS] " + areaId[index] + ";");
                     break;
                 case 1:
-                    estado = Conexion.EjecutarConsulta("SELECT activo FROM dbo.TBL_DIG_EXPEDIENTES WHERE id_expediente=" + expedienteId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_EXPEDIENTES_ACTIVOS] " + expedienteId[index] + ";");
                     break;
                 case 2:
-                    estado = Conexion.EjecutarConsulta("SELECT activo FROM dbo.TBL_DIG_CATEGORIAS WHERE id_categoria=" + categoriaId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[OBTENER_DIGCATEGORIAS_ACTIVOS] " + categoriaId[index] + ";");
                     break;
             }
             if (estado.Estado && estado.Resultado.HasRows && estado.Resultado.Read())
@@ -141,11 +141,11 @@ namespace Logica_de_Negocio
             switch (opc)
             {
                 case 0: //Area
-                    return Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_AREAS (nombre_area,activo) VALUES('"+nombre+"',1)").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_DIGAREAS] '" + nombre + "'").Estado;
                 case 1: //Expediente
-                    return Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_EXPEDIENTES (id_area, nombre_expediente, id_usuario, fecha_alta, activo) VALUES("+areaId[super]+",'"+nombre+"','"+Usuario.UserID+"',CURRENT_TIMESTAMP,1)").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_EXPEDIENTES] " + areaId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
                 case 2: //Categoria
-                    return Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_CATEGORIAS(id_expediente, nombre_categoria, id_usuario, fecha_alta, activo) VALUES(" + expedienteId[super] + ",'" + nombre + "','" + Usuario.UserID + "',CURRENT_TIMESTAMP,1)").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_CATEGORIAS] " + expedienteId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
             }
             return false;
         }

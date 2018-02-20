@@ -114,7 +114,7 @@ namespace Logica_de_Negocio
         public bool ActualizarDigitalizado(int rowIndex, bool digitalizado)
         {
             Console.WriteLine(digitalizado);
-            return Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS SET digitalizado='" + digitalizado + "', fecha_digitalizado=" + (digitalizado ? "CURRENT_TIMESTAMP" : "null") + " WHERE id_documento_dig=" + documentoDigId[rowIndex] + ";").Estado;
+            return Conexion.EjecutarSentencia("EXECUTE ACTUALIZAR_DIGITALIZADO " + (digitalizado ? 1 : 0) +", "+ documentoDigId[rowIndex]).Estado;
         }
 
         //
