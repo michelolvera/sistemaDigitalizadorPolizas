@@ -56,6 +56,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 //Regresar control a la normalidad.
                 cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
                 cmbCategoria = procesosAdministrador.LlenarCombo(cmbCategoria, 2, cmbExpediente.SelectedIndex);
+                cmbCategoria.Items.Add("< Nuevo >");
             }
         }
 
@@ -74,6 +75,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 //Regresar control a la normalidad.
                 cmbExpediente.DropDownStyle = ComboBoxStyle.DropDownList;
                 cmbExpediente = procesosAdministrador.LlenarCombo(cmbExpediente, 1, cmbArea.SelectedIndex);
+                cmbExpediente.Items.Add("< Nuevo >");
             }
         }
 
@@ -89,6 +91,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 //Regresar control a la normalidad.
                 cmbArea.DropDownStyle = ComboBoxStyle.DropDownList;
                 cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
+                cmbArea.Items.Add("< Nuevo >");
             }
         }
 
