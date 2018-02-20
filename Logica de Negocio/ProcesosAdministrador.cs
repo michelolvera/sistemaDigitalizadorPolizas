@@ -141,11 +141,11 @@ namespace Logica_de_Negocio
             switch (opc)
             {
                 case 0: //Area
-                    return Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_AREAS (nombre_area,activo) VALUES('"+nombre+"',1)").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_DIGAREAS] '" + nombre + "'").Estado;
                 case 1: //Expediente
-                    return Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_EXPEDIENTES (id_area, nombre_expediente, id_usuario, fecha_alta, activo) VALUES("+areaId[super]+",'"+nombre+"','"+Usuario.UserID+"',CURRENT_TIMESTAMP,1)").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_EXPEDIENTES] " + areaId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
                 case 2: //Categoria
-                    return Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_CATEGORIAS(id_expediente, nombre_categoria, id_usuario, fecha_alta, activo) VALUES(" + expedienteId[super] + ",'" + nombre + "','" + Usuario.UserID + "',CURRENT_TIMESTAMP,1)").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_CATEGORIAS] " + expedienteId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
             }
             return false;
         }
