@@ -60,7 +60,7 @@ namespace Logica_de_Negocio
                 else
                 {
                     //Insert del nuevo registro
-                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_DOCUMENTO] 1, '" + documento.Nombre + "', " + Usuario.UserID + ",  " + documento.Activo + ";");
+                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_DOCUMENTO] "+categoriaId[documento.CatIndex]+", '" + documento.Nombre + "', " + Usuario.UserID + ",  " + documento.Activo + ";");
                 }
                 if (!estado.Estado)
                 {
@@ -141,7 +141,7 @@ namespace Logica_de_Negocio
             switch (opc)
             {
                 case 0: //Area
-                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_DIGAREAS] '" + nombre + "'").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_AREAS] '" + nombre + "'").Estado;
                 case 1: //Expediente
                     return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_EXPEDIENTES] " + areaId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
                 case 2: //Categoria

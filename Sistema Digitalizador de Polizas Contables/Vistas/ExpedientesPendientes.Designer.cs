@@ -44,11 +44,11 @@
             this.checkBoxDigitalizadosPend = new System.Windows.Forms.CheckBox();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cmbBusqueda = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txbBusqueda = new System.Windows.Forms.TextBox();
-            this.insertarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -95,7 +95,7 @@
             this.dgvExpedientes.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvExpedientes.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dgvExpedientes.Location = new System.Drawing.Point(13, 75);
-            this.dgvExpedientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvExpedientes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvExpedientes.MultiSelect = false;
             this.dgvExpedientes.Name = "dgvExpedientes";
             this.dgvExpedientes.ReadOnly = true;
@@ -177,7 +177,7 @@
             this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.btnActualizar.Location = new System.Drawing.Point(964, 28);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(40, 39);
             this.btnActualizar.TabIndex = 2;
@@ -189,7 +189,7 @@
             this.checkBoxDigitalizadosPend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxDigitalizadosPend.AutoSize = true;
             this.checkBoxDigitalizadosPend.Location = new System.Drawing.Point(776, 38);
-            this.checkBoxDigitalizadosPend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxDigitalizadosPend.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxDigitalizadosPend.Name = "checkBoxDigitalizadosPend";
             this.checkBoxDigitalizadosPend.Size = new System.Drawing.Size(162, 21);
             this.checkBoxDigitalizadosPend.TabIndex = 5;
@@ -203,8 +203,8 @@
             this.administrarToolStripMenuItem,
             this.insertarRegistroToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
-            this.herramientasToolStripMenuItem.Text = "Herramientas";
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.herramientasToolStripMenuItem.Text = "Administrar";
             // 
             // administrarToolStripMenuItem
             // 
@@ -212,6 +212,13 @@
             this.administrarToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
             this.administrarToolStripMenuItem.Text = "Getionar Documentos";
             this.administrarToolStripMenuItem.Click += new System.EventHandler(this.AdministrarToolStripMenuItem_Click);
+            // 
+            // insertarRegistroToolStripMenuItem
+            // 
+            this.insertarRegistroToolStripMenuItem.Name = "insertarRegistroToolStripMenuItem";
+            this.insertarRegistroToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.insertarRegistroToolStripMenuItem.Text = "Insertar Registro";
+            this.insertarRegistroToolStripMenuItem.Click += new System.EventHandler(this.InsertarRegistroToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -260,13 +267,6 @@
             this.txbBusqueda.TabIndex = 7;
             this.txbBusqueda.TextChanged += new System.EventHandler(this.TxbBusqueda_TextChanged);
             // 
-            // insertarRegistroToolStripMenuItem
-            // 
-            this.insertarRegistroToolStripMenuItem.Name = "insertarRegistroToolStripMenuItem";
-            this.insertarRegistroToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
-            this.insertarRegistroToolStripMenuItem.Text = "Insertar Registro";
-            this.insertarRegistroToolStripMenuItem.Click += new System.EventHandler(this.InsertarRegistroToolStripMenuItem_Click);
-            // 
             // ExpedientesP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -282,7 +282,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ExpedientesP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Expedientes Pendientes de Digitalizar";
