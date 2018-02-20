@@ -55,12 +55,12 @@ namespace Logica_de_Negocio
                 if (documento.PosIndex <= documentoId.Count - 1)
                 {
                     //Update del registro
-                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[ACTUALIZAR_TBL_DOCUMENTO] '" + documento.Nombre + "','" + documento.Activo + "' ," + documentoId[documento.PosIndex] + ";");
+                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[ACTUALIZAR_TBL_DOCUMENTO] '" + documento.Nombre + "', " + documento.Activo + ", " + documentoId[documento.PosIndex]);
                 }
                 else
                 {
                     //Insert del nuevo registro
-                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_DOCUMENTO] 1, '" + documento.Nombre + "', " + Usuario.UserID + ",  '" + documento.Activo + ";");
+                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[INSERTAR_TBL_DOCUMENTO] 1, '" + documento.Nombre + "', " + Usuario.UserID + ",  " + documento.Activo + ";");
                 }
                 if (!estado.Estado)
                 {
