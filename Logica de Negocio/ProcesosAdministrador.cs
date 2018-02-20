@@ -157,9 +157,9 @@ namespace Logica_de_Negocio
                 envio = 1;
             switch (opc)
             {
-                case 0: return Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_AREAS SET activo = "+ envio + " WHERE id_area="+areaId[index]+";").Estado;
-                case 1: return Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_EXPEDIENTES SET activo = " + envio + " WHERE id_expediente=" + expedienteId[index] + ";").Estado;
-                case 2: return Conexion.EjecutarSentencia("UPDATE dbo.TBL_DIG_CATEGORIAS SET activo = " + envio + " WHERE id_categoria=" + categoriaId[index] + ";").Estado;
+                case 0: return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_ACTUALIZAR_TBL_AREAS] " + envio + ", " + areaId[index] + ";").Estado;
+                case 1: return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_ACTUALIZAR_TBL_EXPEDIENTES] " + envio + ", " + expedienteId[index] + ";").Estado;
+                case 2: return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_ACTUALIZAR_TBL_CATEGORIAS] " + envio + ", " + categoriaId[index] + ";").Estado;
             }
             return false;
         }
@@ -180,7 +180,7 @@ namespace Logica_de_Negocio
 
         public bool RegistrarManual(string nombre, int categoria)
         {
-            return Conexion.EjecutarSentencia("INSERT INTO dbo.TBL_DIG_REGISTRO_EXPEDIENTE VALUES ("+categoriaId[categoria]+",'"+nombre+"', CURRENT_TIMESTAMP, "+Usuario.UserID+", 0);").Estado;
+            return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_REGISTRO_EXPEDIENTE] " + categoriaId[categoria] + ", '" + nombre + "', " + Usuario.UserID).Estado;
         }
 
     }
