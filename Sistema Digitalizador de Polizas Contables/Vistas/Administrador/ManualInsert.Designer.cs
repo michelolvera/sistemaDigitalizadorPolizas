@@ -43,9 +43,9 @@
             // 
             this.CmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbArea.FormattingEnabled = true;
-            this.CmbArea.Location = new System.Drawing.Point(100, 12);
+            this.CmbArea.Location = new System.Drawing.Point(107, 12);
             this.CmbArea.Name = "CmbArea";
-            this.CmbArea.Size = new System.Drawing.Size(380, 24);
+            this.CmbArea.Size = new System.Drawing.Size(373, 24);
             this.CmbArea.TabIndex = 0;
             this.CmbArea.SelectedIndexChanged += new System.EventHandler(this.CmbArea_SelectedIndexChanged);
             // 
@@ -54,9 +54,9 @@
             this.CmbExpediente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbExpediente.Enabled = false;
             this.CmbExpediente.FormattingEnabled = true;
-            this.CmbExpediente.Location = new System.Drawing.Point(100, 43);
+            this.CmbExpediente.Location = new System.Drawing.Point(107, 43);
             this.CmbExpediente.Name = "CmbExpediente";
-            this.CmbExpediente.Size = new System.Drawing.Size(380, 24);
+            this.CmbExpediente.Size = new System.Drawing.Size(373, 24);
             this.CmbExpediente.TabIndex = 1;
             this.CmbExpediente.SelectedIndexChanged += new System.EventHandler(this.CmbExpediente_SelectedIndexChanged);
             // 
@@ -65,9 +65,9 @@
             this.CmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbCategoria.Enabled = false;
             this.CmbCategoria.FormattingEnabled = true;
-            this.CmbCategoria.Location = new System.Drawing.Point(100, 73);
+            this.CmbCategoria.Location = new System.Drawing.Point(107, 73);
             this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(380, 24);
+            this.CmbCategoria.Size = new System.Drawing.Size(373, 24);
             this.CmbCategoria.TabIndex = 2;
             this.CmbCategoria.SelectedIndexChanged += new System.EventHandler(this.CmbCategoria_SelectedIndexChanged);
             // 
@@ -101,9 +101,9 @@
             // TxtNombre
             // 
             this.TxtNombre.Enabled = false;
-            this.TxtNombre.Location = new System.Drawing.Point(100, 104);
+            this.TxtNombre.Location = new System.Drawing.Point(107, 104);
             this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(380, 22);
+            this.TxtNombre.Size = new System.Drawing.Size(373, 22);
             this.TxtNombre.TabIndex = 6;
             // 
             // label4
@@ -111,9 +111,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 107);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 17);
+            this.label4.Size = new System.Drawing.Size(89, 17);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Nombre:";
+            this.label4.Text = "Identificador:";
             // 
             // BtnGuardar
             // 

@@ -44,19 +44,24 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             if (e.KeyCode == Keys.Enter && cmbCategoria.DropDownStyle == ComboBoxStyle.Simple)
             {
-                if (cmbCategoria.Text != String.Empty && MessageBox.Show("Se creara la categoria '" + cmbCategoria.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+                if (procesosAdministrador.ValidarLongitudCadena(cmbCategoria.Text))
                 {
-                    if (!procesosAdministrador.CrearNuevoRegistro(2, cmbCategoria.Text, cmbExpediente.SelectedIndex))
-                        MessageBox.Show("Se produjo un error mientras se creaba el registro.");
-                }
-                //Activar control
-                cmbArea.Enabled = true;
-                cmbExpediente.Enabled = true;
+                    if (cmbCategoria.Text != String.Empty && MessageBox.Show("Se creara la categoria '" + cmbCategoria.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+                    {
+                        if (!procesosAdministrador.CrearNuevoRegistro(2, cmbCategoria.Text, cmbExpediente.SelectedIndex))
+                            MessageBox.Show("Se produjo un error mientras se creaba el registro.");
+                    }
+                    //Activar control
+                    cmbArea.Enabled = true;
+                    cmbExpediente.Enabled = true;
 
-                //Regresar control a la normalidad.
-                cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
-                cmbCategoria = procesosAdministrador.LlenarCombo(cmbCategoria, 2, cmbExpediente.SelectedIndex);
-                cmbCategoria.Items.Add("< Nuevo >");
+                    //Regresar control a la normalidad.
+                    cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cmbCategoria = procesosAdministrador.LlenarCombo(cmbCategoria, 2, cmbExpediente.SelectedIndex);
+                    cmbCategoria.Items.Add("< Nuevo >");
+                }
+                else
+                    MessageBox.Show("El nombre no puede tener mas de 100 caracteres.");
             }
         }
 
@@ -64,18 +69,25 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             if (e.KeyCode == Keys.Enter && cmbExpediente.DropDownStyle == ComboBoxStyle.Simple)
             {
-                if (cmbExpediente.Text != String.Empty && MessageBox.Show("Se creara el expediente '" + cmbExpediente.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+                if (procesosAdministrador.ValidarLongitudCadena(cmbExpediente.Text))
                 {
-                    if (!procesosAdministrador.CrearNuevoRegistro(1, cmbExpediente.Text, cmbArea.SelectedIndex))
-                        MessageBox.Show("Se produjo un error mientras se creaba el registro.");
-                }
-                //Activar control
-                cmbArea.Enabled = true;
+                    if (cmbExpediente.Text != String.Empty && MessageBox.Show("Se creara el expediente '" + cmbExpediente.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+                    {
+                        if (!procesosAdministrador.CrearNuevoRegistro(1, cmbExpediente.Text, cmbArea.SelectedIndex))
+                            MessageBox.Show("Se produjo un error mientras se creaba el registro.");
+                    }
+                    //Activar control
+                    cmbArea.Enabled = true;
 
-                //Regresar control a la normalidad.
-                cmbExpediente.DropDownStyle = ComboBoxStyle.DropDownList;
-                cmbExpediente = procesosAdministrador.LlenarCombo(cmbExpediente, 1, cmbArea.SelectedIndex);
-                cmbExpediente.Items.Add("< Nuevo >");
+                    //Regresar control a la normalidad.
+                    cmbExpediente.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cmbExpediente = procesosAdministrador.LlenarCombo(cmbExpediente, 1, cmbArea.SelectedIndex);
+                    cmbExpediente.Items.Add("< Nuevo >");
+                }
+                else
+                    MessageBox.Show("El nombre no puede tener mas de 100 caracteres.");
+
+                
             }
         }
 
@@ -83,15 +95,20 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             if (e.KeyCode == Keys.Enter && cmbArea.DropDownStyle == ComboBoxStyle.Simple)
             {
-                if (cmbArea.Text != String.Empty && MessageBox.Show("Se creara la categoria '" + cmbArea.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+                if (procesosAdministrador.ValidarLongitudCadena(cmbArea.Text))
                 {
-                    if (!procesosAdministrador.CrearNuevoRegistro(0, cmbArea.Text, 0))
-                        MessageBox.Show("Se produjo un error mientras se creaba el registro.");
-                }
-                //Regresar control a la normalidad.
-                cmbArea.DropDownStyle = ComboBoxStyle.DropDownList;
-                cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
-                cmbArea.Items.Add("< Nuevo >");
+                    if (cmbArea.Text != String.Empty && MessageBox.Show("Se creara la categoria '" + cmbArea.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+                    {
+                        if (!procesosAdministrador.CrearNuevoRegistro(0, cmbArea.Text, 0))
+                            MessageBox.Show("Se produjo un error mientras se creaba el registro.");
+                    }
+                    //Regresar control a la normalidad.
+                    cmbArea.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
+                    cmbArea.Items.Add("< Nuevo >");
+                }else
+                    MessageBox.Show("El nombre no puede tener mas de 100 caracteres.");
+
             }
         }
 
@@ -111,6 +128,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                     dgvDocumentos[0, e.RowIndex].ErrorText = "El valor no puede estar vacio.";
                     e.Cancel = true;
                 }
+            }
+            else if (procesosAdministrador.ValidarLongitudCadena(dgvDocumentos[0, e.RowIndex].Value.ToString()))
+            {
+                dgvDocumentos[0, e.RowIndex].ErrorText = "El nombre no puede ser mayor a 100 caracteres.";
+                e.Cancel = true;
             }
             else
             {

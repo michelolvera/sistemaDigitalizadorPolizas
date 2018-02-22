@@ -35,12 +35,16 @@ namespace Logica_de_Negocio
             if (Conexion.AbrirConexion().Estado)
             {
                 int userID = 0;
-                SqlDataReader dataReader = Conexion.EjecutarConsulta("Execute SP_DIG_VALIDAR_USUARIO N\'" + Usuario.UserName+"\', N\'"+Usuario.UserPassword+"\'").Resultado;
+                SqlDataReader dataReader = Conexion.EjecutarConsulta("Execute SP_DIG_VALIDAR_USUARIO '" + Usuario.UserName+"\', '"+Usuario.UserPassword+"'").Resultado;
                 if(dataReader.HasRows && dataReader.Read())
                 {
                     userID = dataReader.GetInt32(0);
                     Usuario.IdArea = dataReader.GetInt32(1); //Se recibe el ID de area, (Descomentar en cuanto el procedure lo retorne. DESCOMENTAR
                     Usuario.EsAdmin = dataReader.GetBoolean(2); // Se recibe si es admin o no.
+                    Usuario.Nombre = dataReader.GetString(3);
+                    Usuario.ApellidoPaterno = dataReader.GetString(4);
+                    Usuario.ApellidoMaterno = dataReader.GetString(5);
+                    Usuario.Dios = dataReader.GetBoolean(6);
                     dataReader.Close();
                 }
                 //Validacion de datos
@@ -254,6 +258,12 @@ namespace Logica_de_Negocio
                 MessageBox.Show("Archivo no encontrado!\n\nBuscamos: "+source+"\n\nPISTA: Si cuenta con el archivo, llevelo a la ubicación correcta y vuelva intente abrirlo. Caso contrario vuelva a escanear el documento.", "ARCHIVO NO ENCONTRADO!",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 return false;
             }
-        }   
+        }
+        
+        public bool ValidarLongitudCadena(string cadena)
+        {
+            //Si la cadena excede los 100 caracteres regresa false, de lo contrario y por lo tanto de 100 o menos caracteres retorna true
+            return cadena.Length > 100 ? false : true;
+        }
     }
 }

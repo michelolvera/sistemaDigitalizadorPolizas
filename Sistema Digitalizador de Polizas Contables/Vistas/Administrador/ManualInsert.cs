@@ -57,12 +57,17 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             if (TxtNombre != null && TxtNombre.Text != String.Empty)
             {
-                if(procesosAdministrador.RegistrarManual(TxtNombre.Text, CmbCategoria.SelectedIndex))
+                if (procesosAdministrador.ValidarLongitudCadena(TxtNombre.Text))
                 {
-                    MessageBox.Show("El registro se creeo de manera correcta.");
-                    TxtNombre.Text = "";
+                    if (procesosAdministrador.RegistrarManual(TxtNombre.Text, CmbCategoria.SelectedIndex))
+                    {
+                        MessageBox.Show("El registro se creeo de manera correcta.");
+                        TxtNombre.Text = "";
+                    }
+                    else
+                        MessageBox.Show("Se presento un error al insertar el registro, intentelo de nuevo.");
                 }else
-                    MessageBox.Show("Se presento un error al insertar el registro, intentelo de nuevo.");
+                    MessageBox.Show("El identificador no puede exceder mas de 100 caracteres.");
             }
             else
             {
