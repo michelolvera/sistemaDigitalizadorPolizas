@@ -20,7 +20,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
             InitializeComponent();
             this.procesosUsuario = procesosUsuario;
-            dgvExpedientes = this.procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, checkBoxDigitalizadosPend.Checked);
+            dgvExpedientes = this.procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked);
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -30,14 +30,14 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void ExpedientesP_Load(object sender, EventArgs e)
         {
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, checkBoxDigitalizadosPend.Checked);
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked);
             cmbBusqueda.SelectedIndex = 0;
         }
 
 
         private void BtnActualizar_Click(object sender, EventArgs e)
         {
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, checkBoxDigitalizadosPend.Checked);
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked);
         }
 
 
@@ -65,9 +65,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         }
 
-        private void checkBoxDigitalizadosPend_CheckedChanged(object sender, EventArgs e)
+        private void mostrarExpedientesCompletadosToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, checkBoxDigitalizadosPend.Checked);
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked);
+
         }
 
         private void TxbBusqueda_TextChanged(object sender, EventArgs e)
@@ -87,6 +88,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                 new ManualInsert(new ProcesosAdministrador(procesosUsuario.Usuario)).Show();
             else
                 MessageBox.Show("Usted no cuenta con los privilegios necesarios para gestionar este sistema.", "Error");
+        }
+
+        private void MostrarExpedientesCompletadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mostrarExpedientesCompletadosToolStripMenuItem.Checked = !mostrarExpedientesCompletadosToolStripMenuItem.Checked;
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked);
         }
     }
 }

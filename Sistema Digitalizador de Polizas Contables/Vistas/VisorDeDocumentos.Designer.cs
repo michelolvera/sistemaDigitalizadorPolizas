@@ -60,7 +60,7 @@
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -73,7 +73,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.labelNoDigitalizado);
             this.splitContainer1.Panel2.Controls.Add(this.axAcroPDF1);
             this.splitContainer1.Size = new System.Drawing.Size(1113, 577);
-            this.splitContainer1.SplitterDistance = 446;
+            this.splitContainer1.SplitterDistance = 445;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -90,7 +90,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(444, 575);
+            this.panel1.Size = new System.Drawing.Size(443, 575);
             this.panel1.TabIndex = 10;
             // 
             // lblRegistroActual
@@ -112,8 +112,8 @@
             this.btnEliminarDoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminarDoc.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnEliminarDoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnEliminarDoc.Location = new System.Drawing.Point(388, 533);
-            this.btnEliminarDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminarDoc.Location = new System.Drawing.Point(387, 533);
+            this.btnEliminarDoc.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarDoc.Name = "btnEliminarDoc";
             this.btnEliminarDoc.Size = new System.Drawing.Size(52, 38);
             this.btnEliminarDoc.TabIndex = 6;
@@ -168,7 +168,7 @@
             this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDocumentos.RowTemplate.Height = 24;
             this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDocumentos.Size = new System.Drawing.Size(433, 457);
+            this.dgvDocumentos.Size = new System.Drawing.Size(432, 457);
             this.dgvDocumentos.TabIndex = 9;
             // 
             // NombreDocumento
@@ -192,8 +192,8 @@
             this.btnReemplazarDoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnReemplazarDoc.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnReemplazarDoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnReemplazarDoc.Location = new System.Drawing.Point(328, 533);
-            this.btnReemplazarDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReemplazarDoc.Location = new System.Drawing.Point(327, 533);
+            this.btnReemplazarDoc.Margin = new System.Windows.Forms.Padding(4);
             this.btnReemplazarDoc.Name = "btnReemplazarDoc";
             this.btnReemplazarDoc.Size = new System.Drawing.Size(52, 38);
             this.btnReemplazarDoc.TabIndex = 5;
@@ -204,7 +204,7 @@
             // 
             this.checkBoxDigitalizadosVisor.AutoSize = true;
             this.checkBoxDigitalizadosVisor.Location = new System.Drawing.Point(7, 41);
-            this.checkBoxDigitalizadosVisor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxDigitalizadosVisor.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxDigitalizadosVisor.Name = "checkBoxDigitalizadosVisor";
             this.checkBoxDigitalizadosVisor.Size = new System.Drawing.Size(193, 21);
             this.checkBoxDigitalizadosVisor.TabIndex = 8;
@@ -220,7 +220,7 @@
             this.btnBack.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.btnBack.Location = new System.Drawing.Point(7, 543);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(236, 28);
             this.btnBack.TabIndex = 1;
@@ -237,8 +237,8 @@
             this.btnActualizarDocs.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnActualizarDocs.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnActualizarDocs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnActualizarDocs.Location = new System.Drawing.Point(400, 10);
-            this.btnActualizarDocs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizarDocs.Location = new System.Drawing.Point(399, 10);
+            this.btnActualizarDocs.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizarDocs.Name = "btnActualizarDocs";
             this.btnActualizarDocs.Size = new System.Drawing.Size(40, 39);
             this.btnActualizarDocs.TabIndex = 7;
@@ -254,7 +254,7 @@
             this.btnDigitalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDigitalizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.btnDigitalizar.Location = new System.Drawing.Point(293, 308);
-            this.btnDigitalizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDigitalizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnDigitalizar.Name = "btnDigitalizar";
             this.btnDigitalizar.Size = new System.Drawing.Size(112, 57);
             this.btnDigitalizar.TabIndex = 2;
@@ -282,10 +282,10 @@
             this.axAcroPDF1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.axAcroPDF1.Enabled = true;
             this.axAcroPDF1.Location = new System.Drawing.Point(0, 0);
-            this.axAcroPDF1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.axAcroPDF1.Margin = new System.Windows.Forms.Padding(4);
             this.axAcroPDF1.Name = "axAcroPDF1";
             this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(660, 575);
+            this.axAcroPDF1.Size = new System.Drawing.Size(661, 575);
             this.axAcroPDF1.TabIndex = 0;
             // 
             // VisorDeDocumentos
@@ -295,7 +295,7 @@
             this.ClientSize = new System.Drawing.Size(1113, 577);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VisorDeDocumentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisorDeDocumentos";

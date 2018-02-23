@@ -129,7 +129,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                     e.Cancel = true;
                 }
             }
-            else if (procesosAdministrador.ValidarLongitudCadena(dgvDocumentos[0, e.RowIndex].Value.ToString()))
+            else if (!procesosAdministrador.ValidarLongitudCadena(dgvDocumentos[0, e.RowIndex].Value.ToString()))
             {
                 dgvDocumentos[0, e.RowIndex].ErrorText = "El nombre no puede ser mayor a 100 caracteres.";
                 e.Cancel = true;
