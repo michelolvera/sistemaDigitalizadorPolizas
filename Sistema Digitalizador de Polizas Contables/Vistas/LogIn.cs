@@ -95,5 +95,45 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                 BotonAccesoAdmin_Click(sender, e);
             }
         }
+
+        private void lblIDUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbNombreUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxCajaLogo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pctBoxCabecera1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pctBoxSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnCerrarLogIn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
