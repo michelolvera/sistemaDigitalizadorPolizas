@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using AxAcroPDFLib;
 using System.Windows.Forms;
 
+
 namespace Logica_de_Negocio
 {   //Comunicacion y formateo de datos con SQL Server 2008
     public class ProcesosUsuario
