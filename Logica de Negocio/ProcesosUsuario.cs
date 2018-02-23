@@ -60,10 +60,7 @@ namespace Logica_de_Negocio
             registroId.Clear();
             origenTabla.Rows.Clear();
             SQLEstado sQLEstado;
-            if (completado)
-                sQLEstado = Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DATOS_EXPEDIENTE " + Usuario.IdArea );
-            else
-                sQLEstado = Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DATOS_EXPEDIENTE2 " + Usuario.IdArea);
+            sQLEstado = completado ? Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DATOS_EXPEDIENTE " + Usuario.IdArea + ", 1") : Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DATOS_EXPEDIENTE " + Usuario.IdArea + ", 0");
 
             if (sQLEstado.Estado)
             {
@@ -82,10 +79,7 @@ namespace Logica_de_Negocio
             documentoDigId.Clear();
             origenTabla.Rows.Clear();
             SQLEstado sQLEstado;
-            if (completado)
-                sQLEstado = Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DOC_PENDIENTES " + expediente);
-            else
-                sQLEstado = Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DOC_PENDIENTES2 " + expediente);
+            sQLEstado = completado ? Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DOC_PENDIENTES " + expediente + ", 1") : Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DOC_PENDIENTES " + expediente + ", 0");
 
             if (sQLEstado.Estado)
             {
