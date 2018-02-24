@@ -19,11 +19,13 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         public ExpedientesP(ProcesosUsuario procesosUsuario)
         {
             InitializeComponent();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.WindowState = FormWindowState.Maximized;
             MainMenuStrip.ForeColor = Color.White;
             menuStrip1.ForeColor = Color.White;
             DateTime Fechaactual = DateTime.Now;
             lblUsuarioActual.Text = "| " + procesosUsuario.Usuario.Nombre + " " + procesosUsuario.Usuario.ApellidoPaterno +" "+ procesosUsuario.Usuario.ApellidoMaterno +" |";
-            lblFechaHora.Text = "| " +Fechaactual.ToString("en-US")+ "|";
+            lblFechaHora.Text = "| " +Fechaactual.ToLongDateString() + " |";
             this.procesosUsuario = procesosUsuario;
             dgvExpedientes = this.procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked);
         }
@@ -107,6 +109,16 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         }
 
         private void pctBoxMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            ExpedientesP_FormClosed(sender, null);
+        }
+
+        private void btnMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }

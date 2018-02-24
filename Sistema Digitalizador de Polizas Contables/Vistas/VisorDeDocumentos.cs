@@ -24,7 +24,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         public VisorDeDocumentos(ProcesosUsuario procesosUsuario, int expedienteActual, string registroActual)
         {
             InitializeComponent();
-            
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.WindowState = FormWindowState.Maximized;
+            DateTime Fechaactual = DateTime.Now;
+            lblUsuarioActual.Text = "| " + procesosUsuario.Usuario.Nombre + " " + procesosUsuario.Usuario.ApellidoPaterno + " " + procesosUsuario.Usuario.ApellidoMaterno + " |";
+            lblFechaHora.Text = "| " + Fechaactual.ToLongDateString() + " |";
             this.procesosUsuario = procesosUsuario;
             this.expedienteActual = procesosUsuario.ObtenerRegistroId(expedienteActual);
             lblRegistroActual.Text += registroActual;
@@ -32,11 +36,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             dgvDocumentos = procesosUsuario.LlenarTablaDocumentosPendientes(dgvDocumentos, this.expedienteActual, checkBoxDigitalizadosVisor.Checked);
             btnEliminarDoc.Enabled = false;
             btnReemplazarDoc.Enabled = false;
-        }
-
-        private void BtnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void BtnReemplazarDoc_Click(object sender, EventArgs e)
@@ -127,11 +126,15 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
                     axAcroPDF1.Visible = false;
                     labelNoDigitalizado.Visible = true;
                     btnDigitalizar.Visible = true;
-                 }
+                    btnEliminarDoc.Enabled = false;
+                    btnReemplazarDoc.Enabled = false;
+                }
                  else
                  {
                     labelNoDigitalizado.Visible = false;
                     btnDigitalizar.Visible = false;
+                    btnEliminarDoc.Enabled = true;
+                    btnReemplazarDoc.Enabled = true;
                     procesosUsuario.ConstruirRuta(e.RowIndex);
                     if (!procesosUsuario.MostrarPDF(this.axAcroPDF1))
                     {
@@ -148,5 +151,14 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             }
         }
 
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

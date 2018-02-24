@@ -41,11 +41,19 @@
             this.FechaDigitalizado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnReemplazarDoc = new Entidades.ButtonStyle();
             this.checkBoxDigitalizadosVisor = new System.Windows.Forms.CheckBox();
-            this.btnBack = new Entidades.ButtonStyle();
             this.btnActualizarDocs = new Entidades.ButtonStyle();
             this.btnDigitalizar = new Entidades.ButtonStyle();
             this.labelNoDigitalizado = new System.Windows.Forms.Label();
             this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnMin = new Entidades.ButtonStyle();
+            this.BtnCerrar = new Entidades.ButtonStyle();
+            this.lblUsuarioActual = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblFechaHora = new System.Windows.Forms.Label();
+            this.lblTituloVentana = new System.Windows.Forms.Label();
+            this.pictureBoxCajaLogo = new System.Windows.Forms.PictureBox();
+            this.pctBoxCabecera1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -53,14 +61,19 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 62);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -72,9 +85,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnDigitalizar);
             this.splitContainer1.Panel2.Controls.Add(this.labelNoDigitalizado);
             this.splitContainer1.Panel2.Controls.Add(this.axAcroPDF1);
-            this.splitContainer1.Size = new System.Drawing.Size(1113, 577);
-            this.splitContainer1.SplitterDistance = 445;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(835, 446);
+            this.splitContainer1.SplitterDistance = 333;
             this.splitContainer1.TabIndex = 0;
             // 
             // panel1
@@ -84,38 +96,36 @@
             this.panel1.Controls.Add(this.dgvDocumentos);
             this.panel1.Controls.Add(this.btnReemplazarDoc);
             this.panel1.Controls.Add(this.checkBoxDigitalizadosVisor);
-            this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.btnActualizarDocs);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(443, 575);
+            this.panel1.Size = new System.Drawing.Size(331, 444);
             this.panel1.TabIndex = 10;
             // 
             // lblRegistroActual
             // 
             this.lblRegistroActual.AutoSize = true;
-            this.lblRegistroActual.Location = new System.Drawing.Point(4, 10);
-            this.lblRegistroActual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRegistroActual.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.lblRegistroActual.Location = new System.Drawing.Point(3, 8);
             this.lblRegistroActual.Name = "lblRegistroActual";
-            this.lblRegistroActual.Size = new System.Drawing.Size(112, 17);
+            this.lblRegistroActual.Size = new System.Drawing.Size(101, 16);
             this.lblRegistroActual.TabIndex = 3;
             this.lblRegistroActual.Text = "Registro Actual: ";
             // 
             // btnEliminarDoc
             // 
-            this.btnEliminarDoc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnEliminarDoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminarDoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnEliminarDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEliminarDoc.BackgroundImage")));
             this.btnEliminarDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEliminarDoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminarDoc.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnEliminarDoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnEliminarDoc.Location = new System.Drawing.Point(387, 533);
-            this.btnEliminarDoc.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarDoc.Location = new System.Drawing.Point(255, 9);
             this.btnEliminarDoc.Name = "btnEliminarDoc";
-            this.btnEliminarDoc.Size = new System.Drawing.Size(52, 38);
+            this.btnEliminarDoc.Size = new System.Drawing.Size(30, 30);
             this.btnEliminarDoc.TabIndex = 6;
             this.btnEliminarDoc.UseVisualStyleBackColor = false;
             this.btnEliminarDoc.Click += new System.EventHandler(this.BtnEliminarDoc_Click);
@@ -157,8 +167,8 @@
             this.dgvDocumentos.EnableHeadersVisualStyles = false;
             this.dgvDocumentos.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvDocumentos.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvDocumentos.Location = new System.Drawing.Point(7, 69);
-            this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvDocumentos.Location = new System.Drawing.Point(5, 56);
+            this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDocumentos.MultiSelect = false;
             this.dgvDocumentos.Name = "dgvDocumentos";
             this.dgvDocumentos.ReadOnly = true;
@@ -168,7 +178,7 @@
             this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDocumentos.RowTemplate.Height = 24;
             this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDocumentos.Size = new System.Drawing.Size(432, 457);
+            this.dgvDocumentos.Size = new System.Drawing.Size(323, 385);
             this.dgvDocumentos.TabIndex = 9;
             // 
             // NombreDocumento
@@ -185,17 +195,16 @@
             // 
             // btnReemplazarDoc
             // 
-            this.btnReemplazarDoc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnReemplazarDoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReemplazarDoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnReemplazarDoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReemplazarDoc.BackgroundImage")));
             this.btnReemplazarDoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnReemplazarDoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnReemplazarDoc.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnReemplazarDoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnReemplazarDoc.Location = new System.Drawing.Point(327, 533);
-            this.btnReemplazarDoc.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReemplazarDoc.Location = new System.Drawing.Point(212, 8);
             this.btnReemplazarDoc.Name = "btnReemplazarDoc";
-            this.btnReemplazarDoc.Size = new System.Drawing.Size(52, 38);
+            this.btnReemplazarDoc.Size = new System.Drawing.Size(30, 30);
             this.btnReemplazarDoc.TabIndex = 5;
             this.btnReemplazarDoc.UseVisualStyleBackColor = false;
             this.btnReemplazarDoc.Click += new System.EventHandler(this.BtnReemplazarDoc_Click);
@@ -203,30 +212,14 @@
             // checkBoxDigitalizadosVisor
             // 
             this.checkBoxDigitalizadosVisor.AutoSize = true;
-            this.checkBoxDigitalizadosVisor.Location = new System.Drawing.Point(7, 41);
-            this.checkBoxDigitalizadosVisor.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxDigitalizadosVisor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.checkBoxDigitalizadosVisor.Location = new System.Drawing.Point(6, 30);
             this.checkBoxDigitalizadosVisor.Name = "checkBoxDigitalizadosVisor";
-            this.checkBoxDigitalizadosVisor.Size = new System.Drawing.Size(193, 21);
+            this.checkBoxDigitalizadosVisor.Size = new System.Drawing.Size(177, 20);
             this.checkBoxDigitalizadosVisor.TabIndex = 8;
             this.checkBoxDigitalizadosVisor.Text = "Documentos Digitalizados";
             this.checkBoxDigitalizadosVisor.UseVisualStyleBackColor = false;
             this.checkBoxDigitalizadosVisor.CheckedChanged += new System.EventHandler(this.CheckBoxDigitalizadosVisor_CheckedChanged);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnBack.Location = new System.Drawing.Point(7, 543);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(236, 28);
-            this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "Regresar a Pendientes";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // btnActualizarDocs
             // 
@@ -237,10 +230,9 @@
             this.btnActualizarDocs.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnActualizarDocs.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnActualizarDocs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnActualizarDocs.Location = new System.Drawing.Point(399, 10);
-            this.btnActualizarDocs.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActualizarDocs.Location = new System.Drawing.Point(298, 8);
             this.btnActualizarDocs.Name = "btnActualizarDocs";
-            this.btnActualizarDocs.Size = new System.Drawing.Size(40, 39);
+            this.btnActualizarDocs.Size = new System.Drawing.Size(30, 30);
             this.btnActualizarDocs.TabIndex = 7;
             this.btnActualizarDocs.UseVisualStyleBackColor = false;
             this.btnActualizarDocs.Click += new System.EventHandler(this.BtnActualizarLista_Click);
@@ -251,12 +243,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDigitalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnDigitalizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDigitalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDigitalizar.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
             this.btnDigitalizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnDigitalizar.Location = new System.Drawing.Point(293, 308);
-            this.btnDigitalizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDigitalizar.Location = new System.Drawing.Point(220, 250);
             this.btnDigitalizar.Name = "btnDigitalizar";
-            this.btnDigitalizar.Size = new System.Drawing.Size(112, 57);
+            this.btnDigitalizar.Size = new System.Drawing.Size(83, 46);
             this.btnDigitalizar.TabIndex = 2;
             this.btnDigitalizar.Text = "Digitalizar";
             this.btnDigitalizar.UseVisualStyleBackColor = false;
@@ -268,11 +259,10 @@
             this.labelNoDigitalizado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelNoDigitalizado.AutoSize = true;
-            this.labelNoDigitalizado.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoDigitalizado.Location = new System.Drawing.Point(143, 249);
-            this.labelNoDigitalizado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNoDigitalizado.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
+            this.labelNoDigitalizado.Location = new System.Drawing.Point(107, 202);
             this.labelNoDigitalizado.Name = "labelNoDigitalizado";
-            this.labelNoDigitalizado.Size = new System.Drawing.Size(478, 42);
+            this.labelNoDigitalizado.Size = new System.Drawing.Size(341, 28);
             this.labelNoDigitalizado.TabIndex = 1;
             this.labelNoDigitalizado.Text = "¡Documento no digitalizado!";
             this.labelNoDigitalizado.Visible = false;
@@ -282,24 +272,144 @@
             this.axAcroPDF1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.axAcroPDF1.Enabled = true;
             this.axAcroPDF1.Location = new System.Drawing.Point(0, 0);
-            this.axAcroPDF1.Margin = new System.Windows.Forms.Padding(4);
             this.axAcroPDF1.Name = "axAcroPDF1";
             this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(661, 575);
+            this.axAcroPDF1.Size = new System.Drawing.Size(496, 444);
             this.axAcroPDF1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.btnMin);
+            this.panel2.Controls.Add(this.BtnCerrar);
+            this.panel2.Controls.Add(this.lblUsuarioActual);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.lblFechaHora);
+            this.panel2.Controls.Add(this.lblTituloVentana);
+            this.panel2.Controls.Add(this.pictureBoxCajaLogo);
+            this.panel2.Controls.Add(this.pctBoxCabecera1);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(835, 65);
+            this.panel2.TabIndex = 10;
+            // 
+            // btnMin
+            // 
+            this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMin.BackColor = System.Drawing.Color.Black;
+            this.btnMin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMin.BackgroundImage")));
+            this.btnMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMin.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.btnMin.Location = new System.Drawing.Point(776, 6);
+            this.btnMin.Name = "btnMin";
+            this.btnMin.Size = new System.Drawing.Size(23, 23);
+            this.btnMin.TabIndex = 30;
+            this.btnMin.UseVisualStyleBackColor = false;
+            this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCerrar.BackColor = System.Drawing.Color.Black;
+            this.BtnCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnCerrar.BackgroundImage")));
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnCerrar.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.BtnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.BtnCerrar.Location = new System.Drawing.Point(805, 6);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(23, 23);
+            this.BtnCerrar.TabIndex = 29;
+            this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
+            // lblUsuarioActual
+            // 
+            this.lblUsuarioActual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsuarioActual.AutoSize = true;
+            this.lblUsuarioActual.BackColor = System.Drawing.Color.Black;
+            this.lblUsuarioActual.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.lblUsuarioActual.ForeColor = System.Drawing.Color.White;
+            this.lblUsuarioActual.Location = new System.Drawing.Point(567, 11);
+            this.lblUsuarioActual.Name = "lblUsuarioActual";
+            this.lblUsuarioActual.Size = new System.Drawing.Size(202, 16);
+            this.lblUsuarioActual.TabIndex = 28;
+            this.lblUsuarioActual.Text = "|                                                            |";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(540, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblFechaHora
+            // 
+            this.lblFechaHora.AutoSize = true;
+            this.lblFechaHora.BackColor = System.Drawing.Color.Black;
+            this.lblFechaHora.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.lblFechaHora.ForeColor = System.Drawing.Color.White;
+            this.lblFechaHora.Location = new System.Drawing.Point(241, 9);
+            this.lblFechaHora.Name = "lblFechaHora";
+            this.lblFechaHora.Size = new System.Drawing.Size(178, 16);
+            this.lblFechaHora.TabIndex = 26;
+            this.lblFechaHora.Text = "|                                                    |";
+            // 
+            // lblTituloVentana
+            // 
+            this.lblTituloVentana.AutoSize = true;
+            this.lblTituloVentana.BackColor = System.Drawing.Color.Black;
+            this.lblTituloVentana.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.lblTituloVentana.ForeColor = System.Drawing.Color.White;
+            this.lblTituloVentana.Location = new System.Drawing.Point(65, 9);
+            this.lblTituloVentana.Name = "lblTituloVentana";
+            this.lblTituloVentana.Size = new System.Drawing.Size(172, 16);
+            this.lblTituloVentana.TabIndex = 25;
+            this.lblTituloVentana.Text = "|    Visor de Documentos     |";
+            // 
+            // pictureBoxCajaLogo
+            // 
+            this.pictureBoxCajaLogo.BackColor = System.Drawing.Color.Black;
+            this.pictureBoxCajaLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCajaLogo.Image")));
+            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(3, 7);
+            this.pictureBoxCajaLogo.Name = "pictureBoxCajaLogo";
+            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(65, 50);
+            this.pictureBoxCajaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCajaLogo.TabIndex = 24;
+            this.pictureBoxCajaLogo.TabStop = false;
+            // 
+            // pctBoxCabecera1
+            // 
+            this.pctBoxCabecera1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pctBoxCabecera1.BackColor = System.Drawing.Color.Black;
+            this.pctBoxCabecera1.Location = new System.Drawing.Point(0, 0);
+            this.pctBoxCabecera1.Name = "pctBoxCabecera1";
+            this.pctBoxCabecera1.Size = new System.Drawing.Size(835, 64);
+            this.pctBoxCabecera1.TabIndex = 23;
+            this.pctBoxCabecera1.TabStop = false;
             // 
             // VisorDeDocumentos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 577);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(835, 509);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitContainer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VisorDeDocumentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisorDeDocumentos";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VisorDeDocumentos_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -310,6 +420,11 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -318,7 +433,6 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label lblRegistroActual;
-        private Entidades.ButtonStyle btnBack;
         private Entidades.ButtonStyle btnEliminarDoc;
         private Entidades.ButtonStyle btnReemplazarDoc;
         private AxAcroPDFLib.AxAcroPDF axAcroPDF1;
@@ -330,5 +444,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaDigitalizado;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private Entidades.ButtonStyle btnMin;
+        private Entidades.ButtonStyle BtnCerrar;
+        private System.Windows.Forms.Label lblUsuarioActual;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblFechaHora;
+        private System.Windows.Forms.Label lblTituloVentana;
+        private System.Windows.Forms.PictureBox pictureBoxCajaLogo;
+        private System.Windows.Forms.PictureBox pctBoxCabecera1;
     }
 }
