@@ -38,7 +38,6 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnGuardar = new Entidades.ButtonStyle();
-            this.btnMin = new Entidades.ButtonStyle();
             this.BtnCerrar = new Entidades.ButtonStyle();
             this.lblTituloVentana = new System.Windows.Forms.Label();
             this.pictureBoxCajaLogo = new System.Windows.Forms.PictureBox();
@@ -50,11 +49,12 @@
             // CmbArea
             // 
             this.CmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbArea.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.CmbArea.FormattingEnabled = true;
-            this.CmbArea.Location = new System.Drawing.Point(97, 45);
-            this.CmbArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmbArea.Location = new System.Drawing.Point(97, 38);
+            this.CmbArea.Margin = new System.Windows.Forms.Padding(2);
             this.CmbArea.Name = "CmbArea";
-            this.CmbArea.Size = new System.Drawing.Size(281, 21);
+            this.CmbArea.Size = new System.Drawing.Size(281, 25);
             this.CmbArea.TabIndex = 0;
             this.CmbArea.SelectedIndexChanged += new System.EventHandler(this.CmbArea_SelectedIndexChanged);
             // 
@@ -62,11 +62,12 @@
             // 
             this.CmbExpediente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbExpediente.Enabled = false;
+            this.CmbExpediente.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.CmbExpediente.FormattingEnabled = true;
-            this.CmbExpediente.Location = new System.Drawing.Point(97, 70);
-            this.CmbExpediente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmbExpediente.Location = new System.Drawing.Point(97, 67);
+            this.CmbExpediente.Margin = new System.Windows.Forms.Padding(2);
             this.CmbExpediente.Name = "CmbExpediente";
-            this.CmbExpediente.Size = new System.Drawing.Size(281, 21);
+            this.CmbExpediente.Size = new System.Drawing.Size(281, 25);
             this.CmbExpediente.TabIndex = 1;
             this.CmbExpediente.SelectedIndexChanged += new System.EventHandler(this.CmbExpediente_SelectedIndexChanged);
             // 
@@ -74,11 +75,12 @@
             // 
             this.CmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbCategoria.Enabled = false;
+            this.CmbCategoria.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.CmbCategoria.FormattingEnabled = true;
-            this.CmbCategoria.Location = new System.Drawing.Point(97, 94);
-            this.CmbCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmbCategoria.Location = new System.Drawing.Point(97, 96);
+            this.CmbCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(281, 21);
+            this.CmbCategoria.Size = new System.Drawing.Size(281, 25);
             this.CmbCategoria.TabIndex = 2;
             this.CmbCategoria.SelectedIndexChanged += new System.EventHandler(this.CmbCategoria_SelectedIndexChanged);
             // 
@@ -86,7 +88,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(8, 47);
+            this.label1.Location = new System.Drawing.Point(8, 40);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 16);
@@ -97,7 +99,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(8, 72);
+            this.label2.Location = new System.Drawing.Point(8, 69);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 16);
@@ -109,27 +111,30 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(8, 97);
+            this.label3.Location = new System.Drawing.Point(8, 99);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Categoria:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // TxtNombre
             // 
             this.TxtNombre.Enabled = false;
-            this.TxtNombre.Location = new System.Drawing.Point(97, 119);
-            this.TxtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtNombre.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.TxtNombre.Location = new System.Drawing.Point(97, 125);
+            this.TxtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(281, 20);
+            this.TxtNombre.Size = new System.Drawing.Size(281, 22);
             this.TxtNombre.TabIndex = 6;
+            this.TxtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombre_KeyDown);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(8, 122);
+            this.label4.Location = new System.Drawing.Point(8, 128);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 16);
@@ -143,29 +148,14 @@
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.BtnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.BtnGuardar.Location = new System.Drawing.Point(312, 149);
-            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnGuardar.Location = new System.Drawing.Point(312, 152);
+            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(65, 27);
             this.BtnGuardar.TabIndex = 8;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
-            // 
-            // btnMin
-            // 
-            this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMin.BackColor = System.Drawing.Color.Black;
-            this.btnMin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMin.BackgroundImage")));
-            this.btnMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMin.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.btnMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnMin.Location = new System.Drawing.Point(323, 4);
-            this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(23, 23);
-            this.btnMin.TabIndex = 35;
-            this.btnMin.UseVisualStyleBackColor = false;
             // 
             // BtnCerrar
             // 
@@ -176,11 +166,12 @@
             this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCerrar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.BtnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.BtnCerrar.Location = new System.Drawing.Point(353, 4);
+            this.BtnCerrar.Location = new System.Drawing.Point(360, 4);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(23, 23);
             this.BtnCerrar.TabIndex = 34;
             this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click_1);
             // 
             // lblTituloVentana
             // 
@@ -210,9 +201,9 @@
             this.pctBoxCabecera1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pctBoxCabecera1.BackColor = System.Drawing.Color.Black;
-            this.pctBoxCabecera1.Location = new System.Drawing.Point(1, 0);
+            this.pctBoxCabecera1.Location = new System.Drawing.Point(0, 0);
             this.pctBoxCabecera1.Name = "pctBoxCabecera1";
-            this.pctBoxCabecera1.Size = new System.Drawing.Size(392, 30);
+            this.pctBoxCabecera1.Size = new System.Drawing.Size(392, 31);
             this.pctBoxCabecera1.TabIndex = 31;
             this.pctBoxCabecera1.TabStop = false;
             // 
@@ -220,8 +211,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(392, 186);
-            this.Controls.Add(this.btnMin);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.lblTituloVentana);
             this.Controls.Add(this.pictureBoxCajaLogo);
@@ -237,7 +228,7 @@
             this.Controls.Add(this.CmbArea);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManualInsert";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManualInsert";
@@ -260,7 +251,6 @@
         private System.Windows.Forms.TextBox TxtNombre;
         private System.Windows.Forms.Label label4;
         private Entidades.ButtonStyle BtnGuardar;
-        private Entidades.ButtonStyle btnMin;
         private Entidades.ButtonStyle BtnCerrar;
         private System.Windows.Forms.Label lblTituloVentana;
         private System.Windows.Forms.PictureBox pictureBoxCajaLogo;

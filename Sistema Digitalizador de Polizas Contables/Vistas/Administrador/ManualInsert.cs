@@ -89,5 +89,23 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCerrar_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void TxtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnGuardar_Click(sender, e);
+            }
+        }
     }
 }
