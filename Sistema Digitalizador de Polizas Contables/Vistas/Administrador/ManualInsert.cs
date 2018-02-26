@@ -74,5 +74,20 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 MessageBox.Show("El nombre no puede estar vacio.");
             }
         }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
