@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManualInsert));
             this.CmbArea = new System.Windows.Forms.ComboBox();
             this.CmbExpediente = new System.Windows.Forms.ComboBox();
             this.CmbCategoria = new System.Windows.Forms.ComboBox();
@@ -43,9 +44,10 @@
             // 
             this.CmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbArea.FormattingEnabled = true;
-            this.CmbArea.Location = new System.Drawing.Point(107, 12);
+            this.CmbArea.Location = new System.Drawing.Point(80, 10);
+            this.CmbArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CmbArea.Name = "CmbArea";
-            this.CmbArea.Size = new System.Drawing.Size(373, 24);
+            this.CmbArea.Size = new System.Drawing.Size(281, 21);
             this.CmbArea.TabIndex = 0;
             this.CmbArea.SelectedIndexChanged += new System.EventHandler(this.CmbArea_SelectedIndexChanged);
             // 
@@ -54,9 +56,10 @@
             this.CmbExpediente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbExpediente.Enabled = false;
             this.CmbExpediente.FormattingEnabled = true;
-            this.CmbExpediente.Location = new System.Drawing.Point(107, 43);
+            this.CmbExpediente.Location = new System.Drawing.Point(80, 35);
+            this.CmbExpediente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CmbExpediente.Name = "CmbExpediente";
-            this.CmbExpediente.Size = new System.Drawing.Size(373, 24);
+            this.CmbExpediente.Size = new System.Drawing.Size(281, 21);
             this.CmbExpediente.TabIndex = 1;
             this.CmbExpediente.SelectedIndexChanged += new System.EventHandler(this.CmbExpediente_SelectedIndexChanged);
             // 
@@ -65,53 +68,59 @@
             this.CmbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbCategoria.Enabled = false;
             this.CmbCategoria.FormattingEnabled = true;
-            this.CmbCategoria.Location = new System.Drawing.Point(107, 73);
+            this.CmbCategoria.Location = new System.Drawing.Point(80, 59);
+            this.CmbCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CmbCategoria.Name = "CmbCategoria";
-            this.CmbCategoria.Size = new System.Drawing.Size(373, 24);
+            this.CmbCategoria.Size = new System.Drawing.Size(281, 21);
             this.CmbCategoria.TabIndex = 2;
             this.CmbCategoria.SelectedIndexChanged += new System.EventHandler(this.CmbCategoria_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(9, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 17);
+            this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Area:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 46);
+            this.label2.Location = new System.Drawing.Point(9, 37);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 17);
+            this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Expediente:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 76);
+            this.label3.Location = new System.Drawing.Point(9, 62);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Categoria:";
             // 
             // TxtNombre
             // 
             this.TxtNombre.Enabled = false;
-            this.TxtNombre.Location = new System.Drawing.Point(107, 104);
+            this.TxtNombre.Location = new System.Drawing.Point(80, 84);
+            this.TxtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(373, 22);
+            this.TxtNombre.Size = new System.Drawing.Size(281, 20);
             this.TxtNombre.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 107);
+            this.label4.Location = new System.Drawing.Point(9, 87);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 17);
+            this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Identificador:";
             // 
@@ -122,9 +131,10 @@
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.BtnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.BtnGuardar.Location = new System.Drawing.Point(393, 133);
+            this.BtnGuardar.Location = new System.Drawing.Point(295, 108);
+            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(87, 33);
+            this.BtnGuardar.Size = new System.Drawing.Size(65, 27);
             this.BtnGuardar.TabIndex = 8;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = false;
@@ -132,9 +142,9 @@
             // 
             // ManualInsert
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 174);
+            this.ClientSize = new System.Drawing.Size(369, 141);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtNombre);
@@ -144,7 +154,10 @@
             this.Controls.Add(this.CmbCategoria);
             this.Controls.Add(this.CmbExpediente);
             this.Controls.Add(this.CmbArea);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManualInsert";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManualInsert";
             this.Load += new System.EventHandler(this.ManualInsert_Load);
             this.ResumeLayout(false);

@@ -35,22 +35,23 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellidoP = new System.Windows.Forms.Label();
             this.lblApellidoM = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlUsuarios = new System.Windows.Forms.TabControl();
             this.tabPageAcceso = new System.Windows.Forms.TabPage();
+            this.cmbArea = new System.Windows.Forms.ComboBox();
+            this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.tabPagePersonales = new System.Windows.Forms.TabPage();
+            this.txtbApellidoMaterno = new System.Windows.Forms.TextBox();
+            this.txtbNombre = new System.Windows.Forms.TextBox();
+            this.txtbApellidoP = new System.Windows.Forms.TextBox();
             this.tabPagePrivilegios = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxDios = new System.Windows.Forms.CheckBox();
+            this.checkBoxAdmin = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new Entidades.ButtonStyle();
             this.btnGuardar = new Entidades.ButtonStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.tabControl1.SuspendLayout();
+            this.lblUsuarioSeleccionado = new System.Windows.Forms.Label();
+            this.cmbPass = new System.Windows.Forms.ComboBox();
+            this.tabControlUsuarios.SuspendLayout();
             this.tabPageAcceso.SuspendLayout();
             this.tabPagePersonales.SuspendLayout();
             this.tabPagePrivilegios.SuspendLayout();
@@ -117,22 +118,22 @@
             this.lblApellidoM.TabIndex = 1;
             this.lblApellidoM.Text = "Apellido Materno";
             // 
-            // tabControl1
+            // tabControlUsuarios
             // 
-            this.tabControl1.Controls.Add(this.tabPageAcceso);
-            this.tabControl1.Controls.Add(this.tabPagePersonales);
-            this.tabControl1.Controls.Add(this.tabPagePrivilegios);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(411, 122);
-            this.tabControl1.TabIndex = 2;
+            this.tabControlUsuarios.Controls.Add(this.tabPageAcceso);
+            this.tabControlUsuarios.Controls.Add(this.tabPagePersonales);
+            this.tabControlUsuarios.Controls.Add(this.tabPagePrivilegios);
+            this.tabControlUsuarios.Location = new System.Drawing.Point(12, 44);
+            this.tabControlUsuarios.Name = "tabControlUsuarios";
+            this.tabControlUsuarios.SelectedIndex = 0;
+            this.tabControlUsuarios.Size = new System.Drawing.Size(411, 122);
+            this.tabControlUsuarios.TabIndex = 2;
             // 
             // tabPageAcceso
             // 
-            this.tabPageAcceso.Controls.Add(this.comboBox3);
-            this.tabPageAcceso.Controls.Add(this.comboBox2);
-            this.tabPageAcceso.Controls.Add(this.comboBox1);
+            this.tabPageAcceso.Controls.Add(this.cmbArea);
+            this.tabPageAcceso.Controls.Add(this.cmbPass);
+            this.tabPageAcceso.Controls.Add(this.cmbUsuario);
             this.tabPageAcceso.Controls.Add(this.lblNobreU);
             this.tabPageAcceso.Controls.Add(this.lblpass);
             this.tabPageAcceso.Controls.Add(this.lblArea);
@@ -144,11 +145,28 @@
             this.tabPageAcceso.Text = "Datos de Acceso";
             this.tabPageAcceso.UseVisualStyleBackColor = true;
             // 
+            // cmbArea
+            // 
+            this.cmbArea.FormattingEnabled = true;
+            this.cmbArea.Location = new System.Drawing.Point(145, 64);
+            this.cmbArea.Name = "cmbArea";
+            this.cmbArea.Size = new System.Drawing.Size(252, 21);
+            this.cmbArea.TabIndex = 2;
+            // 
+            // cmbUsuario
+            // 
+            this.cmbUsuario.FormattingEnabled = true;
+            this.cmbUsuario.Location = new System.Drawing.Point(145, 11);
+            this.cmbUsuario.Name = "cmbUsuario";
+            this.cmbUsuario.Size = new System.Drawing.Size(252, 21);
+            this.cmbUsuario.TabIndex = 2;
+            this.cmbUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // tabPagePersonales
             // 
-            this.tabPagePersonales.Controls.Add(this.textBox2);
-            this.tabPagePersonales.Controls.Add(this.textBox3);
-            this.tabPagePersonales.Controls.Add(this.textBox1);
+            this.tabPagePersonales.Controls.Add(this.txtbApellidoMaterno);
+            this.tabPagePersonales.Controls.Add(this.txtbNombre);
+            this.tabPagePersonales.Controls.Add(this.txtbApellidoP);
             this.tabPagePersonales.Controls.Add(this.lblNombre);
             this.tabPagePersonales.Controls.Add(this.lblApellidoM);
             this.tabPagePersonales.Controls.Add(this.lblApellidoP);
@@ -160,10 +178,31 @@
             this.tabPagePersonales.Text = "Datos Personales";
             this.tabPagePersonales.UseVisualStyleBackColor = true;
             // 
+            // txtbApellidoMaterno
+            // 
+            this.txtbApellidoMaterno.Location = new System.Drawing.Point(144, 64);
+            this.txtbApellidoMaterno.Name = "txtbApellidoMaterno";
+            this.txtbApellidoMaterno.Size = new System.Drawing.Size(252, 20);
+            this.txtbApellidoMaterno.TabIndex = 4;
+            // 
+            // txtbNombre
+            // 
+            this.txtbNombre.Location = new System.Drawing.Point(144, 12);
+            this.txtbNombre.Name = "txtbNombre";
+            this.txtbNombre.Size = new System.Drawing.Size(252, 20);
+            this.txtbNombre.TabIndex = 4;
+            // 
+            // txtbApellidoP
+            // 
+            this.txtbApellidoP.Location = new System.Drawing.Point(144, 38);
+            this.txtbApellidoP.Name = "txtbApellidoP";
+            this.txtbApellidoP.Size = new System.Drawing.Size(252, 20);
+            this.txtbApellidoP.TabIndex = 4;
+            // 
             // tabPagePrivilegios
             // 
-            this.tabPagePrivilegios.Controls.Add(this.checkBox2);
-            this.tabPagePrivilegios.Controls.Add(this.checkBox1);
+            this.tabPagePrivilegios.Controls.Add(this.checkBoxDios);
+            this.tabPagePrivilegios.Controls.Add(this.checkBoxAdmin);
             this.tabPagePrivilegios.Location = new System.Drawing.Point(4, 22);
             this.tabPagePrivilegios.Name = "tabPagePrivilegios";
             this.tabPagePrivilegios.Size = new System.Drawing.Size(403, 96);
@@ -171,27 +210,27 @@
             this.tabPagePrivilegios.Text = "Privilegios";
             this.tabPagePrivilegios.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // checkBoxDios
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
-            this.checkBox1.Location = new System.Drawing.Point(17, 15);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(166, 20);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Administrador (Area)";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxDios.AutoSize = true;
+            this.checkBoxDios.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
+            this.checkBoxDios.Location = new System.Drawing.Point(17, 41);
+            this.checkBoxDios.Name = "checkBoxDios";
+            this.checkBoxDios.Size = new System.Drawing.Size(161, 20);
+            this.checkBoxDios.TabIndex = 2;
+            this.checkBoxDios.Text = "Super Administrador";
+            this.checkBoxDios.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxAdmin
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
-            this.checkBox2.Location = new System.Drawing.Point(17, 41);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(166, 20);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "Administrador (Area)";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBoxAdmin.AutoSize = true;
+            this.checkBoxAdmin.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
+            this.checkBoxAdmin.Location = new System.Drawing.Point(17, 15);
+            this.checkBoxAdmin.Name = "checkBoxAdmin";
+            this.checkBoxAdmin.Size = new System.Drawing.Size(166, 20);
+            this.checkBoxAdmin.TabIndex = 2;
+            this.checkBoxAdmin.Text = "Administrador (Area)";
+            this.checkBoxAdmin.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
@@ -199,7 +238,7 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnCancelar.Location = new System.Drawing.Point(16, 139);
+            this.btnCancelar.Location = new System.Drawing.Point(16, 174);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(66, 24);
@@ -214,7 +253,7 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnGuardar.Location = new System.Drawing.Point(356, 139);
+            this.btnGuardar.Location = new System.Drawing.Point(356, 174);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(63, 24);
@@ -224,73 +263,49 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(388, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(388, 11);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 28);
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // comboBox1
+            // lblUsuarioSeleccionado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(145, 11);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(252, 21);
-            this.comboBox1.TabIndex = 2;
+            this.lblUsuarioSeleccionado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsuarioSeleccionado.AutoSize = true;
+            this.lblUsuarioSeleccionado.Location = new System.Drawing.Point(44, 18);
+            this.lblUsuarioSeleccionado.Name = "lblUsuarioSeleccionado";
+            this.lblUsuarioSeleccionado.Size = new System.Drawing.Size(334, 13);
+            this.lblUsuarioSeleccionado.TabIndex = 12;
+            this.lblUsuarioSeleccionado.Text = "                                                                                 " +
+    "                            ";
             // 
-            // comboBox2
+            // cmbPass
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(145, 37);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(252, 21);
-            this.comboBox2.TabIndex = 2;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(145, 64);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(252, 21);
-            this.comboBox3.TabIndex = 2;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(144, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(144, 64);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(252, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(144, 12);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(252, 20);
-            this.textBox3.TabIndex = 4;
+            this.cmbPass.FormattingEnabled = true;
+            this.cmbPass.Location = new System.Drawing.Point(145, 37);
+            this.cmbPass.Name = "cmbPass";
+            this.cmbPass.Size = new System.Drawing.Size(252, 21);
+            this.cmbPass.TabIndex = 2;
             // 
             // AdministrarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 176);
+            this.ClientSize = new System.Drawing.Size(435, 206);
+            this.Controls.Add(this.lblUsuarioSeleccionado);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlUsuarios);
             this.Name = "AdministrarUsuarios";
             this.Text = "AdministrarUsuarios";
             this.Load += new System.EventHandler(this.AdministrarUsuarios_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlUsuarios.ResumeLayout(false);
             this.tabPageAcceso.ResumeLayout(false);
             this.tabPageAcceso.PerformLayout();
             this.tabPagePersonales.ResumeLayout(false);
@@ -299,6 +314,7 @@
             this.tabPagePrivilegios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -310,20 +326,21 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblApellidoP;
         private System.Windows.Forms.Label lblApellidoM;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlUsuarios;
         private System.Windows.Forms.TabPage tabPageAcceso;
         private System.Windows.Forms.TabPage tabPagePersonales;
         private System.Windows.Forms.TabPage tabPagePrivilegios;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox checkBoxDios;
+        private System.Windows.Forms.CheckBox checkBoxAdmin;
+        private System.Windows.Forms.ComboBox cmbArea;
+        private System.Windows.Forms.ComboBox cmbUsuario;
         private Entidades.ButtonStyle btnCancelar;
         private Entidades.ButtonStyle btnGuardar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtbApellidoMaterno;
+        private System.Windows.Forms.TextBox txtbNombre;
+        private System.Windows.Forms.TextBox txtbApellidoP;
+        private System.Windows.Forms.Label lblUsuarioSeleccionado;
+        private System.Windows.Forms.ComboBox cmbPass;
     }
 }

@@ -22,5 +22,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
         {
 
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
