@@ -55,6 +55,7 @@ namespace Logica_de_Negocio
             }
             return false;
         }
+        
 
         public Entidades.DataGridStyle LlenarTablaExpedientesPendientes(Entidades.DataGridStyle origenTabla, bool completado)
         {

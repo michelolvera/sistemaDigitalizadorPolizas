@@ -13,16 +13,24 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
 {
     public partial class ManualInsert : Form
     {
+        
         ProcesosAdministrador procesosAdministrador;
-        public ManualInsert(ProcesosAdministrador procesosAdministrador)
+        public ManualInsert(ProcesosAdministrador procesosAdministrador, bool Dios, int area)
         {
             InitializeComponent();
             this.procesosAdministrador = procesosAdministrador;
+            CmbArea = procesosAdministrador.LlenarCombo(CmbArea, 0, 0);
+            if (!Dios)//si no es dios
+            {
+                CmbArea.SelectedIndex = area - 1;
+                CmbArea.Enabled = false;
+            }
         }
 
         private void ManualInsert_Load(object sender, EventArgs e)
         {
-            CmbArea = procesosAdministrador.LlenarCombo(CmbArea, 0, 0);
+            
+
         }
 
         private void CmbArea_SelectedIndexChanged(object sender, EventArgs e)

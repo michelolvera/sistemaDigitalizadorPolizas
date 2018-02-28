@@ -40,9 +40,7 @@
             this.BtnGuardar = new Entidades.ButtonStyle();
             this.BtnCerrar = new Entidades.ButtonStyle();
             this.lblTituloVentana = new System.Windows.Forms.Label();
-            this.pictureBoxCajaLogo = new System.Windows.Forms.PictureBox();
             this.pctBoxCabecera1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,22 +177,11 @@
             this.lblTituloVentana.BackColor = System.Drawing.Color.Black;
             this.lblTituloVentana.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblTituloVentana.ForeColor = System.Drawing.Color.White;
-            this.lblTituloVentana.Location = new System.Drawing.Point(52, 7);
+            this.lblTituloVentana.Location = new System.Drawing.Point(2, 7);
             this.lblTituloVentana.Name = "lblTituloVentana";
             this.lblTituloVentana.Size = new System.Drawing.Size(240, 16);
             this.lblTituloVentana.TabIndex = 33;
             this.lblTituloVentana.Text = "|   Inserción Manual de Expedientes     |";
-            // 
-            // pictureBoxCajaLogo
-            // 
-            this.pictureBoxCajaLogo.BackColor = System.Drawing.Color.Black;
-            this.pictureBoxCajaLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCajaLogo.Image")));
-            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(8, 0);
-            this.pictureBoxCajaLogo.Name = "pictureBoxCajaLogo";
-            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(40, 30);
-            this.pictureBoxCajaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCajaLogo.TabIndex = 32;
-            this.pictureBoxCajaLogo.TabStop = false;
             // 
             // pctBoxCabecera1
             // 
@@ -215,7 +202,6 @@
             this.ClientSize = new System.Drawing.Size(392, 186);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.lblTituloVentana);
-            this.Controls.Add(this.pictureBoxCajaLogo);
             this.Controls.Add(this.pctBoxCabecera1);
             this.Controls.Add(this.BtnGuardar);
             this.Controls.Add(this.label4);
@@ -233,7 +219,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManualInsert";
             this.Load += new System.EventHandler(this.ManualInsert_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -253,7 +238,6 @@
         private Entidades.ButtonStyle BtnGuardar;
         private Entidades.ButtonStyle BtnCerrar;
         private System.Windows.Forms.Label lblTituloVentana;
-        private System.Windows.Forms.PictureBox pictureBoxCajaLogo;
         private System.Windows.Forms.PictureBox pctBoxCabecera1;
     }
 }

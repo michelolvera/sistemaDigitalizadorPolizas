@@ -14,13 +14,13 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
 {
     public partial class MenuAdministrador : Form
     {
+        ProcesosUsuario procesosUsuario;
         ProcesosAdministrador procesosAdministrador;
         List<DocumentosInfo> documentosEditados = new List<DocumentosInfo>();
         public MenuAdministrador(ProcesosAdministrador procesosAdministrador)
         {
             InitializeComponent();
             this.procesosAdministrador = procesosAdministrador;
-
             //Eventos de DataGrid
             dgvDocumentos.AllowUserToAddRows = true;
             dgvDocumentos.ReadOnly = false;
@@ -38,7 +38,14 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             cmbArea.KeyUp += CmbArea_KeyUp;
             cmbExpediente.KeyUp += CmbExpediente_KeyUp;
             cmbCategoria.KeyUp += CmbCategoria_KeyUp;
-        }
+
+        
+            /*if(!procesosUsuario.Usuario.Dios)
+            {
+                cmbArea.SelectedIndex = procesosUsuario.Usuario.IdArea-1;
+                cmbArea.Enabled = false;
+            }*/
+}
 
         private void CmbCategoria_KeyUp(object sender, KeyEventArgs e)
         {
@@ -94,22 +101,24 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         private void CmbArea_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && cmbArea.DropDownStyle == ComboBoxStyle.Simple)
-            {
-                if (procesosAdministrador.ValidarLongitudCadena(cmbArea.Text))
                 {
-                    if (cmbArea.Text != String.Empty && MessageBox.Show("Se creara la categoria '" + cmbArea.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+                    if (procesosAdministrador.ValidarLongitudCadena(cmbArea.Text))
                     {
-                        if (!procesosAdministrador.CrearNuevoRegistro(0, cmbArea.Text, 0))
-                            MessageBox.Show("Se produjo un error mientras se creaba el registro.");
+                        if (cmbArea.Text != String.Empty && MessageBox.Show("Se creara la categoria '" + cmbArea.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+                        {
+                            if (!procesosAdministrador.CrearNuevoRegistro(0, cmbArea.Text, 0))
+                                MessageBox.Show("Se produjo un error mientras se creaba el registro.");
+                        }
+                        //Regresar control a la normalidad.
+                        cmbArea.DropDownStyle = ComboBoxStyle.DropDownList;
+                        cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
+                        cmbArea.Items.Add("< Nuevo >");
                     }
-                    //Regresar control a la normalidad.
-                    cmbArea.DropDownStyle = ComboBoxStyle.DropDownList;
-                    cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
-                    cmbArea.Items.Add("< Nuevo >");
-                }else
-                    MessageBox.Show("El nombre no puede tener mas de 100 caracteres.");
+                    else
+                        MessageBox.Show("El nombre no puede tener mas de 100 caracteres.");
 
             }
+            
         }
 
         private void DgvDocumentos_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
@@ -212,8 +221,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         private void MenuAdministrador_Load(object sender, EventArgs e)
         {
             //Obtener Areas
-            cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
-            cmbArea.Items.Add("< Nuevo >");
+            
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
@@ -326,6 +334,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            SetVisibleCore(false);
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             SetVisibleCore(false);
         }
