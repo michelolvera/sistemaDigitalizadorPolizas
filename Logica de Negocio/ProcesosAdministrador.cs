@@ -222,20 +222,12 @@ namespace Logica_de_Negocio
             return uSeleccionado;
         }
         
-        public string obtenerArea(int idArea)
+        public int ObtenerArea(int idArea)
         {
-            string area;
-            estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_AREA_ID] " + idArea);
-            if (estado.Resultado.HasRows && estado.Resultado.Read()){
-                area = estado.Resultado.GetString(0);
-            }
-            else
-            {
-                area = "Area de usuario inexistente";
-            }
-            return area;
+            return areaId.FindIndex(delegate (int id) { return id == idArea; });
         }
-        public bool actualizarUsuario()
+
+        public bool ActualizarUsuario()
         {
             return true;
         }
