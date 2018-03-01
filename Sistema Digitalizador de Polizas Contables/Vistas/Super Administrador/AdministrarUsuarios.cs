@@ -27,7 +27,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
 
         private void AdministrarUsuarios_Load(object sender, EventArgs e)
         {
-            listaUsuarios = procesosAdministrador.listausuarios(cmbUsuario);
+            
             txtContrasena.Enabled = false;
             cmbArea.Enabled = false;
             txtbNombre.Enabled = false;
@@ -37,6 +37,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             checkBoxDios.Enabled = false;
             cmbUsuario = procesosAdministrador.LlenarCombo(cmbUsuario, 3, 0);
             cmbUsuario.Items.Add("< Nuevo >");
+            listaUsuarios = procesosAdministrador.listausuarios(cmbUsuario);
         }
 
         private void cmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
