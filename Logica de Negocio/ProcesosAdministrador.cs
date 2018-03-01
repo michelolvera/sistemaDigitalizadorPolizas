@@ -90,7 +90,7 @@ namespace Logica_de_Negocio
                     break;
                 case 3:
                     usuarioId.Clear();
-                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_USUARIOS] ;");
                     break;
             }
             origenCombo.Items.Clear();
@@ -109,6 +109,9 @@ namespace Logica_de_Negocio
                             break;
                         case 2:
                             categoriaId.Add(estado.Resultado.GetInt32(1));
+                            break;
+                        case 3:
+                            usuarioId.Add(estado.Resultado.GetInt32(1));
                             break;
                     }
                 }

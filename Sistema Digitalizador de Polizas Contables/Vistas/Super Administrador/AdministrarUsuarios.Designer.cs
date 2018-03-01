@@ -50,7 +50,7 @@
             this.lblUsuarioSeleccionado = new System.Windows.Forms.Label();
             this.lblTituloVentana = new System.Windows.Forms.Label();
             this.pctBoxCabecera1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
             this.BtnCerrar = new Entidades.ButtonStyle();
             this.btnCancelar = new Entidades.ButtonStyle();
             this.btnGuardar = new Entidades.ButtonStyle();
@@ -136,7 +136,7 @@
             // 
             // tabPageAcceso
             // 
-            this.tabPageAcceso.Controls.Add(this.textBox1);
+            this.tabPageAcceso.Controls.Add(this.txtContrasena);
             this.tabPageAcceso.Controls.Add(this.cmbArea);
             this.tabPageAcceso.Controls.Add(this.cmbUsuario);
             this.tabPageAcceso.Controls.Add(this.lblNobreU);
@@ -152,7 +152,6 @@
             // 
             // cmbArea
             // 
-            this.cmbArea.Enabled = false;
             this.cmbArea.Font = new System.Drawing.Font("Century Gothic", 8.5F);
             this.cmbArea.FormattingEnabled = true;
             this.cmbArea.Location = new System.Drawing.Point(145, 64);
@@ -191,7 +190,6 @@
             // 
             // txtbApellidoMaterno
             // 
-            this.txtbApellidoMaterno.Enabled = false;
             this.txtbApellidoMaterno.Location = new System.Drawing.Point(144, 64);
             this.txtbApellidoMaterno.Name = "txtbApellidoMaterno";
             this.txtbApellidoMaterno.Size = new System.Drawing.Size(252, 22);
@@ -199,7 +197,6 @@
             // 
             // txtbNombre
             // 
-            this.txtbNombre.Enabled = false;
             this.txtbNombre.Location = new System.Drawing.Point(144, 12);
             this.txtbNombre.Name = "txtbNombre";
             this.txtbNombre.Size = new System.Drawing.Size(252, 22);
@@ -207,7 +204,6 @@
             // 
             // txtbApellidoP
             // 
-            this.txtbApellidoP.Enabled = false;
             this.txtbApellidoP.Location = new System.Drawing.Point(144, 38);
             this.txtbApellidoP.Name = "txtbApellidoP";
             this.txtbApellidoP.Size = new System.Drawing.Size(252, 22);
@@ -227,7 +223,6 @@
             // checkBoxDios
             // 
             this.checkBoxDios.AutoSize = true;
-            this.checkBoxDios.Enabled = false;
             this.checkBoxDios.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
             this.checkBoxDios.Location = new System.Drawing.Point(17, 41);
             this.checkBoxDios.Name = "checkBoxDios";
@@ -239,7 +234,6 @@
             // checkBoxAdmin
             // 
             this.checkBoxAdmin.AutoSize = true;
-            this.checkBoxAdmin.Enabled = false;
             this.checkBoxAdmin.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
             this.checkBoxAdmin.Location = new System.Drawing.Point(17, 15);
             this.checkBoxAdmin.Name = "checkBoxAdmin";
@@ -254,7 +248,7 @@
             this.picBoxIconoPersona.BackColor = System.Drawing.Color.White;
             this.picBoxIconoPersona.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxIconoPersona.BackgroundImage")));
             this.picBoxIconoPersona.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBoxIconoPersona.Location = new System.Drawing.Point(388, 42);
+            this.picBoxIconoPersona.Location = new System.Drawing.Point(12, 37);
             this.picBoxIconoPersona.Name = "picBoxIconoPersona";
             this.picBoxIconoPersona.Size = new System.Drawing.Size(35, 32);
             this.picBoxIconoPersona.TabIndex = 11;
@@ -264,12 +258,13 @@
             // 
             this.lblUsuarioSeleccionado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsuarioSeleccionado.AutoSize = true;
-            this.lblUsuarioSeleccionado.Location = new System.Drawing.Point(36, 49);
+            this.lblUsuarioSeleccionado.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.lblUsuarioSeleccionado.Location = new System.Drawing.Point(57, 49);
             this.lblUsuarioSeleccionado.Name = "lblUsuarioSeleccionado";
-            this.lblUsuarioSeleccionado.Size = new System.Drawing.Size(334, 13);
+            this.lblUsuarioSeleccionado.Size = new System.Drawing.Size(344, 18);
             this.lblUsuarioSeleccionado.TabIndex = 12;
             this.lblUsuarioSeleccionado.Text = "                                                                                 " +
-    "                            ";
+    "   ";
             // 
             // lblTituloVentana
             // 
@@ -294,14 +289,13 @@
             this.pctBoxCabecera1.TabIndex = 35;
             this.pctBoxCabecera1.TabStop = false;
             // 
-            // textBox1
+            // txtContrasena
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 8.5F);
-            this.textBox1.Location = new System.Drawing.Point(145, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 21);
-            this.textBox1.TabIndex = 3;
+            this.txtContrasena.Font = new System.Drawing.Font("Century Gothic", 8.5F);
+            this.txtContrasena.Location = new System.Drawing.Point(145, 38);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Size = new System.Drawing.Size(252, 21);
+            this.txtContrasena.TabIndex = 3;
             // 
             // BtnCerrar
             // 
@@ -409,6 +403,6 @@
         private Entidades.ButtonStyle BtnCerrar;
         private System.Windows.Forms.Label lblTituloVentana;
         private System.Windows.Forms.PictureBox pctBoxCabecera1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtContrasena;
     }
 }

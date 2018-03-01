@@ -26,14 +26,25 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
 
         private void AdministrarUsuarios_Load(object sender, EventArgs e)
         {
-            cmbArea = procesosAdministrador.LlenarCombo(cmbUsuario, 0, 0);
-            cmbUsuario = procesosAdministrador.LlenarCombo(cmbUsuario, 0, 0);
+            txtContrasena.Enabled = false;
+            cmbArea.Enabled = false;
+            txtbNombre.Enabled = false;
+            txtbApellidoP.Enabled = false;
+            txtbApellidoMaterno.Enabled = false;
+            checkBoxAdmin.Enabled = false;
+            checkBoxDios.Enabled = false;
+            cmbUsuario = procesosAdministrador.LlenarCombo(cmbUsuario, 3, 0);
             cmbUsuario.Items.Add("< Nuevo >");
         }
 
         private void cmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblUsuarioSeleccionado.Text = cmbUsuario.SelectedText;
+            lblUsuarioSeleccionado.Text =  cmbUsuario.Text;
+            txtContrasena.Enabled = true;
+            txtContrasena.Text = "*****";
+            cmbArea.Enabled = true;
+            cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
+
         }
 
         private void cmbUsuario_KeyUp(object sender, KeyEventArgs e)
@@ -52,7 +63,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
 
                     //Regresar control a la normalidad.
                     cmbUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
-                    cmbUsuario = procesosAdministrador.LlenarCombo(cmbUsuario, 2, cmbUsuario.SelectedIndex);
+                    cmbUsuario = procesosAdministrador.LlenarCombo(cmbUsuario, 3, cmbUsuario.SelectedIndex);
                     cmbUsuario.Items.Add("< Nuevo >");
                 }
                 else
