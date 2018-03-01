@@ -22,7 +22,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             CmbArea = procesosAdministrador.LlenarCombo(CmbArea, 0, 0);
             if (!Dios)//si no es dios
             {
-                CmbArea.SelectedIndex = area - 1;
+                CmbArea.SelectedIndex = CmbArea.FindStringExact(procesosAdministrador.Usuario.Area);
                 CmbArea.Enabled = false;
             }
         }

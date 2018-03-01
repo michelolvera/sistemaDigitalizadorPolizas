@@ -47,7 +47,7 @@ namespace Logica_de_Negocio
             }
             return null;
         }
-
+       
         public bool ActualizarTablaDocumentos(List<DocumentosInfo> documentosEditados)
         {
             foreach (DocumentosInfo documento in documentosEditados)

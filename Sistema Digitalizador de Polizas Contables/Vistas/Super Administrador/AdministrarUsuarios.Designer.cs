@@ -38,7 +38,6 @@
             this.tabControlUsuarios = new System.Windows.Forms.TabControl();
             this.tabPageAcceso = new System.Windows.Forms.TabPage();
             this.cmbArea = new System.Windows.Forms.ComboBox();
-            this.cmbPass = new System.Windows.Forms.ComboBox();
             this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.tabPagePersonales = new System.Windows.Forms.TabPage();
             this.txtbApellidoMaterno = new System.Windows.Forms.TextBox();
@@ -49,16 +48,17 @@
             this.checkBoxAdmin = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new Entidades.ButtonStyle();
             this.btnGuardar = new Entidades.ButtonStyle();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picBoxIconoPersona = new System.Windows.Forms.PictureBox();
             this.lblUsuarioSeleccionado = new System.Windows.Forms.Label();
             this.BtnCerrar = new Entidades.ButtonStyle();
             this.lblTituloVentana = new System.Windows.Forms.Label();
             this.pctBoxCabecera1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControlUsuarios.SuspendLayout();
             this.tabPageAcceso.SuspendLayout();
             this.tabPagePersonales.SuspendLayout();
             this.tabPagePrivilegios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxIconoPersona)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,6 +127,7 @@
             this.tabControlUsuarios.Controls.Add(this.tabPageAcceso);
             this.tabControlUsuarios.Controls.Add(this.tabPagePersonales);
             this.tabControlUsuarios.Controls.Add(this.tabPagePrivilegios);
+            this.tabControlUsuarios.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.tabControlUsuarios.Location = new System.Drawing.Point(12, 75);
             this.tabControlUsuarios.Name = "tabControlUsuarios";
             this.tabControlUsuarios.SelectedIndex = 0;
@@ -135,44 +136,40 @@
             // 
             // tabPageAcceso
             // 
+            this.tabPageAcceso.Controls.Add(this.textBox1);
             this.tabPageAcceso.Controls.Add(this.cmbArea);
-            this.tabPageAcceso.Controls.Add(this.cmbPass);
             this.tabPageAcceso.Controls.Add(this.cmbUsuario);
             this.tabPageAcceso.Controls.Add(this.lblNobreU);
             this.tabPageAcceso.Controls.Add(this.lblpass);
             this.tabPageAcceso.Controls.Add(this.lblArea);
-            this.tabPageAcceso.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAcceso.Location = new System.Drawing.Point(4, 25);
             this.tabPageAcceso.Name = "tabPageAcceso";
             this.tabPageAcceso.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAcceso.Size = new System.Drawing.Size(403, 96);
+            this.tabPageAcceso.Size = new System.Drawing.Size(403, 93);
             this.tabPageAcceso.TabIndex = 0;
             this.tabPageAcceso.Text = "Datos de Acceso";
             this.tabPageAcceso.UseVisualStyleBackColor = true;
             // 
             // cmbArea
             // 
+            this.cmbArea.Font = new System.Drawing.Font("Century Gothic", 8.5F);
             this.cmbArea.FormattingEnabled = true;
             this.cmbArea.Location = new System.Drawing.Point(145, 64);
             this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(252, 21);
+            this.cmbArea.Size = new System.Drawing.Size(252, 24);
             this.cmbArea.TabIndex = 2;
-            // 
-            // cmbPass
-            // 
-            this.cmbPass.FormattingEnabled = true;
-            this.cmbPass.Location = new System.Drawing.Point(145, 37);
-            this.cmbPass.Name = "cmbPass";
-            this.cmbPass.Size = new System.Drawing.Size(252, 21);
-            this.cmbPass.TabIndex = 2;
             // 
             // cmbUsuario
             // 
+            this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUsuario.Font = new System.Drawing.Font("Century Gothic", 8.5F);
             this.cmbUsuario.FormattingEnabled = true;
             this.cmbUsuario.Location = new System.Drawing.Point(145, 11);
             this.cmbUsuario.Name = "cmbUsuario";
-            this.cmbUsuario.Size = new System.Drawing.Size(252, 21);
+            this.cmbUsuario.Size = new System.Drawing.Size(252, 24);
             this.cmbUsuario.TabIndex = 2;
             this.cmbUsuario.SelectedIndexChanged += new System.EventHandler(this.cmbUsuario_SelectedIndexChanged);
+            this.cmbUsuario.TextUpdate += new System.EventHandler(this.cmbUsuario_TextUpdate);
             this.cmbUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbUsuario_KeyUp);
             // 
             // tabPagePersonales
@@ -195,21 +192,21 @@
             // 
             this.txtbApellidoMaterno.Location = new System.Drawing.Point(144, 64);
             this.txtbApellidoMaterno.Name = "txtbApellidoMaterno";
-            this.txtbApellidoMaterno.Size = new System.Drawing.Size(252, 20);
+            this.txtbApellidoMaterno.Size = new System.Drawing.Size(252, 22);
             this.txtbApellidoMaterno.TabIndex = 4;
             // 
             // txtbNombre
             // 
             this.txtbNombre.Location = new System.Drawing.Point(144, 12);
             this.txtbNombre.Name = "txtbNombre";
-            this.txtbNombre.Size = new System.Drawing.Size(252, 20);
+            this.txtbNombre.Size = new System.Drawing.Size(252, 22);
             this.txtbNombre.TabIndex = 4;
             // 
             // txtbApellidoP
             // 
             this.txtbApellidoP.Location = new System.Drawing.Point(144, 38);
             this.txtbApellidoP.Name = "txtbApellidoP";
-            this.txtbApellidoP.Size = new System.Drawing.Size(252, 20);
+            this.txtbApellidoP.Size = new System.Drawing.Size(252, 22);
             this.txtbApellidoP.TabIndex = 4;
             // 
             // tabPagePrivilegios
@@ -258,6 +255,7 @@
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -274,23 +272,23 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // picBoxIconoPersona
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(388, 42);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 28);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.picBoxIconoPersona.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBoxIconoPersona.BackColor = System.Drawing.Color.White;
+            this.picBoxIconoPersona.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxIconoPersona.BackgroundImage")));
+            this.picBoxIconoPersona.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxIconoPersona.Location = new System.Drawing.Point(388, 42);
+            this.picBoxIconoPersona.Name = "picBoxIconoPersona";
+            this.picBoxIconoPersona.Size = new System.Drawing.Size(35, 32);
+            this.picBoxIconoPersona.TabIndex = 11;
+            this.picBoxIconoPersona.TabStop = false;
             // 
             // lblUsuarioSeleccionado
             // 
             this.lblUsuarioSeleccionado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUsuarioSeleccionado.AutoSize = true;
-            this.lblUsuarioSeleccionado.Location = new System.Drawing.Point(44, 49);
+            this.lblUsuarioSeleccionado.Location = new System.Drawing.Point(36, 49);
             this.lblUsuarioSeleccionado.Name = "lblUsuarioSeleccionado";
             this.lblUsuarioSeleccionado.Size = new System.Drawing.Size(334, 13);
             this.lblUsuarioSeleccionado.TabIndex = 12;
@@ -336,6 +334,14 @@
             this.pctBoxCabecera1.TabIndex = 35;
             this.pctBoxCabecera1.TabStop = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 8.5F);
+            this.textBox1.Location = new System.Drawing.Point(145, 38);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(252, 21);
+            this.textBox1.TabIndex = 3;
+            // 
             // AdministrarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,7 +351,7 @@
             this.Controls.Add(this.lblTituloVentana);
             this.Controls.Add(this.pctBoxCabecera1);
             this.Controls.Add(this.lblUsuarioSeleccionado);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picBoxIconoPersona);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.tabControlUsuarios);
@@ -362,7 +368,7 @@
             this.tabPagePersonales.PerformLayout();
             this.tabPagePrivilegios.ResumeLayout(false);
             this.tabPagePrivilegios.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxIconoPersona)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -387,14 +393,14 @@
         private System.Windows.Forms.ComboBox cmbUsuario;
         private Entidades.ButtonStyle btnCancelar;
         private Entidades.ButtonStyle btnGuardar;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picBoxIconoPersona;
         private System.Windows.Forms.TextBox txtbApellidoMaterno;
         private System.Windows.Forms.TextBox txtbNombre;
         private System.Windows.Forms.TextBox txtbApellidoP;
         private System.Windows.Forms.Label lblUsuarioSeleccionado;
-        private System.Windows.Forms.ComboBox cmbPass;
         private Entidades.ButtonStyle BtnCerrar;
         private System.Windows.Forms.Label lblTituloVentana;
         private System.Windows.Forms.PictureBox pctBoxCabecera1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

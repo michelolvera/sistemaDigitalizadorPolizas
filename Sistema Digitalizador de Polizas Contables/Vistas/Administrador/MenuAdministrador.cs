@@ -14,7 +14,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
 {
     public partial class MenuAdministrador : Form
     {
-        ProcesosUsuario procesosUsuario;
+        
         ProcesosAdministrador procesosAdministrador;
         List<DocumentosInfo> documentosEditados = new List<DocumentosInfo>();
         public MenuAdministrador(ProcesosAdministrador procesosAdministrador)
@@ -40,11 +40,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             cmbCategoria.KeyUp += CmbCategoria_KeyUp;
 
         
-            /*if(!procesosUsuario.Usuario.Dios)
-            {
-                cmbArea.SelectedIndex = procesosUsuario.Usuario.IdArea-1;
-                cmbArea.Enabled = false;
-            }*/
+            
 }
 
         private void CmbCategoria_KeyUp(object sender, KeyEventArgs e)
@@ -221,7 +217,13 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         private void MenuAdministrador_Load(object sender, EventArgs e)
         {
             //Obtener Areas
-            
+            cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
+            cmbArea.Items.Add("< Nuevo >");
+            if (!procesosAdministrador.Usuario.Dios)
+            {
+                cmbArea.SelectedIndex = cmbArea.FindStringExact(procesosAdministrador.Usuario.Area);
+                cmbArea.Enabled = false;
+            }
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
