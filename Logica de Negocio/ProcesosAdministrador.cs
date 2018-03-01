@@ -202,10 +202,17 @@ namespace Logica_de_Negocio
             }
             return listau;
         }
+        public bool estaEnUSusarios(int idUsusario)
+        {
+            if (usuarioId.Exists(id => id == idUsusario))
+                return true;
+            else
+                return false;
+        }
 
         public UsuarioInfo UsuarioSeleccionado(UsuarioInfo uSeleccionado)
         {
-            estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_USUARIO_SELECCIONADO] " + uSeleccionado.Nombre);
+            estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_USUARIO_SELECCIONADO] " + uSeleccionado.UserName);
             uSeleccionado.IdArea = estado.Resultado.GetInt32(4);
             uSeleccionado.Nombre = estado.Resultado.GetString(0);
             uSeleccionado.ApellidoPaterno = estado.Resultado.GetString(2);

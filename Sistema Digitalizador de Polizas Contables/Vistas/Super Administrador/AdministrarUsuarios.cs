@@ -14,7 +14,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
 {
     public partial class AdministrarUsuarios : Form
     {
-        ProcesosUsuario procesosUsuario;
         ProcesosAdministrador procesosAdministrador;
         UsuarioInfo usuarioSeleccionado;
         List<string> listaUsuarios;
@@ -44,8 +43,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
         {
             cmbArea.Enabled = true;
             cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
-            if (cmbUsuario.Text == "< Nuevo >")// crear nuevo usuario
+            if (cmbUsuario.Items.Count == cmbArea.SelectedIndex + 1 && cmbUsuario.Text == "< Nuevo >")// crear nuevo usuario
             {
+                
                 txtContrasena.Enabled = true;
                 cmbArea.Enabled = true;
                 txtbNombre.Enabled = true;
@@ -53,11 +53,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
                 txtbApellidoMaterno.Enabled = true;
                 checkBoxAdmin.Enabled = true;
                 checkBoxDios.Enabled = true;
-                cmbUsuario.Text = "";
                 cmbUsuario.DropDownStyle = ComboBoxStyle.Simple;
-                
+                cmbUsuario.Text = "";
             }
-            else if(listaUsuarios.Exists(x => x == cmbUsuario.Text)) //seleccionar un usuario
+            else  //seleccionar un usuario
             {
                 txtContrasena.Enabled = true;
                 cmbArea.Enabled = true;
@@ -67,7 +66,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
                 checkBoxAdmin.Enabled = true;
                 checkBoxDios.Enabled = true;
                 lblUsuarioSeleccionado.Text = cmbUsuario.Text;
-                //usuarioSeleccionado.UserName = cmbUsuario.Text;
+                usuarioSeleccionado.UserName = cmbUsuario.Text;
                 cmbArea.SelectedIndex = cmbArea.FindStringExact(procesosAdministrador.Usuario.Area);
                 usuarioSeleccionado = procesosAdministrador.UsuarioSeleccionado(usuarioSeleccionado);
                 txtbIdUsuario.Text = ""+usuarioSeleccionado.UserID;
@@ -87,7 +86,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             {
                 if (procesosAdministrador.ValidarLongitudCadena(cmbUsuario.Text))
                 {
-                    if (listaUsuarios.Exists(x => x == cmbUsuario.Text))
+                    if (listaUsuarios.Exists(nom => nom == cmbUsuario.Text))
                     {//verificar que el usuario no se repita en la lista de los usuarios
                         MessageBox.Show("El usuario ya existe!");
                     }

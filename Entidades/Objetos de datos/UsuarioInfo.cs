@@ -9,7 +9,7 @@ namespace Entidades
     public class UsuarioInfo
     {
         public int UserID { get; private set; }
-        public string UserName { get; private set; }
+        public string UserName { get;  set; }
         public string UserPassword { get; private set; }
         public string Nombre { get; set; }
         public string ApellidoPaterno { get; set; }
