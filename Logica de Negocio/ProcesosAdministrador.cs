@@ -19,6 +19,7 @@ namespace Logica_de_Negocio
         List<int> categoriaId = new List<int>();
         List<int> expedienteId = new List<int>();
         List<int> documentoId = new List<int>();
+        List<int> usuarioId = new List<int>();
 
         public ProcesosAdministrador(UsuarioInfo Usuario) : base (Usuario)
         {
@@ -85,6 +86,10 @@ namespace Logica_de_Negocio
                     break;
                 case 2:
                     categoriaId.Clear();
+                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
+                    break;
+                case 3:
+                    usuarioId.Clear();
                     estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
                     break;
             }

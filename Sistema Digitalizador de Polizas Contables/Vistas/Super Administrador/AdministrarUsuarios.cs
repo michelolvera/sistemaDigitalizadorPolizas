@@ -26,13 +26,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
 
         private void AdministrarUsuarios_Load(object sender, EventArgs e)
         {
+            cmbArea = procesosAdministrador.LlenarCombo(cmbUsuario, 0, 0);
             cmbUsuario = procesosAdministrador.LlenarCombo(cmbUsuario, 0, 0);
             cmbUsuario.Items.Add("< Nuevo >");
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cmbUsuario_SelectedIndexChanged(object sender, EventArgs e)

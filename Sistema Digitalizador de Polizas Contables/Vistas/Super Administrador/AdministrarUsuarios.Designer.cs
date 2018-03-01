@@ -46,14 +46,14 @@
             this.tabPagePrivilegios = new System.Windows.Forms.TabPage();
             this.checkBoxDios = new System.Windows.Forms.CheckBox();
             this.checkBoxAdmin = new System.Windows.Forms.CheckBox();
-            this.btnCancelar = new Entidades.ButtonStyle();
-            this.btnGuardar = new Entidades.ButtonStyle();
             this.picBoxIconoPersona = new System.Windows.Forms.PictureBox();
             this.lblUsuarioSeleccionado = new System.Windows.Forms.Label();
-            this.BtnCerrar = new Entidades.ButtonStyle();
             this.lblTituloVentana = new System.Windows.Forms.Label();
             this.pctBoxCabecera1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.BtnCerrar = new Entidades.ButtonStyle();
+            this.btnCancelar = new Entidades.ButtonStyle();
+            this.btnGuardar = new Entidades.ButtonStyle();
             this.tabControlUsuarios.SuspendLayout();
             this.tabPageAcceso.SuspendLayout();
             this.tabPagePersonales.SuspendLayout();
@@ -152,6 +152,7 @@
             // 
             // cmbArea
             // 
+            this.cmbArea.Enabled = false;
             this.cmbArea.Font = new System.Drawing.Font("Century Gothic", 8.5F);
             this.cmbArea.FormattingEnabled = true;
             this.cmbArea.Location = new System.Drawing.Point(145, 64);
@@ -180,16 +181,17 @@
             this.tabPagePersonales.Controls.Add(this.lblNombre);
             this.tabPagePersonales.Controls.Add(this.lblApellidoM);
             this.tabPagePersonales.Controls.Add(this.lblApellidoP);
-            this.tabPagePersonales.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePersonales.Location = new System.Drawing.Point(4, 25);
             this.tabPagePersonales.Name = "tabPagePersonales";
             this.tabPagePersonales.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePersonales.Size = new System.Drawing.Size(403, 96);
+            this.tabPagePersonales.Size = new System.Drawing.Size(403, 93);
             this.tabPagePersonales.TabIndex = 1;
             this.tabPagePersonales.Text = "Datos Personales";
             this.tabPagePersonales.UseVisualStyleBackColor = true;
             // 
             // txtbApellidoMaterno
             // 
+            this.txtbApellidoMaterno.Enabled = false;
             this.txtbApellidoMaterno.Location = new System.Drawing.Point(144, 64);
             this.txtbApellidoMaterno.Name = "txtbApellidoMaterno";
             this.txtbApellidoMaterno.Size = new System.Drawing.Size(252, 22);
@@ -197,6 +199,7 @@
             // 
             // txtbNombre
             // 
+            this.txtbNombre.Enabled = false;
             this.txtbNombre.Location = new System.Drawing.Point(144, 12);
             this.txtbNombre.Name = "txtbNombre";
             this.txtbNombre.Size = new System.Drawing.Size(252, 22);
@@ -204,6 +207,7 @@
             // 
             // txtbApellidoP
             // 
+            this.txtbApellidoP.Enabled = false;
             this.txtbApellidoP.Location = new System.Drawing.Point(144, 38);
             this.txtbApellidoP.Name = "txtbApellidoP";
             this.txtbApellidoP.Size = new System.Drawing.Size(252, 22);
@@ -213,9 +217,9 @@
             // 
             this.tabPagePrivilegios.Controls.Add(this.checkBoxDios);
             this.tabPagePrivilegios.Controls.Add(this.checkBoxAdmin);
-            this.tabPagePrivilegios.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePrivilegios.Location = new System.Drawing.Point(4, 25);
             this.tabPagePrivilegios.Name = "tabPagePrivilegios";
-            this.tabPagePrivilegios.Size = new System.Drawing.Size(403, 96);
+            this.tabPagePrivilegios.Size = new System.Drawing.Size(403, 93);
             this.tabPagePrivilegios.TabIndex = 2;
             this.tabPagePrivilegios.Text = "Privilegios";
             this.tabPagePrivilegios.UseVisualStyleBackColor = true;
@@ -223,6 +227,7 @@
             // checkBoxDios
             // 
             this.checkBoxDios.AutoSize = true;
+            this.checkBoxDios.Enabled = false;
             this.checkBoxDios.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
             this.checkBoxDios.Location = new System.Drawing.Point(17, 41);
             this.checkBoxDios.Name = "checkBoxDios";
@@ -234,6 +239,7 @@
             // checkBoxAdmin
             // 
             this.checkBoxAdmin.AutoSize = true;
+            this.checkBoxAdmin.Enabled = false;
             this.checkBoxAdmin.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
             this.checkBoxAdmin.Location = new System.Drawing.Point(17, 15);
             this.checkBoxAdmin.Name = "checkBoxAdmin";
@@ -241,6 +247,77 @@
             this.checkBoxAdmin.TabIndex = 2;
             this.checkBoxAdmin.Text = "Administrador (Area)";
             this.checkBoxAdmin.UseVisualStyleBackColor = true;
+            // 
+            // picBoxIconoPersona
+            // 
+            this.picBoxIconoPersona.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBoxIconoPersona.BackColor = System.Drawing.Color.White;
+            this.picBoxIconoPersona.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxIconoPersona.BackgroundImage")));
+            this.picBoxIconoPersona.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxIconoPersona.Location = new System.Drawing.Point(388, 42);
+            this.picBoxIconoPersona.Name = "picBoxIconoPersona";
+            this.picBoxIconoPersona.Size = new System.Drawing.Size(35, 32);
+            this.picBoxIconoPersona.TabIndex = 11;
+            this.picBoxIconoPersona.TabStop = false;
+            // 
+            // lblUsuarioSeleccionado
+            // 
+            this.lblUsuarioSeleccionado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsuarioSeleccionado.AutoSize = true;
+            this.lblUsuarioSeleccionado.Location = new System.Drawing.Point(36, 49);
+            this.lblUsuarioSeleccionado.Name = "lblUsuarioSeleccionado";
+            this.lblUsuarioSeleccionado.Size = new System.Drawing.Size(334, 13);
+            this.lblUsuarioSeleccionado.TabIndex = 12;
+            this.lblUsuarioSeleccionado.Text = "                                                                                 " +
+    "                            ";
+            // 
+            // lblTituloVentana
+            // 
+            this.lblTituloVentana.AutoSize = true;
+            this.lblTituloVentana.BackColor = System.Drawing.Color.Black;
+            this.lblTituloVentana.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.lblTituloVentana.ForeColor = System.Drawing.Color.White;
+            this.lblTituloVentana.Location = new System.Drawing.Point(1, 7);
+            this.lblTituloVentana.Name = "lblTituloVentana";
+            this.lblTituloVentana.Size = new System.Drawing.Size(205, 16);
+            this.lblTituloVentana.TabIndex = 36;
+            this.lblTituloVentana.Text = "|    Administración de usuarios     |";
+            // 
+            // pctBoxCabecera1
+            // 
+            this.pctBoxCabecera1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pctBoxCabecera1.BackColor = System.Drawing.Color.Black;
+            this.pctBoxCabecera1.Location = new System.Drawing.Point(0, 0);
+            this.pctBoxCabecera1.Name = "pctBoxCabecera1";
+            this.pctBoxCabecera1.Size = new System.Drawing.Size(435, 31);
+            this.pctBoxCabecera1.TabIndex = 35;
+            this.pctBoxCabecera1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 8.5F);
+            this.textBox1.Location = new System.Drawing.Point(145, 38);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(252, 21);
+            this.textBox1.TabIndex = 3;
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCerrar.BackColor = System.Drawing.Color.Black;
+            this.BtnCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnCerrar.BackgroundImage")));
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnCerrar.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.BtnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.BtnCerrar.Location = new System.Drawing.Point(404, 4);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(23, 23);
+            this.BtnCerrar.TabIndex = 37;
+            this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // btnCancelar
             // 
@@ -272,80 +349,11 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             // 
-            // picBoxIconoPersona
-            // 
-            this.picBoxIconoPersona.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBoxIconoPersona.BackColor = System.Drawing.Color.White;
-            this.picBoxIconoPersona.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxIconoPersona.BackgroundImage")));
-            this.picBoxIconoPersona.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBoxIconoPersona.Location = new System.Drawing.Point(388, 42);
-            this.picBoxIconoPersona.Name = "picBoxIconoPersona";
-            this.picBoxIconoPersona.Size = new System.Drawing.Size(35, 32);
-            this.picBoxIconoPersona.TabIndex = 11;
-            this.picBoxIconoPersona.TabStop = false;
-            // 
-            // lblUsuarioSeleccionado
-            // 
-            this.lblUsuarioSeleccionado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUsuarioSeleccionado.AutoSize = true;
-            this.lblUsuarioSeleccionado.Location = new System.Drawing.Point(36, 49);
-            this.lblUsuarioSeleccionado.Name = "lblUsuarioSeleccionado";
-            this.lblUsuarioSeleccionado.Size = new System.Drawing.Size(334, 13);
-            this.lblUsuarioSeleccionado.TabIndex = 12;
-            this.lblUsuarioSeleccionado.Text = "                                                                                 " +
-    "                            ";
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnCerrar.BackColor = System.Drawing.Color.Black;
-            this.BtnCerrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnCerrar.BackgroundImage")));
-            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnCerrar.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.BtnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.BtnCerrar.Location = new System.Drawing.Point(404, 4);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(23, 23);
-            this.BtnCerrar.TabIndex = 37;
-            this.BtnCerrar.UseVisualStyleBackColor = false;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            // 
-            // lblTituloVentana
-            // 
-            this.lblTituloVentana.AutoSize = true;
-            this.lblTituloVentana.BackColor = System.Drawing.Color.Black;
-            this.lblTituloVentana.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTituloVentana.ForeColor = System.Drawing.Color.White;
-            this.lblTituloVentana.Location = new System.Drawing.Point(1, 7);
-            this.lblTituloVentana.Name = "lblTituloVentana";
-            this.lblTituloVentana.Size = new System.Drawing.Size(205, 16);
-            this.lblTituloVentana.TabIndex = 36;
-            this.lblTituloVentana.Text = "|    Administración de usuarios     |";
-            // 
-            // pctBoxCabecera1
-            // 
-            this.pctBoxCabecera1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctBoxCabecera1.BackColor = System.Drawing.Color.Black;
-            this.pctBoxCabecera1.Location = new System.Drawing.Point(0, 0);
-            this.pctBoxCabecera1.Name = "pctBoxCabecera1";
-            this.pctBoxCabecera1.Size = new System.Drawing.Size(435, 31);
-            this.pctBoxCabecera1.TabIndex = 35;
-            this.pctBoxCabecera1.TabStop = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 8.5F);
-            this.textBox1.Location = new System.Drawing.Point(145, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 21);
-            this.textBox1.TabIndex = 3;
-            // 
             // AdministrarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(435, 241);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.lblTituloVentana);
