@@ -201,5 +201,31 @@ namespace Logica_de_Negocio
             }
             return listau;
         }
+
+        public UsuarioInfo UsuarioSeleccionado(UsuarioInfo uSeleccionado)
+        {
+            estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_USUARIO_SELECCIONADO] " + uSeleccionado.Nombre);
+            uSeleccionado.IdArea = estado.Resultado.GetInt32(4);
+            uSeleccionado.Nombre = estado.Resultado.GetString(0);
+            uSeleccionado.ApellidoPaterno = estado.Resultado.GetString(2);
+            uSeleccionado.ApellidoMaterno = estado.Resultado.GetString(3);
+            uSeleccionado.EsAdmin = estado.Resultado.GetBoolean(5);
+            uSeleccionado.Dios = estado.Resultado.GetBoolean(6);
+            return uSeleccionado;
+        }
+        
+        public string obtenerArea(int idArea)
+        {
+            string area;
+            estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_AREA_ID] " + idArea);
+            if (estado.Resultado.HasRows && estado.Resultado.Read()){
+                area = estado.Resultado.GetString(0);
+            }
+            else
+            {
+                area = "Area de usuario inexistente";
+            }
+            return area;
+        }
     }
 }

@@ -218,11 +218,14 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         {
             //Obtener Areas
             cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
-            cmbArea.Items.Add("< Nuevo >");
             if (!procesosAdministrador.Usuario.Dios)
             {
-                cmbArea.SelectedIndex = cmbArea.FindStringExact(procesosAdministrador.Usuario.Area);
-                cmbArea.Enabled = false;
+                cmbArea.SelectedIndex = cmbArea.FindStringExact(procesosAdministrador.obtenerArea(procesosAdministrador.Usuario.IdArea));
+                CmbArea_SelectedIndexChanged(e, null);
+            }
+            else
+            {
+                cmbArea.Items.Add("< Nuevo >");
             }
         }
 

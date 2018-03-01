@@ -93,7 +93,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void InsertarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (procesosUsuario.Usuario.EsAdmin)
-                new ManualInsert(new ProcesosAdministrador(procesosUsuario.Usuario), procesosUsuario.Usuario.Dios, procesosUsuario.Usuario.IdArea).Show();
+                new ManualInsert(new ProcesosAdministrador(procesosUsuario.Usuario)).Show();
             else
                 MessageBox.Show("Usted no cuenta con los privilegios necesarios para gestionar este sistema.", "Error");
         }

@@ -37,6 +37,7 @@
             this.lblApellidoM = new System.Windows.Forms.Label();
             this.tabControlUsuarios = new System.Windows.Forms.TabControl();
             this.tabPageAcceso = new System.Windows.Forms.TabPage();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
             this.cmbArea = new System.Windows.Forms.ComboBox();
             this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.tabPagePersonales = new System.Windows.Forms.TabPage();
@@ -50,10 +51,10 @@
             this.lblUsuarioSeleccionado = new System.Windows.Forms.Label();
             this.lblTituloVentana = new System.Windows.Forms.Label();
             this.pctBoxCabecera1 = new System.Windows.Forms.PictureBox();
-            this.txtContrasena = new System.Windows.Forms.TextBox();
             this.BtnCerrar = new Entidades.ButtonStyle();
             this.btnCancelar = new Entidades.ButtonStyle();
             this.btnGuardar = new Entidades.ButtonStyle();
+            this.txtbIdUsuario = new System.Windows.Forms.TextBox();
             this.tabControlUsuarios.SuspendLayout();
             this.tabPageAcceso.SuspendLayout();
             this.tabPagePersonales.SuspendLayout();
@@ -136,6 +137,7 @@
             // 
             // tabPageAcceso
             // 
+            this.tabPageAcceso.Controls.Add(this.txtbIdUsuario);
             this.tabPageAcceso.Controls.Add(this.txtContrasena);
             this.tabPageAcceso.Controls.Add(this.cmbArea);
             this.tabPageAcceso.Controls.Add(this.cmbUsuario);
@@ -149,6 +151,14 @@
             this.tabPageAcceso.TabIndex = 0;
             this.tabPageAcceso.Text = "Datos de Acceso";
             this.tabPageAcceso.UseVisualStyleBackColor = true;
+            // 
+            // txtContrasena
+            // 
+            this.txtContrasena.Font = new System.Drawing.Font("Century Gothic", 8.5F);
+            this.txtContrasena.Location = new System.Drawing.Point(145, 38);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Size = new System.Drawing.Size(252, 21);
+            this.txtContrasena.TabIndex = 3;
             // 
             // cmbArea
             // 
@@ -164,9 +174,9 @@
             this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUsuario.Font = new System.Drawing.Font("Century Gothic", 8.5F);
             this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(145, 11);
+            this.cmbUsuario.Location = new System.Drawing.Point(188, 11);
             this.cmbUsuario.Name = "cmbUsuario";
-            this.cmbUsuario.Size = new System.Drawing.Size(252, 24);
+            this.cmbUsuario.Size = new System.Drawing.Size(209, 24);
             this.cmbUsuario.TabIndex = 2;
             this.cmbUsuario.SelectedIndexChanged += new System.EventHandler(this.cmbUsuario_SelectedIndexChanged);
             this.cmbUsuario.TextUpdate += new System.EventHandler(this.cmbUsuario_TextUpdate);
@@ -289,14 +299,6 @@
             this.pctBoxCabecera1.TabIndex = 35;
             this.pctBoxCabecera1.TabStop = false;
             // 
-            // txtContrasena
-            // 
-            this.txtContrasena.Font = new System.Drawing.Font("Century Gothic", 8.5F);
-            this.txtContrasena.Location = new System.Drawing.Point(145, 38);
-            this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(252, 21);
-            this.txtContrasena.TabIndex = 3;
-            // 
             // BtnCerrar
             // 
             this.BtnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -343,6 +345,14 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // txtbIdUsuario
+            // 
+            this.txtbIdUsuario.Font = new System.Drawing.Font("Century Gothic", 8.5F);
+            this.txtbIdUsuario.Location = new System.Drawing.Point(145, 12);
+            this.txtbIdUsuario.Name = "txtbIdUsuario";
+            this.txtbIdUsuario.Size = new System.Drawing.Size(37, 21);
+            this.txtbIdUsuario.TabIndex = 38;
             // 
             // AdministrarUsuarios
             // 
@@ -405,5 +415,6 @@
         private System.Windows.Forms.Label lblTituloVentana;
         private System.Windows.Forms.PictureBox pctBoxCabecera1;
         private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.TextBox txtbIdUsuario;
     }
 }

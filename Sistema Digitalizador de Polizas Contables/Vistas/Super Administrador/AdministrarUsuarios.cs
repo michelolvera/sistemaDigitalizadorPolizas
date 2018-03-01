@@ -54,7 +54,18 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             else if(listaUsuarios.Exists(x => x == cmbUsuario.Text)) //seleccionar un usuario
             {
                 lblUsuarioSeleccionado.Text = cmbUsuario.Text;
+                usuarioSeleccionado.Nombre = cmbUsuario.Text;
+                cmbArea.SelectedIndex = cmbArea.FindStringExact(procesosAdministrador.Usuario.Area);
+                usuarioSeleccionado = procesosAdministrador.UsuarioSeleccionado(usuarioSeleccionado);
+                txtbIdUsuario.Text = ""+usuarioSeleccionado.UserID;
+                //cmbArea
+                txtbNombre.Text = usuarioSeleccionado.Nombre;
+                txtbApellidoP.Text = usuarioSeleccionado.ApellidoPaterno;
+                txtbApellidoMaterno.Text = usuarioSeleccionado.ApellidoMaterno;
+                checkBoxAdmin.Checked = usuarioSeleccionado.EsAdmin;
+                checkBoxDios.Checked = usuarioSeleccionado.Dios;
                 txtContrasena.Text = "*****";
+
                 //cmbArea.SelectedIndex = cmbArea.FindStringExact(usuarioSeleccionado.Area);
             }
         }

@@ -15,21 +15,26 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
     {
         
         ProcesosAdministrador procesosAdministrador;
-        public ManualInsert(ProcesosAdministrador procesosAdministrador, bool Dios, int area)
+        public ManualInsert(ProcesosAdministrador procesosAdministrador)
         {
             InitializeComponent();
             this.procesosAdministrador = procesosAdministrador;
-            CmbArea = procesosAdministrador.LlenarCombo(CmbArea, 0, 0);
-            if (!Dios)//si no es dios
-            {
-                CmbArea.SelectedIndex = CmbArea.FindStringExact(procesosAdministrador.Usuario.Area);
-                CmbArea.Enabled = false;
-            }
+            
         }
 
         private void ManualInsert_Load(object sender, EventArgs e)
         {
-            
+            CmbArea = procesosAdministrador.LlenarCombo(CmbArea, 0, 0);
+            if (!procesosAdministrador.Usuario.Dios)//si no es dios
+            {
+                CmbArea.SelectedIndex = CmbArea.FindStringExact(procesosAdministrador.obtenerArea(procesosAdministrador.Usuario.IdArea));
+                CmbExpediente = procesosAdministrador.LlenarCombo(CmbExpediente, 1, CmbArea.SelectedIndex);//error aqui, no llena el combo
+                CmbArea.Enabled = false;
+                CmbCategoria.Enabled = false;
+                TxtNombre.Enabled = false;
+                TxtNombre.Text = "";
+                BtnGuardar.Enabled = false;
+            }
 
         }
 
@@ -40,7 +45,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             TxtNombre.Enabled = false;
             TxtNombre.Text = "";
             BtnGuardar.Enabled = false;
-
+            Console.WriteLine("" + CmbArea.SelectedIndex);
             CmbExpediente = procesosAdministrador.LlenarCombo(CmbExpediente, 1, CmbArea.SelectedIndex);
         }
 
