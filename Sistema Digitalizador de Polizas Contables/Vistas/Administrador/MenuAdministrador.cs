@@ -51,7 +51,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 {
                     if (cmbCategoria.Text != String.Empty && MessageBox.Show("Se creara la categoria '" + cmbCategoria.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
                     {
-                        if (!procesosAdministrador.CrearNuevoRegistro(2, cmbCategoria.Text, cmbExpediente.SelectedIndex))
+                        if (!procesosAdministrador.CrearNuevoRegistro(2, cmbCategoria.Text, cmbExpediente.SelectedIndex,null,null))
                             MessageBox.Show("Se produjo un error mientras se creaba el registro.");
                     }
                     //Activar control
@@ -76,7 +76,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 {
                     if (cmbExpediente.Text != String.Empty && MessageBox.Show("Se creara el expediente '" + cmbExpediente.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
                     {
-                        if (!procesosAdministrador.CrearNuevoRegistro(1, cmbExpediente.Text, cmbArea.SelectedIndex))
+                        if (!procesosAdministrador.CrearNuevoRegistro(1, cmbExpediente.Text, cmbArea.SelectedIndex,null,null))
                             MessageBox.Show("Se produjo un error mientras se creaba el registro.");
                     }
                     //Activar control
@@ -102,7 +102,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                     {
                         if (cmbArea.Text != String.Empty && MessageBox.Show("Se creara la categoria '" + cmbArea.Text + "' ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
                         {
-                            if (!procesosAdministrador.CrearNuevoRegistro(0, cmbArea.Text, 0))
+                            if (!procesosAdministrador.CrearNuevoRegistro(0, cmbArea.Text, 0,null,null))
                                 MessageBox.Show("Se produjo un error mientras se creaba el registro.");
                         }
                         //Regresar control a la normalidad.

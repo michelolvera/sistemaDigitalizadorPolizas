@@ -144,7 +144,7 @@ namespace Logica_de_Negocio
             else return false;
         }
 
-        public bool CrearNuevoRegistro(int opc, string nombre, int super)
+        public bool CrearNuevoRegistro(int opc, string nombre, int super, UsuarioInfo usuario, string contrasena)
         {
             switch (opc)
             {
@@ -154,6 +154,8 @@ namespace Logica_de_Negocio
                     return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_EXPEDIENTES] " + areaId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
                 case 2: //Categoria
                     return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_CATEGORIAS] " + expedienteId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
+                case 3: //usuario
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_AGREGAR_USUARIO] "+nombre+usuario.Nombre+usuario.ApellidoPaterno+usuario.ApellidoMaterno+contrasena+usuario.IdArea+usuario.EsAdmin+usuario.Dios+";").Estado;
             }
             return false;
         }
@@ -190,6 +192,14 @@ namespace Logica_de_Negocio
         {
             return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_REGISTRO_EXPEDIENTE] " + categoriaId[categoria] + ", '" + nombre + "', " + Usuario.UserID).Estado;
         }
-
+        public List<string> listausuarios(ComboBox origenCombo)
+        {
+            List<string> listau = new List<string>();
+            foreach (string item in origenCombo.Items)
+            {
+                listau.Add(item);
+            }
+            return listau;
+        }
     }
 }
