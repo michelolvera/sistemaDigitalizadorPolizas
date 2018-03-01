@@ -99,7 +99,6 @@ namespace Logica_de_Negocio
                 while (estado.Resultado.HasRows && estado.Resultado.Read())
                 {
                     origenCombo.Items.Add(estado.Resultado.GetString(0));
-                    Console.WriteLine(estado.Resultado.GetString(0));
                     switch (opc)
                     {
                         case 0:

@@ -48,7 +48,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostrarExpedientesCompletadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmbBusqueda = new System.Windows.Forms.ComboBox();
+            this.cmbFiltro = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txbBusqueda = new System.Windows.Forms.TextBox();
             this.pctBoxCabecera1 = new System.Windows.Forms.PictureBox();
@@ -59,6 +59,8 @@
             this.lblUsuarioActual = new System.Windows.Forms.Label();
             this.BtnCerrar = new Entidades.ButtonStyle();
             this.btnMin = new Entidades.ButtonStyle();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txbFiltro = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
@@ -107,7 +109,8 @@
             this.dgvExpedientes.EnableHeadersVisualStyles = false;
             this.dgvExpedientes.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvExpedientes.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvExpedientes.Location = new System.Drawing.Point(10, 110);
+            this.dgvExpedientes.Location = new System.Drawing.Point(13, 135);
+            this.dgvExpedientes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvExpedientes.MultiSelect = false;
             this.dgvExpedientes.Name = "dgvExpedientes";
             this.dgvExpedientes.ReadOnly = true;
@@ -116,7 +119,7 @@
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             this.dgvExpedientes.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvExpedientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExpedientes.Size = new System.Drawing.Size(743, 328);
+            this.dgvExpedientes.Size = new System.Drawing.Size(991, 404);
             this.dgvExpedientes.TabIndex = 0;
             this.dgvExpedientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             this.dgvExpedientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvExpedientes_CellMouseDoubleClick);
@@ -173,11 +176,12 @@
             // 
             this.labelPendientes.AutoSize = true;
             this.labelPendientes.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.labelPendientes.Location = new System.Drawing.Point(10, 76);
+            this.labelPendientes.Location = new System.Drawing.Point(13, 94);
+            this.labelPendientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPendientes.Name = "labelPendientes";
-            this.labelPendientes.Size = new System.Drawing.Size(50, 16);
+            this.labelPendientes.Size = new System.Drawing.Size(80, 18);
             this.labelPendientes.TabIndex = 1;
-            this.labelPendientes.Text = "Buscar:";
+            this.labelPendientes.Text = "Filtrar por:";
             // 
             // btnActualizar
             // 
@@ -188,9 +192,10 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnActualizar.Location = new System.Drawing.Point(721, 69);
+            this.btnActualizar.Location = new System.Drawing.Point(961, 85);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(32, 32);
+            this.btnActualizar.Size = new System.Drawing.Size(43, 39);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
@@ -202,27 +207,27 @@
             this.insertarRegistroToolStripMenuItem,
             this.usuariosToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(96, 23);
             this.herramientasToolStripMenuItem.Text = "Administrar";
             // 
             // administrarToolStripMenuItem
             // 
             this.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
-            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.administrarToolStripMenuItem.Text = "Getionar Documentos";
             this.administrarToolStripMenuItem.Click += new System.EventHandler(this.AdministrarToolStripMenuItem_Click);
             // 
             // insertarRegistroToolStripMenuItem
             // 
             this.insertarRegistroToolStripMenuItem.Name = "insertarRegistroToolStripMenuItem";
-            this.insertarRegistroToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.insertarRegistroToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.insertarRegistroToolStripMenuItem.Text = "Insertar Registro";
             this.insertarRegistroToolStripMenuItem.Click += new System.EventHandler(this.InsertarRegistroToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
@@ -235,10 +240,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verToolStripMenuItem,
             this.herramientasToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(63, 33);
+            this.menuStrip1.Location = new System.Drawing.Point(84, 41);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(121, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(146, 27);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -248,51 +253,49 @@
             this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mostrarExpedientesCompletadosToolStripMenuItem});
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(43, 23);
             this.verToolStripMenuItem.Text = "Ver";
             // 
             // mostrarExpedientesCompletadosToolStripMenuItem
             // 
             this.mostrarExpedientesCompletadosToolStripMenuItem.Name = "mostrarExpedientesCompletadosToolStripMenuItem";
-            this.mostrarExpedientesCompletadosToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.mostrarExpedientesCompletadosToolStripMenuItem.Size = new System.Drawing.Size(319, 26);
             this.mostrarExpedientesCompletadosToolStripMenuItem.Text = "Mostrar expedientes completados";
             this.mostrarExpedientesCompletadosToolStripMenuItem.Click += new System.EventHandler(this.MostrarExpedientesCompletadosToolStripMenuItem_Click);
             // 
-            // cmbBusqueda
+            // cmbFiltro
             // 
-            this.cmbBusqueda.BackColor = System.Drawing.Color.White;
-            this.cmbBusqueda.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.cmbBusqueda.FormattingEnabled = true;
-            this.cmbBusqueda.Items.AddRange(new object[] {
-            "Identificador",
-            "Fecha de Creacion",
-            "Nombre de Usuario",
+            this.cmbFiltro.BackColor = System.Drawing.Color.White;
+            this.cmbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFiltro.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.cmbFiltro.FormattingEnabled = true;
+            this.cmbFiltro.Items.AddRange(new object[] {
             "Nombre de Expediente",
-            "Nombre de Categoria"});
-            this.cmbBusqueda.Location = new System.Drawing.Point(279, 75);
-            this.cmbBusqueda.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbBusqueda.Name = "cmbBusqueda";
-            this.cmbBusqueda.Size = new System.Drawing.Size(198, 24);
-            this.cmbBusqueda.TabIndex = 8;
+            "Nombre de Categoria",
+            "Nombre de Usuario"});
+            this.cmbFiltro.Location = new System.Drawing.Point(100, 91);
+            this.cmbFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbFiltro.Name = "cmbFiltro";
+            this.cmbFiltro.Size = new System.Drawing.Size(225, 26);
+            this.cmbFiltro.TabIndex = 8;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(248, 77);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(331, 95);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 16);
+            this.label1.Size = new System.Drawing.Size(117, 18);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Por:";
+            this.label1.Text = "Palabra Clave:";
             // 
             // txbBusqueda
             // 
             this.txbBusqueda.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.txbBusqueda.Location = new System.Drawing.Point(57, 75);
-            this.txbBusqueda.Margin = new System.Windows.Forms.Padding(2);
+            this.txbBusqueda.Location = new System.Drawing.Point(719, 92);
+            this.txbBusqueda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbBusqueda.Name = "txbBusqueda";
-            this.txbBusqueda.Size = new System.Drawing.Size(188, 22);
+            this.txbBusqueda.Size = new System.Drawing.Size(235, 26);
             this.txbBusqueda.TabIndex = 7;
             this.txbBusqueda.TextChanged += new System.EventHandler(this.TxbBusqueda_TextChanged);
             // 
@@ -301,9 +304,10 @@
             this.pctBoxCabecera1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pctBoxCabecera1.BackColor = System.Drawing.Color.Black;
-            this.pctBoxCabecera1.Location = new System.Drawing.Point(-2, -1);
+            this.pctBoxCabecera1.Location = new System.Drawing.Point(-3, -1);
+            this.pctBoxCabecera1.Margin = new System.Windows.Forms.Padding(4);
             this.pctBoxCabecera1.Name = "pctBoxCabecera1";
-            this.pctBoxCabecera1.Size = new System.Drawing.Size(766, 63);
+            this.pctBoxCabecera1.Size = new System.Drawing.Size(1021, 78);
             this.pctBoxCabecera1.TabIndex = 10;
             this.pctBoxCabecera1.TabStop = false;
             // 
@@ -311,9 +315,10 @@
             // 
             this.pictureBoxCajaLogo.BackColor = System.Drawing.Color.Black;
             this.pictureBoxCajaLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCajaLogo.Image")));
-            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(-4, 5);
+            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(-5, 6);
+            this.pictureBoxCajaLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxCajaLogo.Name = "pictureBoxCajaLogo";
-            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(65, 50);
+            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(87, 62);
             this.pictureBoxCajaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCajaLogo.TabIndex = 11;
             this.pictureBoxCajaLogo.TabStop = false;
@@ -324,9 +329,10 @@
             this.lblTituloVentana.BackColor = System.Drawing.Color.Black;
             this.lblTituloVentana.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblTituloVentana.ForeColor = System.Drawing.Color.White;
-            this.lblTituloVentana.Location = new System.Drawing.Point(55, 9);
+            this.lblTituloVentana.Location = new System.Drawing.Point(73, 11);
+            this.lblTituloVentana.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTituloVentana.Name = "lblTituloVentana";
-            this.lblTituloVentana.Size = new System.Drawing.Size(187, 16);
+            this.lblTituloVentana.Size = new System.Drawing.Size(235, 18);
             this.lblTituloVentana.TabIndex = 12;
             this.lblTituloVentana.Text = "|    Expedientes Pendientes     |";
             // 
@@ -336,9 +342,10 @@
             this.lblFechaHora.BackColor = System.Drawing.Color.Black;
             this.lblFechaHora.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblFechaHora.ForeColor = System.Drawing.Color.White;
-            this.lblFechaHora.Location = new System.Drawing.Point(235, 9);
+            this.lblFechaHora.Location = new System.Drawing.Point(313, 11);
+            this.lblFechaHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaHora.Name = "lblFechaHora";
-            this.lblFechaHora.Size = new System.Drawing.Size(178, 16);
+            this.lblFechaHora.Size = new System.Drawing.Size(234, 18);
             this.lblFechaHora.TabIndex = 13;
             this.lblFechaHora.Text = "|                                                    |";
             // 
@@ -348,9 +355,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(478, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(637, 7);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox1.Size = new System.Drawing.Size(35, 32);
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
@@ -361,9 +369,10 @@
             this.lblUsuarioActual.BackColor = System.Drawing.Color.Black;
             this.lblUsuarioActual.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblUsuarioActual.ForeColor = System.Drawing.Color.White;
-            this.lblUsuarioActual.Location = new System.Drawing.Point(505, 11);
+            this.lblUsuarioActual.Location = new System.Drawing.Point(673, 14);
+            this.lblUsuarioActual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuarioActual.Name = "lblUsuarioActual";
-            this.lblUsuarioActual.Size = new System.Drawing.Size(202, 16);
+            this.lblUsuarioActual.Size = new System.Drawing.Size(266, 18);
             this.lblUsuarioActual.TabIndex = 15;
             this.lblUsuarioActual.Text = "|                                                            |";
             // 
@@ -376,9 +385,10 @@
             this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCerrar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.BtnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.BtnCerrar.Location = new System.Drawing.Point(730, 8);
+            this.BtnCerrar.Location = new System.Drawing.Point(973, 10);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(23, 23);
+            this.BtnCerrar.Size = new System.Drawing.Size(31, 28);
             this.BtnCerrar.TabIndex = 21;
             this.BtnCerrar.UseVisualStyleBackColor = false;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
@@ -392,19 +402,41 @@
             this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMin.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnMin.Location = new System.Drawing.Point(701, 8);
+            this.btnMin.Location = new System.Drawing.Point(935, 10);
+            this.btnMin.Margin = new System.Windows.Forms.Padding(4);
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(23, 23);
+            this.btnMin.Size = new System.Drawing.Size(31, 28);
             this.btnMin.TabIndex = 22;
             this.btnMin.UseVisualStyleBackColor = false;
             this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(652, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 18);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Buscar:";
+            // 
+            // txbFiltro
+            // 
+            this.txbFiltro.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.txbFiltro.Location = new System.Drawing.Point(454, 91);
+            this.txbFiltro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbFiltro.Name = "txbFiltro";
+            this.txbFiltro.Size = new System.Drawing.Size(192, 26);
+            this.txbFiltro.TabIndex = 24;
+            // 
             // ExpedientesP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(763, 446);
+            this.ClientSize = new System.Drawing.Size(1017, 549);
+            this.Controls.Add(this.txbFiltro);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.lblUsuarioActual);
@@ -414,7 +446,7 @@
             this.Controls.Add(this.pictureBoxCajaLogo);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbBusqueda);
+            this.Controls.Add(this.cmbFiltro);
             this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.labelPendientes);
@@ -423,6 +455,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ExpedientesP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Expedientes Pendientes de Digitalizar";
@@ -453,7 +486,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreExpediente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreCategoria;
         private System.Windows.Forms.DataGridViewCheckBoxColumn digitalizado;
-        private System.Windows.Forms.ComboBox cmbBusqueda;
+        private System.Windows.Forms.ComboBox cmbFiltro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbBusqueda;
         private System.Windows.Forms.ToolStripMenuItem insertarRegistroToolStripMenuItem;
@@ -468,5 +501,7 @@
         private Entidades.ButtonStyle BtnCerrar;
         private Entidades.ButtonStyle btnMin;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txbFiltro;
     }
 }

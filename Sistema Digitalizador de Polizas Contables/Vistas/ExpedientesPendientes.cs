@@ -28,7 +28,18 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             lblUsuarioActual.Text = "| " + procesosUsuario.Usuario.Nombre + " " + procesosUsuario.Usuario.ApellidoPaterno +" "+ procesosUsuario.Usuario.ApellidoMaterno +" |";
             lblFechaHora.Text = "| " +Fechaactual.ToLongDateString() + " |";
             this.procesosUsuario = procesosUsuario;
-            dgvExpedientes = this.procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked);
+            txbFiltro.KeyUp += TxbFiltro_KeyUp;
+        }
+
+        private void TxbFiltro_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter && txbFiltro.Text != null && txbFiltro.Text != string.Empty)
+            {
+                dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
+            }else if (e.KeyCode == Keys.Enter)
+            {
+                dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
+            }
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -38,14 +49,14 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void ExpedientesP_Load(object sender, EventArgs e)
         {
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked);
-            cmbBusqueda.SelectedIndex = 0;
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
+            cmbFiltro.SelectedIndex = 0;
         }
 
 
         private void BtnActualizar_Click(object sender, EventArgs e)
         {
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked);
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
         }
 
 
@@ -75,19 +86,19 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void mostrarExpedientesCompletadosToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked);
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
 
         }
 
         private void TxbBusqueda_TextChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < dgvExpedientes.RowCount; i++)
+            /*for (int i = 0; i < dgvExpedientes.RowCount; i++)
             {
                 if (dgvExpedientes[cmbBusqueda.SelectedIndex, i].Value.ToString().ToLower().Contains(txbBusqueda.Text.ToLower()))
                     dgvExpedientes.Rows[i].Visible = true;
                 else
                     dgvExpedientes.Rows[i].Visible = false;
-            }
+            }*/
         }
 
         private void InsertarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
@@ -101,7 +112,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void MostrarExpedientesCompletadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mostrarExpedientesCompletadosToolStripMenuItem.Checked = !mostrarExpedientesCompletadosToolStripMenuItem.Checked;
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked);
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
         }
 
         private void pctBoxSalir_Click(object sender, EventArgs e)

@@ -57,12 +57,14 @@ namespace Logica_de_Negocio
         }
         
 
-        public Entidades.DataGridStyle LlenarTablaExpedientesPendientes(Entidades.DataGridStyle origenTabla, bool completado)
+        public Entidades.DataGridStyle LlenarTablaExpedientesPendientes(Entidades.DataGridStyle origenTabla, bool completado, int filtro, string clave)
         {
+            if (clave == null || clave == string.Empty)
+                filtro = 0;
             registroId.Clear();
             origenTabla.Rows.Clear();
             SQLEstado sQLEstado;
-            sQLEstado = completado ? Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DATOS_EXPEDIENTE " + Usuario.IdArea + ", 1") : Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DATOS_EXPEDIENTE " + Usuario.IdArea + ", 0");
+            sQLEstado = completado ? Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DATOS_EXPEDIENTE " + Usuario.IdArea + ", 1, "+filtro+", '"+clave+"'") : Conexion.EjecutarConsulta("Execute SP_DIG_OBTENER_DATOS_EXPEDIENTE " + Usuario.IdArea + ", 0, " + filtro + ", '" + clave + "'");
 
             if (sQLEstado.Estado)
             {

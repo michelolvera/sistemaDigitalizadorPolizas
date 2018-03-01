@@ -41,7 +41,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             TxtNombre.Enabled = false;
             TxtNombre.Text = "";
             BtnGuardar.Enabled = false;
-            Console.WriteLine(CmbArea.SelectedIndex);
             CmbExpediente = procesosAdministrador.LlenarCombo(CmbExpediente, 1, CmbArea.SelectedIndex);
         }
 
