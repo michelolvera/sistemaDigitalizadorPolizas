@@ -221,7 +221,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             if (!procesosAdministrador.Usuario.Dios)
             {
                 cmbArea.SelectedIndex = cmbArea.FindStringExact(procesosAdministrador.obtenerArea(procesosAdministrador.Usuario.IdArea));
-                CmbArea_SelectedIndexChanged(e, null);
+                CmbArea_SelectedIndexChanged(sender, e);
             }
             else
             {

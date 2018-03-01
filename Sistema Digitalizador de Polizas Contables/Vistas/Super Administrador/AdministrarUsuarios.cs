@@ -42,31 +42,42 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
 
         private void cmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtContrasena.Enabled = true;
             cmbArea.Enabled = true;
             cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
             if (cmbUsuario.Text == "< Nuevo >")// crear nuevo usuario
             {
+                txtContrasena.Enabled = true;
+                cmbArea.Enabled = true;
+                txtbNombre.Enabled = true;
+                txtbApellidoP.Enabled = true;
+                txtbApellidoMaterno.Enabled = true;
+                checkBoxAdmin.Enabled = true;
+                checkBoxDios.Enabled = true;
                 cmbUsuario.Text = "";
                 cmbUsuario.DropDownStyle = ComboBoxStyle.Simple;
                 
             }
             else if(listaUsuarios.Exists(x => x == cmbUsuario.Text)) //seleccionar un usuario
             {
+                txtContrasena.Enabled = true;
+                cmbArea.Enabled = true;
+                txtbNombre.Enabled = true;
+                txtbApellidoP.Enabled = true;
+                txtbApellidoMaterno.Enabled = true;
+                checkBoxAdmin.Enabled = true;
+                checkBoxDios.Enabled = true;
                 lblUsuarioSeleccionado.Text = cmbUsuario.Text;
-                usuarioSeleccionado.Nombre = cmbUsuario.Text;
+                //usuarioSeleccionado.UserName = cmbUsuario.Text;
                 cmbArea.SelectedIndex = cmbArea.FindStringExact(procesosAdministrador.Usuario.Area);
                 usuarioSeleccionado = procesosAdministrador.UsuarioSeleccionado(usuarioSeleccionado);
                 txtbIdUsuario.Text = ""+usuarioSeleccionado.UserID;
-                //cmbArea
+                cmbArea.SelectedIndex = cmbArea.FindStringExact(usuarioSeleccionado.Area);
                 txtbNombre.Text = usuarioSeleccionado.Nombre;
                 txtbApellidoP.Text = usuarioSeleccionado.ApellidoPaterno;
                 txtbApellidoMaterno.Text = usuarioSeleccionado.ApellidoMaterno;
                 checkBoxAdmin.Checked = usuarioSeleccionado.EsAdmin;
                 checkBoxDios.Checked = usuarioSeleccionado.Dios;
                 txtContrasena.Text = "*****";
-
-                //cmbArea.SelectedIndex = cmbArea.FindStringExact(usuarioSeleccionado.Area);
             }
         }
 
@@ -107,15 +118,55 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            usuarioSeleccionado.Area = cmbArea.Text;
-            usuarioSeleccionado.Nombre = txtbNombre.Text;
-            usuarioSeleccionado.ApellidoPaterno = txtbApellidoP.Text;
-            usuarioSeleccionado.ApellidoMaterno = txtbApellidoMaterno.Text;
-            usuarioSeleccionado.EsAdmin = checkBoxAdmin.Checked;
-            usuarioSeleccionado.Dios = checkBoxDios.Checked;
-            if (!procesosAdministrador.CrearNuevoRegistro(3, cmbUsuario.Text, cmbUsuario.SelectedIndex, usuarioSeleccionado, txtContrasena.Text))
-                MessageBox.Show("Se produjo un error mientras se creaba el registro.");
-            AdministrarUsuarios_Load(e,null);
+            if (cmbUsuario.Text != "") 
+            {
+                if (txtContrasena.Text != "")
+                {
+                    if (cmbArea.Text != "")
+                    {
+                        if (txtbNombre.Text != "")
+                        {
+                            if(txtbApellidoP.Text != "")
+                            {
+                                if (txtbApellidoMaterno.Text != "")
+                                {
+                                    
+                                            if (listaUsuarios.Exists(x => x == cmbUsuario.Text))//si es update
+                                            {
+
+                                            }
+                                            else //si es nuevo
+                                            {
+                                                usuarioSeleccionado.Area = cmbArea.Text;
+                                                usuarioSeleccionado.Nombre = txtbNombre.Text;
+                                                usuarioSeleccionado.ApellidoPaterno = txtbApellidoP.Text;
+                                                usuarioSeleccionado.ApellidoMaterno = txtbApellidoMaterno.Text;
+                                                usuarioSeleccionado.EsAdmin = checkBoxAdmin.Checked;
+                                                usuarioSeleccionado.Dios = checkBoxDios.Checked;
+                                                if (!procesosAdministrador.CrearNuevoRegistro(3, cmbUsuario.Text, cmbUsuario.SelectedIndex, usuarioSeleccionado, txtContrasena.Text))
+                                                    MessageBox.Show("Se produjo un error mientras se creaba el registro.");
+                                            }
+
+                                            AdministrarUsuarios_Load(e, null);
+                                        
+                                    
+                                }else
+                                    MessageBox.Show("El apellido materno no puede estar vacio");
+                            }
+                            else
+                                MessageBox.Show("El apellido paterno no puede estar vacio");
+                        }
+                        else
+                            MessageBox.Show("El nombre no puede estar vacio");
+                    }
+                    else
+                        MessageBox.Show("El area no puede estar vacio");
+                }
+                else
+                    MessageBox.Show("La constrseña no puede estar vacia");
+            }
+            else
+                MessageBox.Show("El nombre de usuario no puede estar vacio");
         }
     }
 }
