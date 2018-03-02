@@ -52,7 +52,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             txtContrasena.Enabled = true;
             txtbApellidoMaterno.Enabled = true; 
             txtbApellidoPaterno.Enabled = true; 
-            txtbIdUsuario.Enabled = true;
             txtbNombre.Enabled = true;
             checkBoxAdmin.Enabled = true;
             checkBoxDios.Enabled = true;
@@ -163,7 +162,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
                                         Usuario.Dios = checkBoxDios.Checked;
                                         if (procesosDios.RegistroUsuario(false, Usuario))
                                         {
-                                            MessageBox.Show("El usuario se ha actualizado.");
+                                            MessageBox.Show("El usuario se ha actualizado.\nLos cambios se verán reflejados en el siguiente inicio de sesion del usuario: "+cmbUsuario.Text+".");
                                             //Regresar controles a la normalidad
                                             RegresarControles();
                                         }
@@ -192,6 +191,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
         void RegresarControles()
         {
             tabControlUsuarios.SelectedIndex = 0;
+            lblUsuarioSeleccionado.Text = "Seleccione un nombre usuario para comenzar";
             txtContrasena.Text = String.Empty;
             cmbUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbUsuario = procesosDios.LlenarCombo(cmbUsuario, 1, 0);
@@ -201,10 +201,15 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             txtbApellidoPaterno.Text = String.Empty;
             txtbIdUsuario.Text = String.Empty;
             txtbNombre.Text = String.Empty;
-            checkBoxAdmin.Checked = false;
-            checkBoxDios.Checked = false;
             cmbArea.Items.Clear();
+            txtContrasena.Enabled = false;
             cmbArea.Enabled = false;
+            txtbApellidoMaterno.Enabled = false;
+            txtbApellidoPaterno.Enabled = false;
+            txtbNombre.Enabled = false;
+            checkBoxAdmin.Enabled = false;
+            checkBoxDios.Enabled = false;
+
         }
     }
 }
