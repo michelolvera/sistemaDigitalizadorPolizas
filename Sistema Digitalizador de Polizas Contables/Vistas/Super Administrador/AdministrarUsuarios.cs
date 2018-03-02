@@ -45,7 +45,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
             if (cmbUsuario.Items.Count == cmbArea.SelectedIndex + 1 && cmbUsuario.Text == "< Nuevo >")// crear nuevo usuario
             {
-                
                 txtContrasena.Enabled = true;
                 cmbArea.Enabled = true;
                 txtbNombre.Enabled = true;
@@ -86,7 +85,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             {
                 if (procesosAdministrador.ValidarLongitudCadena(cmbUsuario.Text))
                 {
-                    if (listaUsuarios.Exists(nom => nom == cmbUsuario.Text))
+                    if (listaUsuarios.Exists(nombreUsuario => nombreUsuario == cmbUsuario.Text))
                     {//verificar que el usuario no se repita en la lista de los usuarios
                         MessageBox.Show("El usuario ya existe!");
                     }
@@ -147,8 +146,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
                                             }
 
                                             AdministrarUsuarios_Load(e, null);
-                                        
-                                    
                                 }else
                                     MessageBox.Show("El apellido materno no puede estar vacio");
                             }

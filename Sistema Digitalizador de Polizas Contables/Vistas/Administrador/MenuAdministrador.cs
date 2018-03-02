@@ -38,10 +38,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             cmbArea.KeyUp += CmbArea_KeyUp;
             cmbExpediente.KeyUp += CmbExpediente_KeyUp;
             cmbCategoria.KeyUp += CmbCategoria_KeyUp;
-
-        
-            
-}
+        }
 
         private void CmbCategoria_KeyUp(object sender, KeyEventArgs e)
         {
@@ -89,8 +86,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 }
                 else
                     MessageBox.Show("El nombre no puede tener mas de 100 caracteres.");
-
-                
             }
         }
 
@@ -112,7 +107,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                     }
                     else
                         MessageBox.Show("El nombre no puede tener mas de 100 caracteres.");
-
             }
             
         }
@@ -221,7 +215,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             if (!procesosAdministrador.Usuario.Dios)
             {
                 cmbArea.SelectedIndex = procesosAdministrador.ObtenerArea(procesosAdministrador.Usuario.IdArea);
-                CmbArea_SelectedIndexChanged(sender, e);
+                cmbArea.Enabled = false;
             }
             else
             {
