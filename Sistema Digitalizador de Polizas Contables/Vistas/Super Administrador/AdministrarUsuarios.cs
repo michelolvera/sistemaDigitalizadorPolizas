@@ -212,18 +212,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
 
         }
 
-        private void btnEliminarU_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("¿Esta seguro de eliminar al usuario: "+lblUsuarioSeleccionado.Text+"?\nEsta acción no se podra deshacer.", "¡ELIMINAR USUARIO!", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                if (procesosDios.EliminarUsuario(txtbIdUsuario.Text))
-                {
-                    MessageBox.Show("El usuario: " + lblUsuarioSeleccionado.Text+" se ha eliminado");
-                }
-                else
-                    MessageBox.Show("ERROR:No se pudo eliminar el usuario: " + lblUsuarioSeleccionado.Text);
-            }
-        }
+       
     }
 }
