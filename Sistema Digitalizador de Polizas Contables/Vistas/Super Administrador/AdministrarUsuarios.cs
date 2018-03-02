@@ -38,7 +38,14 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             if (cmbUsuario.Items.Count == cmbUsuario.SelectedIndex + 1 && cmbUsuario.Text == "< Nuevo >")// crear nuevo usuario
             {
                 //Crear nuevo usuario
+                txtContrasena.Text = String.Empty;
                 txtbIdUsuario.Text = String.Empty;
+                txtbApellidoMaterno.Text = String.Empty;
+                txtbApellidoPaterno.Text = String.Empty;
+                txtbIdUsuario.Text = String.Empty;
+                txtbNombre.Text = String.Empty;
+                checkBoxAdmin.Checked = false;
+                checkBoxDios.Checked = false;
                 cmbUsuario.Items.Clear();
                 cmbUsuario.DropDownStyle = ComboBoxStyle.Simple;
             }

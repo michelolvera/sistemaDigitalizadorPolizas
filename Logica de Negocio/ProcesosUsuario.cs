@@ -268,6 +268,7 @@ namespace Logica_de_Negocio
             //Si la cadena excede los 100 caracteres regresa false, de lo contrario y por lo tanto de 100 o menos caracteres retorna true
             return cadena.Length > 100 ? false : true;
         }
+
         public void Buscar(DataGridStyle dgv, TextBox txbB)
         {
             int rows = dgv.RowCount;

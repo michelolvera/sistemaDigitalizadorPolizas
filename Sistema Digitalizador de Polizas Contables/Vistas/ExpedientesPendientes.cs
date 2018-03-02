@@ -42,11 +42,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             }
         }
 
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void ExpedientesP_Load(object sender, EventArgs e)
         {
             dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
@@ -92,9 +87,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void TxbBusqueda_TextChanged(object sender, EventArgs e)
         {
-            
-                procesosUsuario.Buscar(dgvExpedientes, txbBusqueda);
-            
+            procesosUsuario.Buscar(dgvExpedientes, txbBusqueda);
         }
 
         private void InsertarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
