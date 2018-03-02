@@ -182,7 +182,7 @@ namespace Logica_de_Negocio
             return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_REGISTRO_EXPEDIENTE] " + categoriaId[categoria] + ", '" + nombre + "', " + Usuario.Id).Estado;
         }
         
-        public int ObtenerArea(int idArea)
+        public int ObtenerIndexArea(int idArea)
         {
             return areaId.FindIndex(delegate (int id) { return id == idArea; });
         }

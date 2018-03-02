@@ -66,9 +66,9 @@ namespace Logica_de_Negocio
             return origenCombo;
         }
 
-        UsuarioInfo ObtenerUsuario (int index)
+        public UsuarioInfo ObtenerUsuario (int index)
         {
-            estado = Conexion.EjecutarConsulta("EXECUTE SP_DIG_OBTENER_USUARIO_SELECCIONADO "+usuarioId[index]);
+            estado = Conexion.EjecutarConsulta("EXECUTE SP_DIG_OBTENER_USUARIO_SELECCIONADO "+ usuarioId[index]);
             UsuarioInfo usuarioInfo = null;
             if (estado.Estado && estado.Resultado.HasRows && estado.Resultado.Read())
             {
