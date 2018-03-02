@@ -83,5 +83,11 @@ namespace Logica_de_Negocio
         {
             return nombreUsuario.Contains(nombre.ToLower());
         }
+
+        public bool EliminarUsuario(string idUsuario)
+        {
+            estado =  Conexion.EjecutarSentencia("EXECUTE SP_DIG_ELIMINAR_USUARIO " + idUsuario + ";");
+            return estado.Estado;
+        }
     }
 }

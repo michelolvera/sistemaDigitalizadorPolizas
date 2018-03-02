@@ -55,6 +55,7 @@
             this.BtnCerrar = new Entidades.ButtonStyle();
             this.btnCancelar = new Entidades.ButtonStyle();
             this.btnGuardar = new Entidades.ButtonStyle();
+            this.btnEliminarU = new Entidades.ButtonStyle();
             this.tabControlUsuarios.SuspendLayout();
             this.tabPageAcceso.SuspendLayout();
             this.tabPagePersonales.SuspendLayout();
@@ -244,7 +245,7 @@
             // 
             this.checkBoxDios.AutoSize = true;
             this.checkBoxDios.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
-            this.checkBoxDios.Location = new System.Drawing.Point(17, 41);
+            this.checkBoxDios.Location = new System.Drawing.Point(17, 48);
             this.checkBoxDios.Name = "checkBoxDios";
             this.checkBoxDios.Size = new System.Drawing.Size(161, 20);
             this.checkBoxDios.TabIndex = 1;
@@ -255,7 +256,7 @@
             // 
             this.checkBoxAdmin.AutoSize = true;
             this.checkBoxAdmin.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
-            this.checkBoxAdmin.Location = new System.Drawing.Point(17, 15);
+            this.checkBoxAdmin.Location = new System.Drawing.Point(17, 16);
             this.checkBoxAdmin.Name = "checkBoxAdmin";
             this.checkBoxAdmin.Size = new System.Drawing.Size(166, 20);
             this.checkBoxAdmin.TabIndex = 0;
@@ -355,12 +356,27 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
+            // btnEliminarU
+            // 
+            this.btnEliminarU.BackColor = System.Drawing.Color.Red;
+            this.btnEliminarU.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEliminarU.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnEliminarU.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.btnEliminarU.Location = new System.Drawing.Point(231, 205);
+            this.btnEliminarU.Name = "btnEliminarU";
+            this.btnEliminarU.Size = new System.Drawing.Size(120, 23);
+            this.btnEliminarU.TabIndex = 2;
+            this.btnEliminarU.Text = "¡Eliminar Usuario!";
+            this.btnEliminarU.UseVisualStyleBackColor = false;
+            this.btnEliminarU.Click += new System.EventHandler(this.btnEliminarU_Click);
+            // 
             // AdministrarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(435, 241);
+            this.Controls.Add(this.btnEliminarU);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.lblTituloVentana);
             this.Controls.Add(this.pctBoxCabecera1);
@@ -417,5 +433,6 @@
         private System.Windows.Forms.PictureBox pctBoxCabecera1;
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.TextBox txtbIdUsuario;
+        private Entidades.ButtonStyle btnEliminarU;
     }
 }

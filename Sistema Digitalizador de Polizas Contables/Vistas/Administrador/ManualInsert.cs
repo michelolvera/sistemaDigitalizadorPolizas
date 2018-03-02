@@ -29,7 +29,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             {
                 CmbArea.SelectedIndex = procesosAdministrador.ObtenerIndexArea(procesosAdministrador.Usuario.IdArea);
                 CmbArea.Enabled = false;
-                
             }
 
         }
