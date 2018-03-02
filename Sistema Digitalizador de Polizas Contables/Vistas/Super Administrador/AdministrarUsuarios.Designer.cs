@@ -44,7 +44,7 @@
             this.tabPagePersonales = new System.Windows.Forms.TabPage();
             this.txtbApellidoMaterno = new System.Windows.Forms.TextBox();
             this.txtbNombre = new System.Windows.Forms.TextBox();
-            this.txtbApellidoP = new System.Windows.Forms.TextBox();
+            this.txtbApellidoPaterno = new System.Windows.Forms.TextBox();
             this.tabPagePrivilegios = new System.Windows.Forms.TabPage();
             this.checkBoxDios = new System.Windows.Forms.CheckBox();
             this.checkBoxAdmin = new System.Windows.Forms.CheckBox();
@@ -206,7 +206,7 @@
             // 
             this.tabPagePersonales.Controls.Add(this.txtbApellidoMaterno);
             this.tabPagePersonales.Controls.Add(this.txtbNombre);
-            this.tabPagePersonales.Controls.Add(this.txtbApellidoP);
+            this.tabPagePersonales.Controls.Add(this.txtbApellidoPaterno);
             this.tabPagePersonales.Controls.Add(this.lblNombre);
             this.tabPagePersonales.Controls.Add(this.lblApellidoM);
             this.tabPagePersonales.Controls.Add(this.lblApellidoP);
@@ -235,13 +235,13 @@
             this.txtbNombre.Size = new System.Drawing.Size(335, 26);
             this.txtbNombre.TabIndex = 4;
             // 
-            // txtbApellidoP
+            // txtbApellidoPaterno
             // 
-            this.txtbApellidoP.Location = new System.Drawing.Point(192, 47);
-            this.txtbApellidoP.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbApellidoP.Name = "txtbApellidoP";
-            this.txtbApellidoP.Size = new System.Drawing.Size(335, 26);
-            this.txtbApellidoP.TabIndex = 4;
+            this.txtbApellidoPaterno.Location = new System.Drawing.Point(192, 47);
+            this.txtbApellidoPaterno.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbApellidoPaterno.Name = "txtbApellidoPaterno";
+            this.txtbApellidoPaterno.Size = new System.Drawing.Size(335, 26);
+            this.txtbApellidoPaterno.TabIndex = 4;
             // 
             // tabPagePrivilegios
             // 
@@ -434,7 +434,7 @@
         private System.Windows.Forms.PictureBox picBoxIconoPersona;
         private System.Windows.Forms.TextBox txtbApellidoMaterno;
         private System.Windows.Forms.TextBox txtbNombre;
-        private System.Windows.Forms.TextBox txtbApellidoP;
+        private System.Windows.Forms.TextBox txtbApellidoPaterno;
         private System.Windows.Forms.Label lblUsuarioSeleccionado;
         private Entidades.ButtonStyle BtnCerrar;
         private System.Windows.Forms.Label lblTituloVentana;

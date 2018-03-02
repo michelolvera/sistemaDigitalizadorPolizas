@@ -15,6 +15,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
     public partial class AdministrarUsuarios : Form
     {
         ProcesosDios procesosDios;
+        private UsuarioInfo Usuario;
         public AdministrarUsuarios(ProcesosDios procesosDios)
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
         {
             //Lista de usuarios
             cmbUsuario = procesosDios.LlenarCombo(cmbUsuario, 3, 0);
+            cmbUsuario.Items.Add("< Nuevo >");
         }
 
         private void CmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,6 +41,19 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             else
             {
                 //Seleccionar usuario existente
+                Usuario = procesosDios.ObtenerUsuario(cmbUsuario.SelectedIndex);
+                if (Usuario == null)
+                {
+                    MessageBox.Show("Se produjo un error al seleccionar el Usuario.");
+                }
+                txtbIdUsuario.Text = Usuario.Id.ToString();
+                txtContrasena.Text = Usuario.Contraseña;
+                cmbArea.SelectedIndex = procesosDios.ObtenerIndexArea(Usuario.IdArea);
+                txtbNombre.Text = Usuario.Nombre;
+                txtbApellidoPaterno.Text = Usuario.ApellidoPaterno;
+                txtbApellidoMaterno.Text = Usuario.ApellidoMaterno;
+                checkBoxAdmin.Checked = Usuario.Administrador;
+                checkBoxDios.Checked = Usuario.Dios;
             }
         }
 
@@ -75,7 +90,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
                     {
                         if (txtbNombre.Text != "")
                         {
-                            if(txtbApellidoP.Text != "")
+                            if(txtbApellidoPaterno.Text != "")
                             {
                                 if (txtbApellidoMaterno.Text != "")
                                 {
