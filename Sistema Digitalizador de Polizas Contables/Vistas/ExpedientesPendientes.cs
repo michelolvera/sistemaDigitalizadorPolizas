@@ -73,7 +73,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void AdministrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (procesosUsuario.Usuario.EsAdmin)
+            if (procesosUsuario.Usuario.Administrador)
                 new MenuAdministrador(new ProcesosAdministrador(procesosUsuario.Usuario)).Show();
             else
                 MessageBox.Show("Usted no cuenta con los privilegios necesarios para gestionar este sistema.", "Error");
@@ -103,7 +103,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void InsertarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (procesosUsuario.Usuario.EsAdmin)
+            if (procesosUsuario.Usuario.Administrador)
                 new ManualInsert(new ProcesosAdministrador(procesosUsuario.Usuario)).Show();
             else
                 MessageBox.Show("Usted no cuenta con los privilegios necesarios para gestionar este sistema.", "Error");
@@ -138,7 +138,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (procesosUsuario.Usuario.Dios)
-                new AdministrarUsuarios(new ProcesosAdministrador(procesosUsuario.Usuario)).Show();
+                new AdministrarUsuarios(new ProcesosDios(procesosUsuario.Usuario)).Show();
             else
                 MessageBox.Show("Usted no cuenta con los privilegios necesarios para gestionar este sistema.", "Error");
         }

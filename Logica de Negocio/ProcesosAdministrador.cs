@@ -10,16 +10,14 @@ using System.Windows.Forms;
 
 namespace Logica_de_Negocio
 {
-    
     public class ProcesosAdministrador : ProcesosUsuario
     {
-        SQLEstado estado;
+        protected SQLEstado estado;
         //Listas de IDs
-        List<int> areaId = new List<int>();
-        List<int> categoriaId = new List<int>();
-        List<int> expedienteId = new List<int>();
-        List<int> documentoId = new List<int>();
-        List<int> usuarioId = new List<int>();
+        protected List<int> areaId = new List<int>();
+        protected List<int> categoriaId = new List<int>();
+        protected List<int> expedienteId = new List<int>();
+        private List<int> documentoId = new List<int>();
 
         public ProcesosAdministrador(UsuarioInfo Usuario) : base (Usuario)
         {
@@ -61,7 +59,7 @@ namespace Logica_de_Negocio
                 else
                 {
                     //Insert del nuevo registro
-                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_DOCUMENTO] "+categoriaId[documento.CatIndex]+", '" + documento.Nombre + "', " + Usuario.UserID + ",  " + documento.Activo + ";");
+                    estado = Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_DOCUMENTO] "+categoriaId[documento.CatIndex]+", '" + documento.Nombre + "', " + Usuario.Id + ",  " + documento.Activo + ";");
                 }
                 if (!estado.Estado)
                 {
@@ -88,10 +86,6 @@ namespace Logica_de_Negocio
                     categoriaId.Clear();
                     estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
                     break;
-                case 3:
-                    usuarioId.Clear();
-                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_USUARIOS] ;");
-                    break;
             }
             origenCombo.Items.Clear();
             if (estado.Estado)
@@ -109,9 +103,6 @@ namespace Logica_de_Negocio
                             break;
                         case 2:
                             categoriaId.Add(estado.Resultado.GetInt32(1));
-                            break;
-                        case 3:
-                            usuarioId.Add(estado.Resultado.GetInt32(1));
                             break;
                     }
                 }
@@ -151,9 +142,9 @@ namespace Logica_de_Negocio
                 case 0: //Area
                     return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_AREAS] '" + nombre + "'").Estado;
                 case 1: //Expediente
-                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_EXPEDIENTES] " + areaId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_EXPEDIENTES] " + areaId[super] + ",'" + nombre + "','" + Usuario.Id + "'").Estado;
                 case 2: //Categoria
-                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_CATEGORIAS] " + expedienteId[super] + ",'" + nombre + "','" + Usuario.UserID + "'").Estado;
+                    return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_CATEGORIAS] " + expedienteId[super] + ",'" + nombre + "','" + Usuario.Id + "'").Estado;
             }
             return false;
         }
@@ -175,7 +166,7 @@ namespace Logica_de_Negocio
         public bool NuevoRegistroDefault(DataGridViewRowEventArgs Grid)
         {
             try {
-                Grid.Row.Cells["NombreUsuario"].Value = Usuario.UserName;
+                Grid.Row.Cells["NombreUsuario"].Value = Usuario.NombreUsuario;
                 Grid.Row.Cells["FechaAlta"].Value = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                 Grid.Row.Cells["Activo"].Value = true;
             }catch(Exception ex)
@@ -188,45 +179,12 @@ namespace Logica_de_Negocio
 
         public bool RegistrarManual(string nombre, int categoria)
         {
-            return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_REGISTRO_EXPEDIENTE] " + categoriaId[categoria] + ", '" + nombre + "', " + Usuario.UserID).Estado;
-        }
-        public List<string> listausuarios(ComboBox origenCombo)
-        {
-            List<string> listau = new List<string>();
-            foreach (string item in origenCombo.Items)
-            {
-                listau.Add(item);
-            }
-            return listau;
-        }
-        public bool estaEnUSusarios(int idUsusario)
-        {
-            if (usuarioId.Exists(id => id == idUsusario))
-                return true;
-            else
-                return false;
-        }
-
-        public UsuarioInfo UsuarioSeleccionado(UsuarioInfo uSeleccionado)
-        {
-            estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_USUARIO_SELECCIONADO] " + uSeleccionado.UserName);
-            uSeleccionado.IdArea = estado.Resultado.GetInt32(4);
-            uSeleccionado.Nombre = estado.Resultado.GetString(0);
-            uSeleccionado.ApellidoPaterno = estado.Resultado.GetString(2);
-            uSeleccionado.ApellidoMaterno = estado.Resultado.GetString(3);
-            uSeleccionado.EsAdmin = estado.Resultado.GetBoolean(5);
-            uSeleccionado.Dios = estado.Resultado.GetBoolean(6);
-            return uSeleccionado;
+            return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_REGISTRO_EXPEDIENTE] " + categoriaId[categoria] + ", '" + nombre + "', " + Usuario.Id).Estado;
         }
         
         public int ObtenerArea(int idArea)
         {
             return areaId.FindIndex(delegate (int id) { return id == idArea; });
-        }
-
-        public bool ActualizarUsuario()
-        {
-            return true;
         }
     }
 }

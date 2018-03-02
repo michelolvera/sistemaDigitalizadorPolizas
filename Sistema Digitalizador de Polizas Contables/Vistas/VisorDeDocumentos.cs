@@ -41,12 +41,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         private void BtnReemplazarDoc_Click(object sender, EventArgs e)
         {
 
-            if (procesosUsuario.Usuario.EsAdmin && MessageBox.Show("Se pretende eliminar el Documento seleccionado  ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+            if (procesosUsuario.Usuario.Administrador && MessageBox.Show("Se pretende eliminar el Documento seleccionado  ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
             {
                 procesosUsuario.EliminarArchivo();
                 
             }
-            else if (!procesosUsuario.Usuario.EsAdmin)
+            else if (!procesosUsuario.Usuario.Administrador)
             {
                 MessageBox.Show("No tienes los privilegios para poder eliminar documentos");
                 //Loguear para que pueda eliminar el documento
@@ -89,7 +89,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 
         private void BtnEliminarDoc_Click(object sender, EventArgs e)
         {
-            if (procesosUsuario.Usuario.EsAdmin && MessageBox.Show("Se pretende eliminar el Documento seleccionado  ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
+            if (procesosUsuario.Usuario.Administrador && MessageBox.Show("Se pretende eliminar el Documento seleccionado  ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
             {
                 if (procesosUsuario.EliminarArchivo())
                 {
@@ -97,7 +97,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
                 }
                 
                 
-            }else if (!procesosUsuario.Usuario.EsAdmin)
+            }else if (!procesosUsuario.Usuario.Administrador)
             {
                 MessageBox.Show("No tienes los privilegios para poder eliminar documentos");
                 //Loguear para que pueda eliminar el documento

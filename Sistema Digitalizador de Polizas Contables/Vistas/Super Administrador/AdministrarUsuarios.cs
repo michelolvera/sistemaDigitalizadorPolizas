@@ -14,18 +14,24 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
 {
     public partial class AdministrarUsuarios : Form
     {
-        ProcesosAdministrador procesosAdministrador;
-        public AdministrarUsuarios(ProcesosAdministrador procesosAdministrador)
+        ProcesosDios procesosDios;
+        public AdministrarUsuarios(ProcesosDios procesosDios)
         {
             InitializeComponent();
-            this.procesosAdministrador = procesosAdministrador;
+            this.procesosDios = procesosDios;
             cmbUsuario.KeyUp += CmbUsuario_KeyUp;
+        }
+
+        private void AdministrarUsuarios_Load(object sender, EventArgs e)
+        {
+            //Lista de usuarios
+            cmbUsuario = procesosDios.LlenarCombo(cmbUsuario, 3, 0);
         }
 
         private void CmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbArea.Enabled = true;
-            cmbArea = procesosAdministrador.LlenarCombo(cmbArea, 0, 0);
+            cmbArea = procesosDios.LlenarCombo(cmbArea, 0, 0);
             if (cmbUsuario.Items.Count == cmbUsuario.SelectedIndex + 1 && cmbUsuario.Text == "< Nuevo >")// crear nuevo usuario
             {
                 //Crear nuevo usuario
@@ -40,7 +46,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
         {
             if (e.KeyCode == Keys.Enter && cmbUsuario.DropDownStyle == ComboBoxStyle.Simple)
             {
-                if (procesosAdministrador.ValidarLongitudCadena(cmbUsuario.Text))
+                if (procesosDios.ValidarLongitudCadena(cmbUsuario.Text))
                 {
 
                 }

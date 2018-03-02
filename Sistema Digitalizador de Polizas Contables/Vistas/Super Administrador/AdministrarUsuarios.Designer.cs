@@ -136,7 +136,7 @@
             this.tabControlUsuarios.Controls.Add(this.tabPagePrivilegios);
             this.tabControlUsuarios.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.tabControlUsuarios.Location = new System.Drawing.Point(16, 92);
-            this.tabControlUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControlUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlUsuarios.Name = "tabControlUsuarios";
             this.tabControlUsuarios.SelectedIndex = 0;
             this.tabControlUsuarios.Size = new System.Drawing.Size(548, 150);
@@ -152,9 +152,9 @@
             this.tabPageAcceso.Controls.Add(this.lblpass);
             this.tabPageAcceso.Controls.Add(this.lblArea);
             this.tabPageAcceso.Location = new System.Drawing.Point(4, 27);
-            this.tabPageAcceso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageAcceso.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageAcceso.Name = "tabPageAcceso";
-            this.tabPageAcceso.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageAcceso.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageAcceso.Size = new System.Drawing.Size(540, 119);
             this.tabPageAcceso.TabIndex = 0;
             this.tabPageAcceso.Text = "Datos de Acceso";
@@ -165,7 +165,7 @@
             this.txtbIdUsuario.Enabled = false;
             this.txtbIdUsuario.Font = new System.Drawing.Font("Century Gothic", 8.5F);
             this.txtbIdUsuario.Location = new System.Drawing.Point(193, 15);
-            this.txtbIdUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbIdUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtbIdUsuario.Name = "txtbIdUsuario";
             this.txtbIdUsuario.Size = new System.Drawing.Size(48, 25);
             this.txtbIdUsuario.TabIndex = 38;
@@ -174,7 +174,7 @@
             // 
             this.txtContrasena.Font = new System.Drawing.Font("Century Gothic", 8.5F);
             this.txtContrasena.Location = new System.Drawing.Point(193, 47);
-            this.txtContrasena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(4);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(335, 25);
             this.txtContrasena.TabIndex = 3;
@@ -184,7 +184,7 @@
             this.cmbArea.Font = new System.Drawing.Font("Century Gothic", 8.5F);
             this.cmbArea.FormattingEnabled = true;
             this.cmbArea.Location = new System.Drawing.Point(193, 79);
-            this.cmbArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbArea.Margin = new System.Windows.Forms.Padding(4);
             this.cmbArea.Name = "cmbArea";
             this.cmbArea.Size = new System.Drawing.Size(335, 27);
             this.cmbArea.TabIndex = 2;
@@ -195,7 +195,7 @@
             this.cmbUsuario.Font = new System.Drawing.Font("Century Gothic", 8.5F);
             this.cmbUsuario.FormattingEnabled = true;
             this.cmbUsuario.Location = new System.Drawing.Point(251, 14);
-            this.cmbUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUsuario.Name = "cmbUsuario";
             this.cmbUsuario.Size = new System.Drawing.Size(277, 27);
             this.cmbUsuario.TabIndex = 2;
@@ -211,9 +211,9 @@
             this.tabPagePersonales.Controls.Add(this.lblApellidoM);
             this.tabPagePersonales.Controls.Add(this.lblApellidoP);
             this.tabPagePersonales.Location = new System.Drawing.Point(4, 27);
-            this.tabPagePersonales.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPagePersonales.Margin = new System.Windows.Forms.Padding(4);
             this.tabPagePersonales.Name = "tabPagePersonales";
-            this.tabPagePersonales.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPagePersonales.Padding = new System.Windows.Forms.Padding(4);
             this.tabPagePersonales.Size = new System.Drawing.Size(540, 119);
             this.tabPagePersonales.TabIndex = 1;
             this.tabPagePersonales.Text = "Datos Personales";
@@ -222,7 +222,7 @@
             // txtbApellidoMaterno
             // 
             this.txtbApellidoMaterno.Location = new System.Drawing.Point(192, 79);
-            this.txtbApellidoMaterno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbApellidoMaterno.Margin = new System.Windows.Forms.Padding(4);
             this.txtbApellidoMaterno.Name = "txtbApellidoMaterno";
             this.txtbApellidoMaterno.Size = new System.Drawing.Size(335, 26);
             this.txtbApellidoMaterno.TabIndex = 4;
@@ -230,7 +230,7 @@
             // txtbNombre
             // 
             this.txtbNombre.Location = new System.Drawing.Point(192, 15);
-            this.txtbNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtbNombre.Name = "txtbNombre";
             this.txtbNombre.Size = new System.Drawing.Size(335, 26);
             this.txtbNombre.TabIndex = 4;
@@ -238,7 +238,7 @@
             // txtbApellidoP
             // 
             this.txtbApellidoP.Location = new System.Drawing.Point(192, 47);
-            this.txtbApellidoP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtbApellidoP.Margin = new System.Windows.Forms.Padding(4);
             this.txtbApellidoP.Name = "txtbApellidoP";
             this.txtbApellidoP.Size = new System.Drawing.Size(335, 26);
             this.txtbApellidoP.TabIndex = 4;
@@ -248,7 +248,7 @@
             this.tabPagePrivilegios.Controls.Add(this.checkBoxDios);
             this.tabPagePrivilegios.Controls.Add(this.checkBoxAdmin);
             this.tabPagePrivilegios.Location = new System.Drawing.Point(4, 27);
-            this.tabPagePrivilegios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPagePrivilegios.Margin = new System.Windows.Forms.Padding(4);
             this.tabPagePrivilegios.Name = "tabPagePrivilegios";
             this.tabPagePrivilegios.Size = new System.Drawing.Size(540, 119);
             this.tabPagePrivilegios.TabIndex = 2;
@@ -260,7 +260,7 @@
             this.checkBoxDios.AutoSize = true;
             this.checkBoxDios.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
             this.checkBoxDios.Location = new System.Drawing.Point(23, 50);
-            this.checkBoxDios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxDios.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxDios.Name = "checkBoxDios";
             this.checkBoxDios.Size = new System.Drawing.Size(188, 23);
             this.checkBoxDios.TabIndex = 2;
@@ -272,7 +272,7 @@
             this.checkBoxAdmin.AutoSize = true;
             this.checkBoxAdmin.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
             this.checkBoxAdmin.Location = new System.Drawing.Point(23, 18);
-            this.checkBoxAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxAdmin.Name = "checkBoxAdmin";
             this.checkBoxAdmin.Size = new System.Drawing.Size(194, 23);
             this.checkBoxAdmin.TabIndex = 2;
@@ -286,7 +286,7 @@
             this.picBoxIconoPersona.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxIconoPersona.BackgroundImage")));
             this.picBoxIconoPersona.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBoxIconoPersona.Location = new System.Drawing.Point(16, 46);
-            this.picBoxIconoPersona.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picBoxIconoPersona.Margin = new System.Windows.Forms.Padding(4);
             this.picBoxIconoPersona.Name = "picBoxIconoPersona";
             this.picBoxIconoPersona.Size = new System.Drawing.Size(47, 39);
             this.picBoxIconoPersona.TabIndex = 11;
@@ -324,7 +324,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pctBoxCabecera1.BackColor = System.Drawing.Color.Black;
             this.pctBoxCabecera1.Location = new System.Drawing.Point(0, 0);
-            this.pctBoxCabecera1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pctBoxCabecera1.Margin = new System.Windows.Forms.Padding(4);
             this.pctBoxCabecera1.Name = "pctBoxCabecera1";
             this.pctBoxCabecera1.Size = new System.Drawing.Size(580, 38);
             this.pctBoxCabecera1.TabIndex = 35;
@@ -340,7 +340,7 @@
             this.BtnCerrar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.BtnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.BtnCerrar.Location = new System.Drawing.Point(539, 5);
-            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(31, 28);
             this.BtnCerrar.TabIndex = 37;
@@ -394,10 +394,11 @@
             this.Controls.Add(this.tabControlUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdministrarUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministrarUsuarios";
+            this.Load += new System.EventHandler(this.AdministrarUsuarios_Load);
             this.tabControlUsuarios.ResumeLayout(false);
             this.tabPageAcceso.ResumeLayout(false);
             this.tabPageAcceso.PerformLayout();

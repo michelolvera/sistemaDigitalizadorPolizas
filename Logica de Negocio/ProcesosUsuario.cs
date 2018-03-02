@@ -28,7 +28,7 @@ namespace Logica_de_Negocio
         public ProcesosUsuario(UsuarioInfo Usuario)
         {
             this.Usuario = Usuario;
-            Conexion = new SQLConexion(nombreServidor, nombreBD, this.Usuario.UserName, this.Usuario.UserPassword);
+            Conexion = new SQLConexion(nombreServidor, nombreBD, this.Usuario.NombreUsuario, this.Usuario.Contraseña);
         }
 
         public bool IniciarSesion()
@@ -36,12 +36,12 @@ namespace Logica_de_Negocio
             if (Conexion.AbrirConexion().Estado)
             {
                 int userID = 0;
-                SqlDataReader dataReader = Conexion.EjecutarConsulta("Execute SP_DIG_VALIDAR_USUARIO '" + Usuario.UserName+"\', '"+Usuario.UserPassword+"'").Resultado;
+                SqlDataReader dataReader = Conexion.EjecutarConsulta("Execute SP_DIG_VALIDAR_USUARIO '" + Usuario.NombreUsuario+"\', '"+Usuario.Contraseña+"'").Resultado;
                 if(dataReader.HasRows && dataReader.Read())
                 {
                     userID = dataReader.GetInt32(0);
                     Usuario.IdArea = dataReader.GetInt32(1); //Se recibe el ID de area, (Descomentar en cuanto el procedure lo retorne. DESCOMENTAR
-                    Usuario.EsAdmin = dataReader.GetBoolean(2); // Se recibe si es admin o no.
+                    Usuario.Administrador = dataReader.GetBoolean(2); // Se recibe si es admin o no.
                     Usuario.Nombre = dataReader.GetString(3);
                     Usuario.ApellidoPaterno = dataReader.GetString(4);
                     Usuario.ApellidoMaterno = dataReader.GetString(5);
@@ -49,7 +49,7 @@ namespace Logica_de_Negocio
                     dataReader.Close();
                 }
                 //Validacion de datos
-                if (userID == Usuario.UserID)
+                if (userID == Usuario.Id)
                     return true; //Verdadero en caso de login correcto
                 else return false;
             }
