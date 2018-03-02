@@ -15,7 +15,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void BotonAccesoAdmin_Click(object sender, EventArgs e)
         {
             //Obtener datos del formulario en objeto UsuarioInfo
-            if (int.TryParse(txbIDUsuario.Text, out int userID) && !txbNombreUsuario.Text.Equals("") && !txbPassword.Text.Equals(""))
+            if (int.TryParse(txbIDUsuario.Text, out int userID) && !txbNombreUsuario.Text.Equals(String.Empty) && !txbPassword.Text.Equals(String.Empty))
             {
                 UsuarioInfo usuario = new UsuarioInfo(userID, txbNombreUsuario.Text, txbPassword.Text);
                 //Verifica identidad

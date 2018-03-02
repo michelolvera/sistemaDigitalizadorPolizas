@@ -26,14 +26,6 @@ namespace Logica_de_Negocio
                     estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_AREAS];");
                     break;
                 case 1:
-                    expedienteId.Clear();
-                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_EXPEDIENTES_AREA] " + areaId[index] + ";");
-                    break;
-                case 2:
-                    categoriaId.Clear();
-                    estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_CATEGORIA_EXPEDIENTE] " + expedienteId[index] + ";");
-                    break;
-                case 3:
                     usuarioId.Clear();
                     estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_USUARIOS];");
                     break;
@@ -50,12 +42,6 @@ namespace Logica_de_Negocio
                             areaId.Add(estado.Resultado.GetInt32(1));
                             break;
                         case 1:
-                            expedienteId.Add(estado.Resultado.GetInt32(1));
-                            break;
-                        case 2:
-                            categoriaId.Add(estado.Resultado.GetInt32(1));
-                            break;
-                        case 3:
                             usuarioId.Add(estado.Resultado.GetInt32(1));
                             break;
                     }
@@ -72,7 +58,7 @@ namespace Logica_de_Negocio
             UsuarioInfo usuarioInfo = null;
             if (estado.Estado && estado.Resultado.HasRows && estado.Resultado.Read())
             {
-                usuarioInfo = new UsuarioInfo(estado.Resultado.GetInt32(0), estado.Resultado.GetString(1), "******")
+                usuarioInfo = new UsuarioInfo(estado.Resultado.GetInt32(0), estado.Resultado.GetString(1), estado.Resultado.GetString(8))
                 {
                     Nombre = estado.Resultado.GetString(2),
                     ApellidoPaterno = estado.Resultado.GetString(3),
@@ -84,6 +70,11 @@ namespace Logica_de_Negocio
             }
             estado.Resultado.Close();
             return usuarioInfo;
+        }
+
+        public bool RegistroUsuario(bool EsNuevo, UsuarioInfo usuario) {
+            estado = EsNuevo ? Conexion.EjecutarSentencia("EXECUTE SP_DIG_AGREGAR_USUARIO '" + usuario.NombreUsuario+"', '"+ usuario.Nombre + "', '" + usuario.ApellidoPaterno + "', '" + usuario.ApellidoMaterno + "', '" + usuario.Contraseña + "', "+areaId[usuario.IdArea]+", "+usuario.Administrador+", "+usuario.Dios) : Conexion.EjecutarSentencia("EXECUTE SP_DIG_ACTUALIZAR_USUARIO_SELECCIONADO "+Usuario.Id+ ", '" + usuario.Nombre + "', '" + usuario.ApellidoPaterno + "', '" + usuario.ApellidoMaterno + "', '" + usuario.Contraseña + "', " + areaId[usuario.IdArea] + ", " + usuario.Administrador + ", " + usuario.Dios);
+            return estado.Estado;
         }
     }
 }

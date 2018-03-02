@@ -178,9 +178,11 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(335, 25);
             this.txtContrasena.TabIndex = 3;
+            this.txtContrasena.UseSystemPasswordChar = true;
             // 
             // cmbArea
             // 
+            this.cmbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbArea.Font = new System.Drawing.Font("Century Gothic", 8.5F);
             this.cmbArea.FormattingEnabled = true;
             this.cmbArea.Location = new System.Drawing.Point(193, 79);

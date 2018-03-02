@@ -39,7 +39,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             //Desactivar Controles no Necesarios
             CmbCategoria.Enabled = false;
             TxtNombre.Enabled = false;
-            TxtNombre.Text = "";
+            TxtNombre.Text = String.Empty;
             BtnGuardar.Enabled = false;
             CmbExpediente = procesosAdministrador.LlenarCombo(CmbExpediente, 1, CmbArea.SelectedIndex);
         }
@@ -47,7 +47,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         private void CmbExpediente_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Desactivar controles no Necesarios
-            TxtNombre.Text = "";
+            TxtNombre.Text = String.Empty;
             BtnGuardar.Enabled = false;
             TxtNombre.Enabled = false;
 
@@ -70,7 +70,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                     if (procesosAdministrador.RegistrarManual(TxtNombre.Text, CmbCategoria.SelectedIndex))
                     {
                         MessageBox.Show("El registro se creeo de manera correcta.");
-                        TxtNombre.Text = "";
+                        TxtNombre.Text = String.Empty;
                     }
                     else
                         MessageBox.Show("Se presento un error al insertar el registro, intentelo de nuevo.");

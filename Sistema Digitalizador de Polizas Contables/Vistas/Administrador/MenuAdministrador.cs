@@ -286,8 +286,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             {
                 //Desactivar controles no necesarios
                 cmbCategoria.Enabled = false;
-                cmbCategoria.Text = "";
-                cmbExpediente.Text = "";
+                cmbCategoria.Text = String.Empty;
+                cmbExpediente.Text = String.Empty;
                 dgvDocumentos.Enabled = false;
                 btnGuardar.Enabled = false;
                 ckbCategoria.Enabled = false;
@@ -320,7 +320,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 //Desactivar controles no necesarios
                 dgvDocumentos.Enabled = false;
                 btnGuardar.Enabled = false;
-                cmbCategoria.Text = "";
+                cmbCategoria.Text = String.Empty;
                 ckbCategoria.Enabled = false;
                 //Obtener categorias
                 cmbCategoria = procesosAdministrador.LlenarCombo(cmbCategoria, 2, cmbExpediente.SelectedIndex);

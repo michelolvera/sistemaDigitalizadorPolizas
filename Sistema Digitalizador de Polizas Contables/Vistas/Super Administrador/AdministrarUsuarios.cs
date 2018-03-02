@@ -26,17 +26,21 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
         private void AdministrarUsuarios_Load(object sender, EventArgs e)
         {
             //Lista de usuarios
-            cmbUsuario = procesosDios.LlenarCombo(cmbUsuario, 3, 0);
+            cmbUsuario = procesosDios.LlenarCombo(cmbUsuario, 1, 0);
             cmbUsuario.Items.Add("< Nuevo >");
         }
 
         private void CmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btnGuardar.Enabled = true;
             cmbArea.Enabled = true;
             cmbArea = procesosDios.LlenarCombo(cmbArea, 0, 0);
             if (cmbUsuario.Items.Count == cmbUsuario.SelectedIndex + 1 && cmbUsuario.Text == "< Nuevo >")// crear nuevo usuario
             {
                 //Crear nuevo usuario
+                txtbIdUsuario.Text = String.Empty;
+                cmbUsuario.Items.Clear();
+                cmbUsuario.DropDownStyle = ComboBoxStyle.Simple;
             }
             else
             {
@@ -82,19 +86,58 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (cmbUsuario.Text != "") 
+            if (cmbUsuario.Text != String.Empty) 
             {
-                if (txtContrasena.Text != "")
+                if (txtContrasena.Text != String.Empty)
                 {
-                    if (cmbArea.Text != "")
+                    if (cmbArea.Text != String.Empty)
                     {
-                        if (txtbNombre.Text != "")
+                        if (txtbNombre.Text != String.Empty)
                         {
-                            if(txtbApellidoPaterno.Text != "")
+                            if(txtbApellidoPaterno.Text != String.Empty)
                             {
-                                if (txtbApellidoMaterno.Text != "")
+                                if (txtbApellidoMaterno.Text != String.Empty)
                                 {
-                                    //Crear o modificar el usuario
+                                    if (cmbUsuario.DropDownStyle == ComboBoxStyle.Simple)
+                                    {
+                                        //Nuevo Usuario
+                                        Usuario = new UsuarioInfo(0, cmbUsuario.Text, txtContrasena.Text)
+                                        {
+                                            Nombre = txtbNombre.Text,
+                                            ApellidoPaterno = txtbApellidoPaterno.Text,
+                                            ApellidoMaterno = txtbApellidoMaterno.Text,
+                                            IdArea = cmbArea.SelectedIndex,
+                                            Administrador = checkBoxAdmin.Checked,
+                                            Dios = checkBoxDios.Checked
+                                        };
+                                        if(procesosDios.RegistroUsuario(true, Usuario))
+                                        {
+                                            MessageBox.Show("El usuario se ha creado.");
+                                            //Regresar controles a la normalidad
+                                            RegresarControles();
+                                        }
+                                        else
+                                            MessageBox.Show("Hubo un error al registrar este usuario.");
+                                    }
+                                    else
+                                    {
+                                        //Actualizar Usuario
+                                        Usuario.Contraseña = txtContrasena.Text;
+                                        Usuario.Nombre = txtbNombre.Text;
+                                        Usuario.ApellidoPaterno = txtbApellidoPaterno.Text;
+                                        Usuario.ApellidoMaterno = txtbApellidoMaterno.Text;
+                                        Usuario.IdArea = cmbArea.SelectedIndex;
+                                        Usuario.Administrador = checkBoxAdmin.Checked;
+                                        Usuario.Dios = checkBoxDios.Checked;
+                                        if (procesosDios.RegistroUsuario(false, Usuario))
+                                        {
+                                            MessageBox.Show("El usuario se ha actualizado.");
+                                            //Regresar controles a la normalidad
+                                            RegresarControles();
+                                        }
+                                        else
+                                            MessageBox.Show("Hubo un error al registrar este usuario.");
+                                    }
                                 }else
                                     MessageBox.Show("El apellido materno no puede estar vacio");
                             }
@@ -112,6 +155,24 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             }
             else
                 MessageBox.Show("El nombre de usuario no puede estar vacio");
+        }
+
+        void RegresarControles()
+        {
+            tabControlUsuarios.SelectedIndex = 0;
+            txtContrasena.Text = String.Empty;
+            cmbUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbUsuario = procesosDios.LlenarCombo(cmbUsuario, 1, 0);
+            cmbUsuario.Items.Add("< Nuevo >");
+            btnGuardar.Enabled = false;
+            txtbApellidoMaterno.Text = String.Empty;
+            txtbApellidoPaterno.Text = String.Empty;
+            txtbIdUsuario.Text = String.Empty;
+            txtbNombre.Text = String.Empty;
+            checkBoxAdmin.Checked = false;
+            checkBoxDios.Checked = false;
+            cmbArea.Items.Clear();
+            cmbArea.Enabled = false;
         }
     }
 }
