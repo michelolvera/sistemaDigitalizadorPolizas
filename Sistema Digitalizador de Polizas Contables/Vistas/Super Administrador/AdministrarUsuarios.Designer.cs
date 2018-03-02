@@ -199,9 +199,8 @@
             this.cmbUsuario.Name = "cmbUsuario";
             this.cmbUsuario.Size = new System.Drawing.Size(277, 27);
             this.cmbUsuario.TabIndex = 2;
-            this.cmbUsuario.SelectedIndexChanged += new System.EventHandler(this.cmbUsuario_SelectedIndexChanged);
-            this.cmbUsuario.TextUpdate += new System.EventHandler(this.cmbUsuario_TextUpdate);
-            this.cmbUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cmbUsuario_KeyUp);
+            this.cmbUsuario.SelectedIndexChanged += new System.EventHandler(this.CmbUsuario_SelectedIndexChanged);
+            this.cmbUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CmbUsuario_KeyUp);
             // 
             // tabPagePersonales
             // 
@@ -361,7 +360,7 @@
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -377,7 +376,7 @@
             this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // AdministrarUsuarios
             // 
@@ -399,7 +398,6 @@
             this.Name = "AdministrarUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdministrarUsuarios";
-            this.Load += new System.EventHandler(this.AdministrarUsuarios_Load);
             this.tabControlUsuarios.ResumeLayout(false);
             this.tabPageAcceso.ResumeLayout(false);
             this.tabPageAcceso.PerformLayout();
