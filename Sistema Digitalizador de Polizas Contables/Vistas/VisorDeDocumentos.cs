@@ -160,5 +160,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void txbBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            procesosUsuario.Buscar(dgvDocumentos, txbBusqueda);
+        }
     }
 }

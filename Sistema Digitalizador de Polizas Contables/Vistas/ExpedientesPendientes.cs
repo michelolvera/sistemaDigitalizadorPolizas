@@ -92,13 +92,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void TxbBusqueda_TextChanged(object sender, EventArgs e)
         {
-            /*for (int i = 0; i < dgvExpedientes.RowCount; i++)
-            {
-                if (dgvExpedientes[cmbBusqueda.SelectedIndex, i].Value.ToString().ToLower().Contains(txbBusqueda.Text.ToLower()))
-                    dgvExpedientes.Rows[i].Visible = true;
-                else
-                    dgvExpedientes.Rows[i].Visible = false;
-            }*/
+            
+                procesosUsuario.Buscar(dgvExpedientes, txbBusqueda);
+            
         }
 
         private void InsertarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
@@ -142,5 +138,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             else
                 MessageBox.Show("Usted no cuenta con los privilegios necesarios para gestionar este sistema.", "Error");
         }
+
+        
     }
 }
