@@ -21,6 +21,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             InitializeComponent();
             this.procesosDios = procesosDios;
             cmbUsuario.KeyUp += CmbUsuario_KeyUp;
+            cmbUsuario.TextChanged += CmbUsuario_TextChanged;
+        }
+
+        private void CmbUsuario_TextChanged(object sender, EventArgs e)
+        {
+            lblUsuarioSeleccionado.Text = cmbUsuario.Text;
         }
 
         private void AdministrarUsuarios_Load(object sender, EventArgs e)
@@ -117,14 +123,17 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
                                             Administrador = checkBoxAdmin.Checked,
                                             Dios = checkBoxDios.Checked
                                         };
-                                        if(procesosDios.RegistroUsuario(true, Usuario))
-                                        {
-                                            MessageBox.Show("El usuario se ha creado.");
-                                            //Regresar controles a la normalidad
-                                            RegresarControles();
-                                        }
+                                        if (!procesosDios.ComprobarUsuarioExiste(Usuario.NombreUsuario))
+                                            if (procesosDios.RegistroUsuario(true, Usuario))
+                                            {
+                                                MessageBox.Show("El usuario se ha creado.");
+                                                //Regresar controles a la normalidad
+                                                RegresarControles();
+                                            }
+                                            else
+                                                MessageBox.Show("Hubo un error al registrar este usuario.");
                                         else
-                                            MessageBox.Show("Hubo un error al registrar este usuario.");
+                                            MessageBox.Show("Este nombre de usuario ya existe.");
                                     }
                                     else
                                     {

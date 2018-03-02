@@ -11,7 +11,7 @@ namespace Logica_de_Negocio
     public class ProcesosDios : ProcesosAdministrador
     {
         List<int> usuarioId = new List<int>();
-
+        List<string> nombreUsuario = new List<string>();
         public ProcesosDios(UsuarioInfo Usuario) : base(Usuario)
         {
 
@@ -27,6 +27,7 @@ namespace Logica_de_Negocio
                     break;
                 case 1:
                     usuarioId.Clear();
+                    nombreUsuario.Clear();
                     estado = Conexion.EjecutarConsulta("EXECUTE [dbo].[SP_DIG_OBTENER_USUARIOS];");
                     break;
             }
@@ -35,6 +36,7 @@ namespace Logica_de_Negocio
             {
                 while (estado.Resultado.HasRows && estado.Resultado.Read())
                 {
+                    nombreUsuario.Add(estado.Resultado.GetString(0).ToLower());
                     origenCombo.Items.Add(estado.Resultado.GetString(0));
                     switch (opc)
                     {
@@ -73,8 +75,13 @@ namespace Logica_de_Negocio
         }
 
         public bool RegistroUsuario(bool EsNuevo, UsuarioInfo usuario) {
-            estado = EsNuevo ? Conexion.EjecutarSentencia("EXECUTE SP_DIG_AGREGAR_USUARIO '" + usuario.NombreUsuario+"', '"+ usuario.Nombre + "', '" + usuario.ApellidoPaterno + "', '" + usuario.ApellidoMaterno + "', '" + usuario.Contraseña + "', "+areaId[usuario.IdArea]+", "+usuario.Administrador+", "+usuario.Dios) : Conexion.EjecutarSentencia("EXECUTE SP_DIG_ACTUALIZAR_USUARIO_SELECCIONADO "+Usuario.Id+ ", '" + usuario.Nombre + "', '" + usuario.ApellidoPaterno + "', '" + usuario.ApellidoMaterno + "', '" + usuario.Contraseña + "', " + areaId[usuario.IdArea] + ", " + usuario.Administrador + ", " + usuario.Dios);
+            estado = EsNuevo ? Conexion.EjecutarSentencia("EXECUTE SP_DIG_AGREGAR_USUARIO '" + usuario.NombreUsuario+"', '"+ usuario.Nombre + "', '" + usuario.ApellidoPaterno + "', '" + usuario.ApellidoMaterno + "', '" + usuario.Contraseña + "', "+areaId[usuario.IdArea]+", "+usuario.Administrador+", "+usuario.Dios) : Conexion.EjecutarSentencia("EXECUTE SP_DIG_ACTUALIZAR_USUARIO_SELECCIONADO "+usuario.Id+ ", '" + usuario.Nombre + "', '" + usuario.ApellidoPaterno + "', '" + usuario.ApellidoMaterno + "', '" + usuario.Contraseña + "', " + areaId[usuario.IdArea] + ", " + usuario.Administrador + ", " + usuario.Dios);
             return estado.Estado;
+        }
+
+        public bool ComprobarUsuarioExiste(string nombre)
+        {
+            return nombreUsuario.Contains(nombre.ToLower());
         }
     }
 }
