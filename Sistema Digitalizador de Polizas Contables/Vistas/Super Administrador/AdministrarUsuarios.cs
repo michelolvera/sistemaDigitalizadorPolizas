@@ -20,6 +20,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
         {
             InitializeComponent();
             this.procesosDios = procesosDios;
+
             cmbUsuario.KeyUp += CmbUsuario_KeyUp;
             cmbUsuario.TextChanged += CmbUsuario_TextChanged;
         }
@@ -34,12 +35,27 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             //Lista de usuarios
             cmbUsuario = procesosDios.LlenarCombo(cmbUsuario, 1, 0);
             cmbUsuario.Items.Add("< Nuevo >");
+            txtContrasena.Enabled = false;
+            cmbArea.Enabled = false;
+            txtbApellidoMaterno.Enabled = false; 
+            txtbApellidoPaterno.Enabled = false; 
+            txtbIdUsuario.Enabled = false;
+            txtbNombre.Enabled = false;
+            checkBoxAdmin.Enabled = false;
+            checkBoxDios.Enabled = false;
         }
 
         private void CmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnGuardar.Enabled = true;
             cmbArea.Enabled = true;
+            txtContrasena.Enabled = true;
+            txtbApellidoMaterno.Enabled = true; 
+            txtbApellidoPaterno.Enabled = true; 
+            txtbIdUsuario.Enabled = true;
+            txtbNombre.Enabled = true;
+            checkBoxAdmin.Enabled = true;
+            checkBoxDios.Enabled = true;
             cmbArea = procesosDios.LlenarCombo(cmbArea, 0, 0);
             if (cmbUsuario.Items.Count == cmbUsuario.SelectedIndex + 1 && cmbUsuario.Text == "< Nuevo >")// crear nuevo usuario
             {
