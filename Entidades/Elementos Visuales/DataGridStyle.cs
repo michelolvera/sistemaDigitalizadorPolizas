@@ -28,7 +28,7 @@ namespace Entidades
             this.AllowUserToDeleteRows = false;
             this.AllowUserToResizeColumns = false;
             this.AllowUserToResizeRows = false;
-            this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.SelectionMode = DataGridViewSelectionMode.CellSelect;
             this.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             this.Font = new Font("Century Gothic", 9, FontStyle.Regular);
             this.ReadOnly = true;
@@ -39,7 +39,7 @@ namespace Entidades
             this.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             this.RowsDefaultCellStyle.BackColor = Color.White;
-            //this.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#EFF3"); // valor no completo
+            this.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#EFF3F5"); 
         }
     }
 }
