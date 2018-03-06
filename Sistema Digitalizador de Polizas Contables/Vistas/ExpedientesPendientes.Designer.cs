@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpedientesP));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelPendientes = new System.Windows.Forms.Label();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,9 +48,8 @@
             this.pictureBoxCajaLogo = new System.Windows.Forms.PictureBox();
             this.lblTituloVentana = new System.Windows.Forms.Label();
             this.lblFechaHora = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picBoxLog = new System.Windows.Forms.PictureBox();
             this.lblUsuarioActual = new System.Windows.Forms.Label();
-            this.lblBuscar = new System.Windows.Forms.Label();
             this.txbFiltro = new System.Windows.Forms.TextBox();
             this.btnMin = new Entidades.ButtonStyle();
             this.BtnCerrar = new Entidades.ButtonStyle();
@@ -67,15 +66,17 @@
             this.margenIzq = new System.Windows.Forms.PictureBox();
             this.margenAbajo = new System.Windows.Forms.PictureBox();
             this.lblVerActual = new System.Windows.Forms.Label();
+            this.picBoxBuscar = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxBarra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenDer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxBuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // labelPendientes
@@ -128,7 +129,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verToolStripMenuItem,
             this.herramientasToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(2, 44);
+            this.menuStrip1.Location = new System.Drawing.Point(4, 44);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(121, 24);
@@ -235,17 +236,17 @@
             this.lblFechaHora.TabIndex = 13;
             this.lblFechaHora.Text = "|                                                    |";
             // 
-            // pictureBox1
+            // picBoxLog
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(473, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 26);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
+            this.picBoxLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBoxLog.BackColor = System.Drawing.Color.Black;
+            this.picBoxLog.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxLog.BackgroundImage")));
+            this.picBoxLog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxLog.Location = new System.Drawing.Point(473, 6);
+            this.picBoxLog.Name = "picBoxLog";
+            this.picBoxLog.Size = new System.Drawing.Size(26, 26);
+            this.picBoxLog.TabIndex = 14;
+            this.picBoxLog.TabStop = false;
             // 
             // lblUsuarioActual
             // 
@@ -259,19 +260,6 @@
             this.lblUsuarioActual.Size = new System.Drawing.Size(202, 16);
             this.lblUsuarioActual.TabIndex = 15;
             this.lblUsuarioActual.Text = "|                                                            |";
-            // 
-            // lblBuscar
-            // 
-            this.lblBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBuscar.AutoSize = true;
-            this.lblBuscar.BackColor = System.Drawing.Color.DimGray;
-            this.lblBuscar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.lblBuscar.Location = new System.Drawing.Point(342, 47);
-            this.lblBuscar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(50, 16);
-            this.lblBuscar.TabIndex = 23;
-            this.lblBuscar.Text = "Buscar:";
             // 
             // txbFiltro
             // 
@@ -317,7 +305,7 @@
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.BackColor = System.Drawing.Color.Black;
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
             this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
             this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -336,8 +324,8 @@
             this.dgvExpedientes.AllowUserToDeleteRows = false;
             this.dgvExpedientes.AllowUserToResizeColumns = false;
             this.dgvExpedientes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.dgvExpedientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.dgvExpedientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvExpedientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -346,14 +334,14 @@
             this.dgvExpedientes.BackgroundColor = System.Drawing.Color.White;
             this.dgvExpedientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvExpedientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvExpedientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExpedientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.identificador,
@@ -362,14 +350,14 @@
             this.nombreExpediente,
             this.nombreCategoria,
             this.digitalizado});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvExpedientes.EnableHeadersVisualStyles = false;
             this.dgvExpedientes.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvExpedientes.GridColor = System.Drawing.SystemColors.ControlLight;
@@ -379,8 +367,8 @@
             this.dgvExpedientes.ReadOnly = true;
             this.dgvExpedientes.RowHeadersVisible = false;
             this.dgvExpedientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            this.dgvExpedientes.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            this.dgvExpedientes.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvExpedientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExpedientes.Size = new System.Drawing.Size(743, 328);
             this.dgvExpedientes.TabIndex = 0;
@@ -490,13 +478,25 @@
             this.lblVerActual.TabIndex = 41;
             this.lblVerActual.Text = "| Expedientes incompletos |";
             // 
+            // picBoxBuscar
+            // 
+            this.picBoxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBoxBuscar.BackColor = System.Drawing.Color.DimGray;
+            this.picBoxBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxBuscar.BackgroundImage")));
+            this.picBoxBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxBuscar.Location = new System.Drawing.Point(359, 42);
+            this.picBoxBuscar.Name = "picBoxBuscar";
+            this.picBoxBuscar.Size = new System.Drawing.Size(26, 26);
+            this.picBoxBuscar.TabIndex = 42;
+            this.picBoxBuscar.TabStop = false;
+            // 
             // ExpedientesP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(763, 446);
-            this.Controls.Add(this.lblBuscar);
+            this.Controls.Add(this.picBoxBuscar);
             this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnActualizar);
@@ -509,7 +509,7 @@
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.lblUsuarioActual);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picBoxLog);
             this.Controls.Add(this.lblFechaHora);
             this.Controls.Add(this.lblTituloVentana);
             this.Controls.Add(this.pictureBoxCajaLogo);
@@ -530,12 +530,13 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxBarra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenDer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxBuscar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -559,12 +560,11 @@
         private System.Windows.Forms.PictureBox pictureBoxCajaLogo;
         private System.Windows.Forms.Label lblTituloVentana;
         private System.Windows.Forms.Label lblFechaHora;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picBoxLog;
         private System.Windows.Forms.Label lblUsuarioActual;
         private Entidades.ButtonStyle BtnCerrar;
         private Entidades.ButtonStyle btnMin;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.Label lblBuscar;
         private System.Windows.Forms.TextBox txbFiltro;
         private System.Windows.Forms.PictureBox pctBoxBarra;
         private System.Windows.Forms.DataGridViewTextBoxColumn identificador;
@@ -577,5 +577,6 @@
         private System.Windows.Forms.PictureBox margenIzq;
         private System.Windows.Forms.PictureBox margenAbajo;
         private System.Windows.Forms.Label lblVerActual;
+        private System.Windows.Forms.PictureBox picBoxBuscar;
     }
 }
