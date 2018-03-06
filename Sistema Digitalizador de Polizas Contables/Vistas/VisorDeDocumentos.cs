@@ -24,6 +24,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         public VisorDeDocumentos(ProcesosUsuario procesosUsuario, int expedienteActual, string registroActual)
         {
             InitializeComponent();
+            toolTipBotones.SetToolTip(btnMerge, "Añadir escaner al documento");
+            toolTipBotones.SetToolTip(btnReemplazarDoc, "Reemplazar docuemnto ");
+            toolTipBotones.SetToolTip(btnEliminarDoc, "Eliminar documento");
+            toolTipBotones.SetToolTip(btnMerge, "Actualizar");
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
             DateTime Fechaactual = DateTime.Now;
@@ -167,6 +171,14 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         private void txbBusqueda_TextChanged(object sender, EventArgs e)
         {
             procesosUsuario.Buscar(dgvDocumentos, txbBusqueda);
+        }
+
+        private void toolTipBotones_Popup(object sender, PopupEventArgs e)
+        {
+            toolTipBotones.SetToolTip(btnMerge, "Añadir escaner al documento");
+            toolTipBotones.SetToolTip(btnReemplazarDoc, "Reemplazar docuemnto ");
+            toolTipBotones.SetToolTip(btnEliminarDoc, "Eliminar documento");
+            toolTipBotones.SetToolTip(btnMerge, "Actualizar");
         }
     }
 }
