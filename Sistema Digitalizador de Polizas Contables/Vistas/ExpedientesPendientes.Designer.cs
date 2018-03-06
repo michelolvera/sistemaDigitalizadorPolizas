@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpedientesP));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelPendientes = new System.Windows.Forms.Label();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,18 +55,25 @@
             this.BtnCerrar = new Entidades.ButtonStyle();
             this.btnActualizar = new Entidades.ButtonStyle();
             this.dgvExpedientes = new Entidades.DataGridStyle();
-            this.pctBoxBarra = new System.Windows.Forms.PictureBox();
             this.identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.digitalizado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pctBoxBarra = new System.Windows.Forms.PictureBox();
             this.margenDer = new System.Windows.Forms.PictureBox();
             this.margenIzq = new System.Windows.Forms.PictureBox();
             this.margenAbajo = new System.Windows.Forms.PictureBox();
             this.lblVerActual = new System.Windows.Forms.Label();
             this.picBoxBuscar = new System.Windows.Forms.PictureBox();
+            this.filtrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBoxExpediente = new System.Windows.Forms.ToolStripTextBox();
+            this.expedienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBoxUsuario = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripTextBoxCategoria = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).BeginInit();
@@ -128,11 +135,12 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verToolStripMenuItem,
-            this.herramientasToolStripMenuItem});
+            this.herramientasToolStripMenuItem,
+            this.filtrarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(4, 44);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(121, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(260, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -162,7 +170,7 @@
             "Nombre de Expediente",
             "Nombre de Categoria",
             "Nombre de Usuario"});
-            this.cmbFiltro.Location = new System.Drawing.Point(75, 74);
+            this.cmbFiltro.Location = new System.Drawing.Point(74, 77);
             this.cmbFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.cmbFiltro.Name = "cmbFiltro";
             this.cmbFiltro.Size = new System.Drawing.Size(170, 24);
@@ -324,8 +332,8 @@
             this.dgvExpedientes.AllowUserToDeleteRows = false;
             this.dgvExpedientes.AllowUserToResizeColumns = false;
             this.dgvExpedientes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.dgvExpedientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.dgvExpedientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvExpedientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -334,14 +342,14 @@
             this.dgvExpedientes.BackgroundColor = System.Drawing.Color.White;
             this.dgvExpedientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvExpedientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvExpedientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExpedientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.identificador,
@@ -350,14 +358,14 @@
             this.nombreExpediente,
             this.nombreCategoria,
             this.digitalizado});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvExpedientes.EnableHeadersVisualStyles = false;
             this.dgvExpedientes.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvExpedientes.GridColor = System.Drawing.SystemColors.ControlLight;
@@ -367,24 +375,13 @@
             this.dgvExpedientes.ReadOnly = true;
             this.dgvExpedientes.RowHeadersVisible = false;
             this.dgvExpedientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            this.dgvExpedientes.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvExpedientes.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvExpedientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExpedientes.Size = new System.Drawing.Size(743, 328);
             this.dgvExpedientes.TabIndex = 0;
             this.dgvExpedientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvExpedientes_CellMouseDoubleClick);
             this.dgvExpedientes.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvExpedientes_ColumnHeaderMouseClick);
-            // 
-            // pctBoxBarra
-            // 
-            this.pctBoxBarra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctBoxBarra.BackColor = System.Drawing.Color.DimGray;
-            this.pctBoxBarra.Location = new System.Drawing.Point(-2, 38);
-            this.pctBoxBarra.Name = "pctBoxBarra";
-            this.pctBoxBarra.Size = new System.Drawing.Size(766, 35);
-            this.pctBoxBarra.TabIndex = 25;
-            this.pctBoxBarra.TabStop = false;
             // 
             // identificador
             // 
@@ -434,6 +431,17 @@
             this.digitalizado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.digitalizado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // pctBoxBarra
+            // 
+            this.pctBoxBarra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pctBoxBarra.BackColor = System.Drawing.Color.DimGray;
+            this.pctBoxBarra.Location = new System.Drawing.Point(-2, 38);
+            this.pctBoxBarra.Name = "pctBoxBarra";
+            this.pctBoxBarra.Size = new System.Drawing.Size(766, 35);
+            this.pctBoxBarra.TabIndex = 25;
+            this.pctBoxBarra.TabStop = false;
+            // 
             // margenDer
             // 
             this.margenDer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -473,7 +481,7 @@
             this.lblVerActual.BackColor = System.Drawing.Color.DimGray;
             this.lblVerActual.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblVerActual.ForeColor = System.Drawing.Color.Black;
-            this.lblVerActual.Location = new System.Drawing.Point(126, 47);
+            this.lblVerActual.Location = new System.Drawing.Point(209, 47);
             this.lblVerActual.Name = "lblVerActual";
             this.lblVerActual.Size = new System.Drawing.Size(174, 16);
             this.lblVerActual.TabIndex = 41;
@@ -490,6 +498,55 @@
             this.picBoxBuscar.Size = new System.Drawing.Size(26, 26);
             this.picBoxBuscar.TabIndex = 42;
             this.picBoxBuscar.TabStop = false;
+            // 
+            // filtrarToolStripMenuItem
+            // 
+            this.filtrarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuarioToolStripMenuItem,
+            this.expedienteToolStripMenuItem,
+            this.usuarioToolStripMenuItem1});
+            this.filtrarToolStripMenuItem.Name = "filtrarToolStripMenuItem";
+            this.filtrarToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.filtrarToolStripMenuItem.Text = "Filtrar";
+            // 
+            // usuarioToolStripMenuItem
+            // 
+            this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBoxExpediente});
+            this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuarioToolStripMenuItem.Text = "Expedientes";
+            // 
+            // toolStripTextBoxExpediente
+            // 
+            this.toolStripTextBoxExpediente.Name = "toolStripTextBoxExpediente";
+            this.toolStripTextBoxExpediente.Size = new System.Drawing.Size(100, 23);
+            // 
+            // expedienteToolStripMenuItem
+            // 
+            this.expedienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBoxCategoria});
+            this.expedienteToolStripMenuItem.Name = "expedienteToolStripMenuItem";
+            this.expedienteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.expedienteToolStripMenuItem.Text = "Categoria";
+            // 
+            // usuarioToolStripMenuItem1
+            // 
+            this.usuarioToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBoxUsuario});
+            this.usuarioToolStripMenuItem1.Name = "usuarioToolStripMenuItem1";
+            this.usuarioToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.usuarioToolStripMenuItem1.Text = "Usuario";
+            // 
+            // toolStripTextBoxUsuario
+            // 
+            this.toolStripTextBoxUsuario.Name = "toolStripTextBoxUsuario";
+            this.toolStripTextBoxUsuario.Size = new System.Drawing.Size(100, 23);
+            // 
+            // toolStripTextBoxCategoria
+            // 
+            this.toolStripTextBoxCategoria.Name = "toolStripTextBoxCategoria";
+            this.toolStripTextBoxCategoria.Size = new System.Drawing.Size(100, 23);
             // 
             // ExpedientesP
             // 
@@ -579,5 +636,12 @@
         private System.Windows.Forms.PictureBox margenAbajo;
         private System.Windows.Forms.Label lblVerActual;
         private System.Windows.Forms.PictureBox picBoxBuscar;
+        private System.Windows.Forms.ToolStripMenuItem filtrarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxExpediente;
+        private System.Windows.Forms.ToolStripMenuItem expedienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxCategoria;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxUsuario;
     }
 }
