@@ -22,8 +22,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             InitializeComponent();
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
-            
-            //menuStrip1.ForeColor = Color.White;
             DateTime Fechaactual = DateTime.Now;
             lblUsuarioActual.Text = "| " + procesosUsuario.Usuario.Nombre + " " + procesosUsuario.Usuario.ApellidoPaterno +" "+ procesosUsuario.Usuario.ApellidoMaterno +" |";
             lblFechaHora.Text = "| " +Fechaactual.ToLongDateString() + " |";
@@ -82,7 +80,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void mostrarExpedientesCompletadosToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
             dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
-
+            
         }
 
         private void TxbBusqueda_TextChanged(object sender, EventArgs e)
@@ -102,6 +100,14 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
             mostrarExpedientesCompletadosToolStripMenuItem.Checked = !mostrarExpedientesCompletadosToolStripMenuItem.Checked;
             dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
+            if (mostrarExpedientesCompletadosToolStripMenuItem.Checked)
+            {
+                lblVerActual.Text = "| Expedientes completados |";
+            }
+            else
+            {
+                lblVerActual.Text = "| Expedientes incompletos |";
+            }
         }
 
         private void pctBoxSalir_Click(object sender, EventArgs e)

@@ -31,11 +31,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             lblFechaHora.Text = "| " + Fechaactual.ToLongDateString() + " |";
             this.procesosUsuario = procesosUsuario;
             this.expedienteActual = procesosUsuario.ObtenerRegistroId(expedienteActual);
-            lblRegistroActual.Text += registroActual;
+            lblRegistroActual.Text = "| Registro actual:  "+ registroActual+" |";
             dgvDocumentos.CellClick += DgvDocumentos_CellClick;
             dgvDocumentos = procesosUsuario.LlenarTablaDocumentosPendientes(dgvDocumentos, this.expedienteActual, checkBoxDigitalizadosVisor.Checked);
             btnEliminarDoc.Enabled = false;
             btnReemplazarDoc.Enabled = false;
+            btnMerge.Enabled = false;
         }
 
         private void BtnReemplazarDoc_Click(object sender, EventArgs e)
@@ -128,6 +129,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
                     btnDigitalizar.Visible = true;
                     btnEliminarDoc.Enabled = false;
                     btnReemplazarDoc.Enabled = false;
+                    btnMerge.Enabled = false;
                 }
                  else
                  {
@@ -135,6 +137,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
                     btnDigitalizar.Visible = false;
                     btnEliminarDoc.Enabled = true;
                     btnReemplazarDoc.Enabled = true;
+                    btnMerge.Enabled = true;
                     procesosUsuario.ConstruirRuta(e.RowIndex);
                     if (!procesosUsuario.MostrarPDF(this.axAcroPDF1))
                     {
