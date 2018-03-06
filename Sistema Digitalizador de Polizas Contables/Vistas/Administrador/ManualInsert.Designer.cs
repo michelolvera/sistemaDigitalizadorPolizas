@@ -37,11 +37,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.BtnGuardar = new Entidades.ButtonStyle();
-            this.BtnCerrar = new Entidades.ButtonStyle();
             this.lblTituloVentana = new System.Windows.Forms.Label();
             this.pctBoxCabecera1 = new System.Windows.Forms.PictureBox();
+            this.BtnCerrar = new Entidades.ButtonStyle();
+            this.BtnGuardar = new Entidades.ButtonStyle();
+            this.margenIzq = new System.Windows.Forms.PictureBox();
+            this.margenAbajo = new System.Windows.Forms.PictureBox();
+            this.margenDer = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenDer)).BeginInit();
             this.SuspendLayout();
             // 
             // CmbArea
@@ -139,21 +145,28 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Identificador:";
             // 
-            // BtnGuardar
+            // lblTituloVentana
             // 
-            this.BtnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.BtnGuardar.Enabled = false;
-            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.BtnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.BtnGuardar.Location = new System.Drawing.Point(312, 152);
-            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(65, 27);
-            this.BtnGuardar.TabIndex = 8;
-            this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.UseVisualStyleBackColor = false;
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            this.lblTituloVentana.AutoSize = true;
+            this.lblTituloVentana.BackColor = System.Drawing.Color.Black;
+            this.lblTituloVentana.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.lblTituloVentana.ForeColor = System.Drawing.Color.White;
+            this.lblTituloVentana.Location = new System.Drawing.Point(2, 7);
+            this.lblTituloVentana.Name = "lblTituloVentana";
+            this.lblTituloVentana.Size = new System.Drawing.Size(242, 16);
+            this.lblTituloVentana.TabIndex = 33;
+            this.lblTituloVentana.Text = "|   Inserción manual de expedientes     |";
+            // 
+            // pctBoxCabecera1
+            // 
+            this.pctBoxCabecera1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pctBoxCabecera1.BackColor = System.Drawing.Color.Black;
+            this.pctBoxCabecera1.Location = new System.Drawing.Point(0, 0);
+            this.pctBoxCabecera1.Name = "pctBoxCabecera1";
+            this.pctBoxCabecera1.Size = new System.Drawing.Size(392, 31);
+            this.pctBoxCabecera1.TabIndex = 31;
+            this.pctBoxCabecera1.TabStop = false;
             // 
             // BtnCerrar
             // 
@@ -171,35 +184,64 @@
             this.BtnCerrar.UseVisualStyleBackColor = false;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click_1);
             // 
-            // lblTituloVentana
+            // BtnGuardar
             // 
-            this.lblTituloVentana.AutoSize = true;
-            this.lblTituloVentana.BackColor = System.Drawing.Color.Black;
-            this.lblTituloVentana.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTituloVentana.ForeColor = System.Drawing.Color.White;
-            this.lblTituloVentana.Location = new System.Drawing.Point(2, 7);
-            this.lblTituloVentana.Name = "lblTituloVentana";
-            this.lblTituloVentana.Size = new System.Drawing.Size(240, 16);
-            this.lblTituloVentana.TabIndex = 33;
-            this.lblTituloVentana.Text = "|   Inserción Manual de Expedientes     |";
+            this.BtnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.BtnGuardar.Enabled = false;
+            this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.BtnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.BtnGuardar.Location = new System.Drawing.Point(312, 152);
+            this.BtnGuardar.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(65, 27);
+            this.BtnGuardar.TabIndex = 8;
+            this.BtnGuardar.Text = "Guardar";
+            this.BtnGuardar.UseVisualStyleBackColor = false;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
-            // pctBoxCabecera1
+            // margenIzq
             // 
-            this.pctBoxCabecera1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.margenIzq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctBoxCabecera1.BackColor = System.Drawing.Color.Black;
-            this.pctBoxCabecera1.Location = new System.Drawing.Point(0, 0);
-            this.pctBoxCabecera1.Name = "pctBoxCabecera1";
-            this.pctBoxCabecera1.Size = new System.Drawing.Size(392, 31);
-            this.pctBoxCabecera1.TabIndex = 31;
-            this.pctBoxCabecera1.TabStop = false;
+            this.margenIzq.BackColor = System.Drawing.Color.Black;
+            this.margenIzq.Location = new System.Drawing.Point(0, 27);
+            this.margenIzq.Name = "margenIzq";
+            this.margenIzq.Size = new System.Drawing.Size(3, 167);
+            this.margenIzq.TabIndex = 36;
+            this.margenIzq.TabStop = false;
+            // 
+            // margenAbajo
+            // 
+            this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenAbajo.BackColor = System.Drawing.Color.Black;
+            this.margenAbajo.Location = new System.Drawing.Point(2, 189);
+            this.margenAbajo.Name = "margenAbajo";
+            this.margenAbajo.Size = new System.Drawing.Size(392, 3);
+            this.margenAbajo.TabIndex = 35;
+            this.margenAbajo.TabStop = false;
+            // 
+            // margenDer
+            // 
+            this.margenDer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenDer.BackColor = System.Drawing.Color.Black;
+            this.margenDer.Location = new System.Drawing.Point(389, 25);
+            this.margenDer.Name = "margenDer";
+            this.margenDer.Size = new System.Drawing.Size(3, 167);
+            this.margenDer.TabIndex = 37;
+            this.margenDer.TabStop = false;
             // 
             // ManualInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(392, 186);
+            this.ClientSize = new System.Drawing.Size(392, 192);
+            this.Controls.Add(this.margenDer);
+            this.Controls.Add(this.margenIzq);
+            this.Controls.Add(this.margenAbajo);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.lblTituloVentana);
             this.Controls.Add(this.pctBoxCabecera1);
@@ -220,6 +262,9 @@
             this.Text = "ManualInsert";
             this.Load += new System.EventHandler(this.ManualInsert_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenDer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,5 +284,8 @@
         private Entidades.ButtonStyle BtnCerrar;
         private System.Windows.Forms.Label lblTituloVentana;
         private System.Windows.Forms.PictureBox pctBoxCabecera1;
+        private System.Windows.Forms.PictureBox margenIzq;
+        private System.Windows.Forms.PictureBox margenAbajo;
+        private System.Windows.Forms.PictureBox margenDer;
     }
 }

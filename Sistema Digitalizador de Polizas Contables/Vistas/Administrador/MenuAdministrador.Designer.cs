@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuAdministrador));
             this.lblArea = new System.Windows.Forms.Label();
             this.cmbArea = new System.Windows.Forms.ComboBox();
@@ -39,10 +40,6 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.dgvDocumentos = new Entidades.DataGridStyle();
-            this.NombreDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Activo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnGuardar = new Entidades.ButtonStyle();
             this.btnCancelar = new Entidades.ButtonStyle();
             this.ckbArea = new System.Windows.Forms.CheckBox();
@@ -51,8 +48,18 @@
             this.BtnCerrar = new Entidades.ButtonStyle();
             this.lblTituloVentana = new System.Windows.Forms.Label();
             this.pctBoxCabecera1 = new System.Windows.Forms.PictureBox();
+            this.margenDer = new System.Windows.Forms.PictureBox();
+            this.margenIzq = new System.Windows.Forms.PictureBox();
+            this.margenAbajo = new System.Windows.Forms.PictureBox();
+            this.NombreDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaAlta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenDer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblArea
@@ -73,7 +80,7 @@
             this.cmbArea.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.cmbArea.FormattingEnabled = true;
             this.cmbArea.Location = new System.Drawing.Point(81, 52);
-            this.cmbArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbArea.Margin = new System.Windows.Forms.Padding(2);
             this.cmbArea.Name = "cmbArea";
             this.cmbArea.Size = new System.Drawing.Size(425, 23);
             this.cmbArea.TabIndex = 1;
@@ -86,7 +93,7 @@
             this.cmbExpediente.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.cmbExpediente.FormattingEnabled = true;
             this.cmbExpediente.Location = new System.Drawing.Point(81, 81);
-            this.cmbExpediente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbExpediente.Margin = new System.Windows.Forms.Padding(2);
             this.cmbExpediente.Name = "cmbExpediente";
             this.cmbExpediente.Size = new System.Drawing.Size(425, 23);
             this.cmbExpediente.TabIndex = 2;
@@ -110,7 +117,7 @@
             this.cmbCategoria.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(81, 110);
-            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(425, 23);
             this.cmbCategoria.TabIndex = 4;
@@ -133,74 +140,52 @@
             this.dgvDocumentos.AllowUserToDeleteRows = false;
             this.dgvDocumentos.AllowUserToResizeColumns = false;
             this.dgvDocumentos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.dgvDocumentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDocumentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDocumentos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDocumentos.BackgroundColor = System.Drawing.Color.White;
             this.dgvDocumentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDocumentos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDocumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocumentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreDocumento,
             this.NombreUsuario,
             this.FechaAlta,
             this.Activo});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDocumentos.Enabled = false;
             this.dgvDocumentos.EnableHeadersVisualStyles = false;
             this.dgvDocumentos.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvDocumentos.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dgvDocumentos.Location = new System.Drawing.Point(13, 143);
-            this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDocumentos.MultiSelect = false;
             this.dgvDocumentos.Name = "dgvDocumentos";
             this.dgvDocumentos.ReadOnly = true;
             this.dgvDocumentos.RowHeadersVisible = false;
             this.dgvDocumentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDocumentos.RowTemplate.Height = 24;
             this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDocumentos.Size = new System.Drawing.Size(561, 241);
             this.dgvDocumentos.TabIndex = 6;
-            // 
-            // NombreDocumento
-            // 
-            this.NombreDocumento.HeaderText = "Nombre de Documento";
-            this.NombreDocumento.Name = "NombreDocumento";
-            this.NombreDocumento.ReadOnly = true;
-            // 
-            // NombreUsuario
-            // 
-            this.NombreUsuario.HeaderText = "Nombre de Usuario";
-            this.NombreUsuario.Name = "NombreUsuario";
-            this.NombreUsuario.ReadOnly = true;
-            // 
-            // FechaAlta
-            // 
-            this.FechaAlta.HeaderText = "Fecha de Alta";
-            this.FechaAlta.Name = "FechaAlta";
-            this.FechaAlta.ReadOnly = true;
-            // 
-            // Activo
-            // 
-            this.Activo.HeaderText = "Activo";
-            this.Activo.Name = "Activo";
-            this.Activo.ReadOnly = true;
             // 
             // btnGuardar
             // 
@@ -210,7 +195,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.btnGuardar.Location = new System.Drawing.Point(501, 390);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(73, 28);
             this.btnGuardar.TabIndex = 7;
@@ -225,7 +210,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.btnCancelar.Location = new System.Drawing.Point(13, 390);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(77, 28);
             this.btnCancelar.TabIndex = 8;
@@ -239,7 +224,7 @@
             this.ckbArea.Enabled = false;
             this.ckbArea.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.ckbArea.Location = new System.Drawing.Point(514, 54);
-            this.ckbArea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckbArea.Margin = new System.Windows.Forms.Padding(2);
             this.ckbArea.Name = "ckbArea";
             this.ckbArea.Size = new System.Drawing.Size(60, 19);
             this.ckbArea.TabIndex = 11;
@@ -252,7 +237,7 @@
             this.ckbExpediente.Enabled = false;
             this.ckbExpediente.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.ckbExpediente.Location = new System.Drawing.Point(514, 83);
-            this.ckbExpediente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckbExpediente.Margin = new System.Windows.Forms.Padding(2);
             this.ckbExpediente.Name = "ckbExpediente";
             this.ckbExpediente.Size = new System.Drawing.Size(60, 19);
             this.ckbExpediente.TabIndex = 12;
@@ -265,7 +250,7 @@
             this.ckbCategoria.Enabled = false;
             this.ckbCategoria.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.ckbCategoria.Location = new System.Drawing.Point(514, 112);
-            this.ckbCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckbCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.ckbCategoria.Name = "ckbCategoria";
             this.ckbCategoria.Size = new System.Drawing.Size(60, 19);
             this.ckbCategoria.TabIndex = 13;
@@ -298,7 +283,7 @@
             this.lblTituloVentana.Name = "lblTituloVentana";
             this.lblTituloVentana.Size = new System.Drawing.Size(179, 16);
             this.lblTituloVentana.TabIndex = 36;
-            this.lblTituloVentana.Text = "|   Gestión de Documentos   |";
+            this.lblTituloVentana.Text = "|   Gestión de documentos   |";
             // 
             // pctBoxCabecera1
             // 
@@ -311,11 +296,71 @@
             this.pctBoxCabecera1.TabIndex = 35;
             this.pctBoxCabecera1.TabStop = false;
             // 
+            // margenDer
+            // 
+            this.margenDer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenDer.BackColor = System.Drawing.Color.Black;
+            this.margenDer.Location = new System.Drawing.Point(585, 35);
+            this.margenDer.Name = "margenDer";
+            this.margenDer.Size = new System.Drawing.Size(3, 396);
+            this.margenDer.TabIndex = 40;
+            this.margenDer.TabStop = false;
+            // 
+            // margenIzq
+            // 
+            this.margenIzq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenIzq.BackColor = System.Drawing.Color.Black;
+            this.margenIzq.Location = new System.Drawing.Point(0, 35);
+            this.margenIzq.Name = "margenIzq";
+            this.margenIzq.Size = new System.Drawing.Size(3, 396);
+            this.margenIzq.TabIndex = 39;
+            this.margenIzq.TabStop = false;
+            // 
+            // margenAbajo
+            // 
+            this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenAbajo.BackColor = System.Drawing.Color.Black;
+            this.margenAbajo.Location = new System.Drawing.Point(0, 426);
+            this.margenAbajo.Name = "margenAbajo";
+            this.margenAbajo.Size = new System.Drawing.Size(588, 3);
+            this.margenAbajo.TabIndex = 38;
+            this.margenAbajo.TabStop = false;
+            // 
+            // NombreDocumento
+            // 
+            this.NombreDocumento.HeaderText = "Nombre de documento";
+            this.NombreDocumento.Name = "NombreDocumento";
+            this.NombreDocumento.ReadOnly = true;
+            // 
+            // NombreUsuario
+            // 
+            this.NombreUsuario.HeaderText = "Nombre de usuario";
+            this.NombreUsuario.Name = "NombreUsuario";
+            this.NombreUsuario.ReadOnly = true;
+            // 
+            // FechaAlta
+            // 
+            this.FechaAlta.HeaderText = "Fecha de alta";
+            this.FechaAlta.Name = "FechaAlta";
+            this.FechaAlta.ReadOnly = true;
+            // 
+            // Activo
+            // 
+            this.Activo.HeaderText = "Activo";
+            this.Activo.Name = "Activo";
+            this.Activo.ReadOnly = true;
+            // 
             // MenuAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 429);
+            this.Controls.Add(this.margenDer);
+            this.Controls.Add(this.margenIzq);
+            this.Controls.Add(this.margenAbajo);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.lblTituloVentana);
             this.Controls.Add(this.pctBoxCabecera1);
@@ -334,7 +379,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "MenuAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -342,6 +387,9 @@
             this.Load += new System.EventHandler(this.MenuAdministrador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenDer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,12 +409,15 @@
         private System.Windows.Forms.CheckBox ckbArea;
         private System.Windows.Forms.CheckBox ckbExpediente;
         private System.Windows.Forms.CheckBox ckbCategoria;
+        private Entidades.ButtonStyle BtnCerrar;
+        private System.Windows.Forms.Label lblTituloVentana;
+        private System.Windows.Forms.PictureBox pctBoxCabecera1;
+        private System.Windows.Forms.PictureBox margenDer;
+        private System.Windows.Forms.PictureBox margenIzq;
+        private System.Windows.Forms.PictureBox margenAbajo;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaAlta;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Activo;
-        private Entidades.ButtonStyle BtnCerrar;
-        private System.Windows.Forms.Label lblTituloVentana;
-        private System.Windows.Forms.PictureBox pctBoxCabecera1;
     }
 }
