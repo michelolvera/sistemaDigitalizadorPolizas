@@ -69,7 +69,7 @@
             this.btnAcceso.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAcceso.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnAcceso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnAcceso.Location = new System.Drawing.Point(240, 133);
+            this.btnAcceso.Location = new System.Drawing.Point(240, 137);
             this.btnAcceso.Margin = new System.Windows.Forms.Padding(0);
             this.btnAcceso.Name = "btnAcceso";
             this.btnAcceso.Size = new System.Drawing.Size(154, 32);
@@ -190,9 +190,9 @@
             this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.margenAbajo.BackColor = System.Drawing.Color.Black;
-            this.margenAbajo.Location = new System.Drawing.Point(0, 185);
+            this.margenAbajo.Location = new System.Drawing.Point(0, 186);
             this.margenAbajo.Name = "margenAbajo";
-            this.margenAbajo.Size = new System.Drawing.Size(448, 3);
+            this.margenAbajo.Size = new System.Drawing.Size(448, 2);
             this.margenAbajo.TabIndex = 22;
             this.margenAbajo.TabStop = false;
             // 
@@ -201,9 +201,9 @@
             this.margenDer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.margenDer.BackColor = System.Drawing.Color.Black;
-            this.margenDer.Location = new System.Drawing.Point(444, 21);
+            this.margenDer.Location = new System.Drawing.Point(445, 21);
             this.margenDer.Name = "margenDer";
-            this.margenDer.Size = new System.Drawing.Size(3, 167);
+            this.margenDer.Size = new System.Drawing.Size(2, 167);
             this.margenDer.TabIndex = 23;
             this.margenDer.TabStop = false;
             // 
@@ -214,7 +214,7 @@
             this.margenIzq.BackColor = System.Drawing.Color.Black;
             this.margenIzq.Location = new System.Drawing.Point(0, 21);
             this.margenIzq.Name = "margenIzq";
-            this.margenIzq.Size = new System.Drawing.Size(3, 167);
+            this.margenIzq.Size = new System.Drawing.Size(2, 167);
             this.margenIzq.TabIndex = 24;
             this.margenIzq.TabStop = false;
             // 

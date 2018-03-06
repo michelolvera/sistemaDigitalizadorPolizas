@@ -140,28 +140,32 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void dgvExpedientes_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            switch (e.ColumnIndex)
+            if (e.Button == MouseButtons.Right)
             {
-                case 0://identificador
-                    MessageBox.Show("soy identificador");
-                    break;
-                case 1://fecha
-                    MessageBox.Show("soy fecha");
-                    break;
-                case 2://nombre usuario
-                    MessageBox.Show("soy usuario");
-                    break;
-                case 3://nombre expediente
-                    MessageBox.Show("soy expediente");
-                    break;
-                case 4://nobre categoria
-                    MessageBox.Show("soy categoria");
-                    break;
-                case 5://completo
-                    MessageBox.Show("soy completo");
-                    break;
-                
+                switch (e.ColumnIndex)
+                {
+
+                    case 0://identificador
+                        MessageBox.Show("soy identificador");
+                        break;
+                    case 1://fecha
+                        MessageBox.Show("soy fecha");
+                        break;
+                    case 2://nombre usuario
+                        MessageBox.Show("soy usuario");
+                        break;
+                    case 3://nombre expediente
+                        MessageBox.Show("soy expediente");
+                        break;
+                    case 4://nobre categoria
+                        MessageBox.Show("soy categoria");
+                        break;
+                    case 5://completo
+                        MessageBox.Show("soy completo");
+                        break;
+                }
             }
+            
         }
     }
 }
