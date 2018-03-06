@@ -55,12 +55,18 @@
             this.BtnCerrar = new Entidades.ButtonStyle();
             this.btnCancelar = new Entidades.ButtonStyle();
             this.btnGuardar = new Entidades.ButtonStyle();
+            this.margenDer = new System.Windows.Forms.PictureBox();
+            this.margenIzq = new System.Windows.Forms.PictureBox();
+            this.margenAbajo = new System.Windows.Forms.PictureBox();
             this.tabControlUsuarios.SuspendLayout();
             this.tabPageAcceso.SuspendLayout();
             this.tabPagePersonales.SuspendLayout();
             this.tabPagePrivilegios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIconoPersona)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenDer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNobreU
@@ -71,7 +77,7 @@
             this.lblNobreU.Name = "lblNobreU";
             this.lblNobreU.Size = new System.Drawing.Size(133, 16);
             this.lblNobreU.TabIndex = 0;
-            this.lblNobreU.Text = "Nombre de Usuario";
+            this.lblNobreU.Text = "Nombre de usuario";
             // 
             // lblpass
             // 
@@ -109,9 +115,9 @@
             this.lblApellidoP.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
             this.lblApellidoP.Location = new System.Drawing.Point(6, 38);
             this.lblApellidoP.Name = "lblApellidoP";
-            this.lblApellidoP.Size = new System.Drawing.Size(117, 16);
+            this.lblApellidoP.Size = new System.Drawing.Size(119, 16);
             this.lblApellidoP.TabIndex = 1;
-            this.lblApellidoP.Text = "Apellido Paterno";
+            this.lblApellidoP.Text = "Apellido paterno";
             // 
             // lblApellidoM
             // 
@@ -121,7 +127,7 @@
             this.lblApellidoM.Name = "lblApellidoM";
             this.lblApellidoM.Size = new System.Drawing.Size(122, 16);
             this.lblApellidoM.TabIndex = 1;
-            this.lblApellidoM.Text = "Apellido Materno";
+            this.lblApellidoM.Text = "Apellido materno";
             // 
             // tabControlUsuarios
             // 
@@ -146,10 +152,10 @@
             this.tabPageAcceso.Controls.Add(this.lblArea);
             this.tabPageAcceso.Location = new System.Drawing.Point(4, 25);
             this.tabPageAcceso.Name = "tabPageAcceso";
-            this.tabPageAcceso.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageAcceso.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageAcceso.Size = new System.Drawing.Size(403, 93);
             this.tabPageAcceso.TabIndex = 0;
-            this.tabPageAcceso.Text = "Datos de Acceso";
+            this.tabPageAcceso.Text = "Datos de acceso";
             this.tabPageAcceso.UseVisualStyleBackColor = true;
             // 
             // txtbIdUsuario
@@ -202,10 +208,10 @@
             this.tabPagePersonales.Controls.Add(this.lblApellidoP);
             this.tabPagePersonales.Location = new System.Drawing.Point(4, 25);
             this.tabPagePersonales.Name = "tabPagePersonales";
-            this.tabPagePersonales.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPagePersonales.Padding = new System.Windows.Forms.Padding(3);
             this.tabPagePersonales.Size = new System.Drawing.Size(403, 93);
             this.tabPagePersonales.TabIndex = 1;
-            this.tabPagePersonales.Text = "Datos Personales";
+            this.tabPagePersonales.Text = "Datos personales";
             this.tabPagePersonales.UseVisualStyleBackColor = true;
             // 
             // txtbApellidoMaterno
@@ -246,9 +252,9 @@
             this.checkBoxDios.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
             this.checkBoxDios.Location = new System.Drawing.Point(17, 48);
             this.checkBoxDios.Name = "checkBoxDios";
-            this.checkBoxDios.Size = new System.Drawing.Size(161, 20);
+            this.checkBoxDios.Size = new System.Drawing.Size(160, 20);
             this.checkBoxDios.TabIndex = 1;
-            this.checkBoxDios.Text = "Super Administrador";
+            this.checkBoxDios.Text = "Super administrador";
             this.checkBoxDios.UseVisualStyleBackColor = true;
             // 
             // checkBoxAdmin
@@ -257,9 +263,9 @@
             this.checkBoxAdmin.Font = new System.Drawing.Font("Century Gothic", 9.5F, System.Drawing.FontStyle.Bold);
             this.checkBoxAdmin.Location = new System.Drawing.Point(17, 16);
             this.checkBoxAdmin.Name = "checkBoxAdmin";
-            this.checkBoxAdmin.Size = new System.Drawing.Size(166, 20);
+            this.checkBoxAdmin.Size = new System.Drawing.Size(165, 20);
             this.checkBoxAdmin.TabIndex = 0;
-            this.checkBoxAdmin.Text = "Administrador (Area)";
+            this.checkBoxAdmin.Text = "Administrador (area)";
             this.checkBoxAdmin.UseVisualStyleBackColor = true;
             // 
             // picBoxIconoPersona
@@ -331,9 +337,9 @@
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.btnCancelar.Location = new System.Drawing.Point(16, 205);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(66, 24);
+            this.btnCancelar.Size = new System.Drawing.Size(88, 24);
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -346,14 +352,47 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnGuardar.Location = new System.Drawing.Point(356, 205);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuardar.Location = new System.Drawing.Point(333, 205);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(63, 24);
+            this.btnGuardar.Size = new System.Drawing.Size(88, 24);
             this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            // 
+            // margenDer
+            // 
+            this.margenDer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenDer.BackColor = System.Drawing.Color.Black;
+            this.margenDer.Location = new System.Drawing.Point(432, 27);
+            this.margenDer.Name = "margenDer";
+            this.margenDer.Size = new System.Drawing.Size(3, 215);
+            this.margenDer.TabIndex = 40;
+            this.margenDer.TabStop = false;
+            // 
+            // margenIzq
+            // 
+            this.margenIzq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenIzq.BackColor = System.Drawing.Color.Black;
+            this.margenIzq.Location = new System.Drawing.Point(0, 25);
+            this.margenIzq.Name = "margenIzq";
+            this.margenIzq.Size = new System.Drawing.Size(3, 218);
+            this.margenIzq.TabIndex = 39;
+            this.margenIzq.TabStop = false;
+            // 
+            // margenAbajo
+            // 
+            this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenAbajo.BackColor = System.Drawing.Color.Black;
+            this.margenAbajo.Location = new System.Drawing.Point(0, 238);
+            this.margenAbajo.Name = "margenAbajo";
+            this.margenAbajo.Size = new System.Drawing.Size(435, 3);
+            this.margenAbajo.TabIndex = 38;
+            this.margenAbajo.TabStop = false;
             // 
             // AdministrarUsuarios
             // 
@@ -361,6 +400,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(435, 241);
+            this.Controls.Add(this.margenDer);
+            this.Controls.Add(this.margenIzq);
+            this.Controls.Add(this.margenAbajo);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.lblTituloVentana);
             this.Controls.Add(this.pctBoxCabecera1);
@@ -384,6 +426,9 @@
             this.tabPagePrivilegios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxIconoPersona)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenDer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,5 +462,8 @@
         private System.Windows.Forms.PictureBox pctBoxCabecera1;
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.TextBox txtbIdUsuario;
+        private System.Windows.Forms.PictureBox margenDer;
+        private System.Windows.Forms.PictureBox margenIzq;
+        private System.Windows.Forms.PictureBox margenAbajo;
     }
 }

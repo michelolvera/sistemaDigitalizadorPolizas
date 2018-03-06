@@ -43,11 +43,13 @@
             this.margenAbajo = new System.Windows.Forms.PictureBox();
             this.margenDer = new System.Windows.Forms.PictureBox();
             this.margenIzq = new System.Windows.Forms.PictureBox();
+            this.picBoxLogin = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenDer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // txbPassword
@@ -177,7 +179,7 @@
             this.lblTituloVentana.BackColor = System.Drawing.Color.Black;
             this.lblTituloVentana.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblTituloVentana.ForeColor = System.Drawing.Color.White;
-            this.lblTituloVentana.Location = new System.Drawing.Point(6, 4);
+            this.lblTituloVentana.Location = new System.Drawing.Point(37, 4);
             this.lblTituloVentana.Name = "lblTituloVentana";
             this.lblTituloVentana.Size = new System.Drawing.Size(134, 16);
             this.lblTituloVentana.TabIndex = 21;
@@ -216,12 +218,24 @@
             this.margenIzq.TabIndex = 24;
             this.margenIzq.TabStop = false;
             // 
+            // picBoxLogin
+            // 
+            this.picBoxLogin.BackColor = System.Drawing.Color.Black;
+            this.picBoxLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxLogin.BackgroundImage")));
+            this.picBoxLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxLogin.Location = new System.Drawing.Point(12, 2);
+            this.picBoxLogin.Name = "picBoxLogin";
+            this.picBoxLogin.Size = new System.Drawing.Size(21, 20);
+            this.picBoxLogin.TabIndex = 25;
+            this.picBoxLogin.TabStop = false;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(447, 188);
+            this.Controls.Add(this.picBoxLogin);
             this.Controls.Add(this.margenIzq);
             this.Controls.Add(this.margenDer);
             this.Controls.Add(this.margenAbajo);
@@ -250,6 +264,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenDer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +286,6 @@
         private System.Windows.Forms.PictureBox margenAbajo;
         private System.Windows.Forms.PictureBox margenDer;
         private System.Windows.Forms.PictureBox margenIzq;
+        private System.Windows.Forms.PictureBox picBoxLogin;
     }
 }

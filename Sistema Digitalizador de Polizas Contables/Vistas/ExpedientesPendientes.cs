@@ -22,8 +22,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             InitializeComponent();
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
-            MainMenuStrip.ForeColor = Color.White;
-            menuStrip1.ForeColor = Color.White;
+            
+            //menuStrip1.ForeColor = Color.White;
             DateTime Fechaactual = DateTime.Now;
             lblUsuarioActual.Text = "| " + procesosUsuario.Usuario.Nombre + " " + procesosUsuario.Usuario.ApellidoPaterno +" "+ procesosUsuario.Usuario.ApellidoMaterno +" |";
             lblFechaHora.Text = "| " +Fechaactual.ToLongDateString() + " |";

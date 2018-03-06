@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisorDeDocumentos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txbBusqueda = new System.Windows.Forms.TextBox();
             this.lblRegistroActual = new System.Windows.Forms.Label();
             this.btnEliminarDoc = new Entidades.ButtonStyle();
             this.dgvDocumentos = new Entidades.DataGridStyle();
-            this.NombreDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaDigitalizado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnReemplazarDoc = new Entidades.ButtonStyle();
             this.checkBoxDigitalizadosVisor = new System.Windows.Forms.CheckBox();
             this.btnActualizarDocs = new Entidades.ButtonStyle();
@@ -54,8 +55,11 @@
             this.lblTituloVentana = new System.Windows.Forms.Label();
             this.pictureBoxCajaLogo = new System.Windows.Forms.PictureBox();
             this.pctBoxCabecera1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txbBusqueda = new System.Windows.Forms.TextBox();
+            this.pctBoxBarra = new System.Windows.Forms.PictureBox();
+            this.btnMerge = new Entidades.ButtonStyle();
+            this.NombreDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaDigitalizado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.margenAbajo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -67,6 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBoxBarra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -93,6 +99,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnMerge);
+            this.panel1.Controls.Add(this.margenAbajo);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txbBusqueda);
             this.panel1.Controls.Add(this.lblRegistroActual);
@@ -108,15 +116,38 @@
             this.panel1.Size = new System.Drawing.Size(331, 444);
             this.panel1.TabIndex = 10;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(10, 54);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 16);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Buscar:";
+            // 
+            // txbBusqueda
+            // 
+            this.txbBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbBusqueda.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.txbBusqueda.Location = new System.Drawing.Point(64, 51);
+            this.txbBusqueda.Margin = new System.Windows.Forms.Padding(2);
+            this.txbBusqueda.Name = "txbBusqueda";
+            this.txbBusqueda.Size = new System.Drawing.Size(264, 22);
+            this.txbBusqueda.TabIndex = 24;
+            this.txbBusqueda.TextChanged += new System.EventHandler(this.txbBusqueda_TextChanged);
+            // 
             // lblRegistroActual
             // 
             this.lblRegistroActual.AutoSize = true;
             this.lblRegistroActual.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblRegistroActual.Location = new System.Drawing.Point(3, 8);
             this.lblRegistroActual.Name = "lblRegistroActual";
-            this.lblRegistroActual.Size = new System.Drawing.Size(101, 16);
+            this.lblRegistroActual.Size = new System.Drawing.Size(100, 16);
             this.lblRegistroActual.TabIndex = 3;
-            this.lblRegistroActual.Text = "Registro Actual: ";
+            this.lblRegistroActual.Text = "Registro actual: ";
             // 
             // btnEliminarDoc
             // 
@@ -140,6 +171,8 @@
             this.dgvDocumentos.AllowUserToDeleteRows = false;
             this.dgvDocumentos.AllowUserToResizeColumns = false;
             this.dgvDocumentos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.dgvDocumentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDocumentos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -148,26 +181,26 @@
             this.dgvDocumentos.BackgroundColor = System.Drawing.Color.White;
             this.dgvDocumentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDocumentos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDocumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocumentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreDocumento,
             this.FechaDigitalizado});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDocumentos.EnableHeadersVisualStyles = false;
             this.dgvDocumentos.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvDocumentos.GridColor = System.Drawing.SystemColors.ControlLight;
@@ -178,24 +211,12 @@
             this.dgvDocumentos.ReadOnly = true;
             this.dgvDocumentos.RowHeadersVisible = false;
             this.dgvDocumentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDocumentos.RowTemplate.Height = 24;
             this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDocumentos.Size = new System.Drawing.Size(323, 365);
             this.dgvDocumentos.TabIndex = 9;
-            // 
-            // NombreDocumento
-            // 
-            this.NombreDocumento.HeaderText = "Nombre de Documento";
-            this.NombreDocumento.Name = "NombreDocumento";
-            this.NombreDocumento.ReadOnly = true;
-            // 
-            // FechaDigitalizado
-            // 
-            this.FechaDigitalizado.HeaderText = "Fecha de Digitalizacion";
-            this.FechaDigitalizado.Name = "FechaDigitalizado";
-            this.FechaDigitalizado.ReadOnly = true;
             // 
             // btnReemplazarDoc
             // 
@@ -221,7 +242,7 @@
             this.checkBoxDigitalizadosVisor.Name = "checkBoxDigitalizadosVisor";
             this.checkBoxDigitalizadosVisor.Size = new System.Drawing.Size(177, 20);
             this.checkBoxDigitalizadosVisor.TabIndex = 8;
-            this.checkBoxDigitalizadosVisor.Text = "Documentos Digitalizados";
+            this.checkBoxDigitalizadosVisor.Text = "Documentos digitalizados";
             this.checkBoxDigitalizadosVisor.UseVisualStyleBackColor = false;
             this.checkBoxDigitalizadosVisor.CheckedChanged += new System.EventHandler(this.CheckBoxDigitalizadosVisor_CheckedChanged);
             // 
@@ -285,6 +306,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.pctBoxBarra);
             this.panel2.Controls.Add(this.btnMin);
             this.panel2.Controls.Add(this.BtnCerrar);
             this.panel2.Controls.Add(this.lblUsuarioActual);
@@ -377,15 +399,15 @@
             this.lblTituloVentana.Name = "lblTituloVentana";
             this.lblTituloVentana.Size = new System.Drawing.Size(172, 16);
             this.lblTituloVentana.TabIndex = 25;
-            this.lblTituloVentana.Text = "|    Visor de Documentos     |";
+            this.lblTituloVentana.Text = "|    Visor de documentos     |";
             // 
             // pictureBoxCajaLogo
             // 
             this.pictureBoxCajaLogo.BackColor = System.Drawing.Color.Black;
             this.pictureBoxCajaLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCajaLogo.Image")));
-            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(3, 7);
+            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(3, 5);
             this.pictureBoxCajaLogo.Name = "pictureBoxCajaLogo";
-            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(65, 50);
+            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(60, 32);
             this.pictureBoxCajaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCajaLogo.TabIndex = 24;
             this.pictureBoxCajaLogo.TabStop = false;
@@ -401,28 +423,54 @@
             this.pctBoxCabecera1.TabIndex = 23;
             this.pctBoxCabecera1.TabStop = false;
             // 
-            // label2
+            // pctBoxBarra
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(10, 54);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 16);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Buscar:";
-            // 
-            // txbBusqueda
-            // 
-            this.txbBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pctBoxBarra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbBusqueda.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.txbBusqueda.Location = new System.Drawing.Point(64, 51);
-            this.txbBusqueda.Margin = new System.Windows.Forms.Padding(2);
-            this.txbBusqueda.Name = "txbBusqueda";
-            this.txbBusqueda.Size = new System.Drawing.Size(264, 22);
-            this.txbBusqueda.TabIndex = 24;
-            this.txbBusqueda.TextChanged += new System.EventHandler(this.txbBusqueda_TextChanged);
+            this.pctBoxBarra.BackColor = System.Drawing.Color.DimGray;
+            this.pctBoxBarra.Location = new System.Drawing.Point(0, 41);
+            this.pctBoxBarra.Name = "pctBoxBarra";
+            this.pctBoxBarra.Size = new System.Drawing.Size(834, 24);
+            this.pctBoxBarra.TabIndex = 26;
+            this.pctBoxBarra.TabStop = false;
+            // 
+            // btnMerge
+            // 
+            this.btnMerge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMerge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnMerge.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMerge.BackgroundImage")));
+            this.btnMerge.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMerge.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMerge.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnMerge.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.btnMerge.Location = new System.Drawing.Point(167, 8);
+            this.btnMerge.Name = "btnMerge";
+            this.btnMerge.Size = new System.Drawing.Size(30, 30);
+            this.btnMerge.TabIndex = 26;
+            this.btnMerge.UseVisualStyleBackColor = false;
+            // 
+            // NombreDocumento
+            // 
+            this.NombreDocumento.HeaderText = "Nombre de documento";
+            this.NombreDocumento.Name = "NombreDocumento";
+            this.NombreDocumento.ReadOnly = true;
+            // 
+            // FechaDigitalizado
+            // 
+            this.FechaDigitalizado.HeaderText = "Fecha de digitalizacion";
+            this.FechaDigitalizado.Name = "FechaDigitalizado";
+            this.FechaDigitalizado.ReadOnly = true;
+            // 
+            // margenAbajo
+            // 
+            this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenAbajo.BackColor = System.Drawing.Color.Black;
+            this.margenAbajo.Location = new System.Drawing.Point(-1, 442);
+            this.margenAbajo.Name = "margenAbajo";
+            this.margenAbajo.Size = new System.Drawing.Size(340, 3);
+            this.margenAbajo.TabIndex = 41;
+            this.margenAbajo.TabStop = false;
             // 
             // VisorDeDocumentos
             // 
@@ -452,6 +500,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBoxBarra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -468,8 +518,6 @@
         private Entidades.ButtonStyle btnActualizarDocs;
         private System.Windows.Forms.CheckBox checkBoxDigitalizadosVisor;
         private Entidades.DataGridStyle dgvDocumentos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreDocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaDigitalizado;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private Entidades.ButtonStyle btnMin;
@@ -482,5 +530,10 @@
         private System.Windows.Forms.PictureBox pctBoxCabecera1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbBusqueda;
+        private System.Windows.Forms.PictureBox pctBoxBarra;
+        private Entidades.ButtonStyle btnMerge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaDigitalizado;
+        private System.Windows.Forms.PictureBox margenAbajo;
     }
 }

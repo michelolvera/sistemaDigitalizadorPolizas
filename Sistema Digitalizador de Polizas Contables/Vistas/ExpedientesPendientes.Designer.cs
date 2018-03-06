@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpedientesP));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelPendientes = new System.Windows.Forms.Label();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,17 +56,25 @@
             this.BtnCerrar = new Entidades.ButtonStyle();
             this.btnActualizar = new Entidades.ButtonStyle();
             this.dgvExpedientes = new Entidades.DataGridStyle();
+            this.pctBoxBarra = new System.Windows.Forms.PictureBox();
             this.identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.digitalizado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.margenDer = new System.Windows.Forms.PictureBox();
+            this.margenIzq = new System.Windows.Forms.PictureBox();
+            this.margenAbajo = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBoxBarra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenDer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).BeginInit();
             this.SuspendLayout();
             // 
             // labelPendientes
@@ -111,14 +120,14 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Black;
+            this.menuStrip1.BackColor = System.Drawing.Color.DimGray;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verToolStripMenuItem,
             this.herramientasToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(63, 33);
+            this.menuStrip1.Location = new System.Drawing.Point(2, 38);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(121, 24);
@@ -152,7 +161,7 @@
             "Nombre de Categoria",
             "Nombre de Usuario"});
             this.cmbFiltro.Location = new System.Drawing.Point(75, 74);
-            this.cmbFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.cmbFiltro.Name = "cmbFiltro";
             this.cmbFiltro.Size = new System.Drawing.Size(170, 24);
             this.cmbFiltro.TabIndex = 8;
@@ -164,15 +173,15 @@
             this.label1.Location = new System.Drawing.Point(248, 77);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 16);
+            this.label1.Size = new System.Drawing.Size(94, 16);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Palabra Clave:";
+            this.label1.Text = "Palabra clave:";
             // 
             // txbBusqueda
             // 
             this.txbBusqueda.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.txbBusqueda.Location = new System.Drawing.Point(539, 75);
-            this.txbBusqueda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbBusqueda.Margin = new System.Windows.Forms.Padding(2);
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.Size = new System.Drawing.Size(177, 22);
             this.txbBusqueda.TabIndex = 7;
@@ -193,9 +202,9 @@
             // 
             this.pictureBoxCajaLogo.BackColor = System.Drawing.Color.Black;
             this.pictureBoxCajaLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCajaLogo.Image")));
-            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(-4, 5);
+            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(-2, 2);
             this.pictureBoxCajaLogo.Name = "pictureBoxCajaLogo";
-            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(65, 50);
+            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(60, 32);
             this.pictureBoxCajaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCajaLogo.TabIndex = 11;
             this.pictureBoxCajaLogo.TabStop = false;
@@ -208,9 +217,9 @@
             this.lblTituloVentana.ForeColor = System.Drawing.Color.White;
             this.lblTituloVentana.Location = new System.Drawing.Point(55, 9);
             this.lblTituloVentana.Name = "lblTituloVentana";
-            this.lblTituloVentana.Size = new System.Drawing.Size(187, 16);
+            this.lblTituloVentana.Size = new System.Drawing.Size(188, 16);
             this.lblTituloVentana.TabIndex = 12;
-            this.lblTituloVentana.Text = "|    Expedientes Pendientes     |";
+            this.lblTituloVentana.Text = "|    Expedientes pendientes     |";
             // 
             // lblFechaHora
             // 
@@ -230,7 +239,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(478, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(473, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(26, 26);
             this.pictureBox1.TabIndex = 14;
@@ -243,7 +252,7 @@
             this.lblUsuarioActual.BackColor = System.Drawing.Color.Black;
             this.lblUsuarioActual.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblUsuarioActual.ForeColor = System.Drawing.Color.White;
-            this.lblUsuarioActual.Location = new System.Drawing.Point(505, 11);
+            this.lblUsuarioActual.Location = new System.Drawing.Point(500, 11);
             this.lblUsuarioActual.Name = "lblUsuarioActual";
             this.lblUsuarioActual.Size = new System.Drawing.Size(202, 16);
             this.lblUsuarioActual.TabIndex = 15;
@@ -264,7 +273,7 @@
             // 
             this.txbFiltro.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.txbFiltro.Location = new System.Drawing.Point(340, 74);
-            this.txbFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.txbFiltro.Name = "txbFiltro";
             this.txbFiltro.Size = new System.Drawing.Size(145, 22);
             this.txbFiltro.TabIndex = 24;
@@ -323,6 +332,8 @@
             this.dgvExpedientes.AllowUserToDeleteRows = false;
             this.dgvExpedientes.AllowUserToResizeColumns = false;
             this.dgvExpedientes.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.dgvExpedientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvExpedientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -331,14 +342,14 @@
             this.dgvExpedientes.BackgroundColor = System.Drawing.Color.White;
             this.dgvExpedientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvExpedientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvExpedientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExpedientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.identificador,
@@ -347,14 +358,14 @@
             this.nombreExpediente,
             this.nombreCategoria,
             this.digitalizado});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvExpedientes.EnableHeadersVisualStyles = false;
             this.dgvExpedientes.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvExpedientes.GridColor = System.Drawing.SystemColors.ControlLight;
@@ -364,12 +375,23 @@
             this.dgvExpedientes.ReadOnly = true;
             this.dgvExpedientes.RowHeadersVisible = false;
             this.dgvExpedientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.dgvExpedientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            this.dgvExpedientes.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvExpedientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvExpedientes.Size = new System.Drawing.Size(743, 328);
             this.dgvExpedientes.TabIndex = 0;
             this.dgvExpedientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvExpedientes_CellMouseDoubleClick);
+            // 
+            // pctBoxBarra
+            // 
+            this.pctBoxBarra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pctBoxBarra.BackColor = System.Drawing.Color.DimGray;
+            this.pctBoxBarra.Location = new System.Drawing.Point(-2, 38);
+            this.pctBoxBarra.Name = "pctBoxBarra";
+            this.pctBoxBarra.Size = new System.Drawing.Size(766, 24);
+            this.pctBoxBarra.TabIndex = 25;
+            this.pctBoxBarra.TabStop = false;
             // 
             // identificador
             // 
@@ -383,7 +405,7 @@
             // 
             this.fechaCreacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.fechaCreacion.FillWeight = 113.9843F;
-            this.fechaCreacion.HeaderText = "Fecha de Creación";
+            this.fechaCreacion.HeaderText = "Fecha de creación";
             this.fechaCreacion.Name = "fechaCreacion";
             this.fechaCreacion.ReadOnly = true;
             // 
@@ -391,7 +413,7 @@
             // 
             this.nombreUsuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nombreUsuario.FillWeight = 113.9843F;
-            this.nombreUsuario.HeaderText = "Nombre de Usuario";
+            this.nombreUsuario.HeaderText = "Nombre de usuario";
             this.nombreUsuario.Name = "nombreUsuario";
             this.nombreUsuario.ReadOnly = true;
             // 
@@ -399,14 +421,14 @@
             // 
             this.nombreExpediente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nombreExpediente.FillWeight = 76.14214F;
-            this.nombreExpediente.HeaderText = "Nombre Expediente";
+            this.nombreExpediente.HeaderText = "Nombre expediente";
             this.nombreExpediente.Name = "nombreExpediente";
             this.nombreExpediente.ReadOnly = true;
             // 
             // nombreCategoria
             // 
             this.nombreCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombreCategoria.HeaderText = "Nombre de Categoria";
+            this.nombreCategoria.HeaderText = "Nombre de categoria";
             this.nombreCategoria.Name = "nombreCategoria";
             this.nombreCategoria.ReadOnly = true;
             // 
@@ -419,12 +441,50 @@
             this.digitalizado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.digitalizado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // margenDer
+            // 
+            this.margenDer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenDer.BackColor = System.Drawing.Color.Black;
+            this.margenDer.Location = new System.Drawing.Point(760, 36);
+            this.margenDer.Name = "margenDer";
+            this.margenDer.Size = new System.Drawing.Size(3, 410);
+            this.margenDer.TabIndex = 40;
+            this.margenDer.TabStop = false;
+            // 
+            // margenIzq
+            // 
+            this.margenIzq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.margenIzq.BackColor = System.Drawing.Color.Black;
+            this.margenIzq.Location = new System.Drawing.Point(0, 35);
+            this.margenIzq.Name = "margenIzq";
+            this.margenIzq.Size = new System.Drawing.Size(3, 410);
+            this.margenIzq.TabIndex = 39;
+            this.margenIzq.TabStop = false;
+            // 
+            // margenAbajo
+            // 
+            this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenAbajo.BackColor = System.Drawing.Color.Black;
+            this.margenAbajo.Location = new System.Drawing.Point(0, 443);
+            this.margenAbajo.Name = "margenAbajo";
+            this.margenAbajo.Size = new System.Drawing.Size(760, 3);
+            this.margenAbajo.TabIndex = 38;
+            this.margenAbajo.TabStop = false;
+            // 
             // ExpedientesP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(763, 446);
+            this.Controls.Add(this.margenDer);
+            this.Controls.Add(this.margenIzq);
+            this.Controls.Add(this.margenAbajo);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pctBoxBarra);
             this.Controls.Add(this.txbFiltro);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnMin);
@@ -434,7 +494,6 @@
             this.Controls.Add(this.lblFechaHora);
             this.Controls.Add(this.lblTituloVentana);
             this.Controls.Add(this.pictureBoxCajaLogo);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbFiltro);
             this.Controls.Add(this.txbBusqueda);
@@ -456,6 +515,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBoxBarra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenDer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,12 +532,6 @@
         private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn identificador;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreExpediente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCategoria;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn digitalizado;
         private System.Windows.Forms.ComboBox cmbFiltro;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbBusqueda;
@@ -492,5 +549,15 @@
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbFiltro;
+        private System.Windows.Forms.PictureBox pctBoxBarra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn identificador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreExpediente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCategoria;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn digitalizado;
+        private System.Windows.Forms.PictureBox margenDer;
+        private System.Windows.Forms.PictureBox margenIzq;
+        private System.Windows.Forms.PictureBox margenAbajo;
     }
 }

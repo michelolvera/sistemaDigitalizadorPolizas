@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnMerge.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAF3SURBVGhD7dlNSsZAEITh7zSKt/RAgqL3UvxZqrEbdGCKF4b0dCcEU/BsCtNMiTsvZ86cGWdZ
+        lmvzYN7MbG6N30yBpbgyLyYzaSOwFHemIikjsBTPJiP+YM30CCzFp8mI30ofgaX4Mhn5u5c6AkuRPcCl
+        jcBSVAxwKSOwFFUD3PQILEXlADc1AktRPcCFR2ApthjgQiOwFFsNcDSCfq7BUnybjNBtoiPoZxosRdaA
+        aOhNDZbiHDAZelODpfi3A/RONHqng6U4B/yKRu90sBTRVN3pYCmiqbrTwVJEU3Wng6UYhb5ZYxT6psFS
+        jELfrDEKfdNgKUahb9YYhb5psBSj0DdrjELfNFiKaKrudLAU0VTd6WApoqm608FSRFN1p4OliKbqTgdL
+        EU3VnQ6WYu/Qmxosxd6hNzVYig+zV94NvanBUjyavXJv6E0NluLGvJqt4//a8n8w0psaLIGPeDJb/Dn5
+        n43/5oePd1geCZZHguWRYHkcy+UHnvuLA6xA8m4AAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnEliminarDoc.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAOFJREFUaEPt

@@ -538,6 +538,20 @@
         TkSuQmCC
 </value>
   </data>
+  <data name="picBoxLogin.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAHnSURBVGhD7djLSsNAGAXgrlUUt95vbyOKIAgi4gu4cCWK+iwiLhTUvaL4FiKuBcGdii68xnNC
+        hd/kNNPLNO3AHPig/clk5i8Tk1iJiYmJiYmJiYkpTpIkU7ADV/AAH/BZ/XwJ2zABPLZUsmhw4afwA658
+        wxGMgTpXW8hi1Rq8QaN5gWVQ5/ROFoFbotVsgDq3V6rIX95XlkDN4U22wD3fzLaplWcYhuw83mQLZ+A7
+        B5Cdxxv7ZQbq+WvTaL5gBOxc3tgve+DKDcxCD/TCHNxCJ5Jr4BqKwsX3gx1DA9CJJtL57UIeoSj85e3x
+        1jyUnXRuuwjeSYvCbWOPt/qg7KRz20W4GuCet8dbXdGAawvxgrXHWwtQdtK57SJcFzEvVF6wdgwNwh2U
+        nXR+u5BdcIVN8ILlliH+8p1YPJNrYBracSPje0M9jxOuqDH/GqAT8J19yM6juKLG5BqYBJ8Pc08wBNl5
+        FFfUmFwDtAo+wu24CGoOxRU1RjZAm9BKuPh1UOeuxRU1pmYDtAKv0Gj4DtDMi4wrakxhAzQOx+C6SzN8
+        bD6EZh+dXVFjnA384b9MtuAC7uG9ip/PgVtuFNTYermixtTdQNeSxZDIYkhkMSSyGBJZDIkshkQWQyKL
+        IZHFkMhiSGQxHEnlF8Hyg2SiyVB2AAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIAAoIAQAZgAAAICAAAABACAAKAgBAI4gBABAQAAAAQAgAChCAAC2KAUAMDAAAAEA
