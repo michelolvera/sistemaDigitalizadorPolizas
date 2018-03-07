@@ -26,30 +26,21 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             lblUsuarioActual.Text = "| " + procesosUsuario.Usuario.Nombre + " " + procesosUsuario.Usuario.ApellidoPaterno +" "+ procesosUsuario.Usuario.ApellidoMaterno +" |";
             lblFechaHora.Text = "| " +Fechaactual.ToLongDateString() + " |";
             this.procesosUsuario = procesosUsuario;
-            txbFiltro.KeyUp += TxbFiltro_KeyUp;
+            
+            
         }
 
-        private void TxbFiltro_KeyUp(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter && txbFiltro.Text != null && txbFiltro.Text != string.Empty)
-            {
-                dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
-            }else if (e.KeyCode == Keys.Enter)
-            {
-                dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
-            }
-        }
+        
 
         private void ExpedientesP_Load(object sender, EventArgs e)
         {
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
-            cmbFiltro.SelectedIndex = 0;
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 1, null);
         }
 
 
         private void BtnActualizar_Click(object sender, EventArgs e)
         {
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 1, null);
         }
 
 
@@ -79,7 +70,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         private void mostrarExpedientesCompletadosToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
         {
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 1, null);
             
         }
 
@@ -99,14 +90,14 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void MostrarExpedientesCompletadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mostrarExpedientesCompletadosToolStripMenuItem.Checked = !mostrarExpedientesCompletadosToolStripMenuItem.Checked;
-            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, cmbFiltro.SelectedIndex + 1, txbFiltro.Text);
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 1, null);
             if (mostrarExpedientesCompletadosToolStripMenuItem.Checked)
             {
                 lblVerActual.Text = "| Expedientes completados |";
             }
             else
             {
-                lblVerActual.Text = "| Expedientes incompletos |";
+                lblVerActual.Text = "| Expedientes incompletos   |";
             }
         }
 
@@ -146,26 +137,114 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                 {
 
                     case 0://identificador
-                        MessageBox.Show("soy identificador");
+                        
                         break;
                     case 1://fecha
-                        MessageBox.Show("soy fecha");
+                        
                         break;
                     case 2://nombre usuario
-                        MessageBox.Show("soy usuario");
+                        toolStripTextBoxUsuario.Focus();
                         break;
                     case 3://nombre expediente
-                        MessageBox.Show("soy expediente");
+                        //filtrarToolStripMenuItem
+                        expToolStripMenuItem_Click(null,e);
                         break;
                     case 4://nobre categoria
-                        MessageBox.Show("soy categoria");
+
+                        toolStripTextBoxCategoria.Focus();
                         break;
                     case 5://completo
-                        MessageBox.Show("soy completo");
+
                         break;
                 }
             }
             
+        }
+
+        private void toolStripTextBoxExpediente_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && toolStripTextBoxExpediente.Text != null && toolStripTextBoxExpediente.Text != string.Empty)
+            {
+                dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 1, toolStripTextBoxExpediente.Text);
+                toolStripTextBoxExpediente.Text = null;
+                toolStripTextBoxUsuario.Enabled = false;
+                toolStripTextBoxCategoria.Enabled = false;
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 1, toolStripTextBoxExpediente.Text);
+            }
+        }
+
+        private void toolStripTextBoxCategoria_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && toolStripTextBoxCategoria.Text != null && toolStripTextBoxCategoria.Text != string.Empty)
+            {
+                dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 2, toolStripTextBoxCategoria.Text);
+                toolStripTextBoxCategoria.Text = null;
+                toolStripTextBoxUsuario.Enabled = false;
+                toolStripTextBoxExpediente.Enabled = false;
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 2, toolStripTextBoxCategoria.Text);
+            }
+        }
+
+        private void toolStripTextBoxUsuario_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && toolStripTextBoxUsuario.Text != null && toolStripTextBoxUsuario.Text != string.Empty)
+            {
+                dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 3, toolStripTextBoxUsuario.Text);
+                toolStripTextBoxUsuario.Text = null;
+                toolStripTextBoxExpediente.Enabled = false;
+                toolStripTextBoxCategoria.Enabled = false;
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 3, toolStripTextBoxUsuario.Text);
+            }
+        }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripTextBoxExpediente.Focus();
+        }
+
+        private void expedienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usuarioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eliminarFiltrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripTextBoxCategoria.Text = null;
+            toolStripTextBoxExpediente.Text = null;
+            toolStripTextBoxUsuario.Text = null;
+            toolStripTextBoxExpediente.Enabled = true;
+            toolStripTextBoxCategoria.Enabled = true;
+            toolStripTextBoxUsuario.Enabled = true;
+            dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 1, null);
+        }
+
+        private void expToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripTextBoxExpediente.Focus();
+        }
+
+        private void catToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStripTextBoxCategoria.Focus();
+        }
+
+        private void usuarioToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            toolStripTextBoxUsuario.Focus();
         }
     }
 }
