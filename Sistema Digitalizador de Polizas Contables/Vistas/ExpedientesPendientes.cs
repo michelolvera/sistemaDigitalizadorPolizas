@@ -143,15 +143,31 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                         
                         break;
                     case 2://nombre usuario
-                        toolStripTextBoxUsuario.Focus();
+                        filtrarToolStripMenuItem.Select();
+                        filtrarToolStripMenuItem.ShowDropDown();
+                        if (usuariosToolStripMenuItem.Enabled)
+                        {
+                            usuarioToolStripMenuItem.ShowDropDown();
+                            usuarioToolStripMenuItem_Click_1(null, e);
+                        }
                         break;
                     case 3://nombre expediente
-                        //filtrarToolStripMenuItem
-                        expToolStripMenuItem_Click(null,e);
+                        filtrarToolStripMenuItem.Select();
+                        filtrarToolStripMenuItem.ShowDropDown();
+                        if (expToolStripMenuItem.Enabled)
+                        {
+                            expToolStripMenuItem.ShowDropDown();
+                            expToolStripMenuItem_Click(null, e);
+                        }
                         break;
                     case 4://nobre categoria
-
-                        toolStripTextBoxCategoria.Focus();
+                        filtrarToolStripMenuItem.Select();
+                        filtrarToolStripMenuItem.ShowDropDown();
+                        if (catToolStripMenuItem.Enabled)
+                        {
+                            catToolStripMenuItem.ShowDropDown();
+                            catToolStripMenuItem_Click(null, e);
+                        }
                         break;
                     case 5://completo
 
@@ -167,8 +183,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             {
                 dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 1, toolStripTextBoxExpediente.Text);
                 toolStripTextBoxExpediente.Text = null;
-                toolStripTextBoxUsuario.Enabled = false;
-                toolStripTextBoxCategoria.Enabled = false;
+                usuarioToolStripMenuItem.Enabled = false;
+                catToolStripMenuItem.Enabled = false;
             }
             else if (e.KeyCode == Keys.Enter)
             {
@@ -182,8 +198,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             {
                 dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 2, toolStripTextBoxCategoria.Text);
                 toolStripTextBoxCategoria.Text = null;
-                toolStripTextBoxUsuario.Enabled = false;
-                toolStripTextBoxExpediente.Enabled = false;
+                usuarioToolStripMenuItem.Enabled = false;
+                expToolStripMenuItem.Enabled = false;
             }
             else if (e.KeyCode == Keys.Enter)
             {
@@ -197,8 +213,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             {
                 dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 3, toolStripTextBoxUsuario.Text);
                 toolStripTextBoxUsuario.Text = null;
-                toolStripTextBoxExpediente.Enabled = false;
-                toolStripTextBoxCategoria.Enabled = false;
+                catToolStripMenuItem.Enabled = false;
+                expToolStripMenuItem.Enabled = false;
             }
             else if (e.KeyCode == Keys.Enter)
             {
@@ -226,9 +242,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             toolStripTextBoxCategoria.Text = null;
             toolStripTextBoxExpediente.Text = null;
             toolStripTextBoxUsuario.Text = null;
-            toolStripTextBoxExpediente.Enabled = true;
-            toolStripTextBoxCategoria.Enabled = true;
-            toolStripTextBoxUsuario.Enabled = true;
+            catToolStripMenuItem.Enabled = true;
+            expToolStripMenuItem.Enabled = true;
+            usuarioToolStripMenuItem.Enabled = true;
             dgvExpedientes = procesosUsuario.LlenarTablaExpedientesPendientes(dgvExpedientes, mostrarExpedientesCompletadosToolStripMenuItem.Checked, 1, null);
         }
 
