@@ -33,6 +33,9 @@
     <Reference Include="AxInterop.AcroPDFLib">
       <HintPath>..\Sistema Digitalizador de Polizas Contables\obj\Debug\AxInterop.AcroPDFLib.dll</HintPath>
     </Reference>
+    <Reference Include="PdfSharp-WPF">
+      <HintPath>..\Sistema Digitalizador de Polizas Contables\bin\Debug\PdfSharp-WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />

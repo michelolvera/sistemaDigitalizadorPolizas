@@ -10,7 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AxAcroPDFLib;
 using System.Windows.Forms;
-
+using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
 
 namespace Logica_de_Negocio
 {   //Comunicacion y formateo de datos con SQL Server 2008
@@ -200,6 +201,31 @@ namespace Logica_de_Negocio
             }
             return false;
         }
+
+        public bool CopiarArchivoTemporal(String pathArchivo)
+        {
+            using (FileStream sourceDocumento = new FileStream(pathArchivo, FileMode.Open, FileAccess.Read))
+            {
+                byte[] bytes = new byte[sourceDocumento.Length];
+                int numeroBytes = (int)sourceDocumento.Length;
+                int indiceBytes = 0;
+                while (numeroBytes > 0)
+                {
+                    int n = sourceDocumento.Read(bytes, indiceBytes, numeroBytes);
+                    if (n == 0) break;
+                    indiceBytes += n;
+                    numeroBytes -= n;
+                }
+                numeroBytes = bytes.Length;
+                using (FileStream destinoDocumento = new FileStream(datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo + ".temp", FileMode.Create, FileAccess.Write))
+                {
+                    destinoDocumento.Write(bytes, 0, numeroBytes);
+                }
+            }
+            return false;
+        }
+        
+
         public bool EliminarArchivo()
         {
             if (Directory.Exists(datosArchivo.Ruta))
@@ -292,6 +318,31 @@ namespace Logica_de_Negocio
             {
                 dgv.Rows[i].Visible = crows[i];
             }
+        }
+        
+
+        public void MergeDocs(string archivoNuevo)
+        {
+            CopiarArchivoTemporal(archivoNuevo);
+            string archivoExistente= datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo;
+            using (PdfDocument docUno = PdfReader.Open(archivoExistente, PdfDocumentOpenMode.Import))
+            using (PdfDocument docDos = PdfReader.Open(archivoExistente+".temp", PdfDocumentOpenMode.Import))
+            using (PdfDocument DocNew = new PdfDocument())
+            {
+                CopiarDocumentos(docUno, DocNew);
+                CopiarDocumentos(docDos, DocNew);
+
+                DocNew.Save(archivoExistente);
+            }
+
+            void CopiarDocumentos(PdfDocument docFuente, PdfDocument docDestino)
+            {
+                for (int i = 0; i < docFuente.PageCount; i++)
+                {
+                    docDestino.AddPage(docFuente.Pages[i]);
+                }
+            }
+            Console.WriteLine("Aqui termino");
         }
     }
 }

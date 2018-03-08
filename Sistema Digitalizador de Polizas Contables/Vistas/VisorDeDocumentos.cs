@@ -208,5 +208,19 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         {
             lblAcciones.Text = "|   Acciones:     |";
         }
+
+        private void btnMerge_Click(object sender, EventArgs e)
+        {
+            
+            OpenFileDialog fuente = new OpenFileDialog { Filter = " Archivos PDF(*.pdf)|*.pdf" };
+            if (fuente.ShowDialog() == DialogResult.OK)
+            {
+                string source = fuente.FileName;
+                int actual = dgvDocumentos.SelectedRows[0].Index;
+                procesosUsuario.MergeDocs(source);
+            }
+            fuente.Dispose();
+            
+        }
     }
 }
