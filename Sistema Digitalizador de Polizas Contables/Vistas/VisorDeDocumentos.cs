@@ -24,10 +24,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
         public VisorDeDocumentos(ProcesosUsuario procesosUsuario, int expedienteActual, string registroActual)
         {
             InitializeComponent();
-            toolTipBotones.SetToolTip(btnMerge, "Añadir escaner al documento");
-            toolTipBotones.SetToolTip(btnReemplazarDoc, "Reemplazar docuemnto ");
-            toolTipBotones.SetToolTip(btnEliminarDoc, "Eliminar documento");
-            toolTipBotones.SetToolTip(btnMerge, "Actualizar");
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
             DateTime Fechaactual = DateTime.Now;
@@ -49,7 +45,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             if (procesosUsuario.Usuario.Administrador && MessageBox.Show("Se pretende eliminar el Documento seleccionado  ¿Esta seguro?", "Alerta", MessageBoxButtons.OKCancel).ToString() == "OK")
             {
                 procesosUsuario.EliminarArchivo();
-                
+                BtnDigitalizar_Click(e,null);
             }
             else if (!procesosUsuario.Usuario.Administrador)
             {
@@ -173,12 +169,44 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             procesosUsuario.Buscar(dgvDocumentos, txbBusqueda);
         }
 
-        private void toolTipBotones_Popup(object sender, PopupEventArgs e)
+        private void btnMerge_MouseHover(object sender, EventArgs e)
         {
-            toolTipBotones.SetToolTip(btnMerge, "Añadir escaner al documento");
-            toolTipBotones.SetToolTip(btnReemplazarDoc, "Reemplazar docuemnto ");
-            toolTipBotones.SetToolTip(btnEliminarDoc, "Eliminar documento");
-            toolTipBotones.SetToolTip(btnMerge, "Actualizar");
+            lblAcciones.Text = "| Añadir y unir  |";
+        }
+
+        private void btnReemplazarDoc_MouseHover(object sender, EventArgs e)
+        {
+            lblAcciones.Text = "| Reemplazar   |";
+        }
+
+        private void btnEliminarDoc_MouseHover(object sender, EventArgs e)
+        {
+            lblAcciones.Text = "|      Eliminar       |";
+        }
+
+        private void btnActualizarDocs_MouseHover(object sender, EventArgs e)
+        {
+            lblAcciones.Text = "|   Actualizar     |";
+        }
+
+        private void btnMerge_MouseLeave(object sender, EventArgs e)
+        {
+            lblAcciones.Text = "|   Acciones:     |";
+        }
+
+        private void btnReemplazarDoc_MouseLeave(object sender, EventArgs e)
+        {
+            lblAcciones.Text = "|   Acciones:     |";
+        }
+
+        private void btnEliminarDoc_MouseLeave(object sender, EventArgs e)
+        {
+            lblAcciones.Text = "|   Acciones:     |";
+        }
+
+        private void btnActualizarDocs_MouseLeave(object sender, EventArgs e)
+        {
+            lblAcciones.Text = "|   Acciones:     |";
         }
     }
 }

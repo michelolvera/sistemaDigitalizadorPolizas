@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisorDeDocumentos));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -61,7 +60,7 @@
             this.lblTituloVentana = new System.Windows.Forms.Label();
             this.pictureBoxCajaLogo = new System.Windows.Forms.PictureBox();
             this.pctBoxCabecera1 = new System.Windows.Forms.PictureBox();
-            this.toolTipBotones = new System.Windows.Forms.ToolTip(this.components);
+            this.lblAcciones = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -129,8 +128,8 @@
             this.dgvDocumentos.AllowUserToDeleteRows = false;
             this.dgvDocumentos.AllowUserToResizeColumns = false;
             this.dgvDocumentos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.dgvDocumentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.dgvDocumentos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvDocumentos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -139,26 +138,26 @@
             this.dgvDocumentos.BackgroundColor = System.Drawing.Color.White;
             this.dgvDocumentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDocumentos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvDocumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocumentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreDocumento,
             this.FechaDigitalizado});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle23;
             this.dgvDocumentos.EnableHeadersVisualStyles = false;
             this.dgvDocumentos.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvDocumentos.GridColor = System.Drawing.SystemColors.ControlLight;
@@ -169,8 +168,8 @@
             this.dgvDocumentos.ReadOnly = true;
             this.dgvDocumentos.RowHeadersVisible = false;
             this.dgvDocumentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvDocumentos.RowTemplate.Height = 24;
             this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDocumentos.Size = new System.Drawing.Size(323, 397);
@@ -245,7 +244,7 @@
             // 
             this.txbBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbBusqueda.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.txbBusqueda.Location = new System.Drawing.Point(308, 51);
+            this.txbBusqueda.Location = new System.Drawing.Point(189, 51);
             this.txbBusqueda.Margin = new System.Windows.Forms.Padding(2);
             this.txbBusqueda.Name = "txbBusqueda";
             this.txbBusqueda.Size = new System.Drawing.Size(342, 22);
@@ -278,6 +277,8 @@
             this.btnEliminarDoc.TabIndex = 6;
             this.btnEliminarDoc.UseVisualStyleBackColor = false;
             this.btnEliminarDoc.Click += new System.EventHandler(this.BtnEliminarDoc_Click);
+            this.btnEliminarDoc.MouseLeave += new System.EventHandler(this.btnEliminarDoc_MouseLeave);
+            this.btnEliminarDoc.MouseHover += new System.EventHandler(this.btnEliminarDoc_MouseHover);
             // 
             // btnReemplazarDoc
             // 
@@ -294,6 +295,8 @@
             this.btnReemplazarDoc.TabIndex = 5;
             this.btnReemplazarDoc.UseVisualStyleBackColor = false;
             this.btnReemplazarDoc.Click += new System.EventHandler(this.BtnReemplazarDoc_Click);
+            this.btnReemplazarDoc.MouseLeave += new System.EventHandler(this.btnReemplazarDoc_MouseLeave);
+            this.btnReemplazarDoc.MouseHover += new System.EventHandler(this.btnReemplazarDoc_MouseHover);
             // 
             // btnActualizarDocs
             // 
@@ -310,11 +313,14 @@
             this.btnActualizarDocs.TabIndex = 7;
             this.btnActualizarDocs.UseVisualStyleBackColor = false;
             this.btnActualizarDocs.Click += new System.EventHandler(this.BtnActualizarLista_Click);
+            this.btnActualizarDocs.MouseLeave += new System.EventHandler(this.btnActualizarDocs_MouseLeave);
+            this.btnActualizarDocs.MouseHover += new System.EventHandler(this.btnActualizarDocs_MouseHover);
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.lblAcciones);
             this.panel2.Controls.Add(this.txbBusqueda);
             this.panel2.Controls.Add(this.picBoxBuscar);
             this.panel2.Controls.Add(this.btnMerge);
@@ -342,7 +348,7 @@
             this.picBoxBuscar.BackColor = System.Drawing.Color.DimGray;
             this.picBoxBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxBuscar.BackgroundImage")));
             this.picBoxBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBoxBuscar.Location = new System.Drawing.Point(277, 47);
+            this.picBoxBuscar.Location = new System.Drawing.Point(158, 47);
             this.picBoxBuscar.Name = "picBoxBuscar";
             this.picBoxBuscar.Size = new System.Drawing.Size(26, 26);
             this.picBoxBuscar.TabIndex = 43;
@@ -362,6 +368,8 @@
             this.btnMerge.Size = new System.Drawing.Size(30, 30);
             this.btnMerge.TabIndex = 26;
             this.btnMerge.UseVisualStyleBackColor = false;
+            this.btnMerge.MouseLeave += new System.EventHandler(this.btnMerge_MouseLeave);
+            this.btnMerge.MouseHover += new System.EventHandler(this.btnMerge_MouseHover);
             // 
             // pctBoxBarra
             // 
@@ -477,10 +485,17 @@
             this.pctBoxCabecera1.TabIndex = 23;
             this.pctBoxCabecera1.TabStop = false;
             // 
-            // toolTipBotones
+            // lblAcciones
             // 
-            this.toolTipBotones.IsBalloon = true;
-            this.toolTipBotones.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTipBotones_Popup);
+            this.lblAcciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblAcciones.AutoSize = true;
+            this.lblAcciones.BackColor = System.Drawing.Color.DimGray;
+            this.lblAcciones.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.lblAcciones.Location = new System.Drawing.Point(548, 54);
+            this.lblAcciones.Name = "lblAcciones";
+            this.lblAcciones.Size = new System.Drawing.Size(105, 16);
+            this.lblAcciones.TabIndex = 42;
+            this.lblAcciones.Text = "|    Acciones:    |";
             // 
             // VisorDeDocumentos
             // 
@@ -546,6 +561,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaDigitalizado;
         private System.Windows.Forms.PictureBox margenAbajo;
         private System.Windows.Forms.PictureBox picBoxBuscar;
-        private System.Windows.Forms.ToolTip toolTipBotones;
+        private System.Windows.Forms.Label lblAcciones;
     }
 }
