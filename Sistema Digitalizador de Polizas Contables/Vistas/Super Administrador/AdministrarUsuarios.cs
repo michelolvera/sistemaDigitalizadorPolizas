@@ -37,8 +37,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             cmbUsuario.Items.Add("< Nuevo >");
             txtContrasena.Enabled = false;
             cmbArea.Enabled = false;
-            txtbApellidoMaterno.Enabled = false; 
-            txtbApellidoPaterno.Enabled = false; 
+            txtbApellidoMaterno.Enabled = false;
+            txtbApellidoPaterno.Enabled = false;
             txtbIdUsuario.Enabled = false;
             txtbNombre.Enabled = false;
             checkBoxAdmin.Enabled = false;
@@ -50,8 +50,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             btnGuardar.Enabled = true;
             cmbArea.Enabled = true;
             txtContrasena.Enabled = true;
-            txtbApellidoMaterno.Enabled = true; 
-            txtbApellidoPaterno.Enabled = true; 
+            txtbApellidoMaterno.Enabled = true;
+            txtbApellidoPaterno.Enabled = true;
             txtbNombre.Enabled = true;
             checkBoxAdmin.Enabled = true;
             checkBoxDios.Enabled = true;
@@ -116,7 +116,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (cmbUsuario.Text != String.Empty) 
+            if (cmbUsuario.Text != String.Empty)
             {
                 if (txtContrasena.Text != String.Empty)
                 {
@@ -124,7 +124,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
                     {
                         if (txtbNombre.Text != String.Empty)
                         {
-                            if(txtbApellidoPaterno.Text != String.Empty)
+                            if (txtbApellidoPaterno.Text != String.Empty)
                             {
                                 if (txtbApellidoMaterno.Text != String.Empty)
                                 {
@@ -176,7 +176,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
                                     }
                                     else
                                         MessageBox.Show("Introduzca la contraseña de SA");
-                                }else
+                                }
+                                else
                                     MessageBox.Show("El apellido materno no puede estar vacio");
                             }
                             else
@@ -221,6 +222,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             TxbSAPass.Visible = false;
         }
 
-       
+        private void TxbSAPass_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnGuardar_Click(null, e);
+            }
+        }
     }
 }

@@ -57,9 +57,9 @@
             this.txbPassword.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPassword.Location = new System.Drawing.Point(317, 98);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.PasswordChar = '·';
             this.txbPassword.Size = new System.Drawing.Size(115, 22);
             this.txbPassword.TabIndex = 2;
+            this.txbPassword.UseSystemPasswordChar = true;
             this.txbPassword.TextChanged += new System.EventHandler(this.txbPassword_TextChanged);
             this.txbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbPassword_KeyDown);
             // 

@@ -120,8 +120,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 
             try
             {
-                btnEliminarDoc.Enabled = true;
-                btnReemplazarDoc.Enabled = true;
+                
                 if (dgvDocumentos[1, e.RowIndex].Value.ToString().Equals("No se ha digitalizado"))
                 {
                     axAcroPDF1.Visible = false;
@@ -144,6 +143,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
                         labelNoDigitalizado.Visible = true;
                         btnDigitalizar.Visible = true;
                         axAcroPDF1.Visible = false;
+                        btnEliminarDoc.Enabled = false;
+                        btnReemplazarDoc.Enabled = false;
+                        btnMerge.Enabled = false;
                     }
                  }
             }
@@ -151,6 +153,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             {
                 btnEliminarDoc.Enabled = false;
                 btnReemplazarDoc.Enabled = false;
+                btnMerge.Enabled = false;
             }
         }
 
