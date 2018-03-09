@@ -56,6 +56,8 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             checkBoxAdmin.Enabled = true;
             checkBoxDios.Enabled = true;
             cmbArea = procesosDios.LlenarCombo(cmbArea, 0, 0);
+            lblSAPass.Visible = true;
+            TxbSAPass.Visible = true;
             if (cmbUsuario.Items.Count == cmbUsuario.SelectedIndex + 1 && cmbUsuario.Text == "< Nuevo >")// crear nuevo usuario
             {
                 //Crear nuevo usuario
@@ -126,49 +128,54 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
                             {
                                 if (txtbApellidoMaterno.Text != String.Empty)
                                 {
-                                    if (cmbUsuario.DropDownStyle == ComboBoxStyle.Simple)
+                                    if (TxbSAPass.Text != null && TxbSAPass.Text != string.Empty)
                                     {
-                                        //Nuevo Usuario
-                                        Usuario = new UsuarioInfo(0, cmbUsuario.Text, txtContrasena.Text)
+                                        if (cmbUsuario.DropDownStyle == ComboBoxStyle.Simple)
                                         {
-                                            Nombre = txtbNombre.Text,
-                                            ApellidoPaterno = txtbApellidoPaterno.Text,
-                                            ApellidoMaterno = txtbApellidoMaterno.Text,
-                                            IdArea = cmbArea.SelectedIndex,
-                                            Administrador = checkBoxAdmin.Checked,
-                                            Dios = checkBoxDios.Checked
-                                        };
-                                        if (!procesosDios.ComprobarUsuarioExiste(Usuario.NombreUsuario))
-                                            if (procesosDios.RegistroUsuario(true, Usuario))
+                                            //Nuevo Usuario
+                                            Usuario = new UsuarioInfo(0, cmbUsuario.Text, txtContrasena.Text)
                                             {
-                                                MessageBox.Show("El usuario se ha creado.");
+                                                Nombre = txtbNombre.Text,
+                                                ApellidoPaterno = txtbApellidoPaterno.Text,
+                                                ApellidoMaterno = txtbApellidoMaterno.Text,
+                                                IdArea = cmbArea.SelectedIndex,
+                                                Administrador = checkBoxAdmin.Checked,
+                                                Dios = checkBoxDios.Checked
+                                            };
+                                            if (!procesosDios.ComprobarUsuarioExiste(Usuario.NombreUsuario))
+                                                if (procesosDios.RegistroUsuario(true, Usuario, TxbSAPass.Text))
+                                                {
+                                                    MessageBox.Show("El usuario se ha creado.");
+                                                    //Regresar controles a la normalidad
+                                                    RegresarControles();
+                                                }
+                                                else
+                                                    MessageBox.Show("Hubo un error al registrar este usuario.");
+                                            else
+                                                MessageBox.Show("Este nombre de usuario ya existe.");
+                                        }
+                                        else
+                                        {
+                                            //Actualizar Usuario
+                                            Usuario.Contraseña = txtContrasena.Text;
+                                            Usuario.Nombre = txtbNombre.Text;
+                                            Usuario.ApellidoPaterno = txtbApellidoPaterno.Text;
+                                            Usuario.ApellidoMaterno = txtbApellidoMaterno.Text;
+                                            Usuario.IdArea = cmbArea.SelectedIndex;
+                                            Usuario.Administrador = checkBoxAdmin.Checked;
+                                            Usuario.Dios = checkBoxDios.Checked;
+                                            if (procesosDios.RegistroUsuario(false, Usuario, TxbSAPass.Text))
+                                            {
+                                                MessageBox.Show("El usuario se ha actualizado.\nLos cambios se verán reflejados en el siguiente inicio de sesion del usuario: " + cmbUsuario.Text + ".");
                                                 //Regresar controles a la normalidad
                                                 RegresarControles();
                                             }
                                             else
                                                 MessageBox.Show("Hubo un error al registrar este usuario.");
-                                        else
-                                            MessageBox.Show("Este nombre de usuario ya existe.");
+                                        }
                                     }
                                     else
-                                    {
-                                        //Actualizar Usuario
-                                        Usuario.Contraseña = txtContrasena.Text;
-                                        Usuario.Nombre = txtbNombre.Text;
-                                        Usuario.ApellidoPaterno = txtbApellidoPaterno.Text;
-                                        Usuario.ApellidoMaterno = txtbApellidoMaterno.Text;
-                                        Usuario.IdArea = cmbArea.SelectedIndex;
-                                        Usuario.Administrador = checkBoxAdmin.Checked;
-                                        Usuario.Dios = checkBoxDios.Checked;
-                                        if (procesosDios.RegistroUsuario(false, Usuario))
-                                        {
-                                            MessageBox.Show("El usuario se ha actualizado.\nLos cambios se verán reflejados en el siguiente inicio de sesion del usuario: "+cmbUsuario.Text+".");
-                                            //Regresar controles a la normalidad
-                                            RegresarControles();
-                                        }
-                                        else
-                                            MessageBox.Show("Hubo un error al registrar este usuario.");
-                                    }
+                                        MessageBox.Show("Introduzca la contraseña de SA");
                                 }else
                                     MessageBox.Show("El apellido materno no puede estar vacio");
                             }
@@ -209,7 +216,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             txtbNombre.Enabled = false;
             checkBoxAdmin.Enabled = false;
             checkBoxDios.Enabled = false;
-
+            lblSAPass.Visible = false;
+            TxbSAPass.Text = string.Empty;
+            TxbSAPass.Visible = false;
         }
 
        

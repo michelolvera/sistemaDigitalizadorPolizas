@@ -18,8 +18,8 @@ namespace Logica_de_Negocio
     public class ProcesosUsuario
     {
         //Direccion de servidor
-        private String nombreServidor = ConfigurationManager.AppSettings["server"];
-        private String nombreBD = ConfigurationManager.AppSettings["dbname"];
+        protected String nombreServidor = ConfigurationManager.AppSettings["server"];
+        protected String nombreBD = ConfigurationManager.AppSettings["dbname"];
         public SQLConexion Conexion { get; }
         public UsuarioInfo Usuario { get; }
         private DatosArchivo datosArchivo=null;
