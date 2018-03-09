@@ -76,10 +76,10 @@ namespace Logica_de_Negocio
         }
 
         public bool RegistroUsuario(bool EsNuevo, UsuarioInfo usuario, string saPass) {
-            SQLConexion ConexionSA = new SQLConexion(nombreServidor, nombreBD, "SA", saPass);
+            SQLConexion ConexionSA = new SQLConexion(nombreServidor, nombreBD, "sa", saPass);
             if (ConexionSA.AbrirConexion().Estado == false)
                 return false;
-            estado = EsNuevo ? ConexionSA.EjecutarSentencia("EXECUTE SP_DIG_AGREGAR_USUARIO '" + usuario.NombreUsuario+"', '"+ usuario.Nombre + "', '" + usuario.ApellidoPaterno + "', '" + usuario.ApellidoMaterno + "', '" + usuario.Contraseña + "', "+areaId[usuario.IdArea]+", "+usuario.Administrador+", "+usuario.Dios) : Conexion.EjecutarSentencia("EXECUTE SP_DIG_ACTUALIZAR_USUARIO_SELECCIONADO "+usuario.Id+ ", '" + usuario.Nombre + "', '" + usuario.ApellidoPaterno + "', '" + usuario.ApellidoMaterno + "', '" + usuario.Contraseña + "', " + areaId[usuario.IdArea] + ", " + usuario.Administrador + ", " + usuario.Dios);
+            estado = EsNuevo ? ConexionSA.EjecutarSentencia("EXECUTE SP_DIG_AGREGAR_USUARIO '" + usuario.NombreUsuario + "', '" + usuario.Nombre + "', '" + usuario.ApellidoPaterno + "', '" + usuario.ApellidoMaterno + "', '" + usuario.Contraseña + "', " + areaId[usuario.IdArea] + ", " + usuario.Administrador + ", " + usuario.Dios) : ConexionSA.EjecutarSentencia("EXECUTE SP_DIG_ACTUALIZAR_USUARIO_SELECCIONADO " + usuario.Id + ", '" + usuario.Nombre + "', '" + usuario.ApellidoPaterno + "', '" + usuario.ApellidoMaterno + "', '" + usuario.Contraseña + "', " + areaId[usuario.IdArea] + ", " + usuario.Administrador + ", " + usuario.Dios);
             ConexionSA.CerrarConexion();
             return estado.Estado;
         }
