@@ -84,6 +84,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
                 {
                     MessageBox.Show("Documento no Digitalizado");
                 }
+                btnEliminarDoc.Enabled = true;
+                btnReemplazarDoc.Enabled = true;
+                btnMerge.Enabled = true;
             }
             fuente.Dispose();
         }
@@ -218,6 +221,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
             if (procesosUsuario.MezclarDocumento(actual))
             {
                 MessageBox.Show("Mezcla exitosa");
+                procesosUsuario.MostrarPDF(this.axAcroPDF1);
             }
             else
                 MessageBox.Show("Hubo algun error al intentar mezclar la digitalización, intente de nuevo");
