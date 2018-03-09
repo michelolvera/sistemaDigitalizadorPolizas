@@ -211,16 +211,13 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas
 
         private void btnMerge_Click(object sender, EventArgs e)
         {
-            
-            OpenFileDialog fuente = new OpenFileDialog { Filter = " Archivos PDF(*.pdf)|*.pdf" };
-            if (fuente.ShowDialog() == DialogResult.OK)
+            int actual = dgvDocumentos.SelectedRows[0].Index;
+            if (procesosUsuario.MezclarDocumento(actual))
             {
-                string source = fuente.FileName;
-                int actual = dgvDocumentos.SelectedRows[0].Index;
-                procesosUsuario.MergeDocs(source);
+                MessageBox.Show("Mezcla exitosa");
             }
-            fuente.Dispose();
-            
+            else
+                MessageBox.Show("Hubo algun error al intentar mezclar la digitalización, intente de nuevo");
         }
     }
 }

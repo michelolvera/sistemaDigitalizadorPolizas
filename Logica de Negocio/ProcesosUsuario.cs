@@ -202,6 +202,23 @@ namespace Logica_de_Negocio
             return false;
         }
 
+        public bool MezclarDocumento(int actual)
+        {
+            OpenFileDialog fuente = new OpenFileDialog { Filter = " Archivos PDF(*.pdf)|*.pdf" };
+            if (fuente.ShowDialog() == DialogResult.OK)
+            {
+                string source = fuente.FileName;
+                MergeDocs(source);
+                fuente.Dispose();
+                return true;
+            }
+            else
+            {
+                fuente.Dispose();
+                return false;
+            }
+        }
+
         public bool CopiarArchivoTemporal(String pathArchivo)
         {
             using (FileStream sourceDocumento = new FileStream(pathArchivo, FileMode.Open, FileAccess.Read))
