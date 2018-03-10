@@ -83,7 +83,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 78);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 96);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -95,8 +96,9 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnDigitalizar);
             this.splitContainer1.Panel2.Controls.Add(this.labelNoDigitalizado);
             this.splitContainer1.Panel2.Controls.Add(this.axAcroPDF1);
-            this.splitContainer1.Size = new System.Drawing.Size(835, 430);
-            this.splitContainer1.SplitterDistance = 333;
+            this.splitContainer1.Size = new System.Drawing.Size(1113, 529);
+            this.splitContainer1.SplitterDistance = 443;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
             // panel1
@@ -106,9 +108,9 @@
             this.panel1.Controls.Add(this.checkBoxDigitalizadosVisor);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(331, 428);
+            this.panel1.Size = new System.Drawing.Size(441, 527);
             this.panel1.TabIndex = 10;
             // 
             // margenAbajo
@@ -116,9 +118,10 @@
             this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.margenAbajo.BackColor = System.Drawing.Color.Black;
-            this.margenAbajo.Location = new System.Drawing.Point(-1, 425);
+            this.margenAbajo.Location = new System.Drawing.Point(-1, 523);
+            this.margenAbajo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.margenAbajo.Name = "margenAbajo";
-            this.margenAbajo.Size = new System.Drawing.Size(340, 2);
+            this.margenAbajo.Size = new System.Drawing.Size(453, 2);
             this.margenAbajo.TabIndex = 41;
             this.margenAbajo.TabStop = false;
             // 
@@ -161,8 +164,8 @@
             this.dgvDocumentos.EnableHeadersVisualStyles = false;
             this.dgvDocumentos.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvDocumentos.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvDocumentos.Location = new System.Drawing.Point(5, 28);
-            this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvDocumentos.Location = new System.Drawing.Point(7, 34);
+            this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDocumentos.MultiSelect = false;
             this.dgvDocumentos.Name = "dgvDocumentos";
             this.dgvDocumentos.ReadOnly = true;
@@ -172,7 +175,7 @@
             this.dgvDocumentos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDocumentos.RowTemplate.Height = 24;
             this.dgvDocumentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDocumentos.Size = new System.Drawing.Size(323, 397);
+            this.dgvDocumentos.Size = new System.Drawing.Size(431, 489);
             this.dgvDocumentos.TabIndex = 9;
             // 
             // NombreDocumento
@@ -192,9 +195,10 @@
             this.checkBoxDigitalizadosVisor.AutoSize = true;
             this.checkBoxDigitalizadosVisor.BackColor = System.Drawing.Color.White;
             this.checkBoxDigitalizadosVisor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.checkBoxDigitalizadosVisor.Location = new System.Drawing.Point(7, 6);
+            this.checkBoxDigitalizadosVisor.Location = new System.Drawing.Point(9, 7);
+            this.checkBoxDigitalizadosVisor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxDigitalizadosVisor.Name = "checkBoxDigitalizadosVisor";
-            this.checkBoxDigitalizadosVisor.Size = new System.Drawing.Size(177, 20);
+            this.checkBoxDigitalizadosVisor.Size = new System.Drawing.Size(220, 22);
             this.checkBoxDigitalizadosVisor.TabIndex = 8;
             this.checkBoxDigitalizadosVisor.Text = "Documentos digitalizados";
             this.checkBoxDigitalizadosVisor.UseVisualStyleBackColor = false;
@@ -208,9 +212,10 @@
             this.btnDigitalizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDigitalizar.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
             this.btnDigitalizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnDigitalizar.Location = new System.Drawing.Point(220, 250);
+            this.btnDigitalizar.Location = new System.Drawing.Point(293, 308);
+            this.btnDigitalizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDigitalizar.Name = "btnDigitalizar";
-            this.btnDigitalizar.Size = new System.Drawing.Size(83, 46);
+            this.btnDigitalizar.Size = new System.Drawing.Size(113, 57);
             this.btnDigitalizar.TabIndex = 2;
             this.btnDigitalizar.Text = "Digitalizar";
             this.btnDigitalizar.UseVisualStyleBackColor = false;
@@ -223,9 +228,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelNoDigitalizado.AutoSize = true;
             this.labelNoDigitalizado.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.labelNoDigitalizado.Location = new System.Drawing.Point(107, 202);
+            this.labelNoDigitalizado.Location = new System.Drawing.Point(143, 249);
+            this.labelNoDigitalizado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNoDigitalizado.Name = "labelNoDigitalizado";
-            this.labelNoDigitalizado.Size = new System.Drawing.Size(341, 28);
+            this.labelNoDigitalizado.Size = new System.Drawing.Size(426, 37);
             this.labelNoDigitalizado.TabIndex = 1;
             this.labelNoDigitalizado.Text = "¡Documento no digitalizado!";
             this.labelNoDigitalizado.Visible = false;
@@ -235,30 +241,33 @@
             this.axAcroPDF1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.axAcroPDF1.Enabled = true;
             this.axAcroPDF1.Location = new System.Drawing.Point(0, 0);
+            this.axAcroPDF1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.axAcroPDF1.Name = "axAcroPDF1";
             this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(496, 428);
+            this.axAcroPDF1.Size = new System.Drawing.Size(663, 527);
             this.axAcroPDF1.TabIndex = 0;
             // 
             // txbBusqueda
             // 
             this.txbBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbBusqueda.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.txbBusqueda.Location = new System.Drawing.Point(189, 51);
-            this.txbBusqueda.Margin = new System.Windows.Forms.Padding(2);
+            this.txbBusqueda.Location = new System.Drawing.Point(252, 63);
+            this.txbBusqueda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbBusqueda.Name = "txbBusqueda";
-            this.txbBusqueda.Size = new System.Drawing.Size(342, 22);
+            this.txbBusqueda.Size = new System.Drawing.Size(455, 26);
             this.txbBusqueda.TabIndex = 24;
             this.txbBusqueda.TextChanged += new System.EventHandler(this.txbBusqueda_TextChanged);
             // 
             // lblRegistroActual
             // 
             this.lblRegistroActual.AutoSize = true;
-            this.lblRegistroActual.BackColor = System.Drawing.Color.DimGray;
+            this.lblRegistroActual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.lblRegistroActual.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.lblRegistroActual.Location = new System.Drawing.Point(4, 51);
+            this.lblRegistroActual.ForeColor = System.Drawing.Color.White;
+            this.lblRegistroActual.Location = new System.Drawing.Point(5, 63);
+            this.lblRegistroActual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRegistroActual.Name = "lblRegistroActual";
-            this.lblRegistroActual.Size = new System.Drawing.Size(267, 16);
+            this.lblRegistroActual.Size = new System.Drawing.Size(347, 18);
             this.lblRegistroActual.TabIndex = 3;
             this.lblRegistroActual.Text = "|  Registro actual:                                                  |";
             // 
@@ -271,9 +280,10 @@
             this.btnEliminarDoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminarDoc.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnEliminarDoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnEliminarDoc.Location = new System.Drawing.Point(755, 49);
+            this.btnEliminarDoc.Location = new System.Drawing.Point(1007, 60);
+            this.btnEliminarDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminarDoc.Name = "btnEliminarDoc";
-            this.btnEliminarDoc.Size = new System.Drawing.Size(30, 30);
+            this.btnEliminarDoc.Size = new System.Drawing.Size(40, 37);
             this.btnEliminarDoc.TabIndex = 6;
             this.btnEliminarDoc.UseVisualStyleBackColor = false;
             this.btnEliminarDoc.Click += new System.EventHandler(this.BtnEliminarDoc_Click);
@@ -289,9 +299,10 @@
             this.btnReemplazarDoc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnReemplazarDoc.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnReemplazarDoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnReemplazarDoc.Location = new System.Drawing.Point(712, 48);
+            this.btnReemplazarDoc.Location = new System.Drawing.Point(949, 59);
+            this.btnReemplazarDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReemplazarDoc.Name = "btnReemplazarDoc";
-            this.btnReemplazarDoc.Size = new System.Drawing.Size(30, 30);
+            this.btnReemplazarDoc.Size = new System.Drawing.Size(40, 37);
             this.btnReemplazarDoc.TabIndex = 5;
             this.btnReemplazarDoc.UseVisualStyleBackColor = false;
             this.btnReemplazarDoc.Click += new System.EventHandler(this.BtnReemplazarDoc_Click);
@@ -307,9 +318,10 @@
             this.btnActualizarDocs.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnActualizarDocs.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnActualizarDocs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnActualizarDocs.Location = new System.Drawing.Point(798, 48);
+            this.btnActualizarDocs.Location = new System.Drawing.Point(1064, 59);
+            this.btnActualizarDocs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnActualizarDocs.Name = "btnActualizarDocs";
-            this.btnActualizarDocs.Size = new System.Drawing.Size(30, 30);
+            this.btnActualizarDocs.Size = new System.Drawing.Size(40, 37);
             this.btnActualizarDocs.TabIndex = 7;
             this.btnActualizarDocs.UseVisualStyleBackColor = false;
             this.btnActualizarDocs.Click += new System.EventHandler(this.BtnActualizarLista_Click);
@@ -338,31 +350,35 @@
             this.panel2.Controls.Add(this.pictureBoxCajaLogo);
             this.panel2.Controls.Add(this.pctBoxCabecera1);
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(835, 81);
+            this.panel2.Size = new System.Drawing.Size(1113, 100);
             this.panel2.TabIndex = 10;
             // 
             // lblAcciones
             // 
             this.lblAcciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAcciones.AutoSize = true;
-            this.lblAcciones.BackColor = System.Drawing.Color.DimGray;
+            this.lblAcciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.lblAcciones.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.lblAcciones.Location = new System.Drawing.Point(548, 54);
+            this.lblAcciones.ForeColor = System.Drawing.Color.White;
+            this.lblAcciones.Location = new System.Drawing.Point(731, 66);
+            this.lblAcciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAcciones.Name = "lblAcciones";
-            this.lblAcciones.Size = new System.Drawing.Size(105, 16);
+            this.lblAcciones.Size = new System.Drawing.Size(132, 18);
             this.lblAcciones.TabIndex = 42;
             this.lblAcciones.Text = "|    Acciones:    |";
             // 
             // picBoxBuscar
             // 
             this.picBoxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBoxBuscar.BackColor = System.Drawing.Color.DimGray;
+            this.picBoxBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.picBoxBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxBuscar.BackgroundImage")));
             this.picBoxBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBoxBuscar.Location = new System.Drawing.Point(158, 47);
+            this.picBoxBuscar.Location = new System.Drawing.Point(211, 58);
+            this.picBoxBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBoxBuscar.Name = "picBoxBuscar";
-            this.picBoxBuscar.Size = new System.Drawing.Size(26, 26);
+            this.picBoxBuscar.Size = new System.Drawing.Size(35, 32);
             this.picBoxBuscar.TabIndex = 43;
             this.picBoxBuscar.TabStop = false;
             // 
@@ -375,9 +391,10 @@
             this.btnMerge.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMerge.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnMerge.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnMerge.Location = new System.Drawing.Point(667, 48);
+            this.btnMerge.Location = new System.Drawing.Point(889, 59);
+            this.btnMerge.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMerge.Name = "btnMerge";
-            this.btnMerge.Size = new System.Drawing.Size(30, 30);
+            this.btnMerge.Size = new System.Drawing.Size(40, 37);
             this.btnMerge.TabIndex = 26;
             this.btnMerge.UseVisualStyleBackColor = false;
             this.btnMerge.Click += new System.EventHandler(this.btnMerge_Click);
@@ -388,10 +405,11 @@
             // 
             this.pctBoxBarra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctBoxBarra.BackColor = System.Drawing.Color.DimGray;
-            this.pctBoxBarra.Location = new System.Drawing.Point(0, 43);
+            this.pctBoxBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.pctBoxBarra.Location = new System.Drawing.Point(0, 53);
+            this.pctBoxBarra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pctBoxBarra.Name = "pctBoxBarra";
-            this.pctBoxBarra.Size = new System.Drawing.Size(835, 39);
+            this.pctBoxBarra.Size = new System.Drawing.Size(1113, 48);
             this.pctBoxBarra.TabIndex = 26;
             this.pctBoxBarra.TabStop = false;
             // 
@@ -404,9 +422,10 @@
             this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMin.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnMin.Location = new System.Drawing.Point(776, 6);
+            this.btnMin.Location = new System.Drawing.Point(1035, 7);
+            this.btnMin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(23, 23);
+            this.btnMin.Size = new System.Drawing.Size(31, 28);
             this.btnMin.TabIndex = 30;
             this.btnMin.UseVisualStyleBackColor = false;
             this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
@@ -420,9 +439,10 @@
             this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCerrar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.BtnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.BtnCerrar.Location = new System.Drawing.Point(805, 6);
+            this.BtnCerrar.Location = new System.Drawing.Point(1073, 7);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(23, 23);
+            this.BtnCerrar.Size = new System.Drawing.Size(31, 28);
             this.BtnCerrar.TabIndex = 29;
             this.BtnCerrar.UseVisualStyleBackColor = false;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
@@ -434,9 +454,10 @@
             this.lblUsuarioActual.BackColor = System.Drawing.Color.Black;
             this.lblUsuarioActual.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblUsuarioActual.ForeColor = System.Drawing.Color.White;
-            this.lblUsuarioActual.Location = new System.Drawing.Point(567, 11);
+            this.lblUsuarioActual.Location = new System.Drawing.Point(756, 14);
+            this.lblUsuarioActual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuarioActual.Name = "lblUsuarioActual";
-            this.lblUsuarioActual.Size = new System.Drawing.Size(202, 16);
+            this.lblUsuarioActual.Size = new System.Drawing.Size(266, 18);
             this.lblUsuarioActual.TabIndex = 28;
             this.lblUsuarioActual.Text = "|                                                            |";
             // 
@@ -446,9 +467,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(540, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(720, 7);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(26, 26);
+            this.pictureBox1.Size = new System.Drawing.Size(35, 32);
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
             // 
@@ -458,9 +480,10 @@
             this.lblFechaHora.BackColor = System.Drawing.Color.Black;
             this.lblFechaHora.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblFechaHora.ForeColor = System.Drawing.Color.White;
-            this.lblFechaHora.Location = new System.Drawing.Point(241, 9);
+            this.lblFechaHora.Location = new System.Drawing.Point(321, 11);
+            this.lblFechaHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaHora.Name = "lblFechaHora";
-            this.lblFechaHora.Size = new System.Drawing.Size(178, 16);
+            this.lblFechaHora.Size = new System.Drawing.Size(234, 18);
             this.lblFechaHora.TabIndex = 26;
             this.lblFechaHora.Text = "|                                                    |";
             // 
@@ -470,9 +493,10 @@
             this.lblTituloVentana.BackColor = System.Drawing.Color.Black;
             this.lblTituloVentana.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblTituloVentana.ForeColor = System.Drawing.Color.White;
-            this.lblTituloVentana.Location = new System.Drawing.Point(65, 9);
+            this.lblTituloVentana.Location = new System.Drawing.Point(87, 11);
+            this.lblTituloVentana.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTituloVentana.Name = "lblTituloVentana";
-            this.lblTituloVentana.Size = new System.Drawing.Size(172, 16);
+            this.lblTituloVentana.Size = new System.Drawing.Size(218, 18);
             this.lblTituloVentana.TabIndex = 25;
             this.lblTituloVentana.Text = "|    Visor de documentos     |";
             // 
@@ -480,9 +504,10 @@
             // 
             this.pictureBoxCajaLogo.BackColor = System.Drawing.Color.Black;
             this.pictureBoxCajaLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCajaLogo.Image")));
-            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(3, 5);
+            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(4, 6);
+            this.pictureBoxCajaLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxCajaLogo.Name = "pictureBoxCajaLogo";
-            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(60, 32);
+            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(80, 39);
             this.pictureBoxCajaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCajaLogo.TabIndex = 24;
             this.pictureBoxCajaLogo.TabStop = false;
@@ -493,21 +518,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pctBoxCabecera1.BackColor = System.Drawing.Color.Black;
             this.pctBoxCabecera1.Location = new System.Drawing.Point(0, 0);
+            this.pctBoxCabecera1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pctBoxCabecera1.Name = "pctBoxCabecera1";
-            this.pctBoxCabecera1.Size = new System.Drawing.Size(835, 57);
+            this.pctBoxCabecera1.Size = new System.Drawing.Size(1113, 70);
             this.pctBoxCabecera1.TabIndex = 23;
             this.pctBoxCabecera1.TabStop = false;
             // 
             // VisorDeDocumentos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(835, 509);
+            this.ClientSize = new System.Drawing.Size(1113, 626);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "VisorDeDocumentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VisorDeDocumentos";
