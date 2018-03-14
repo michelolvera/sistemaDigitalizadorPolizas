@@ -325,9 +325,9 @@
             this.margenDer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.margenDer.BackColor = System.Drawing.Color.Black;
-            this.margenDer.Location = new System.Drawing.Point(586, 35);
+            this.margenDer.Location = new System.Drawing.Point(587, 35);
             this.margenDer.Name = "margenDer";
-            this.margenDer.Size = new System.Drawing.Size(2, 396);
+            this.margenDer.Size = new System.Drawing.Size(1, 396);
             this.margenDer.TabIndex = 40;
             this.margenDer.TabStop = false;
             // 
@@ -338,7 +338,7 @@
             this.margenIzq.BackColor = System.Drawing.Color.Black;
             this.margenIzq.Location = new System.Drawing.Point(0, 35);
             this.margenIzq.Name = "margenIzq";
-            this.margenIzq.Size = new System.Drawing.Size(2, 396);
+            this.margenIzq.Size = new System.Drawing.Size(1, 396);
             this.margenIzq.TabIndex = 39;
             this.margenIzq.TabStop = false;
             // 
@@ -347,9 +347,9 @@
             this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.margenAbajo.BackColor = System.Drawing.Color.Black;
-            this.margenAbajo.Location = new System.Drawing.Point(0, 427);
+            this.margenAbajo.Location = new System.Drawing.Point(0, 428);
             this.margenAbajo.Name = "margenAbajo";
-            this.margenAbajo.Size = new System.Drawing.Size(588, 2);
+            this.margenAbajo.Size = new System.Drawing.Size(588, 1);
             this.margenAbajo.TabIndex = 38;
             this.margenAbajo.TabStop = false;
             // 

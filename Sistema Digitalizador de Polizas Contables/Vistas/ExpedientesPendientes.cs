@@ -26,8 +26,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             lblUsuarioActual.Text = "| " + procesosUsuario.Usuario.Nombre + " " + procesosUsuario.Usuario.ApellidoPaterno +" "+ procesosUsuario.Usuario.ApellidoMaterno +" |";
             lblFechaHora.Text = "| " +Fechaactual.ToLongDateString() + " |";
             this.procesosUsuario = procesosUsuario;
-            
-            
+            menuStrip1.ForeColor = Color.White;
         }
 
         
@@ -261,6 +260,36 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         private void usuarioToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             toolStripTextBoxUsuario.Focus();
+        }
+
+        private void verToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuStrip1.ForeColor = Color.Black;
+        }
+
+        private void filtrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuStrip1.ForeColor = Color.Black;
+        }
+
+        private void herramientasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            menuStrip1.ForeColor = Color.Black;
+        }
+
+        private void herramientasToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+            menuStrip1.ForeColor = Color.White;
+        }
+
+        private void filtrarToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+            menuStrip1.ForeColor = Color.White;
+        }
+
+        private void verToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+            menuStrip1.ForeColor = Color.White;
         }
     }
 }

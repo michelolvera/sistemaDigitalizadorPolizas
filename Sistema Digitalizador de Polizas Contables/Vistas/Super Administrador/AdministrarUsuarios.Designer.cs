@@ -154,7 +154,7 @@
             this.tabPageAcceso.Controls.Add(this.lblArea);
             this.tabPageAcceso.Location = new System.Drawing.Point(4, 25);
             this.tabPageAcceso.Name = "tabPageAcceso";
-            this.tabPageAcceso.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageAcceso.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageAcceso.Size = new System.Drawing.Size(403, 93);
             this.tabPageAcceso.TabIndex = 0;
             this.tabPageAcceso.Text = "Datos de acceso";
@@ -210,7 +210,7 @@
             this.tabPagePersonales.Controls.Add(this.lblApellidoP);
             this.tabPagePersonales.Location = new System.Drawing.Point(4, 25);
             this.tabPagePersonales.Name = "tabPagePersonales";
-            this.tabPagePersonales.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPagePersonales.Padding = new System.Windows.Forms.Padding(3);
             this.tabPagePersonales.Size = new System.Drawing.Size(403, 93);
             this.tabPagePersonales.TabIndex = 1;
             this.tabPagePersonales.Text = "Datos personales";
@@ -339,7 +339,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.btnCancelar.Location = new System.Drawing.Point(16, 204);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(88, 24);
             this.btnCancelar.TabIndex = 10;
@@ -355,7 +355,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.btnGuardar.Location = new System.Drawing.Point(333, 205);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(88, 24);
             this.btnGuardar.TabIndex = 9;
@@ -368,9 +368,9 @@
             this.margenDer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.margenDer.BackColor = System.Drawing.Color.Black;
-            this.margenDer.Location = new System.Drawing.Point(433, 27);
+            this.margenDer.Location = new System.Drawing.Point(434, 27);
             this.margenDer.Name = "margenDer";
-            this.margenDer.Size = new System.Drawing.Size(2, 215);
+            this.margenDer.Size = new System.Drawing.Size(1, 215);
             this.margenDer.TabIndex = 40;
             this.margenDer.TabStop = false;
             // 
@@ -381,7 +381,7 @@
             this.margenIzq.BackColor = System.Drawing.Color.Black;
             this.margenIzq.Location = new System.Drawing.Point(0, 25);
             this.margenIzq.Name = "margenIzq";
-            this.margenIzq.Size = new System.Drawing.Size(2, 218);
+            this.margenIzq.Size = new System.Drawing.Size(1, 218);
             this.margenIzq.TabIndex = 39;
             this.margenIzq.TabStop = false;
             // 
@@ -390,9 +390,9 @@
             this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.margenAbajo.BackColor = System.Drawing.Color.Black;
-            this.margenAbajo.Location = new System.Drawing.Point(0, 239);
+            this.margenAbajo.Location = new System.Drawing.Point(0, 240);
             this.margenAbajo.Name = "margenAbajo";
-            this.margenAbajo.Size = new System.Drawing.Size(435, 2);
+            this.margenAbajo.Size = new System.Drawing.Size(435, 1);
             this.margenAbajo.TabIndex = 38;
             this.margenAbajo.TabStop = false;
             // 
@@ -400,7 +400,7 @@
             // 
             this.TxbSAPass.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.TxbSAPass.Location = new System.Drawing.Point(219, 206);
-            this.TxbSAPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxbSAPass.Margin = new System.Windows.Forms.Padding(2);
             this.TxbSAPass.Name = "TxbSAPass";
             this.TxbSAPass.Size = new System.Drawing.Size(109, 22);
             this.TxbSAPass.TabIndex = 41;
