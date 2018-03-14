@@ -229,5 +229,15 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
                 BtnGuardar_Click(null, e);
             }
         }
+
+        private void checkBoxDios_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBoxDios.Checked)
+            {
+                checkBoxAdmin.Checked = true;
+                checkBoxAdmin.Enabled = false;
+            }else
+                checkBoxAdmin.Enabled = true;
+        }
     }
 }
