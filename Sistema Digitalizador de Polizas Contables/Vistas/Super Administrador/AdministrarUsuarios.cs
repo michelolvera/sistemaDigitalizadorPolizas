@@ -33,7 +33,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
         private void AdministrarUsuarios_Load(object sender, EventArgs e)
         {
             //Lista de usuarios
-            cmbUsuario = procesosDios.LlenarCombo(cmbUsuario, 1, 0);
+            cmbUsuario = procesosDios.LlenarCombo(cmbUsuario, 1);
             cmbUsuario.Items.Add("< Nuevo >");
             txtContrasena.Enabled = false;
             cmbArea.Enabled = false;
@@ -55,7 +55,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             txtbNombre.Enabled = true;
             checkBoxAdmin.Enabled = true;
             checkBoxDios.Enabled = true;
-            cmbArea = procesosDios.LlenarCombo(cmbArea, 0, 0);
+            cmbArea = procesosDios.LlenarCombo(cmbArea, 0);
             lblSAPass.Visible = true;
             TxbSAPass.Visible = true;
             if (cmbUsuario.Items.Count == cmbUsuario.SelectedIndex + 1 && cmbUsuario.Text == "< Nuevo >")// crear nuevo usuario
@@ -202,7 +202,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             lblUsuarioSeleccionado.Text = "Seleccione un nombre usuario para comenzar";
             txtContrasena.Text = String.Empty;
             cmbUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbUsuario = procesosDios.LlenarCombo(cmbUsuario, 1, 0);
+            cmbUsuario = procesosDios.LlenarCombo(cmbUsuario, 1);
             cmbUsuario.Items.Add("< Nuevo >");
             btnGuardar.Enabled = false;
             txtbApellidoMaterno.Text = String.Empty;

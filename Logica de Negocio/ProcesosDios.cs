@@ -9,6 +9,11 @@ using Entidades;
 
 namespace Logica_de_Negocio
 {
+    /// <summary>
+    /// Clase que contiene todas las operaciones que puede realizar un usuario DIOS, extiene de procesos administrador
+    /// usuarioId: Lista de IDs de Usuario
+    /// nombreUsuario: Lista de los nombres de usuario
+    /// </summary>
     public class ProcesosDios : ProcesosAdministrador
     {
         List<int> usuarioId = new List<int>();
@@ -18,7 +23,13 @@ namespace Logica_de_Negocio
 
         }
 
-        public new ComboBox LlenarCombo(ComboBox origenCombo, int opc, int index)
+        /// <summary>
+        /// Metodo que permite llenar combobox con datos solicitados
+        /// </summary>
+        /// <param name="origenCombo">ComboBox que se llenara de datos</param>
+        /// <param name="opc">Entero que simboliza las opciones de datos para llenar el combo</param>
+        /// <returns>El combobox con los datos solicitados</returns>
+        public ComboBox LlenarCombo(ComboBox origenCombo, int opc)
         {
             switch (opc)
             {
@@ -55,6 +66,11 @@ namespace Logica_de_Negocio
             return origenCombo;
         }
 
+        /// <summary>
+        /// Metodo que obtiene la informacion del usuario desde la BD
+        /// </summary>
+        /// <param name="index">Indice de posicion del usuario en el combo y por lo tanto en la lista</param>
+        /// <returns>Entidad con toda la informacion del usuario</returns>
         public UsuarioInfo ObtenerUsuario (int index)
         {
             estado = Conexion.EjecutarConsulta("EXECUTE SP_DIG_OBTENER_USUARIO_SELECCIONADO "+ usuarioId[index]);
@@ -75,6 +91,13 @@ namespace Logica_de_Negocio
             return usuarioInfo;
         }
 
+        /// <summary>
+        /// Metodo que permite registrar un usuario.
+        /// </summary>
+        /// <param name="EsNuevo">Indica si el usuario es nuevo o es actualizacion</param>
+        /// <param name="usuario">La informacion del usuario</param>
+        /// <param name="saPass">Contaseña de usuario SA en SQL</param>
+        /// <returns></returns>
         public bool RegistroUsuario(bool EsNuevo, UsuarioInfo usuario, string saPass) {
             SQLConexion ConexionSA = new SQLConexion(nombreServidor, nombreBD, "sa", saPass);
             if (ConexionSA.AbrirConexion().Estado == false)
@@ -84,11 +107,15 @@ namespace Logica_de_Negocio
             return estado.Estado;
         }
 
+        /// <summary>
+        /// Metodo que comprueba la existencia de un nombre de usuario
+        /// </summary>
+        /// <param name="nombre">Nombre a comprobar</param>
+        /// <returns>Verdadero si existe, falso si no.</returns>
         public bool ComprobarUsuarioExiste(string nombre)
         {
             return nombreUsuario.Contains(nombre.ToLower());
         }
-
         
     }
 }
