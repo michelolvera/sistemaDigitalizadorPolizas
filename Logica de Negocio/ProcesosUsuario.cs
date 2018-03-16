@@ -26,6 +26,7 @@ namespace Logica_de_Negocio
     /// datosArchivo: Instancia de DatosArchivo que contiene toda la informacion del archivo que se digitalizara.
     /// registroId: Lista de IDs de la tabla [dbo].[TBL_DIG_REGISTRO_EXPEDIENTE]
     /// documentoDigId: Lista de IDs de la tabla [dbo].[TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS]
+    /// directorioDatos: String que contiene la ruta a la carpeta donde se guardan los documentos.
     /// </summary>
     public class ProcesosUsuario
     {
@@ -36,6 +37,7 @@ namespace Logica_de_Negocio
         private DatosArchivo datosArchivo=null;
         List<int> registroId = new List<int>();
         List<int> documentoDigId = new List<int>();
+        private String directorioDatos = ConfigurationManager.AppSettings["savepath"];//Directorio en donde se guardaran los archivos
 
         public ProcesosUsuario(UsuarioInfo Usuario)
         {
@@ -43,6 +45,10 @@ namespace Logica_de_Negocio
             Conexion = new SQLConexion(nombreServidor, nombreBD, this.Usuario.NombreUsuario, this.Usuario.Contraseña);
         }
 
+        /// <summary>
+        /// Meotodo que inicia la conexion con SQL Server, envia todos los parametros de usuario.
+        /// </summary>
+        /// <returns>Verdadero si la conexion se inicio, falso de lo contrario</returns>
         public bool IniciarSesion()
         {
             if (Conexion.AbrirConexion().Estado)
@@ -72,8 +78,15 @@ namespace Logica_de_Negocio
             }
             return false;
         }
-        
 
+        /// <summary>
+        /// Metodo que permite llenar el DataGridStyle que se ubica en la pantalla principal
+        /// </summary>
+        /// <param name="origenTabla">DataGridStyle de origen, sera vaciado y rellenado</param>
+        /// <param name="completado">Indica si los registros deben estar completados o no</param>
+        /// <param name="filtro">Undica si se filtrara eb la busqueda de la BD</param>
+        /// <param name="clave">Palabra para incluir en el filtro</param>
+        /// <returns>El mismo DataGridStyle pero con datos</returns>
         public Entidades.DataGridStyle LlenarTablaExpedientesPendientes(Entidades.DataGridStyle origenTabla, bool completado, int filtro, string clave)
         {
             if (clave == null || clave == string.Empty)
@@ -95,6 +108,13 @@ namespace Logica_de_Negocio
             return origenTabla;
         }
 
+        /// <summary>
+        /// Meotodo que llena la tabla de documentos pendientes de digitalizar
+        /// </summary>
+        /// <param name="origenTabla">DataGridStyle de origen, sera vaciado y rellenado</param>
+        /// <param name="expediente">ID del expediente al que deben perdenecer los documentos</param>
+        /// <param name="completado">Indica si los documentos a mostrarse deben estar completados o no</param>
+        /// <returns></returns>
         public Entidades.DataGridStyle LlenarTablaDocumentosPendientes(Entidades.DataGridStyle origenTabla, int expediente, bool completado)
         {
             documentoDigId.Clear();
@@ -125,23 +145,33 @@ namespace Logica_de_Negocio
             return origenTabla;
         }
 
+        /// <summary>
+        /// Metodo que regresa el Id del registro acorde a su posicion en el combo box
+        /// </summary>
+        /// <param name="index">Indice de la la posicion de combo</param>
+        /// <returns>ID del registro</returns>
         public int ObtenerRegistroId(int index)
         {
             return registroId[index];
         }
 
+        /// <summary>
+        /// Actualiza en la BD si el documento esta digitalizado o no
+        /// </summary>
+        /// <param name="rowIndex">Indice de posicion en el DataGridStyle</param>
+        /// <param name="digitalizado">Booleano que indica el estado de digitalizado</param>
+        /// <returns>Regresa un boleano que indica si la operacion fue exitosa</returns>
         public bool ActualizarDigitalizado(int rowIndex, bool digitalizado)
         {
             Console.WriteLine(digitalizado);
             return Conexion.EjecutarSentencia("Execute SP_DIG_ACTUALIZAR_DIGITALIZADO " + (digitalizado ? 1 : 0) +", "+ documentoDigId[rowIndex]).Estado;
         }
 
-        //
-        ///---------------- Gestion de Rutas y Archivos -----------------///
-        //
-
-        private String directorioDatos = ConfigurationManager.AppSettings["savepath"];//Directorio en donde se guardaran los archivos
-
+        /// <summary>
+        /// Metodo que lee el archivo y lo escribe en la carpeta de documentos.
+        /// </summary>
+        /// <param name="pathArchivo">Directorio del archivo.</param>
+        /// <returns>Booleano que indica si la operacion fue correcta.</returns>
         public bool CopiarArchivo(String pathArchivo)
         {
             if (datosArchivo != null)
@@ -213,23 +243,11 @@ namespace Logica_de_Negocio
             return false;
         }
 
-        public bool MezclarDocumento(int actual)
-        {
-            OpenFileDialog fuente = new OpenFileDialog { Filter = " Archivos PDF(*.pdf)|*.pdf" };
-            if (fuente.ShowDialog() == DialogResult.OK)
-            {
-                string source = fuente.FileName;
-                MergeDocs(source);
-                fuente.Dispose();
-                return true;
-            }
-            else
-            {
-                fuente.Dispose();
-                return false;
-            }
-        }
-
+        /// <summary>
+        /// Metodo que copia el archivo secundario para realizar un merge de archivos
+        /// </summary>
+        /// <param name="pathArchivo">URL donde se encuentra el archivo</param>
+        /// <returns>Booleano que indica si la operacion se realizo de manera correcta</returns>
         public bool CopiarArchivoTemporal(String pathArchivo)
         {
             using (FileStream sourceDocumento = new FileStream(pathArchivo, FileMode.Open, FileAccess.Read))
@@ -252,8 +270,11 @@ namespace Logica_de_Negocio
             }
             return false;
         }
-        
 
+        /// <summary>
+        /// Metodo que elimina un archivo de un directorio
+        /// </summary>
+        /// <returns>Booleano que indica si la operacion se realizo de manera correcta</returns>
         public bool EliminarArchivo()
         {
             if (Directory.Exists(datosArchivo.Ruta))
@@ -285,6 +306,10 @@ namespace Logica_de_Negocio
             return false;
         }
 
+        /// <summary>
+        /// Metodo que construye una ruta do documento basandode en los datos del documento que se debe escanear
+        /// </summary>
+        /// <param name="row">Posicion del documento en el DataGridStyle</param>
         public void ConstruirRuta(int row)
         {
             datosArchivo = new DatosArchivo();
@@ -301,6 +326,12 @@ namespace Logica_de_Negocio
                 sQLEstado.Resultado.Close();
             }
         }
+
+        /// <summary>
+        /// Metodo que hace bisible el plugin Adobe Reader para la visualizacion de documentos PDF
+        /// </summary>
+        /// <param name="axAcroPDF">Instancia que se mostrara</param>
+        /// <returns>Booleano que indica si la operacion se realizo de manera correcta</returns>
         public bool MostrarPDF(AxAcroPDF axAcroPDF)
         {
             String source = datosArchivo.Ruta + "\\" + datosArchivo.NombreArchivo;
@@ -317,12 +348,22 @@ namespace Logica_de_Negocio
             }
         }
         
+        /// <summary>
+        /// Cuenta los caracteres de una cadena para evitar que sea mayor a 100 caracteres
+        /// </summary>
+        /// <param name="cadena">Cadena a validar</param>
+        /// <returns>Retorna falso si la cadena en menor a 100 caracteres, verdadero si es mayor</returns>
         public bool ValidarLongitudCadena(string cadena)
         {
-            //Si la cadena excede los 100 caracteres regresa false, de lo contrario y por lo tanto de 100 o menos caracteres retorna true
             return cadena.Length > 100 ? false : true;
         }
 
+        /// <summary>
+        /// Metodo que realiza una bisqueda dentro de toda la informacion de un DataGridStyle,
+        /// oculta las filas que no tienen ninguna coincidencia con un texto dado.
+        /// </summary>
+        /// <param name="dgv">DataGridStyle en el que se buscata</param>
+        /// <param name="txbB">TextBox que contoene el texto que se debe buscar.</param>
         public void Buscar(DataGridStyle dgv, TextBox txbB)
         {
             int rows = dgv.RowCount;
@@ -348,7 +389,10 @@ namespace Logica_de_Negocio
             }
         }
         
-
+        /// <summary>
+        /// Metodo para unir dos documentos PDF
+        /// </summary>
+        /// <param name="archivoNuevo">URL del archivo secundario</param>
         public void MergeDocs(string archivoNuevo)
         {
             CopiarArchivoTemporal(archivoNuevo);
@@ -370,7 +414,28 @@ namespace Logica_de_Negocio
                     docDestino.AddPage(docFuente.Pages[i]);
                 }
             }
-            Console.WriteLine("Aqui termino");
+        }
+
+        /// <summary>
+        /// Metodo que permite seleccionar el documento que se unira al principal
+        /// </summary>
+        /// <param name="actual">Id del documento actual</param>
+        /// <returns>Booleano que indica si la operacion se realizo de manera correcta</returns>
+        public bool MezclarDocumento(int actual)
+        {
+            OpenFileDialog fuente = new OpenFileDialog { Filter = " Archivos PDF(*.pdf)|*.pdf" };
+            if (fuente.ShowDialog() == DialogResult.OK)
+            {
+                string source = fuente.FileName;
+                MergeDocs(source);
+                fuente.Dispose();
+                return true;
+            }
+            else
+            {
+                fuente.Dispose();
+                return false;
+            }
         }
     }
 }
