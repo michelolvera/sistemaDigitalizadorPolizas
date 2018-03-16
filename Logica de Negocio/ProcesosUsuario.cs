@@ -14,10 +14,21 @@ using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 
 namespace Logica_de_Negocio
-{   //Comunicacion y formateo de datos con SQL Server 2008
+{
+    /// <summary>
+    /// Clase que contiene todos los procesos que el usuario comun de la aplicacion,
+    /// no administrador ni super administrador, puede ejecutar.
+    /// Variables:
+    /// nombreServidor: Contiene el nombre del servidor que obtiene automaticamente desde el archivo App.config
+    /// nombreBD: Contiene el nombre de la base de datos obtiene automaticamente desde el archivo App.config
+    /// Conexion: Instancia de SQLConexion que se inicializa con todos los datos de usuario
+    /// Usuario: Instancia de UsuarioInfo que contiene toda la informacion del usuario.
+    /// datosArchivo: Instancia de DatosArchivo que contiene toda la informacion del archivo que se digitalizara.
+    /// registroId: Lista de IDs de la tabla [dbo].[TBL_DIG_REGISTRO_EXPEDIENTE]
+    /// documentoDigId: Lista de IDs de la tabla [dbo].[TBL_DIG_REGISTRO_EXPEDIENTE_DOCUMENTOS]
+    /// </summary>
     public class ProcesosUsuario
     {
-        //Direccion de servidor
         protected String nombreServidor = ConfigurationManager.AppSettings["server"];
         protected String nombreBD = ConfigurationManager.AppSettings["dbname"];
         public SQLConexion Conexion { get; }

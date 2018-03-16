@@ -3,6 +3,16 @@ using System;
 using System.Data.SqlClient;
 namespace Acceso_a_Datos
 {
+    /// <summary>
+    /// Clase que controla todas las conexiones a la base de datos, debe inicializarse con 
+    /// dataSource: La direccion o nombre del servidor
+    /// dataBase: Nombre de la base de datos
+    /// user: nombre de usuario de la BD
+    /// password: contraseña de la base de datos
+    /// 
+    /// Todos los metodos retornan un objeto SQLEstado que cuenta con toda la informacion
+    /// sobre la consulta.
+    /// </summary>
     public class SQLConexion
     {
         private string dataSource;//IP o Servidor local
@@ -19,6 +29,13 @@ namespace Acceso_a_Datos
             this.password = password;
         }
 
+        /// <summary>
+        /// Inicia una instancia de conexion a la base de datos. Retorna un objeto
+        /// </summary>
+        /// <returns>
+        /// Retorna el objeto SQLEstado con el mensaje de conexión exitosa.
+        /// Variable Estado=true cuando se realizo la conexión.
+        /// </returns>
         public SQLEstado AbrirConexion()
         {
             string connetionString = "Data Source=" + dataSource + ";Initial Catalog=" + dataBase + ";User ID=" + user + ";Password=" + password;
@@ -26,13 +43,19 @@ namespace Acceso_a_Datos
             {
                 sqlConnection = new SqlConnection(connetionString);
                 sqlConnection.Open();
-                return new SQLEstado(true, null, "Instancia de conexion a base de datos iniciada", null);
+                return new SQLEstado(true, null, "Instancia de conexion a base de datos iniciada");
             }catch(Exception ex)
             {
-                return new SQLEstado(false, null, "Error conectando al servidor: " + dataSource + " - Mensaje de error: " + ex.Message, null);
+                return new SQLEstado(false, null, "Error conectando al servidor: " + dataSource + " - Mensaje de error: " + ex.Message);
             }
         }
 
+        /// <summary>
+        /// Cierra la instancia de conexion a la base de datos siempre y cuando esta no este abierta.
+        /// </summary>
+        /// <returns>Retorna el objeto SQLEstado con el mensaje de cerrado y Estado=true si se cerro
+        /// de manera correcta.
+        /// </returns>
         public SQLEstado CerrarConexion()
         {
             if (sqlConnection != null)
@@ -43,12 +66,18 @@ namespace Acceso_a_Datos
                 }
                 catch(Exception ex)
                 {
-                    return new SQLEstado(false, null, "Error al cerrar conexion - Mensaje de error: " + ex.Message, null);
+                    return new SQLEstado(false, null, "Error al cerrar conexion - Mensaje de error: " + ex.Message);
                 }
             }
             return new SQLEstado(true, null, "Conexion cerrada exitosamente", null);
         }
 
+        /// <summary>
+        /// Metodo que ejecuta una sentencia en la base de datos, este metodo no retorna
+        /// informacion importante mas que si la sentencia fue correcta o no
+        /// </summary>
+        /// <param name="sentenciaSQL">El String que contiene la sentencia.</param>
+        /// <returns>Un SQLEstado con solo la variable Estado</returns>
         public SQLEstado EjecutarSentencia(string sentenciaSQL)
         {
             SqlCommand sqlCommand;
@@ -68,6 +97,13 @@ namespace Acceso_a_Datos
             }
         }
 
+        /// <summary>
+        /// Metodo que ejecuta una consulta en la base de datos
+        /// </summary>
+        /// <param name="consultaSQL">El String que contiene la consulta.</param>
+        /// <returns>Un SQLEstado con todos sus valores llenos, incluye resultado,
+        /// estado y mensaje
+        /// </returns>
         public SQLEstado EjecutarConsulta(string consultaSQL)
         {
             SqlDataReader sqlDataReader;
@@ -87,24 +123,6 @@ namespace Acceso_a_Datos
             catch (Exception ex)
             {
                 return new SQLEstado(false, null, "Error al ejecutar consulta - Mensaje de error: " + ex.Message, null);
-            }
-        }
-
-        public SQLEstado ObtenerTabla(string consultaSQL)
-        {
-            SqlDataAdapter sqlDataAdapter;
-            try
-            {
-                if (sqlConnection == null)
-                {
-                    AbrirConexion();
-                }
-                sqlDataAdapter = new SqlDataAdapter(consultaSQL, sqlConnection);
-                return new SQLEstado(true, null, "Tabla generada con exito", sqlDataAdapter);
-            }
-            catch (Exception ex)
-            {
-                return new SQLEstado(false, null, "Error al obtener tabla - Mensaje de error: " + ex.Message, null);
             }
         }
 
