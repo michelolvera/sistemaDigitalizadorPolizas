@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpedientesP));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,7 +90,7 @@
             this.insertarRegistroToolStripMenuItem,
             this.usuariosToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
             this.herramientasToolStripMenuItem.Text = "Administrar";
             this.herramientasToolStripMenuItem.DropDownClosed += new System.EventHandler(this.herramientasToolStripMenuItem_DropDownClosed);
             this.herramientasToolStripMenuItem.Click += new System.EventHandler(this.herramientasToolStripMenuItem_Click);
@@ -98,22 +98,23 @@
             // administrarToolStripMenuItem
             // 
             this.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem";
-            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.administrarToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.administrarToolStripMenuItem.Text = "Getionar Documentos";
             this.administrarToolStripMenuItem.Click += new System.EventHandler(this.AdministrarToolStripMenuItem_Click);
             // 
             // insertarRegistroToolStripMenuItem
             // 
             this.insertarRegistroToolStripMenuItem.Name = "insertarRegistroToolStripMenuItem";
-            this.insertarRegistroToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.insertarRegistroToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.insertarRegistroToolStripMenuItem.Text = "Insertar Registro";
             this.insertarRegistroToolStripMenuItem.Click += new System.EventHandler(this.InsertarRegistroToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click_1);
             // 
             // menuStrip1
             // 
@@ -125,10 +126,10 @@
             this.verToolStripMenuItem,
             this.filtrarToolStripMenuItem,
             this.herramientasToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(6, 44);
+            this.menuStrip1.Location = new System.Drawing.Point(8, 54);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(260, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(353, 28);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -137,7 +138,7 @@
             this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mostrarExpedientesCompletadosToolStripMenuItem});
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(43, 24);
             this.verToolStripMenuItem.Text = "Ver";
             this.verToolStripMenuItem.DropDownClosed += new System.EventHandler(this.verToolStripMenuItem_DropDownClosed);
             this.verToolStripMenuItem.Click += new System.EventHandler(this.verToolStripMenuItem_Click);
@@ -145,7 +146,7 @@
             // mostrarExpedientesCompletadosToolStripMenuItem
             // 
             this.mostrarExpedientesCompletadosToolStripMenuItem.Name = "mostrarExpedientesCompletadosToolStripMenuItem";
-            this.mostrarExpedientesCompletadosToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.mostrarExpedientesCompletadosToolStripMenuItem.Size = new System.Drawing.Size(319, 26);
             this.mostrarExpedientesCompletadosToolStripMenuItem.Text = "Mostrar expedientes completados";
             this.mostrarExpedientesCompletadosToolStripMenuItem.Click += new System.EventHandler(this.MostrarExpedientesCompletadosToolStripMenuItem_Click);
             // 
@@ -157,7 +158,7 @@
             this.usuarioToolStripMenuItem,
             this.eliminarFiltrosToolStripMenuItem});
             this.filtrarToolStripMenuItem.Name = "filtrarToolStripMenuItem";
-            this.filtrarToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.filtrarToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.filtrarToolStripMenuItem.Text = "Filtrar";
             this.filtrarToolStripMenuItem.DropDownClosed += new System.EventHandler(this.filtrarToolStripMenuItem_DropDownClosed);
             this.filtrarToolStripMenuItem.Click += new System.EventHandler(this.filtrarToolStripMenuItem_Click);
@@ -167,13 +168,13 @@
             this.expToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBoxExpediente});
             this.expToolStripMenuItem.Name = "expToolStripMenuItem";
-            this.expToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.expToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.expToolStripMenuItem.Text = "Expedientes";
             // 
             // toolStripTextBoxExpediente
             // 
             this.toolStripTextBoxExpediente.Name = "toolStripTextBoxExpediente";
-            this.toolStripTextBoxExpediente.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBoxExpediente.Size = new System.Drawing.Size(100, 27);
             this.toolStripTextBoxExpediente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxExpediente_KeyUp);
             // 
             // catToolStripMenuItem
@@ -181,14 +182,14 @@
             this.catToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBoxCategoria});
             this.catToolStripMenuItem.Name = "catToolStripMenuItem";
-            this.catToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.catToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.catToolStripMenuItem.Text = "Categoria";
             this.catToolStripMenuItem.Click += new System.EventHandler(this.catToolStripMenuItem_Click);
             // 
             // toolStripTextBoxCategoria
             // 
             this.toolStripTextBoxCategoria.Name = "toolStripTextBoxCategoria";
-            this.toolStripTextBoxCategoria.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBoxCategoria.Size = new System.Drawing.Size(100, 27);
             this.toolStripTextBoxCategoria.KeyUp += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxCategoria_KeyUp);
             // 
             // usuarioToolStripMenuItem
@@ -196,19 +197,19 @@
             this.usuarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBoxUsuario});
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             // 
             // toolStripTextBoxUsuario
             // 
             this.toolStripTextBoxUsuario.Name = "toolStripTextBoxUsuario";
-            this.toolStripTextBoxUsuario.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBoxUsuario.Size = new System.Drawing.Size(100, 27);
             this.toolStripTextBoxUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxUsuario_KeyUp);
             // 
             // eliminarFiltrosToolStripMenuItem
             // 
             this.eliminarFiltrosToolStripMenuItem.Name = "eliminarFiltrosToolStripMenuItem";
-            this.eliminarFiltrosToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.eliminarFiltrosToolStripMenuItem.Size = new System.Drawing.Size(174, 26);
             this.eliminarFiltrosToolStripMenuItem.Text = "Eliminar filtros";
             this.eliminarFiltrosToolStripMenuItem.Click += new System.EventHandler(this.eliminarFiltrosToolStripMenuItem_Click);
             // 
@@ -216,10 +217,10 @@
             // 
             this.txbBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbBusqueda.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.txbBusqueda.Location = new System.Drawing.Point(375, 45);
-            this.txbBusqueda.Margin = new System.Windows.Forms.Padding(2);
+            this.txbBusqueda.Location = new System.Drawing.Point(500, 55);
+            this.txbBusqueda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbBusqueda.Name = "txbBusqueda";
-            this.txbBusqueda.Size = new System.Drawing.Size(342, 22);
+            this.txbBusqueda.Size = new System.Drawing.Size(455, 26);
             this.txbBusqueda.TabIndex = 7;
             this.txbBusqueda.TextChanged += new System.EventHandler(this.TxbBusqueda_TextChanged);
             // 
@@ -228,9 +229,10 @@
             this.pctBoxCabecera1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pctBoxCabecera1.BackColor = System.Drawing.Color.Black;
-            this.pctBoxCabecera1.Location = new System.Drawing.Point(-2, -1);
+            this.pctBoxCabecera1.Location = new System.Drawing.Point(-3, -1);
+            this.pctBoxCabecera1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pctBoxCabecera1.Name = "pctBoxCabecera1";
-            this.pctBoxCabecera1.Size = new System.Drawing.Size(766, 63);
+            this.pctBoxCabecera1.Size = new System.Drawing.Size(1021, 78);
             this.pctBoxCabecera1.TabIndex = 10;
             this.pctBoxCabecera1.TabStop = false;
             // 
@@ -238,9 +240,10 @@
             // 
             this.pictureBoxCajaLogo.BackColor = System.Drawing.Color.Black;
             this.pictureBoxCajaLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCajaLogo.Image")));
-            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(-2, 2);
+            this.pictureBoxCajaLogo.Location = new System.Drawing.Point(-3, 2);
+            this.pictureBoxCajaLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxCajaLogo.Name = "pictureBoxCajaLogo";
-            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(60, 32);
+            this.pictureBoxCajaLogo.Size = new System.Drawing.Size(80, 39);
             this.pictureBoxCajaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCajaLogo.TabIndex = 11;
             this.pictureBoxCajaLogo.TabStop = false;
@@ -251,9 +254,10 @@
             this.lblTituloVentana.BackColor = System.Drawing.Color.Black;
             this.lblTituloVentana.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblTituloVentana.ForeColor = System.Drawing.Color.White;
-            this.lblTituloVentana.Location = new System.Drawing.Point(55, 9);
+            this.lblTituloVentana.Location = new System.Drawing.Point(73, 11);
+            this.lblTituloVentana.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTituloVentana.Name = "lblTituloVentana";
-            this.lblTituloVentana.Size = new System.Drawing.Size(188, 16);
+            this.lblTituloVentana.Size = new System.Drawing.Size(237, 18);
             this.lblTituloVentana.TabIndex = 12;
             this.lblTituloVentana.Text = "|    Expedientes pendientes     |";
             // 
@@ -263,9 +267,10 @@
             this.lblFechaHora.BackColor = System.Drawing.Color.Black;
             this.lblFechaHora.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblFechaHora.ForeColor = System.Drawing.Color.White;
-            this.lblFechaHora.Location = new System.Drawing.Point(235, 9);
+            this.lblFechaHora.Location = new System.Drawing.Point(313, 11);
+            this.lblFechaHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaHora.Name = "lblFechaHora";
-            this.lblFechaHora.Size = new System.Drawing.Size(178, 16);
+            this.lblFechaHora.Size = new System.Drawing.Size(234, 18);
             this.lblFechaHora.TabIndex = 13;
             this.lblFechaHora.Text = "|                                                    |";
             // 
@@ -275,9 +280,10 @@
             this.picBoxLog.BackColor = System.Drawing.Color.Black;
             this.picBoxLog.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxLog.BackgroundImage")));
             this.picBoxLog.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBoxLog.Location = new System.Drawing.Point(473, 6);
+            this.picBoxLog.Location = new System.Drawing.Point(631, 7);
+            this.picBoxLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBoxLog.Name = "picBoxLog";
-            this.picBoxLog.Size = new System.Drawing.Size(26, 26);
+            this.picBoxLog.Size = new System.Drawing.Size(35, 32);
             this.picBoxLog.TabIndex = 14;
             this.picBoxLog.TabStop = false;
             // 
@@ -288,9 +294,10 @@
             this.lblUsuarioActual.BackColor = System.Drawing.Color.Black;
             this.lblUsuarioActual.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.lblUsuarioActual.ForeColor = System.Drawing.Color.White;
-            this.lblUsuarioActual.Location = new System.Drawing.Point(500, 11);
+            this.lblUsuarioActual.Location = new System.Drawing.Point(667, 14);
+            this.lblUsuarioActual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuarioActual.Name = "lblUsuarioActual";
-            this.lblUsuarioActual.Size = new System.Drawing.Size(202, 16);
+            this.lblUsuarioActual.Size = new System.Drawing.Size(266, 18);
             this.lblUsuarioActual.TabIndex = 15;
             this.lblUsuarioActual.Text = "|                                                            |";
             // 
@@ -299,9 +306,10 @@
             this.pctBoxBarra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pctBoxBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.pctBoxBarra.Location = new System.Drawing.Point(-2, 38);
+            this.pctBoxBarra.Location = new System.Drawing.Point(-3, 47);
+            this.pctBoxBarra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pctBoxBarra.Name = "pctBoxBarra";
-            this.pctBoxBarra.Size = new System.Drawing.Size(766, 35);
+            this.pctBoxBarra.Size = new System.Drawing.Size(1021, 43);
             this.pctBoxBarra.TabIndex = 25;
             this.pctBoxBarra.TabStop = false;
             // 
@@ -310,9 +318,10 @@
             this.margenDer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.margenDer.BackColor = System.Drawing.Color.Black;
-            this.margenDer.Location = new System.Drawing.Point(762, 36);
+            this.margenDer.Location = new System.Drawing.Point(1016, 44);
+            this.margenDer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.margenDer.Name = "margenDer";
-            this.margenDer.Size = new System.Drawing.Size(1, 410);
+            this.margenDer.Size = new System.Drawing.Size(1, 505);
             this.margenDer.TabIndex = 40;
             this.margenDer.TabStop = false;
             // 
@@ -321,9 +330,10 @@
             this.margenIzq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.margenIzq.BackColor = System.Drawing.Color.Black;
-            this.margenIzq.Location = new System.Drawing.Point(0, 35);
+            this.margenIzq.Location = new System.Drawing.Point(0, 43);
+            this.margenIzq.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.margenIzq.Name = "margenIzq";
-            this.margenIzq.Size = new System.Drawing.Size(1, 410);
+            this.margenIzq.Size = new System.Drawing.Size(1, 505);
             this.margenIzq.TabIndex = 39;
             this.margenIzq.TabStop = false;
             // 
@@ -332,9 +342,10 @@
             this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.margenAbajo.BackColor = System.Drawing.Color.Black;
-            this.margenAbajo.Location = new System.Drawing.Point(0, 445);
+            this.margenAbajo.Location = new System.Drawing.Point(0, 548);
+            this.margenAbajo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.margenAbajo.Name = "margenAbajo";
-            this.margenAbajo.Size = new System.Drawing.Size(762, 1);
+            this.margenAbajo.Size = new System.Drawing.Size(1016, 1);
             this.margenAbajo.TabIndex = 38;
             this.margenAbajo.TabStop = false;
             // 
@@ -345,9 +356,10 @@
             this.lblVerActual.BackColor = System.Drawing.Color.White;
             this.lblVerActual.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.lblVerActual.ForeColor = System.Drawing.Color.Black;
-            this.lblVerActual.Location = new System.Drawing.Point(280, 80);
+            this.lblVerActual.Location = new System.Drawing.Point(373, 98);
+            this.lblVerActual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVerActual.Name = "lblVerActual";
-            this.lblVerActual.Size = new System.Drawing.Size(237, 19);
+            this.lblVerActual.Size = new System.Drawing.Size(303, 23);
             this.lblVerActual.TabIndex = 41;
             this.lblVerActual.Text = "| Expedientes incompletos   |";
             // 
@@ -357,9 +369,10 @@
             this.picBoxBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.picBoxBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxBuscar.BackgroundImage")));
             this.picBoxBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBoxBuscar.Location = new System.Drawing.Point(338, 42);
+            this.picBoxBuscar.Location = new System.Drawing.Point(451, 52);
+            this.picBoxBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picBoxBuscar.Name = "picBoxBuscar";
-            this.picBoxBuscar.Size = new System.Drawing.Size(26, 26);
+            this.picBoxBuscar.Size = new System.Drawing.Size(35, 32);
             this.picBoxBuscar.TabIndex = 42;
             this.picBoxBuscar.TabStop = false;
             // 
@@ -372,9 +385,10 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnActualizar.Location = new System.Drawing.Point(727, 43);
+            this.btnActualizar.Location = new System.Drawing.Point(969, 53);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(25, 25);
+            this.btnActualizar.Size = new System.Drawing.Size(33, 31);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
@@ -388,9 +402,10 @@
             this.btnMin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMin.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnMin.Location = new System.Drawing.Point(701, 8);
+            this.btnMin.Location = new System.Drawing.Point(935, 10);
+            this.btnMin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(23, 23);
+            this.btnMin.Size = new System.Drawing.Size(31, 28);
             this.btnMin.TabIndex = 22;
             this.btnMin.UseVisualStyleBackColor = false;
             this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
@@ -404,9 +419,10 @@
             this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCerrar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.BtnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.BtnCerrar.Location = new System.Drawing.Point(730, 8);
+            this.BtnCerrar.Location = new System.Drawing.Point(973, 10);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(23, 23);
+            this.BtnCerrar.Size = new System.Drawing.Size(31, 28);
             this.BtnCerrar.TabIndex = 21;
             this.BtnCerrar.UseVisualStyleBackColor = false;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
@@ -417,8 +433,8 @@
             this.dgvExpedientes.AllowUserToDeleteRows = false;
             this.dgvExpedientes.AllowUserToResizeColumns = false;
             this.dgvExpedientes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.dgvExpedientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.dgvExpedientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvExpedientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -427,14 +443,14 @@
             this.dgvExpedientes.BackgroundColor = System.Drawing.Color.White;
             this.dgvExpedientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvExpedientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvExpedientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExpedientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.identificador,
@@ -443,27 +459,28 @@
             this.nombreExpediente,
             this.nombreCategoria,
             this.digitalizado});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(238)))), ((int)(((byte)(198)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvExpedientes.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvExpedientes.EnableHeadersVisualStyles = false;
             this.dgvExpedientes.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.dgvExpedientes.GridColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvExpedientes.Location = new System.Drawing.Point(10, 106);
+            this.dgvExpedientes.Location = new System.Drawing.Point(13, 130);
+            this.dgvExpedientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvExpedientes.MultiSelect = false;
             this.dgvExpedientes.Name = "dgvExpedientes";
             this.dgvExpedientes.ReadOnly = true;
             this.dgvExpedientes.RowHeadersVisible = false;
             this.dgvExpedientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            this.dgvExpedientes.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvExpedientes.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvExpedientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExpedientes.Size = new System.Drawing.Size(743, 332);
+            this.dgvExpedientes.Size = new System.Drawing.Size(991, 409);
             this.dgvExpedientes.TabIndex = 0;
             this.dgvExpedientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvExpedientes_CellMouseDoubleClick);
             this.dgvExpedientes.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvExpedientes_ColumnHeaderMouseClick);
@@ -518,10 +535,10 @@
             // 
             // ExpedientesP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(763, 446);
+            this.ClientSize = new System.Drawing.Size(1017, 549);
             this.Controls.Add(this.picBoxBuscar);
             this.Controls.Add(this.txbBusqueda);
             this.Controls.Add(this.menuStrip1);
@@ -543,6 +560,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ExpedientesP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Expedientes Pendientes de Digitalizar";

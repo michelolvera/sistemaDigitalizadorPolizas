@@ -369,5 +369,13 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
             menuStrip1.ForeColor = Color.White;
         }
+
+        private void usuariosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (procesosUsuario.Usuario.Dios)
+                new AdministrarUsuarios(new ProcesosDios(procesosUsuario.Usuario)).Show();
+            else
+                MessageBox.Show("Usted no cuenta con los privilegios necesarios para gestionar este sistema.", "Error");
+        }
     }
 }
