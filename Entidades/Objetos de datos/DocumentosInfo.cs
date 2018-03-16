@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// La entidad DocumentosInfo permite manejar la información de los documentos de forma mas cómoda 
+    /// PosIndex: Contiene el indice del documento
+    /// Nombre: Contiene el nombre del documento
+    /// Activo: Permite saber si el documento esta activo
+    /// CatIndex: Contiene en indice de la categoría
+    /// </summary>
     public class DocumentosInfo
     {
         public int PosIndex { get; }

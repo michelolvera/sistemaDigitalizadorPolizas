@@ -6,6 +6,19 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// La entidad UsuarioInfo permite manejar la información de los usuarios de forma mas cómoda 
+    /// Id: Contiene el ID del usuario
+    /// NombreUsuario : Contiene el nombre de usuario
+    /// Contraseña: Contiene la contraseña del usuario que se obtiene en el login
+    /// Nombre: nombre del usuario
+    /// ApellidoPaterno:Contiene el apellido paterno del usuario 
+    /// ApellidoMaterno: Contiene el apellido materno del usuario
+    /// IdArea: Contiene el ID del área al cual pertenece el usuario
+    /// Administrador: Esta variable permite saber si el usuario es administrador del area a el cual pertenece 
+    /// Dios: Esta variable permite saber si el usuario tiene permisos súper administrador
+    /// Area: Contiene el nombre del área del usuario
+    /// </summary>
     public class UsuarioInfo
     {
         public int Id { get; }
