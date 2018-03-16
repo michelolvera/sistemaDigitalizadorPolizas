@@ -69,7 +69,7 @@ namespace Acceso_a_Datos
                     return new SQLEstado(false, null, "Error al cerrar conexion - Mensaje de error: " + ex.Message);
                 }
             }
-            return new SQLEstado(true, null, "Conexion cerrada exitosamente", null);
+            return new SQLEstado(true, null, "Conexion cerrada exitosamente");
         }
 
         /// <summary>
@@ -90,10 +90,10 @@ namespace Acceso_a_Datos
                 sqlCommand = new SqlCommand(sentenciaSQL, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
                 sqlCommand.Dispose();
-                return new SQLEstado(true, null, "Sentencia insertada con exito", null);
+                return new SQLEstado(true, null, "Sentencia insertada con exito");
             }catch(Exception ex)
             {
-                return new SQLEstado(false, null, "Error al ejecutar sentencia - Mensaje de error: " + ex.Message, null);
+                return new SQLEstado(false, null, "Error al ejecutar sentencia - Mensaje de error: " + ex.Message);
             }
         }
 
@@ -117,12 +117,12 @@ namespace Acceso_a_Datos
                 sqlCommand = new SqlCommand(consultaSQL, sqlConnection);
                 sqlDataReader = sqlCommand.ExecuteReader();
                 sqlCommand.Dispose();
-                SQLEstado estado = new SQLEstado(true, sqlDataReader, "Consulta generada con exito", null);
+                SQLEstado estado = new SQLEstado(true, sqlDataReader, "Consulta generada con exito");
                 return estado;
             }
             catch (Exception ex)
             {
-                return new SQLEstado(false, null, "Error al ejecutar consulta - Mensaje de error: " + ex.Message, null);
+                return new SQLEstado(false, null, "Error al ejecutar consulta - Mensaje de error: " + ex.Message);
             }
         }
 
