@@ -5,6 +5,9 @@ using Logica_de_Negocio;
 
 namespace Sistema_Digitalizador_de_Polizas_Contables
 {
+    ///<summary>
+    ///Clase que contiene los eventos de la ventana del login
+    ///</summary>
     public partial class FormLogin : Form
     {
         public FormLogin()
@@ -12,6 +15,13 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             InitializeComponent();
         }
 
+        /// <summary>
+        /// evento de presionar el botón acceso
+        /// Obtiene obtiene los datos del formulario en un objeto UsuarioInfo
+        /// Verifica su identidad
+        /// Si ingreso los datos correctos inicia sesión 
+        /// Si no muestra un mensaje de error
+        /// </summary>
         private void BotonAccesoAdmin_Click(object sender, EventArgs e)
         {
             //Obtener datos del formulario en objeto UsuarioInfo
@@ -41,7 +51,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
             this.Close();
         }
+        
 
+        ///<summary>
+        ///evento cuando se cierra la ventana del login
+        ///</summary>
         private void LogIn_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -66,12 +80,17 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
 
         }
-
+        ///<summary>
+        ///Eventos de enter en  el text box
+        ///</summary>
         private void txbIDUsuario_Enter(object sender, EventArgs e)
         {
             BotonAccesoAdmin_Click(sender, e);
         }
 
+        ///<summary>
+        ///Eventos de enter en  el text box        
+        ///</summary>
         private void txbIDUsuario_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -79,7 +98,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                 BotonAccesoAdmin_Click(sender, e);
             }
         }
-
+        ///<summary>
+        ///Eventos de enter en  el text box        
+        ///</summary>
         private void txbNombreUsuario_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -87,7 +108,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
                 BotonAccesoAdmin_Click(sender, e);
             }
         }
-
+        ///<summary>
+        ///Eventos de enter en  el text box        
+        ///</summary>
         private void txbPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -130,7 +153,10 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         {
             this.Close();
         }
-
+        
+        ///<summary>
+        ///evento del boton que cierra la ventana del login
+        ///</summary>
         private void BtnCerrarLogIn_Click(object sender, EventArgs e)
         {
             this.Close();
