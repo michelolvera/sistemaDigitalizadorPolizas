@@ -55,9 +55,15 @@
             this.lblFechaHora = new System.Windows.Forms.Label();
             this.picBoxLog = new System.Windows.Forms.PictureBox();
             this.lblUsuarioActual = new System.Windows.Forms.Label();
+            this.pctBoxBarra = new System.Windows.Forms.PictureBox();
+            this.margenDer = new System.Windows.Forms.PictureBox();
+            this.margenIzq = new System.Windows.Forms.PictureBox();
+            this.margenAbajo = new System.Windows.Forms.PictureBox();
+            this.lblVerActual = new System.Windows.Forms.Label();
+            this.picBoxBuscar = new System.Windows.Forms.PictureBox();
+            this.btnActualizar = new Entidades.ButtonStyle();
             this.btnMin = new Entidades.ButtonStyle();
             this.BtnCerrar = new Entidades.ButtonStyle();
-            this.btnActualizar = new Entidades.ButtonStyle();
             this.dgvExpedientes = new Entidades.DataGridStyle();
             this.identificador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,22 +71,16 @@
             this.nombreExpediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.digitalizado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.pctBoxBarra = new System.Windows.Forms.PictureBox();
-            this.margenDer = new System.Windows.Forms.PictureBox();
-            this.margenIzq = new System.Windows.Forms.PictureBox();
-            this.margenAbajo = new System.Windows.Forms.PictureBox();
-            this.lblVerActual = new System.Windows.Forms.Label();
-            this.picBoxBuscar = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLog)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxBarra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenDer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBuscar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).BeginInit();
             this.SuspendLayout();
             // 
             // herramientasToolStripMenuItem
@@ -298,6 +298,91 @@
             this.lblUsuarioActual.TabIndex = 15;
             this.lblUsuarioActual.Text = "|                                                            |";
             // 
+            // pctBoxBarra
+            // 
+            this.pctBoxBarra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pctBoxBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.pctBoxBarra.Location = new System.Drawing.Point(-2, 38);
+            this.pctBoxBarra.Name = "pctBoxBarra";
+            this.pctBoxBarra.Size = new System.Drawing.Size(766, 35);
+            this.pctBoxBarra.TabIndex = 25;
+            this.pctBoxBarra.TabStop = false;
+            // 
+            // margenDer
+            // 
+            this.margenDer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenDer.BackColor = System.Drawing.Color.Black;
+            this.margenDer.Location = new System.Drawing.Point(762, 36);
+            this.margenDer.Name = "margenDer";
+            this.margenDer.Size = new System.Drawing.Size(1, 410);
+            this.margenDer.TabIndex = 40;
+            this.margenDer.TabStop = false;
+            // 
+            // margenIzq
+            // 
+            this.margenIzq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.margenIzq.BackColor = System.Drawing.Color.Black;
+            this.margenIzq.Location = new System.Drawing.Point(0, 35);
+            this.margenIzq.Name = "margenIzq";
+            this.margenIzq.Size = new System.Drawing.Size(1, 410);
+            this.margenIzq.TabIndex = 39;
+            this.margenIzq.TabStop = false;
+            // 
+            // margenAbajo
+            // 
+            this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.margenAbajo.BackColor = System.Drawing.Color.Black;
+            this.margenAbajo.Location = new System.Drawing.Point(0, 445);
+            this.margenAbajo.Name = "margenAbajo";
+            this.margenAbajo.Size = new System.Drawing.Size(762, 1);
+            this.margenAbajo.TabIndex = 38;
+            this.margenAbajo.TabStop = false;
+            // 
+            // lblVerActual
+            // 
+            this.lblVerActual.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblVerActual.AutoSize = true;
+            this.lblVerActual.BackColor = System.Drawing.Color.White;
+            this.lblVerActual.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblVerActual.ForeColor = System.Drawing.Color.Black;
+            this.lblVerActual.Location = new System.Drawing.Point(280, 80);
+            this.lblVerActual.Name = "lblVerActual";
+            this.lblVerActual.Size = new System.Drawing.Size(237, 19);
+            this.lblVerActual.TabIndex = 41;
+            this.lblVerActual.Text = "| Expedientes incompletos   |";
+            // 
+            // picBoxBuscar
+            // 
+            this.picBoxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picBoxBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.picBoxBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxBuscar.BackgroundImage")));
+            this.picBoxBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBoxBuscar.Location = new System.Drawing.Point(338, 42);
+            this.picBoxBuscar.Name = "picBoxBuscar";
+            this.picBoxBuscar.Size = new System.Drawing.Size(26, 26);
+            this.picBoxBuscar.TabIndex = 42;
+            this.picBoxBuscar.TabStop = false;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
+            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
+            this.btnActualizar.Location = new System.Drawing.Point(727, 43);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(25, 25);
+            this.btnActualizar.TabIndex = 2;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            // 
             // btnMin
             // 
             this.btnMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -329,22 +414,6 @@
             this.BtnCerrar.TabIndex = 21;
             this.BtnCerrar.UseVisualStyleBackColor = false;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
-            this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
-            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
-            this.btnActualizar.Location = new System.Drawing.Point(727, 43);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(25, 25);
-            this.btnActualizar.TabIndex = 2;
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // dgvExpedientes
             // 
@@ -451,76 +520,6 @@
             this.digitalizado.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.digitalizado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // pctBoxBarra
-            // 
-            this.pctBoxBarra.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctBoxBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.pctBoxBarra.Location = new System.Drawing.Point(-2, 38);
-            this.pctBoxBarra.Name = "pctBoxBarra";
-            this.pctBoxBarra.Size = new System.Drawing.Size(766, 35);
-            this.pctBoxBarra.TabIndex = 25;
-            this.pctBoxBarra.TabStop = false;
-            // 
-            // margenDer
-            // 
-            this.margenDer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.margenDer.BackColor = System.Drawing.Color.Black;
-            this.margenDer.Location = new System.Drawing.Point(762, 36);
-            this.margenDer.Name = "margenDer";
-            this.margenDer.Size = new System.Drawing.Size(1, 410);
-            this.margenDer.TabIndex = 40;
-            this.margenDer.TabStop = false;
-            // 
-            // margenIzq
-            // 
-            this.margenIzq.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.margenIzq.BackColor = System.Drawing.Color.Black;
-            this.margenIzq.Location = new System.Drawing.Point(0, 35);
-            this.margenIzq.Name = "margenIzq";
-            this.margenIzq.Size = new System.Drawing.Size(1, 410);
-            this.margenIzq.TabIndex = 39;
-            this.margenIzq.TabStop = false;
-            // 
-            // margenAbajo
-            // 
-            this.margenAbajo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.margenAbajo.BackColor = System.Drawing.Color.Black;
-            this.margenAbajo.Location = new System.Drawing.Point(0, 445);
-            this.margenAbajo.Name = "margenAbajo";
-            this.margenAbajo.Size = new System.Drawing.Size(762, 1);
-            this.margenAbajo.TabIndex = 38;
-            this.margenAbajo.TabStop = false;
-            // 
-            // lblVerActual
-            // 
-            this.lblVerActual.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblVerActual.AutoSize = true;
-            this.lblVerActual.BackColor = System.Drawing.Color.White;
-            this.lblVerActual.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.lblVerActual.ForeColor = System.Drawing.Color.Black;
-            this.lblVerActual.Location = new System.Drawing.Point(292, 82);
-            this.lblVerActual.Name = "lblVerActual";
-            this.lblVerActual.Size = new System.Drawing.Size(180, 16);
-            this.lblVerActual.TabIndex = 41;
-            this.lblVerActual.Text = "| Expedientes incompletos   |";
-            // 
-            // picBoxBuscar
-            // 
-            this.picBoxBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picBoxBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.picBoxBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picBoxBuscar.BackgroundImage")));
-            this.picBoxBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBoxBuscar.Location = new System.Drawing.Point(338, 42);
-            this.picBoxBuscar.Name = "picBoxBuscar";
-            this.picBoxBuscar.Size = new System.Drawing.Size(26, 26);
-            this.picBoxBuscar.TabIndex = 42;
-            this.picBoxBuscar.TabStop = false;
-            // 
             // ExpedientesP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -558,12 +557,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxLog)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxBarra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenDer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenIzq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxBuscar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExpedientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
