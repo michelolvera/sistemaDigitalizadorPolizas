@@ -60,7 +60,6 @@
             this.txbPassword.Size = new System.Drawing.Size(115, 22);
             this.txbPassword.TabIndex = 2;
             this.txbPassword.UseSystemPasswordChar = true;
-            this.txbPassword.TextChanged += new System.EventHandler(this.txbPassword_TextChanged);
             this.txbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbPassword_KeyDown);
             // 
             // btnAcceso
@@ -85,7 +84,6 @@
             this.txbNombreUsuario.Name = "txbNombreUsuario";
             this.txbNombreUsuario.Size = new System.Drawing.Size(115, 22);
             this.txbNombreUsuario.TabIndex = 1;
-            this.txbNombreUsuario.TextChanged += new System.EventHandler(this.txbNombreUsuario_TextChanged);
             this.txbNombreUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbNombreUsuario_KeyDown);
             // 
             // lblIDUsuario
@@ -98,7 +96,6 @@
             this.lblIDUsuario.Size = new System.Drawing.Size(87, 16);
             this.lblIDUsuario.TabIndex = 5;
             this.lblIDUsuario.Text = "ID de usuario:";
-            this.lblIDUsuario.Click += new System.EventHandler(this.lblIDUsuario_Click);
             // 
             // lblNombreUsuario
             // 
@@ -110,7 +107,6 @@
             this.lblNombreUsuario.Size = new System.Drawing.Size(123, 16);
             this.lblNombreUsuario.TabIndex = 6;
             this.lblNombreUsuario.Text = "Nombre de usuario:";
-            this.lblNombreUsuario.Click += new System.EventHandler(this.lblNombreUsuario_Click);
             // 
             // lblPassword
             // 
@@ -122,7 +118,6 @@
             this.lblPassword.Size = new System.Drawing.Size(78, 16);
             this.lblPassword.TabIndex = 7;
             this.lblPassword.Text = "Contraseña:";
-            this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
             // 
             // txbIDUsuario
             // 
@@ -132,7 +127,6 @@
             this.txbIDUsuario.Name = "txbIDUsuario";
             this.txbIDUsuario.Size = new System.Drawing.Size(115, 22);
             this.txbIDUsuario.TabIndex = 0;
-            this.txbIDUsuario.TextChanged += new System.EventHandler(this.TxbIDUsuario_TextChanged);
             this.txbIDUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbIDUsuario_KeyDown);
             // 
             // pictureBoxCajaLogo
@@ -144,7 +138,6 @@
             this.pictureBoxCajaLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCajaLogo.TabIndex = 8;
             this.pictureBoxCajaLogo.TabStop = false;
-            this.pictureBoxCajaLogo.Click += new System.EventHandler(this.pictureBoxCajaLogo_Click);
             // 
             // pctBoxCabecera1
             // 
@@ -156,7 +149,6 @@
             this.pctBoxCabecera1.Size = new System.Drawing.Size(448, 24);
             this.pctBoxCabecera1.TabIndex = 19;
             this.pctBoxCabecera1.TabStop = false;
-            this.pctBoxCabecera1.Click += new System.EventHandler(this.pctBoxCabecera1_Click);
             // 
             // BtnCerrarLogIn
             // 

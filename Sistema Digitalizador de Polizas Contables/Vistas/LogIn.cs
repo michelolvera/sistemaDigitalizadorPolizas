@@ -81,7 +81,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
 
         }
         ///<summary>
-        ///Eventos de enter en  el text box
+        ///Eventos de enter en  el text box manda llamar al boton acceso cuando se trate de un enter   
         ///</summary>
         private void txbIDUsuario_Enter(object sender, EventArgs e)
         {
@@ -89,7 +89,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
         }
 
         ///<summary>
-        ///Eventos de enter en  el text box        
+        ///Eventos de enter en  el text box y manda llamar al boton acceso cuando se trate de un enter       
         ///</summary>
         private void txbIDUsuario_KeyDown(object sender, KeyEventArgs e)
         {
@@ -99,7 +99,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             }
         }
         ///<summary>
-        ///Eventos de enter en  el text box        
+        ///Eventos de enter en  el text box manda llamar al boton acceso cuando se trate de un enter         
         ///</summary>
         private void txbNombreUsuario_KeyDown(object sender, KeyEventArgs e)
         {
@@ -109,7 +109,7 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             }
         }
         ///<summary>
-        ///Eventos de enter en  el text box        
+        ///Eventos de enter en  el text box  manda llamar al boton acceso cuando se trate de un enter        
         ///</summary>
         private void txbPassword_KeyDown(object sender, KeyEventArgs e)
         {
@@ -117,36 +117,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             {
                 BotonAccesoAdmin_Click(sender, e);
             }
-        }
-
-        private void lblIDUsuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbNombreUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblPassword_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txbPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBoxCajaLogo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pctBoxCabecera1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void pctBoxSalir_Click(object sender, EventArgs e)

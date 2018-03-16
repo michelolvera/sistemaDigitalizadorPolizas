@@ -14,6 +14,9 @@ using System.Windows.Forms;
 
 namespace Sistema_Digitalizador_de_Polizas_Contables
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class ExpedientesP : Form
     {
         ProcesosUsuario procesosUsuario;

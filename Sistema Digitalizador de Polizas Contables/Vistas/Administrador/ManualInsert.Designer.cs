@@ -109,7 +109,6 @@
             this.label2.Size = new System.Drawing.Size(77, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Expediente:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -121,7 +120,6 @@
             this.label3.Size = new System.Drawing.Size(70, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Categoria:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // TxtNombre
             // 
