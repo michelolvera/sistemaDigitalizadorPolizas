@@ -16,6 +16,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
     {
         ProcesosDios procesosDios;
         private UsuarioInfo Usuario;
+
+        /// <summary>
+        /// Inicializa la clase y agrega eventos a diferentes botones.
+        /// </summary>
+        /// <param name="procesosDios">Clase procesos dios que tiene todos los metodos necesarios para el funcionamiento.</param>
         public AdministrarUsuarios(ProcesosDios procesosDios)
         {
             InitializeComponent();
@@ -25,11 +30,22 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             cmbUsuario.TextChanged += CmbUsuario_TextChanged;
         }
 
+        /// <summary>
+        /// Evento que detecta el cambio de ususario en el combo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CmbUsuario_TextChanged(object sender, EventArgs e)
         {
             lblUsuarioSeleccionado.Text = cmbUsuario.Text;
         }
 
+        /// <summary>
+        /// Carga la lista de usuarios en cuanto la ventana carga.
+        /// Desactiva botones no necesarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AdministrarUsuarios_Load(object sender, EventArgs e)
         {
             //Lista de usuarios
@@ -45,6 +61,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             checkBoxDios.Enabled = false;
         }
 
+        /// <summary>
+        /// Detecta cuando se ha cambiado de ususario o se quiere crear uno nuevo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnGuardar.Enabled = true;
@@ -104,16 +125,31 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             }
         }
 
+        /// <summary>
+        /// Cierra la ventana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
+        /// <summary>
+        /// Cierra la ventana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
+        /// <summary>
+        /// Crea el nuevo usuario o modifica uno existente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (cmbUsuario.Text != String.Empty)
@@ -196,6 +232,9 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
                 MessageBox.Show("El nombre de usuario no puede estar vacio");
         }
 
+        /// <summary>
+        /// Regresa todos los controles a la normalidad.
+        /// </summary>
         void RegresarControles()
         {
             tabControlUsuarios.SelectedIndex = 0;
@@ -222,6 +261,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             TxbSAPass.Visible = false;
         }
 
+        /// <summary>
+        /// Evento llama al clic del boton guardar con un enter.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TxbSAPass_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -230,6 +274,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Super_Administrador
             }
         }
 
+        /// <summary>
+        /// Evento que detecta si se selecciono la opcion dios para el usuario
+        /// Automaticamente activa la opcion administrador.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBoxDios_CheckedChanged(object sender, EventArgs e)
         {
             if(checkBoxDios.Checked)

@@ -10,6 +10,10 @@ using System.Windows.Forms;
 
 namespace Logica_de_Negocio
 {
+    /// <summary>
+    /// La clase procesos administrador que extiende de procesos usuario
+    /// contiene todos los metodos y procesos necesarios para la administracion
+    /// </summary>
     public class ProcesosAdministrador : ProcesosUsuario
     {
         protected SQLEstado estado;
@@ -24,6 +28,12 @@ namespace Logica_de_Negocio
             
         }
 
+        /// <summary>
+        /// Llena un DataGridView, extrallendo los datos desde SQLServer
+        /// </summary>
+        /// <param name="origenTabla">Tabla origen que sera llenada</param>
+        /// <param name="index">Indice de la categoria seleccionada</param>
+        /// <returns>Tabla llena con datos.</returns>
         public DataGridStyle ObtenerTablaDocumentos(DataGridStyle origenTabla, int index)
         {
             documentoId.Clear();
@@ -46,7 +56,12 @@ namespace Logica_de_Negocio
             }
             return null;
         }
-       
+
+        /// <summary>
+        /// Envia todos los documentos que se han editado a la Base de datos.
+        /// </summary>
+        /// <param name="documentosEditados">Lista de documentos que se han editado</param>
+        /// <returns>Verdadero si todos los cambios se han guardado, falso si no es asi.</returns>
         public bool ActualizarTablaDocumentos(List<DocumentosInfo> documentosEditados)
         {
             foreach (DocumentosInfo documento in documentosEditados)
@@ -70,6 +85,13 @@ namespace Logica_de_Negocio
             return true;
         }
 
+        /// <summary>
+        /// Llena un combo con los datos solicitados
+        /// </summary>
+        /// <param name="origenCombo">Combo que se va a llenar</param>
+        /// <param name="opc">Elige que tipo de dato usara el combo.</param>
+        /// <param name="index">Indice del combo superior para saber que id buscar</param>
+        /// <returns></returns>
         public ComboBox LlenarCombo(ComboBox origenCombo, int opc, int index)
         {
             switch (opc)
@@ -112,6 +134,12 @@ namespace Logica_de_Negocio
             return origenCombo;
         }
 
+        /// <summary>
+        /// Obtiene estado activo de cada area, expediente o categoria.
+        /// </summary>
+        /// <param name="opc">Define si sera area, expediente o categoria.</param>
+        /// <param name="index">Indice del combo superior para buscar ID</param>
+        /// <returns>Verdadero si esta activa, falso si no.</returns>
         public bool GetActivo(int opc, int index)
         {
             switch (opc)
@@ -135,6 +163,13 @@ namespace Logica_de_Negocio
             else return false;
         }
 
+        /// <summary>
+        /// Crea un area, expediente o categoria en la base de datos.
+        /// </summary>
+        /// <param name="opc">area, expediente o categoria</param>
+        /// <param name="nombre">String del nombre del elemento a crear</param>
+        /// <param name="super">indice del combo superior.</param>
+        /// <returns>Verdadero si se creo correctamente, falso si no.</returns>
         public bool CrearNuevoRegistro(int opc, string nombre, int super)
         {
             switch (opc)
@@ -149,6 +184,13 @@ namespace Logica_de_Negocio
             return false;
         }
 
+        /// <summary>
+        /// Cambia el estado activo de un area, expediente o categoria.
+        /// </summary>
+        /// <param name="opc">area, expediente o categoria</param>
+        /// <param name="index">Indice para obtener el ID a modificar</param>
+        /// <param name="activo">Indica si se activara o desactivara</param>
+        /// <returns>Verdadero si se modifico de manera correcta, falso si no.</returns>
         public bool ActivarDesactivar(int opc, int index, bool activo)
         {
             int envio = 0;
@@ -163,6 +205,11 @@ namespace Logica_de_Negocio
             return false;
         }
 
+        /// <summary>
+        /// Crea valores predeterminados para el data grid view
+        /// </summary>
+        /// <param name="Grid">Fila a crear.</param>
+        /// <returns>Verdadero si se creo de manera correcta.</returns>
         public bool NuevoRegistroDefault(DataGridViewRowEventArgs Grid)
         {
             try {
@@ -177,11 +224,22 @@ namespace Logica_de_Negocio
             return true;
         }
 
+        /// <summary>
+        /// Inserta un registro de expediente de manera manual.
+        /// </summary>
+        /// <param name="nombre">Identificador del registro</param>
+        /// <param name="categoria">Indice de la categoria donde se creara el registro para obtener el ID.</param>
+        /// <returns>Verdadero si se modifico de manera correcta, falso si no.</returns>
         public bool RegistrarManual(string nombre, int categoria)
         {
             return Conexion.EjecutarSentencia("EXECUTE [dbo].[SP_DIG_INSERTAR_TBL_REGISTRO_EXPEDIENTE] " + categoriaId[categoria] + ", '" + nombre + "', " + Usuario.Id).Estado;
         }
         
+        /// <summary>
+        /// Obtener el ID del Area en base a su indice en un combo box
+        /// </summary>
+        /// <param name="idArea">Indice del combo box</param>
+        /// <returns>ID de area</returns>
         public int ObtenerIndexArea(int idArea)
         {
             return areaId.FindIndex(delegate (int id) { return id == idArea; });

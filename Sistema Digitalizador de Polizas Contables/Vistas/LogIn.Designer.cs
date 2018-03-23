@@ -250,7 +250,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Digitalizador - Iniciar Sesion";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LogIn_FormClosed);
-            this.Load += new System.EventHandler(this.formLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCajaLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCabecera1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.margenAbajo)).EndInit();

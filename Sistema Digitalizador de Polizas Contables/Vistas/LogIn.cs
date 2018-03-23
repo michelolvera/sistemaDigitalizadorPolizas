@@ -47,6 +47,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             }
         }
 
+        /// <summary>
+        /// Cierra la ventana del Login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BotonCancelarLogAdmin_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -61,25 +66,6 @@ namespace Sistema_Digitalizador_de_Polizas_Contables
             Application.Exit();
         }
 
-        private void TxbIDUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BackgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-
-        }
-
-        private void formLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblNombreUsuario_Click(object sender, EventArgs e)
-        {
-
-        }
         ///<summary>
         ///Eventos de enter en  el text box manda llamar al boton acceso cuando se trate de un enter   
         ///</summary>

@@ -17,6 +17,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
         
         ProcesosAdministrador procesosAdministrador;
         List<DocumentosInfo> documentosEditados = new List<DocumentosInfo>();
+
+        /// <summary>
+        /// Constructor que inicializa todos los componentes necesarioa y agrega eventos.
+        /// </summary>
+        /// <param name="procesosAdministrador">Clase procesos administrador, contiene el funcionamiento.</param>
         public MenuAdministrador(ProcesosAdministrador procesosAdministrador)
         {
             InitializeComponent();
@@ -40,6 +45,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             cmbCategoria.KeyUp += CmbCategoria_KeyUp;
         }
 
+        /// <summary>
+        /// Evento que detecta si se da enter en la categoria y crea la nueva o regresa a la normalidad.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CmbCategoria_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && cmbCategoria.DropDownStyle == ComboBoxStyle.Simple)
@@ -65,6 +75,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             }
         }
 
+        /// <summary>
+        /// Evento que detecta si se da enter en Expediente y crea uno nuevo o regresa a la normalidad.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CmbExpediente_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && cmbExpediente.DropDownStyle == ComboBoxStyle.Simple)
@@ -89,6 +104,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             }
         }
 
+        /// <summary>
+        /// Evento que detecta si se da enter en Area y crea la nueva o regresa a la normalidad.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CmbArea_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && cmbArea.DropDownStyle == ComboBoxStyle.Simple)
@@ -111,6 +131,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             
         }
 
+        /// <summary>
+        /// Valida que no se dejaran cadenas vacias al momento de crear un nuevo registro.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DgvDocumentos_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
         {
             if (dgvDocumentos[0, e.RowIndex].Value == null || dgvDocumentos[0, e.RowIndex].Value.ToString() == string.Empty)
@@ -138,7 +163,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 dgvDocumentos[0, e.RowIndex].ErrorText = String.Empty;
             }
         }
-
+        /// <summary>
+        /// Detecta que se ha entrado a una celda y comienza la edicion.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DgvDocumentos_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             //Editar nombre automaticamente al crear nueva celda.
@@ -149,6 +178,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             }
         }
 
+        /// <summary>
+        /// Valida que todos los valores sean correctos para la base de datos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DgvDocumentos_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
         {
             //Eliminar las ediciones antiguas de la lista.
@@ -164,6 +198,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             }
         }
 
+        /// <summary>
+        /// Metodo que llama a rellenar automaticamente los valores de una nueva fila.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DgvDocumentos_DefaultValuesNeeded(object sender,
         System.Windows.Forms.DataGridViewRowEventArgs e)
         {
@@ -172,6 +211,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 MessageBox.Show("Se ha presentado un error.");
         }
 
+        /// <summary>
+        /// Cambia el estado de activo del area en la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CkbArea_MouseClick(object sender, EventArgs e)
         {
             if (!procesosAdministrador.ActivarDesactivar(0, cmbArea.SelectedIndex, ckbArea.Checked))
@@ -184,6 +228,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             }
         }
 
+        /// <summary>
+        /// Cambia el estado de activo del expediente en la base de datos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CkbExpediente_MouseClick(object sender, EventArgs e)
         {
             if (!procesosAdministrador.ActivarDesactivar(1, cmbExpediente.SelectedIndex, ckbExpediente.Checked))
@@ -195,7 +244,13 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 MessageBox.Show("Se ha cambiado el estado del expediente.");
             }
         }
+        
 
+        /// <summary>
+        /// Cambia el estado de activo de la categoria en la base de datos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CkbCategoria_MouseClick(object sender, EventArgs e)
         {
             if (!procesosAdministrador.ActivarDesactivar(2, cmbCategoria.SelectedIndex, ckbCategoria.Checked))
@@ -208,6 +263,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             }
         }
 
+        /// <summary>
+        /// Carga las areas automaticamente al cargar la ventana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuAdministrador_Load(object sender, EventArgs e)
         {
             //Obtener Areas
@@ -223,6 +283,11 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             }
         }
 
+        /// <summary>
+        /// Guarda los cambios en los documentos o crea los nuevos en la BD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (documentosEditados.Count > 0)
@@ -242,6 +307,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
                 MessageBox.Show("Usted no ha realizado ninguna modificacion.");
         }
 
+        /// <summary>
+        /// Detecta cuando se ha seleccionado una categoria y desactiva controles no necesarios
+        /// tambien permite crear una nueva categoria
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbCategoria.Items.Count == cmbCategoria.SelectedIndex + 1)
@@ -268,6 +339,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             }
         }
 
+        /// <summary>
+        /// Detecta cuando se ha seleccionado un area y desactiva controles no necesarios
+        /// tambien permite crear una nueva area
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CmbArea_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cmbArea.Items.Count == cmbArea.SelectedIndex+1 && cmbArea.Text== "< Nuevo >")
@@ -301,6 +378,12 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
             }
         }
 
+        /// <summary>
+        /// Detecta cuando se ha seleccionado un expediente y desactiva controles no necesarios
+        /// tambien permite crear un nuevo expediente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CmbExpediente_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbExpediente.Items.Count == cmbExpediente.SelectedIndex + 1)
@@ -332,11 +415,21 @@ namespace Sistema_Digitalizador_de_Polizas_Contables.Vistas.Administrador
 
         }
 
+        /// <summary>
+        /// Oculta la ventana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             SetVisibleCore(false);
         }
 
+        /// <summary>
+        /// Oculta la ventana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             SetVisibleCore(false);
