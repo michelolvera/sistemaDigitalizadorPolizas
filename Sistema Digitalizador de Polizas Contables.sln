@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sistema Digitalizador de Polizas Contables", "Sistema Digitalizador de Polizas Contables\Sistema Digitalizador de Polizas Contables.csproj", "{58255B9C-B3E6-4807-B918-F1DC4CFE6ADC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica de Negocio", "Logica de Negocio\Logica de Negocio.csproj", "{BDBAD77C-1585-473D-8936-A0092A9289A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acceso a Datos", "Acceso a Datos\Acceso a Datos.csproj", "{00FACEEE-C17D-4225-BCBE-310AF214A21F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{27A59F0F-4FAA-4C33-91C0-51DEB41E87CE}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Sistema digitalizador de polizas", "Sistema digitalizador de polizas\Sistema digitalizador de polizas.vdproj", "{C18C90B1-F217-4063-B818-F122FFC54B39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58255B9C-B3E6-4807-B918-F1DC4CFE6ADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58255B9C-B3E6-4807-B918-F1DC4CFE6ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58255B9C-B3E6-4807-B918-F1DC4CFE6ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58255B9C-B3E6-4807-B918-F1DC4CFE6ADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDBAD77C-1585-473D-8936-A0092A9289A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDBAD77C-1585-473D-8936-A0092A9289A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDBAD77C-1585-473D-8936-A0092A9289A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDBAD77C-1585-473D-8936-A0092A9289A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00FACEEE-C17D-4225-BCBE-310AF214A21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00FACEEE-C17D-4225-BCBE-310AF214A21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00FACEEE-C17D-4225-BCBE-310AF214A21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00FACEEE-C17D-4225-BCBE-310AF214A21F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27A59F0F-4FAA-4C33-91C0-51DEB41E87CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27A59F0F-4FAA-4C33-91C0-51DEB41E87CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27A59F0F-4FAA-4C33-91C0-51DEB41E87CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27A59F0F-4FAA-4C33-91C0-51DEB41E87CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C18C90B1-F217-4063-B818-F122FFC54B39}.Debug|Any CPU.ActiveCfg = Debug
+		{C18C90B1-F217-4063-B818-F122FFC54B39}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D10C91A8-EB07-4D24-AD12-F14A3326CB60}
+	EndGlobalSection
+EndGlobal
